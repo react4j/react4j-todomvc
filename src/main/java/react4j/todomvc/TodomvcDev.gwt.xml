@@ -1,0 +1,6 @@
+<module rename-to='todomvc'>
+  <inherits name="react4j.todomvc.Todomvc"/>
+  <inherits name="react4j.arez.ReactArezDev"/>
+
+  <source path='ignore'/>
+</module>
