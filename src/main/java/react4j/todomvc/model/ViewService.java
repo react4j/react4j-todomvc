@@ -1,4 +1,4 @@
-package main.java.react4j.todomvc.model;
+package react4j.todomvc.model;
 
 import java.util.Objects;
 import javax.annotation.Nonnull;

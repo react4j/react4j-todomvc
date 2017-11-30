@@ -1,4 +1,4 @@
-package main.java.react4j.todomvc;
+package react4j.todomvc;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

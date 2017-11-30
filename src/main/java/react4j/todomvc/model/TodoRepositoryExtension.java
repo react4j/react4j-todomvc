@@ -1,4 +1,4 @@
-package main.java.react4j.todomvc.model;
+package react4j.todomvc.model;
 
 import java.util.List;
 import org.realityforge.arez.annotations.Computed;
