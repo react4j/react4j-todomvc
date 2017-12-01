@@ -11,6 +11,7 @@ define 'react4j-todomvc' do
 
   project.processorpath << :react4j_processor
   project.processorpath << :arez_processor
+  project.processorpath << [:javax_inject, :dagger_core, :dagger_producers, :dagger_compiler, :googlejavaformat, :errorprone, :javapoet, :guava]
 
   compile.with :javax_jsr305,
                :jetbrains_annotations,
@@ -32,6 +33,9 @@ define 'react4j-todomvc' do
                :arez_component,
                :arez_extras,
                :arez_browser_extras,
+               :dagger_core,
+               :javax_inject,
+               :javax_inject_sources,
                :gwt_user
 
   gwt_enhance(project, :modules_complete => true, :package_jars => false)
