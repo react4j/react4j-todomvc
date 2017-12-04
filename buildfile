@@ -1,4 +1,5 @@
 require 'buildr/git_auto_version'
+require 'buildr/gwt'
 
 desc 'React4j TodoMVC implementation'
 define 'react4j-todomvc' do
