@@ -86,7 +86,7 @@ class TodoItem
   }
 
   @Override
-  protected void componentDidConstruct()
+  protected void componentDidConstruct( @Nullable final Props props, @Nullable final BaseContext context )
   {
     setInitialState( createInitialState() );
   }

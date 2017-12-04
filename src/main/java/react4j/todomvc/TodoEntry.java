@@ -49,7 +49,7 @@ class TodoEntry
   }
 
   @Override
-  protected void componentDidConstruct()
+  protected void componentDidConstruct( @Nullable final BaseProps props, @Nullable final BaseContext context )
   {
     setInitialState( State.create( "" ) );
   }
