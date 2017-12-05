@@ -3,6 +3,7 @@ package react4j.todomvc;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -19,7 +20,7 @@ import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
 import react4j.dom.events.KeyboardEventHandler;
 import react4j.dom.proptypes.html.InputProps;
-import react4j.todomvc.model.AppData;
+import react4j.todomvc.model.TodoService;
 import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoEntry_.*;
 
@@ -27,6 +28,9 @@ import static react4j.todomvc.TodoEntry_.*;
 class TodoEntry
   extends ReactArezComponent<BaseProps, TodoEntry.State, BaseContext>
 {
+  @Inject
+  TodoService _todoService;
+
   @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
   static class State
     extends BaseState
@@ -63,7 +67,7 @@ class TodoEntry
       final String val = state().newTodo.trim();
       if ( val.length() > 0 )
       {
-        AppData.service.addTodo( val );
+        _todoService.addTodo( val );
         setTodoText( "" );
       }
     }

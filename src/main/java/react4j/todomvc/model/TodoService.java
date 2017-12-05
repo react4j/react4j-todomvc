@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import org.realityforge.arez.annotations.Action;
 import org.realityforge.arez.annotations.ArezComponent;
 
-@ArezComponent( nameIncludesId = false )
+@ArezComponent( nameIncludesId = false, inject = true )
 public class TodoService
 {
   @Nonnull

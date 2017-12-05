@@ -4,6 +4,7 @@ import elemental2.dom.HTMLInputElement;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
@@ -30,6 +31,8 @@ import react4j.dom.proptypes.html.LabelProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
+import react4j.todomvc.model.TodoRepository;
+import react4j.todomvc.model.TodoService;
 import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoItem_.*;
 
@@ -37,6 +40,11 @@ import static react4j.todomvc.TodoItem_.*;
 class TodoItem
   extends ReactArezComponent<TodoItem.Props, TodoItem.State, BaseContext>
 {
+  @Inject
+  TodoRepository _todoRepository;
+  @Inject
+  TodoService _todoService;
+
   @Nullable
   private HTMLInputElement _editField;
 
@@ -117,13 +125,13 @@ class TodoItem
     final Props props = props();
     if ( null != val && !val.isEmpty() )
     {
-      AppData.service.save( props.todo, val );
+      _todoService.save( props.todo, val );
       AppData.viewService.setTodoBeingEdited( null );
       scheduleStateUpdate( State.create( val ) );
     }
     else
     {
-      AppData.model.destroy( props().todo );
+      _todoRepository.destroy( props().todo );
     }
   }
 
@@ -143,7 +151,7 @@ class TodoItem
   @EventHandler( MouseEventHandler.class )
   void onDestroy()
   {
-    AppData.model.destroy( props().todo );
+    _todoRepository.destroy( props().todo );
   }
 
   private void onCancel()
