@@ -29,10 +29,10 @@ import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.LabelProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
-import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
 import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
+import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoItem_.*;
 
@@ -44,6 +44,8 @@ class TodoItem
   TodoRepository _todoRepository;
   @Inject
   TodoService _todoService;
+  @Inject
+  ViewService _viewService;
 
   @Nullable
   private HTMLInputElement _editField;
@@ -90,7 +92,7 @@ class TodoItem
   @Computed
   boolean isTodoBeingEdited()
   {
-    return AppData.viewService.getTodoBeingEdited() == props().todo;
+    return _viewService.getTodoBeingEdited() == props().todo;
   }
 
   @Override
@@ -126,7 +128,7 @@ class TodoItem
     if ( null != val && !val.isEmpty() )
     {
       _todoService.save( props.todo, val );
-      AppData.viewService.setTodoBeingEdited( null );
+      _viewService.setTodoBeingEdited( null );
       scheduleStateUpdate( State.create( val ) );
     }
     else
@@ -144,7 +146,7 @@ class TodoItem
   @EventHandler( MouseEventHandler.class )
   void onEdit()
   {
-    AppData.viewService.setTodoBeingEdited( props().todo );
+    _viewService.setTodoBeingEdited( props().todo );
     scheduleStateUpdate( State.create( props().todo.getTitle() ) );
   }
 
@@ -157,7 +159,7 @@ class TodoItem
   private void onCancel()
   {
     scheduleStateUpdate( State.create( props().todo.getTitle() ) );
-    AppData.viewService.setTodoBeingEdited( null );
+    _viewService.setTodoBeingEdited( null );
   }
 
   @EventHandler( FormEventHandler.class )

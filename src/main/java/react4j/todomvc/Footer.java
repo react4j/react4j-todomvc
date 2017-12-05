@@ -15,10 +15,10 @@ import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
-import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.FilterMode;
 import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
+import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
 import static react4j.todomvc.Footer_.*;
 
@@ -30,6 +30,8 @@ class Footer
   TodoRepository _todoRepository;
   @Inject
   TodoService _todoService;
+  @Inject
+  ViewService _viewService;
 
   @EventHandler( MouseEventHandler.class )
   void handleClearCompleted()
@@ -47,7 +49,7 @@ class Footer
   @Override
   protected ReactNode render()
   {
-    final FilterMode filterMode = AppData.viewService.getFilterMode();
+    final FilterMode filterMode = _viewService.getFilterMode();
     return
       footer( new HtmlProps().className( "footer" ),
               FooterTodoCount.create(),

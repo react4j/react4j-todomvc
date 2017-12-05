@@ -22,6 +22,7 @@ import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
+import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoList_.*;
 
@@ -33,6 +34,8 @@ class TodoList
   TodoRepository _todoRepository;
   @Inject
   TodoService _todoService;
+  @Inject
+  ViewService _viewService;
 
   @EventHandler( MouseEventHandler.class )
   void handleClearCompleted()
@@ -94,7 +97,7 @@ class TodoList
 
   private List<ReactNode> renderTodoItems()
   {
-    return _todoRepository.filteredTodos().stream().
+    return _viewService.filteredTodos().stream().
       map( todo -> TodoItem.create( TodoItem.Props.create( todo ) ) ).
       collect( Collectors.toList() );
   }
