@@ -15,11 +15,11 @@ public class App
   {
     ArezSpyUtil.enableSpyEventLogging();
     final TodoComponent todoComponent = DaggerTodoComponent.create();
-    Footer_.setProvider( () -> todoComponent.createFooterDaggerComponent().get() );
-    FooterTodoCount_.setProvider( () -> todoComponent.createFooterTodoCountDaggerComponent().get() );
-    TodoItem_.setProvider( () -> todoComponent.createTodoItemDaggerComponent().get() );
-    TodoList_.setProvider( () -> todoComponent.createTodoListDaggerComponent().get() );
-    TodoEntry_.setProvider( () -> todoComponent.createTodoEntryDaggerComponent().get() );
+    todoComponent.bindFooter();
+    todoComponent.bindFooterTodoCount();
+    todoComponent.bindTodoItem();
+    todoComponent.bindTodoList();
+    todoComponent.bindTodoEntry();
     ReactDOM.render( TodoList.create(), DomGlobal.document.getElementById( "todoapp" ) );
   }
 }
