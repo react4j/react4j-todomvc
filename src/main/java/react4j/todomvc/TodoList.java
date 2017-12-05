@@ -87,7 +87,7 @@ class TodoList
 
   private List<ReactNode> renderTodoItems()
   {
-    return AppData.model.filteredTodos().stream().
+    return AppData.viewService.filteredTodos().stream().
       map( todo -> TodoItem.create( TodoItem.Props.create( todo ) ) ).
       collect( Collectors.toList() );
   }

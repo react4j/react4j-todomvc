@@ -1,6 +1,5 @@
 package react4j.todomvc.model;
 
-import java.util.List;
 import org.realityforge.arez.annotations.Computed;
 
 public interface TodoRepositoryExtension
@@ -33,12 +32,5 @@ public interface TodoRepositoryExtension
   default int completedCount()
   {
     return totalCount() - activeCount();
-  }
-
-  @Computed
-  default List<Todo> filteredTodos()
-  {
-    final FilterMode filterMode = AppData.viewService.getFilterMode();
-    return self().toList( self().entities().stream().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 }

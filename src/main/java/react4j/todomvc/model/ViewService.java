@@ -1,11 +1,13 @@
 package react4j.todomvc.model;
 
+import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import org.realityforge.arez.Disposable;
 import org.realityforge.arez.annotations.ArezComponent;
 import org.realityforge.arez.annotations.Autorun;
+import org.realityforge.arez.annotations.Computed;
 import org.realityforge.arez.annotations.Observable;
 import org.realityforge.arez.browser.extras.BrowserLocation;
 
@@ -13,14 +15,17 @@ import org.realityforge.arez.browser.extras.BrowserLocation;
 public class ViewService
 {
   @Nonnull
+  private final TodoRepository _todoRepository;
+  @Nonnull
   private final BrowserLocation _browserLocation;
   @Nullable
   private Todo _todoBeingEdited;
   @Nonnull
   private FilterMode _filterMode = FilterMode.ALL;
 
-  ViewService( @Nonnull final BrowserLocation browserLocation )
+  ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
   {
+    _todoRepository = Objects.requireNonNull( todoRepository );
     _browserLocation = Objects.requireNonNull( browserLocation );
   }
 
@@ -46,6 +51,15 @@ public class ViewService
   public void setFilterMode( @Nonnull final FilterMode filterMode )
   {
     _filterMode = Objects.requireNonNull( filterMode );
+  }
+
+  @Computed
+  public List<Todo> filteredTodos()
+  {
+    final FilterMode filterMode = getFilterMode();
+    return _todoRepository.toList( _todoRepository.entities()
+                                     .stream()
+                                     .filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 
   @Autorun
