@@ -6,22 +6,8 @@ import javax.inject.Singleton;
 import org.realityforge.arez.browser.extras.BrowserLocation;
 
 @Module
-class TodoServiceModule
+class BrowserLocationDaggerModule
 {
-  @Singleton
-  @Provides
-  static TodoService provideTodoService( final Arez_TodoService service )
-  {
-    return service;
-  }
-
-  @Singleton
-  @Provides
-  static ViewService provideViewService( final Arez_ViewService service )
-  {
-    return service;
-  }
-
   @Singleton
   @Provides
   static BrowserLocation provideBrowserLocation()

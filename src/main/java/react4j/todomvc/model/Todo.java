@@ -8,7 +8,7 @@ import org.realityforge.arez.annotations.ComponentId;
 import org.realityforge.arez.annotations.Observable;
 import org.realityforge.arez.annotations.Repository;
 
-@Repository( dagger = true, extensions = { TodoRepositoryExtension.class } )
+@Repository( extensions = { TodoRepositoryExtension.class } )
 @ArezComponent
 public class Todo
 {

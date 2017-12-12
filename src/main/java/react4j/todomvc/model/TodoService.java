@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import javax.inject.Singleton;
 import org.realityforge.arez.annotations.Action;
 import org.realityforge.arez.annotations.ArezComponent;
 
-@ArezComponent( nameIncludesId = false, inject = true )
+@Singleton
+@ArezComponent( nameIncludesId = false )
 public class TodoService
 {
   @Nonnull

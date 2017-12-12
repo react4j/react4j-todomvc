@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.inject.Singleton;
 import org.realityforge.arez.Disposable;
 import org.realityforge.arez.annotations.ArezComponent;
 import org.realityforge.arez.annotations.Autorun;
@@ -11,7 +12,8 @@ import org.realityforge.arez.annotations.Computed;
 import org.realityforge.arez.annotations.Observable;
 import org.realityforge.arez.browser.extras.BrowserLocation;
 
-@ArezComponent( nameIncludesId = false, inject = true )
+@Singleton
+@ArezComponent( nameIncludesId = false )
 public class ViewService
 {
   @Nonnull

@@ -9,7 +9,10 @@ import react4j.todomvc.TodoItemDaggerFactory;
 import react4j.todomvc.TodoListDaggerFactory;
 
 @Singleton
-@Component( modules = { TodoDaggerModule.class, TodoServiceModule.class } )
+@Component( modules = { TodoRepositoryDaggerModule.class,
+                        BrowserLocationDaggerModule.class,
+                        TodoServiceDaggerModule.class,
+                        ViewServiceDaggerModule.class } )
 public interface TodoComponent
   extends FooterDaggerFactory,
           TodoItemDaggerFactory,
