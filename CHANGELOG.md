@@ -1,6 +1,7 @@
 # Change Log
 
-### Unreleased
+### [v0.02](https://github.com/react4j/react4j-todomvc/tree/v0.02) (2017-12-12)
+[Full Changelog](https://github.com/react4j/react4j-todomvc/compare/v0.01...v0.02)
 
 * Upgrade React4j to version `0.25`.
 * Upgrade Arez library to version `0.35`.
