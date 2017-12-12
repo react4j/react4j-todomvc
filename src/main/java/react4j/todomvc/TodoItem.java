@@ -11,6 +11,7 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import org.realityforge.arez.annotations.Action;
 import org.realityforge.arez.annotations.Computed;
+import org.realityforge.arez.annotations.Observable;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
@@ -38,7 +39,7 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 class TodoItem
-  extends ReactArezComponent<TodoItem.Props, TodoItem.State, BaseContext>
+  extends ReactArezComponent<TodoItem.Props, BaseState, BaseContext>
 {
   @Inject
   TodoRepository _todoRepository;
@@ -51,7 +52,7 @@ class TodoItem
   private HTMLInputElement _editField;
 
   @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
-  public static class Props
+  static class Props
     extends BaseProps
   {
     Todo todo;
@@ -66,21 +67,6 @@ class TodoItem
     }
   }
 
-  @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
-  static class State
-    extends BaseState
-  {
-    @JsOverlay
-    static State create( @Nonnull final String editText )
-    {
-      final State state = new State();
-      state.editText = editText;
-      return state;
-    }
-
-    String editText;
-  }
-
   @Nonnull
   static ReactNode create( @Nonnull final TodoItem.Props props )
   {
@@ -88,6 +74,18 @@ class TodoItem
   }
 
   private boolean _isEditing;
+  private String _editText;
+
+  @Observable
+  String getEditText()
+  {
+    return _editText;
+  }
+
+  void setEditText( @Nonnull final String editText )
+  {
+    _editText = editText;
+  }
 
   @Computed
   boolean isTodoBeingEdited()
@@ -98,13 +96,13 @@ class TodoItem
   @Override
   protected void componentDidConstruct( @Nullable final Props props, @Nullable final BaseContext context )
   {
-    setInitialState( createInitialState() );
+    resetEditText();
   }
 
   @Action
-  State createInitialState()
+  void resetEditText()
   {
-    return State.create( props().todo.getTitle() );
+    setEditText( props().todo.getTitle() );
   }
 
   @EventHandler( KeyboardEventHandler.class )
@@ -123,13 +121,13 @@ class TodoItem
   @EventHandler( FocusEventHandler.class )
   void onSubmitTodo()
   {
-    final String val = state().editText;
+    final String val = getEditText();
     final Props props = props();
     if ( null != val && !val.isEmpty() )
     {
       _todoService.save( props.todo, val );
       _viewService.setTodoBeingEdited( null );
-      scheduleStateUpdate( State.create( val ) );
+      setEditText( val );
     }
     else
     {
@@ -147,7 +145,7 @@ class TodoItem
   void onEdit()
   {
     _viewService.setTodoBeingEdited( props().todo );
-    scheduleStateUpdate( State.create( props().todo.getTitle() ) );
+    resetEditText();
   }
 
   @EventHandler( MouseEventHandler.class )
@@ -158,7 +156,7 @@ class TodoItem
 
   private void onCancel()
   {
-    scheduleStateUpdate( State.create( props().todo.getTitle() ) );
+    resetEditText();
     _viewService.setTodoBeingEdited( null );
   }
 
@@ -168,20 +166,20 @@ class TodoItem
     if ( isTodoBeingEdited() )
     {
       final HTMLInputElement input = Js.cast( event.getTarget() );
-      scheduleStateUpdate( State.create( input.value ) );
+      setEditText( input.value );
     }
   }
 
   @Action( reportParameters = false )
   @Override
-  protected void componentDidUpdate( @Nullable final Props prevProps, @Nullable final State prevState )
+  protected void componentDidUpdate( @Nullable final Props prevProps, @Nullable final BaseState prevState )
   {
     super.componentDidUpdate( prevProps, prevState );
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
-      scheduleStateUpdate( State.create( state().editText ) );
+      resetEditText();
       assert null != _editField;
       _editField.focus();
       _editField.select();
@@ -216,7 +214,7 @@ class TodoItem
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
-                        .defaultValue( state().editText )
+                        .defaultValue( getEditText() )
                         .onBlur( _onSubmitTodo( this ) )
                         .onChange( _handleChange( this ) )
                         .onKeyDown( _handleKeyDown( this ) )

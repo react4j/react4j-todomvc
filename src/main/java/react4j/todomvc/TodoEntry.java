@@ -4,10 +4,8 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
+import org.realityforge.arez.annotations.Observable;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
@@ -26,24 +24,22 @@ import static react4j.todomvc.TodoEntry_.*;
 
 @ReactComponent
 class TodoEntry
-  extends ReactArezComponent<BaseProps, TodoEntry.State, BaseContext>
+  extends ReactArezComponent<BaseProps, BaseState, BaseContext>
 {
   @Inject
   TodoService _todoService;
 
-  @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
-  static class State
-    extends BaseState
-  {
-    String newTodo;
+  private String _todoText = "";
 
-    @JsOverlay
-    static TodoEntry.State create( @Nonnull final String newTodo )
-    {
-      final State state = new State();
-      state.newTodo = newTodo;
-      return state;
-    }
+  @Observable
+  String getTodoText()
+  {
+    return _todoText;
+  }
+
+  void setTodoText( final String todoText )
+  {
+    _todoText = todoText;
   }
 
   @Nonnull
@@ -52,19 +48,13 @@ class TodoEntry
     return _create();
   }
 
-  @Override
-  protected void componentDidConstruct( @Nullable final BaseProps props, @Nullable final BaseContext context )
-  {
-    setInitialState( State.create( "" ) );
-  }
-
   @EventHandler( KeyboardEventHandler.class )
   void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ENTER_KEY == event.getKeyCode() )
     {
       event.preventDefault();
-      final String val = state().newTodo.trim();
+      final String val = getTodoText().trim();
       if ( val.length() > 0 )
       {
         _todoService.addTodo( val );
@@ -80,11 +70,6 @@ class TodoEntry
     setTodoText( input.value );
   }
 
-  private void setTodoText( @Nonnull final String value )
-  {
-    scheduleStateUpdate( State.create( value ) );
-  }
-
   @Nullable
   @Override
   protected ReactNode render()
@@ -92,7 +77,7 @@ class TodoEntry
     return input( new InputProps()
                     .className( "new-todo" )
                     .placeHolder( "What needs to be done?" )
-                    .value( state().newTodo )
+                    .value( getTodoText() )
                     .onKeyDown( _handleNewTodoKeyDown( this ) )
                     .onChange( _handleChange( this ) )
                     .autoFocus( true )
