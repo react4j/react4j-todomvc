@@ -12,7 +12,7 @@ The following variants are available:
   [Arez](https://arez.github.io).
 * [dagger](https://github.com/react4j/react4j-todomvc/tree/dagger): State is modelled using
   [Arez](https://arez.github.io), [Dagger2](https://google.github.io/dagger) is used for dependency
-  injection.
+  injection. [arez...dagger changes](https://github.com/react4j/react4j-todomvc/compare/arez...dagger)
 
 # Credit
 
