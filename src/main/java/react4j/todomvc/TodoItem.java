@@ -36,7 +36,7 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 class TodoItem
-  extends ReactArezComponent<TodoItem.Props, BaseState, BaseContext>
+  extends ReactArezComponent<TodoItem.Props, BaseContext>
 {
   @Nullable
   private HTMLInputElement _editField;

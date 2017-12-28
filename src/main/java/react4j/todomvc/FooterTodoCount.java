@@ -15,7 +15,7 @@ import static react4j.todomvc.FooterTodoCount_.*;
 
 @ReactComponent
 class FooterTodoCount
-  extends ReactArezComponent<BaseProps, BaseState, BaseContext>
+  extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Nonnull
   static ReactNode create()
