@@ -24,7 +24,7 @@ import static react4j.todomvc.Footer_.*;
 
 @ReactComponent
 class Footer
-  extends ReactArezComponent<BaseProps, BaseState, BaseContext>
+  extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Inject
   TodoRepository _todoRepository;

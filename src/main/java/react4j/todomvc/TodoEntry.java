@@ -24,7 +24,7 @@ import static react4j.todomvc.TodoEntry_.*;
 
 @ReactComponent
 class TodoEntry
-  extends ReactArezComponent<BaseProps, BaseState, BaseContext>
+  extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Inject
   TodoService _todoService;
