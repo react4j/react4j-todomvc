@@ -1,8 +1,7 @@
 package react4j.todomvc;
 
 import elemental2.dom.HTMLInputElement;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -94,10 +93,9 @@ class TodoList
     }
   }
 
-  private List<ReactNode> renderTodoItems()
+  private Stream<ReactNode> renderTodoItems()
   {
     return _viewService.filteredTodos().stream().
-      map( todo -> TodoItem.create( TodoItem.Props.create( todo ) ) ).
-      collect( Collectors.toList() );
+      map( todo -> TodoItem.create( TodoItem.Props.create( todo ) ) );
   }
 }
