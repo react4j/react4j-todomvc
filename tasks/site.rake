@@ -15,7 +15,7 @@ SITE_DIR = "#{WORKSPACE_DIR}/reports/site"
 desc 'Build the part of the website for this branch'
 task 'site:build' do
   project = Buildr.project('react4j-todomvc')
-  branch = `git rev-parse --abbrev-ref HEAD`.strip
+  branch = ENV['TRAVIS_BRANCH'] || `git rev-parse --abbrev-ref HEAD`.strip
   base_dir = "#{SITE_DIR}/#{branch}"
   rm_rf base_dir
   mkdir_p base_dir
@@ -48,7 +48,7 @@ task 'site:deploy' => ['site:build'] do
     end
 
     local_dir = "#{WORKSPACE_DIR}/target/remote_site"
-    branch = `git rev-parse --abbrev-ref HEAD`.strip
+    branch = ENV['TRAVIS_BRANCH'] || `git rev-parse --abbrev-ref HEAD`.strip
     rm_rf local_dir
 
     sh "git clone -b gh-pages #{origin_url} #{local_dir}"
