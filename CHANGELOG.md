@@ -2,6 +2,7 @@
 
 ### Unreleased
 
+* Setup task to publish outputs to GitHub website.
 * Upgrade React4j to version `0.30`.
 
 ### [v0.03-arez](https://github.com/react4j/react4j-todomvc/tree/v0.03-arez) (2017-12-19)
