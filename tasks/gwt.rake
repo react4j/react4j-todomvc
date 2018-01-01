@@ -18,13 +18,13 @@ def gwt_enhance(project, options = {})
   dependencies =
     project.compile.dependencies + [project.compile.target] + extra_deps + [Buildr.artifact(:gwt_user)]
 
-  gwt_modules = []
+  gwt_modules = options[:gwt_modules] || []
   source_paths = project.compile.sources + project.iml.main_generated_resource_directories.flatten.compact + project.iml.main_generated_source_directories.flatten.compact
   source_paths.each do |base_dir|
     Dir["#{base_dir}/**/*.gwt.xml"].each do |filename|
       gwt_modules << filename.gsub("#{base_dir}/", '').gsub('.gwt.xml', '').gsub('/', '.')
     end
-  end
+  end if gwt_modules.empty?
 
   unless modules_complete
     base_synthetic_module_dir = project._(:generated, :synthetic_gwt_module, :main, :resources)
