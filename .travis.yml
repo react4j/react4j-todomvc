@@ -4,10 +4,16 @@ jdk:
 sudo: false
 rvm:
 - 2.3.1
+before_install:
+- openssl aes-256-cbc -K $encrypted_4f9e1adf7887_key -iv $encrypted_4f9e1adf7887_iv
+  -in etc/secrets -out ../secrets.tar -d
+- "(cd ../ && tar xvf secrets.tar)"
+- chmod 600 ../deploy
+- eval `ssh-agent -s` && ssh-add ../deploy
 install:
 - rvm use 2.3.1
 - gem install bundler
 - bundle install
-script: buildr package
+script: buildr package site:deploy
 git:
   depth: 10
