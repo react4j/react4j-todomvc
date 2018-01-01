@@ -84,7 +84,7 @@ class TodoItem
   }
 
   @Override
-  protected void componentDidConstruct( @Nullable final Props props, @Nullable final BaseContext context )
+  protected void componentDidConstruct()
   {
     resetEditText();
   }
