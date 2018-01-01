@@ -37,27 +37,31 @@ end
 
 desc 'Build the website'
 task 'site:deploy' => ['site:build'] do
-  origin_url = 'https://github.com/react4j/react4j-todomvc.git'
+  # Only publish the site off the selected branches if running out of Travis
+  if ENV['TRAVIS_BRANCH'].nil? || %w(arez dagger).include?(ENV['TRAVIS_BRANCH'])
 
-  travis_build_number = ENV['TRAVIS_BUILD_NUMBER']
-  if travis_build_number
-    origin_url = origin_url.gsub('https://github.com/', 'git@github.com:')
-  end
+    origin_url = 'https://github.com/react4j/react4j-todomvc.git'
 
-  local_dir = "#{WORKSPACE_DIR}/target/remote_site"
-  branch = `git rev-parse --abbrev-ref HEAD`.strip
-  rm_rf local_dir
+    travis_build_number = ENV['TRAVIS_BUILD_NUMBER']
+    if travis_build_number
+      origin_url = origin_url.gsub('https://github.com/', 'git@github.com:')
+    end
 
-  sh "git clone -b gh-pages #{origin_url} #{local_dir}"
+    local_dir = "#{WORKSPACE_DIR}/target/remote_site"
+    branch = `git rev-parse --abbrev-ref HEAD`.strip
+    rm_rf local_dir
 
-  in_dir(local_dir) do
-    message =
-      "Update website based on source branch #{branch}#{travis_build_number.nil? ? '' : " - Travis build: #{travis_build_number}"}"
+    sh "git clone -b gh-pages #{origin_url} #{local_dir}"
 
-    rm_rf "#{local_dir}/#{branch}"
-    cp_r "#{SITE_DIR}/#{branch}", "#{local_dir}/#{branch}"
-    sh 'git add . -f'
-    sh "git commit -m \"#{message}\""
-    sh 'git push -f origin gh-pages'
+    in_dir(local_dir) do
+      message =
+        "Update website based on source branch #{branch}#{travis_build_number.nil? ? '' : " - Travis build: #{travis_build_number}"}"
+
+      rm_rf "#{local_dir}/#{branch}"
+      cp_r "#{SITE_DIR}/#{branch}", "#{local_dir}/#{branch}"
+      sh 'git add . -f'
+      sh "git commit -m \"#{message}\""
+      sh 'git push -f origin gh-pages'
+    end
   end
 end
