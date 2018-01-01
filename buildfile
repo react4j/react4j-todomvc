@@ -41,7 +41,7 @@ define 'react4j-todomvc' do
                :javax_inject_sources,
                :gwt_user
 
-  gwt_enhance(project, :modules_complete => true, :package_jars => false)
+  gwt_enhance(project, :modules_complete => true, :package_jars => false, :gwt_modules => %w(react4j.todomvc.TodomvcDev react4j.todomvc.TodomvcProd))
 
   iml.excluded_directories << project._('tmp')
 
