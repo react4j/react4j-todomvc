@@ -1,9 +1,9 @@
 package react4j.todomvc.model;
 
+import arez.browser.extras.BrowserLocation;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
-import org.realityforge.arez.browser.extras.BrowserLocation;
 
 @Module
 class BrowserLocationDaggerModule
