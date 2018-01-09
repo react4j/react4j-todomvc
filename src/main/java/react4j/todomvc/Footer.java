@@ -1,8 +1,8 @@
 package react4j.todomvc;
 
+import arez.annotations.Computed;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import org.realityforge.arez.annotations.Computed;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;

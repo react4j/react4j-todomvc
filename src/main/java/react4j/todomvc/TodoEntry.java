@@ -1,10 +1,10 @@
 package react4j.todomvc;
 
+import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import org.realityforge.arez.annotations.Observable;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;

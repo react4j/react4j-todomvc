@@ -1,15 +1,15 @@
 package react4j.todomvc.model;
 
+import arez.Disposable;
+import arez.annotations.ArezComponent;
+import arez.annotations.Autorun;
+import arez.annotations.Computed;
+import arez.annotations.Observable;
+import arez.browser.extras.BrowserLocation;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import org.realityforge.arez.Disposable;
-import org.realityforge.arez.annotations.ArezComponent;
-import org.realityforge.arez.annotations.Autorun;
-import org.realityforge.arez.annotations.Computed;
-import org.realityforge.arez.annotations.Observable;
-import org.realityforge.arez.browser.extras.BrowserLocation;
 
 @ArezComponent( nameIncludesId = false )
 public class ViewService
