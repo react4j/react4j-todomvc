@@ -10,7 +10,6 @@ import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.BaseContext;
 import react4j.core.BaseProps;
-import react4j.core.BaseState;
 import react4j.core.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
