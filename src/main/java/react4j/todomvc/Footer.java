@@ -1,15 +1,14 @@
 package react4j.todomvc;
 
+import arez.annotations.Computed;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-import org.realityforge.arez.annotations.Computed;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.BaseContext;
 import react4j.core.BaseProps;
-import react4j.core.BaseState;
 import react4j.core.ReactNode;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;

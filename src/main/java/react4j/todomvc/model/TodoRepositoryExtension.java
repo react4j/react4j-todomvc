@@ -1,6 +1,6 @@
 package react4j.todomvc.model;
 
-import org.realityforge.arez.annotations.Computed;
+import arez.annotations.Computed;
 
 public interface TodoRepositoryExtension
   extends TodoBaseRepositoryExtension

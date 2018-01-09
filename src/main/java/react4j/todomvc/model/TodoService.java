@@ -1,12 +1,12 @@
 package react4j.todomvc.model;
 
+import arez.annotations.Action;
+import arez.annotations.ArezComponent;
 import java.util.Date;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.inject.Singleton;
-import org.realityforge.arez.annotations.Action;
-import org.realityforge.arez.annotations.ArezComponent;
 
 @Singleton
 @ArezComponent( nameIncludesId = false )
