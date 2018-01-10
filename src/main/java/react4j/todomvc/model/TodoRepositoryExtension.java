@@ -18,13 +18,13 @@ public interface TodoRepositoryExtension
   @Computed
   default int totalCount()
   {
-    return self().findAll().size();
+    return self().entities().size();
   }
 
   @Computed
   default int activeCount()
   {
-    return (int) self().findAll().stream().filter( todo -> !todo.isCompleted() ).count();
+    return (int) self().entities().stream().filter( todo -> !todo.isCompleted() ).count();
   }
 
   @Computed
