@@ -3,7 +3,6 @@ package react4j.todomvc.model;
 import arez.annotations.Computed;
 
 public interface TodoRepositoryExtension
-  extends TodoBaseRepositoryExtension
 {
   @Computed
   default boolean isEmpty()
@@ -33,4 +32,6 @@ public interface TodoRepositoryExtension
   {
     return totalCount() - activeCount();
   }
+
+  TodoRepository self();
 }
