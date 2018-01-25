@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import javax.inject.Singleton;
 
 @Singleton
-@ArezComponent( nameIncludesId = false )
+@ArezComponent
 public class ViewService
 {
   @Nonnull

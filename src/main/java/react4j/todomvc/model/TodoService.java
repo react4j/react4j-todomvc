@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import javax.inject.Singleton;
 
 @Singleton
-@ArezComponent( nameIncludesId = false )
+@ArezComponent
 public class TodoService
 {
   @Nonnull
