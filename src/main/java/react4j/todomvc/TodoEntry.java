@@ -22,7 +22,7 @@ import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoEntry_.*;
 
 @ReactComponent
-class TodoEntry
+abstract class TodoEntry
   extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Inject

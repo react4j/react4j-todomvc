@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 
 @Singleton
 @ArezComponent
-public class TodoService
+public abstract class TodoService
 {
   @Nonnull
   private final TodoRepository _repository;

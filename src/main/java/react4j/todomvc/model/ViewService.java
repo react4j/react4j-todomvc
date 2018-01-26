@@ -14,7 +14,7 @@ import javax.inject.Singleton;
 
 @Singleton
 @ArezComponent
-public class ViewService
+public abstract class ViewService
 {
   @Nonnull
   private final TodoRepository _todoRepository;
@@ -22,8 +22,6 @@ public class ViewService
   private final BrowserLocation _browserLocation;
   @Nullable
   private Todo _todoBeingEdited;
-  @Nonnull
-  private FilterMode _filterMode = FilterMode.ALL;
 
   ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
   {
@@ -43,16 +41,30 @@ public class ViewService
     _todoBeingEdited = todoBeingEdited;
   }
 
-  @Observable
+  @Computed
   @Nonnull
   public FilterMode getFilterMode()
   {
-    return _filterMode;
-  }
-
-  public void setFilterMode( @Nonnull final FilterMode filterMode )
-  {
-    _filterMode = Objects.requireNonNull( filterMode );
+    final String location = _browserLocation.getLocation();
+    if ( isValid( location ) )
+    {
+      if ( "active".equals( location ) )
+      {
+        return FilterMode.ACTIVE;
+      }
+      else if ( "completed".equals( location ) )
+      {
+        return FilterMode.COMPLETED;
+      }
+      else
+      {
+        return FilterMode.ALL;
+      }
+    }
+    else
+    {
+      return FilterMode.ALL;
+    }
   }
 
   @Computed
@@ -64,7 +76,7 @@ public class ViewService
                                      .filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 
-  @Autorun
+  @Autorun( mutation = true )
   void updateTodoBeingEdited()
   {
     final Todo todoBeingEdited = getTodoBeingEdited();
@@ -74,30 +86,8 @@ public class ViewService
     }
   }
 
-  @Autorun
-  void updateFilterMode()
-  {
-    cleanLocation();
-
-    final String location = _browserLocation.getLocation();
-    if ( isValid( location ) )
-    {
-      if ( "active".equals( location ) )
-      {
-        setFilterMode( FilterMode.ACTIVE );
-      }
-      else if ( "completed".equals( location ) )
-      {
-        setFilterMode( FilterMode.COMPLETED );
-      }
-      else
-      {
-        setFilterMode( FilterMode.ALL );
-      }
-    }
-  }
-
-  private void cleanLocation()
+  @Autorun( mutation = true )
+  void cleanLocation()
   {
     final String browserLocation = _browserLocation.getBrowserLocation();
     if ( isValid( browserLocation ) )
