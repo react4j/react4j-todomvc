@@ -35,7 +35,7 @@ import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
-class TodoItem
+abstract class TodoItem
   extends ReactArezComponent<TodoItem.Props, BaseContext>
 {
   @Nullable
@@ -84,7 +84,7 @@ class TodoItem
   }
 
   @Override
-  protected void componentDidConstruct()
+  protected void postConstruct()
   {
     resetEditText();
   }

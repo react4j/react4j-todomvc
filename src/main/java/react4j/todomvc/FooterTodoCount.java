@@ -13,7 +13,7 @@ import static react4j.dom.DOM.*;
 import static react4j.todomvc.FooterTodoCount_.*;
 
 @ReactComponent
-class FooterTodoCount
+abstract class FooterTodoCount
   extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Nonnull

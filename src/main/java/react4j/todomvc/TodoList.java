@@ -22,7 +22,7 @@ import static react4j.dom.DOM.*;
 import static react4j.todomvc.TodoList_.*;
 
 @ReactComponent
-class TodoList
+abstract class TodoList
   extends ReactArezComponent<BaseProps, BaseContext>
 {
   @EventHandler( MouseEventHandler.class )

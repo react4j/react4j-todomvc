@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @ArezComponent( nameIncludesId = false )
-public class ViewService
+public abstract class ViewService
 {
   @Nonnull
   private final TodoRepository _todoRepository;

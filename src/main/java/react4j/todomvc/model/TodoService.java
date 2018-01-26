@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 
 @ArezComponent( nameIncludesId = false )
-public class TodoService
+public abstract class TodoService
 {
   @Nonnull
   private final TodoRepository _repository;
