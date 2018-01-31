@@ -2,7 +2,7 @@
 
 ### Unreleased
 
-* Upgrade React4j to version `0.37`.
+* Upgrade React4j to version `0.38`.
 * Upgrade Arez to version `0.47`.
 
 ### [v0.04-arez](https://github.com/react4j/react4j-todomvc/tree/v0.04-arez) (2017-01-02)
