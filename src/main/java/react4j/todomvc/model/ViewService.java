@@ -6,6 +6,7 @@ import arez.annotations.Autorun;
 import arez.annotations.Computed;
 import arez.annotations.Observable;
 import arez.browser.extras.BrowserLocation;
+import arez.component.RepositoryUtil;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -71,9 +72,7 @@ public abstract class ViewService
   public List<Todo> filteredTodos()
   {
     final FilterMode filterMode = getFilterMode();
-    return _todoRepository.toList( _todoRepository.entities()
-                                     .stream()
-                                     .filter( todo -> todo.shouldShowTodo( filterMode ) ) );
+    return RepositoryUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 
   @Autorun( mutation = true )
