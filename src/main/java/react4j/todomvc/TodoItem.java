@@ -12,6 +12,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import react4j.annotations.EventHandler;
+import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.BaseContext;
@@ -66,6 +67,9 @@ abstract class TodoItem
   private boolean _isEditing;
   private String _editText;
 
+  @Prop
+  abstract Todo getTodo();
+
   @Observable
   String getEditText()
   {
@@ -80,7 +84,7 @@ abstract class TodoItem
   @Computed
   boolean isTodoBeingEdited()
   {
-    return AppData.viewService.getTodoBeingEdited() == props().todo;
+    return AppData.viewService.getTodoBeingEdited() == getTodo();
   }
 
   @Override
@@ -92,7 +96,7 @@ abstract class TodoItem
   @Action
   void resetEditText()
   {
-    setEditText( props().todo.getTitle() );
+    setEditText( getTodo().getTitle() );
   }
 
   @EventHandler( KeyboardEventHandler.class )
@@ -121,27 +125,27 @@ abstract class TodoItem
     }
     else
     {
-      AppData.model.destroy( props().todo );
+      AppData.model.destroy( getTodo() );
     }
   }
 
   @EventHandler( FormEventHandler.class )
   void onToggle()
   {
-    props().todo.toggle();
+    getTodo().toggle();
   }
 
   @EventHandler( MouseEventHandler.class )
   void onEdit()
   {
-    AppData.viewService.setTodoBeingEdited( props().todo );
+    AppData.viewService.setTodoBeingEdited( getTodo() );
     resetEditText();
   }
 
   @EventHandler( MouseEventHandler.class )
   void onDestroy()
   {
-    AppData.model.destroy( props().todo );
+    AppData.model.destroy( getTodo() );
   }
 
   private void onCancel()
