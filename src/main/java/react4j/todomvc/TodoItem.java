@@ -4,12 +4,8 @@ import arez.annotations.Action;
 import arez.annotations.Computed;
 import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
-import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import react4j.annotations.EventHandler;
 import react4j.annotations.Prop;
@@ -37,32 +33,10 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends ReactArezComponent<TodoItem.Props, BaseContext>
+  extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Nullable
   private HTMLInputElement _editField;
-
-  @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
-  static class Props
-    extends BaseProps
-  {
-    Todo todo;
-
-    @JsOverlay
-    static Props create( @Nonnull final Todo todo )
-    {
-      final Props props = new Props();
-      props.key = todo.getId();
-      props.todo = todo;
-      return props;
-    }
-  }
-
-  @Nonnull
-  static ReactNode create( @Nonnull final TodoItem.Props props )
-  {
-    return _create( Objects.requireNonNull( props ) );
-  }
 
   private boolean _isEditing;
   private String _editText;
@@ -116,10 +90,9 @@ abstract class TodoItem
   void onSubmitTodo()
   {
     final String val = getEditText();
-    final Props props = props();
     if ( null != val && !val.isEmpty() )
     {
-      AppData.service.save( props.todo, val );
+      AppData.service.save( getTodo(), val );
       AppData.viewService.setTodoBeingEdited( null );
       setEditText( val );
     }
@@ -166,7 +139,7 @@ abstract class TodoItem
 
   @Action( reportParameters = false )
   @Override
-  protected void componentDidUpdate( @Nullable final Props prevProps, @Nullable final BaseState prevState )
+  protected void componentDidUpdate( @Nullable final BaseProps prevProps, @Nullable final BaseState prevState )
   {
     super.componentDidUpdate( prevProps, prevState );
     final boolean todoBeingEdited = isTodoBeingEdited();
@@ -188,8 +161,8 @@ abstract class TodoItem
   @Override
   protected ReactNode render()
   {
-    final Props props = props();
-    final boolean completed = props.todo.isCompleted();
+    final Todo todo = getTodo();
+    final boolean completed = todo.isCompleted();
     return li( new HtmlProps().className( classesFor( completed, isTodoBeingEdited() ) ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
@@ -199,7 +172,7 @@ abstract class TodoItem
                              .onChange( _onToggle( this ) )
                     ),
                     label( new LabelProps().onDoubleClick( _onEdit( this ) ),
-                           props.todo.getTitle() ),
+                           todo.getTitle() ),
                     button( new BtnProps()
                               .className( "destroy" )
                               .onClick( _onDestroy( this ) )

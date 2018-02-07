@@ -1,7 +1,6 @@
 package react4j.todomvc;
 
 import arez.annotations.Computed;
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
@@ -28,12 +27,6 @@ abstract class Footer
     AppData.service.clearCompleted();
   }
 
-  @Nonnull
-  static ReactNode create()
-  {
-    return _create();
-  }
-
   @Nullable
   @Override
   protected ReactNode render()
@@ -41,7 +34,7 @@ abstract class Footer
     final FilterMode filterMode = AppData.viewService.getFilterMode();
     return
       footer( new HtmlProps().className( "footer" ),
-              FooterTodoCount.create(),
+              FooterTodoCountBuilder.build(),
               ul( new HtmlProps().className( "filters" ),
                   li( a( new AnchorProps()
                            .className( FilterMode.ALL == filterMode ? "selected" : "" )

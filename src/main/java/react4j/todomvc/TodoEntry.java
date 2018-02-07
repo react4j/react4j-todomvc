@@ -37,12 +37,6 @@ abstract class TodoEntry
     _todoText = todoText;
   }
 
-  @Nonnull
-  static ReactNode create()
-  {
-    return _create();
-  }
-
   @EventHandler( KeyboardEventHandler.class )
   void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
   {
