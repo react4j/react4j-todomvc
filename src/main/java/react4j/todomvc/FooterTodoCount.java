@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.BaseContext;
-import react4j.core.BaseProps;
 import react4j.core.ReactNode;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.todomvc.model.TodoRepository;
@@ -13,7 +12,7 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class FooterTodoCount
-  extends ReactArezComponent<BaseProps, BaseContext>
+  extends ReactArezComponent<BaseContext>
 {
   @Inject
   TodoRepository _todoRepository;

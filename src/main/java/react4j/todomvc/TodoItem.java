@@ -8,12 +8,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 import react4j.annotations.EventHandler;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.BaseContext;
-import react4j.core.BaseProps;
 import react4j.core.BaseState;
 import react4j.core.ReactNode;
 import react4j.dom.events.FocusEventHandler;
@@ -36,7 +36,7 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends ReactArezComponent<BaseProps, BaseContext>
+  extends ReactArezComponent<BaseContext>
 {
   @Inject
   TodoRepository _todoRepository;
@@ -149,7 +149,8 @@ abstract class TodoItem
 
   @Action( reportParameters = false )
   @Override
-  protected void componentDidUpdate( @Nullable final BaseProps prevProps, @Nullable final BaseState prevState )
+  protected void componentDidUpdate( @Nullable final JsPropertyMap<Object> prevProps,
+                                     @Nullable final BaseState prevState )
   {
     super.componentDidUpdate( prevProps, prevState );
     final boolean todoBeingEdited = isTodoBeingEdited();
