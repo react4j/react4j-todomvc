@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import react4j.annotations.ReactComponent;
@@ -11,7 +10,6 @@ import react4j.core.ReactNode;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.todomvc.model.TodoRepository;
 import static react4j.dom.DOM.*;
-import static react4j.todomvc.FooterTodoCount_.*;
 
 @ReactComponent
 abstract class FooterTodoCount
@@ -19,12 +17,6 @@ abstract class FooterTodoCount
 {
   @Inject
   TodoRepository _todoRepository;
-
-  @Nonnull
-  static ReactNode create()
-  {
-    return _create();
-  }
 
   @Nullable
   @Override

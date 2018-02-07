@@ -20,6 +20,6 @@ public class App
     todoComponent.bindTodoItem();
     todoComponent.bindTodoList();
     todoComponent.bindTodoEntry();
-    ReactDOM.render( TodoList.create(), DomGlobal.document.getElementById( "todoapp" ) );
+    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
   }
 }

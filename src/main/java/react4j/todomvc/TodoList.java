@@ -1,8 +1,6 @@
 package react4j.todomvc;
 
 import elemental2.dom.HTMLInputElement;
-import java.util.stream.Stream;
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
@@ -48,12 +46,6 @@ abstract class TodoList
     _todoService.toggleAll( input.checked );
   }
 
-  @Nonnull
-  static ReactNode create()
-  {
-    return _create();
-  }
-
   @Nullable
   @Override
   protected ReactNode render()
@@ -62,10 +54,10 @@ abstract class TodoList
       div(
         div( header( new HtmlProps().className( "header" ),
                      h1( "todos" ),
-                     TodoEntry.create()
+                     TodoEntryBuilder.build()
              ),
              renderMainSection(),
-             _todoRepository.isNotEmpty() ? Footer.create() : null
+             _todoRepository.isNotEmpty() ? FooterBuilder.build() : null
         )
       );
   }
@@ -83,7 +75,8 @@ abstract class TodoList
                       ),
                       ul( new HtmlProps()
                             .className( "todo-list" ),
-                          renderTodoItems()
+                          _viewService.filteredTodos().stream().
+                            map( todo -> TodoItemBuilder.key( todo.getId() ).todo( todo ) )
                       )
       );
     }
@@ -91,11 +84,5 @@ abstract class TodoList
     {
       return null;
     }
-  }
-
-  private Stream<ReactNode> renderTodoItems()
-  {
-    return _viewService.filteredTodos().stream().
-      map( todo -> TodoItem.create( TodoItem.Props.create( todo ) ) );
   }
 }

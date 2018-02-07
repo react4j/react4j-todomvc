@@ -2,7 +2,7 @@
 
 ### Unreleased
 
-* Upgrade React4j to version `0.38`.
+* Upgrade React4j to version `0.39`.
 * Upgrade Arez to version `0.49`.
 
 ### [v0.04-dagger](https://github.com/react4j/react4j-todomvc/tree/v0.04-dagger) (2017-01-02)

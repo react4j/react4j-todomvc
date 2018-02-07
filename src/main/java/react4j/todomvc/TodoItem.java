@@ -4,15 +4,12 @@ import arez.annotations.Action;
 import arez.annotations.Computed;
 import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
-import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
-import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import react4j.annotations.EventHandler;
+import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.BaseContext;
@@ -39,7 +36,7 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends ReactArezComponent<TodoItem.Props, BaseContext>
+  extends ReactArezComponent<BaseProps, BaseContext>
 {
   @Inject
   TodoRepository _todoRepository;
@@ -51,30 +48,11 @@ abstract class TodoItem
   @Nullable
   private HTMLInputElement _editField;
 
-  @JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )
-  static class Props
-    extends BaseProps
-  {
-    Todo todo;
-
-    @JsOverlay
-    static Props create( @Nonnull final Todo todo )
-    {
-      final Props props = new Props();
-      props.key = todo.getId();
-      props.todo = todo;
-      return props;
-    }
-  }
-
-  @Nonnull
-  static ReactNode create( @Nonnull final TodoItem.Props props )
-  {
-    return _create( Objects.requireNonNull( props ) );
-  }
-
   private boolean _isEditing;
   private String _editText;
+
+  @Prop
+  abstract Todo getTodo();
 
   @Observable
   String getEditText()
@@ -90,7 +68,7 @@ abstract class TodoItem
   @Computed
   boolean isTodoBeingEdited()
   {
-    return _viewService.getTodoBeingEdited() == props().todo;
+    return _viewService.getTodoBeingEdited() == getTodo();
   }
 
   @Override
@@ -102,7 +80,7 @@ abstract class TodoItem
   @Action
   void resetEditText()
   {
-    setEditText( props().todo.getTitle() );
+    setEditText( getTodo().getTitle() );
   }
 
   @EventHandler( KeyboardEventHandler.class )
@@ -122,36 +100,35 @@ abstract class TodoItem
   void onSubmitTodo()
   {
     final String val = getEditText();
-    final Props props = props();
     if ( null != val && !val.isEmpty() )
     {
-      _todoService.save( props.todo, val );
+      _todoService.save( getTodo(), val );
       _viewService.setTodoBeingEdited( null );
       setEditText( val );
     }
     else
     {
-      _todoRepository.destroy( props().todo );
+      _todoRepository.destroy( getTodo() );
     }
   }
 
   @EventHandler( FormEventHandler.class )
   void onToggle()
   {
-    props().todo.toggle();
+    getTodo().toggle();
   }
 
   @EventHandler( MouseEventHandler.class )
   void onEdit()
   {
-    _viewService.setTodoBeingEdited( props().todo );
+    _viewService.setTodoBeingEdited( getTodo() );
     resetEditText();
   }
 
   @EventHandler( MouseEventHandler.class )
   void onDestroy()
   {
-    _todoRepository.destroy( props().todo );
+    _todoRepository.destroy( getTodo() );
   }
 
   private void onCancel()
@@ -172,7 +149,7 @@ abstract class TodoItem
 
   @Action( reportParameters = false )
   @Override
-  protected void componentDidUpdate( @Nullable final Props prevProps, @Nullable final BaseState prevState )
+  protected void componentDidUpdate( @Nullable final BaseProps prevProps, @Nullable final BaseState prevState )
   {
     super.componentDidUpdate( prevProps, prevState );
     final boolean todoBeingEdited = isTodoBeingEdited();
@@ -194,8 +171,8 @@ abstract class TodoItem
   @Override
   protected ReactNode render()
   {
-    final Props props = props();
-    final boolean completed = props.todo.isCompleted();
+    final Todo todo = getTodo();
+    final boolean completed = todo.isCompleted();
     return li( new HtmlProps().className( classesFor( completed, isTodoBeingEdited() ) ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
@@ -205,7 +182,7 @@ abstract class TodoItem
                              .onChange( _onToggle( this ) )
                     ),
                     label( new LabelProps().onDoubleClick( _onEdit( this ) ),
-                           props.todo.getTitle() ),
+                           todo.getTitle() ),
                     button( new BtnProps()
                               .className( "destroy" )
                               .onClick( _onDestroy( this ) )
