@@ -13,7 +13,6 @@ import react4j.annotations.EventHandler;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.core.BaseContext;
 import react4j.core.BaseState;
 import react4j.core.ReactNode;
 import react4j.dom.events.FocusEventHandler;
@@ -36,7 +35,7 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends ReactArezComponent<BaseContext>
+  extends ReactArezComponent
 {
   @Inject
   TodoRepository _todoRepository;

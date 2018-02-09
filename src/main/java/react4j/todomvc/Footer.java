@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import react4j.annotations.EventHandler;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.core.BaseContext;
 import react4j.core.ReactNode;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
@@ -21,7 +20,7 @@ import static react4j.todomvc.Footer_.*;
 
 @ReactComponent
 abstract class Footer
-  extends ReactArezComponent<BaseContext>
+  extends ReactArezComponent
 {
   @Inject
   TodoRepository _todoRepository;
