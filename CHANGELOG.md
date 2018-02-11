@@ -1,8 +1,9 @@
 # Change Log
 
-### Unreleased
+### [v0.05-arez](https://github.com/react4j/react4j-todomvc/tree/v0.05-arez) (2017-01-02)
+[Full Changelog](https://github.com/react4j/react4j-todomvc/compare/v0.04-arez...v0.05-arez)
 
-* Upgrade React4j to version `0.40`.
+* Upgrade React4j to version `0.41`.
 * Upgrade Arez to version `0.49`.
 
 ### [v0.04-dagger](https://github.com/react4j/react4j-todomvc/tree/v0.04-dagger) (2017-01-02)
