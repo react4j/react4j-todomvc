@@ -6,7 +6,5 @@
   <set-property name="jre.checks.checkLevel" value="MINIMAL"/>
   <set-configuration-property name="user.agent.runtimeWarning" value="false"/>
 
-  <collapse-all-properties/>
-
   <source path='ignore'/>
 </module>
