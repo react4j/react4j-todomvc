@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+### Unreleased
 
 ### [v0.05-dagger](https://github.com/react4j/react4j-todomvc/tree/v0.05-dagger) (2017-01-02)
 [Full Changelog](https://github.com/react4j/react4j-todomvc/compare/v0.04-dagger...v0.05-dagger)
