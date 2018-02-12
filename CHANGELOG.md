@@ -6,6 +6,7 @@
 * Upgrade the braincheck dependency to `1.4.0`.
 * Add additional gwtc compiler options to remove class cast checks, and class metadata that
   is not used in the application.
+* Move production configuration to using sso linker.
 
 ### [v0.05-arez](https://github.com/react4j/react4j-todomvc/tree/v0.05-arez) (2017-01-02)
 [Full Changelog](https://github.com/react4j/react4j-todomvc/compare/v0.04-arez...v0.05-arez)
