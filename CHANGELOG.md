@@ -2,7 +2,7 @@
 
 ### Unreleased
 
-* Upgrade Arez to version `0.50`.
+* Upgrade Arez to version `0.51`.
 * Upgrade the braincheck dependency to `1.4.0`.
 * Add additional gwtc compiler options to remove class cast checks, and class metadata that
   is not used in the application.
