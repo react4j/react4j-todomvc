@@ -49,10 +49,11 @@ CONTENT
     modules = modules_complete ? gwt_modules : gwt_modules.collect {|gwt_module| "#{gwt_module}Test"}
     modules.each do |m|
       gwtc_args = options[:module_gwtc_args].nil? ? nil : options[:module_gwtc_args][m]
+      output_key = options[:output_key] || m
       project.gwt([m], { :java_args => %w(-Xms512M -Xmx1024M),
                          :dependencies => dependencies,
                          :gwtc_args => gwtc_args,
-                         :output_key => options[:output_key] || m })
+                         :output_key => output_key })
     end
   end
 
