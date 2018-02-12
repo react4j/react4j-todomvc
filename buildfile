@@ -1,5 +1,4 @@
 require 'buildr/git_auto_version'
-require 'buildr/gwt'
 
 desc 'React4j TodoMVC implementation'
 define 'react4j-todomvc' do
@@ -41,7 +40,14 @@ define 'react4j-todomvc' do
                :javax_inject_sources,
                :gwt_user
 
-  gwt_enhance(project, :modules_complete => true, :package_jars => false, :gwt_modules => %w(react4j.todomvc.TodomvcDev react4j.todomvc.TodomvcProd))
+  gwt_enhance(project,
+              :modules_complete => true,
+              :package_jars => false,
+              :gwt_modules => %w(react4j.todomvc.TodomvcDev react4j.todomvc.TodomvcProd),
+              :module_gwtc_args => {
+                'react4j.todomvc.TodomvcDev' => %w(-optimize 9 -checkAssertions -XmethodNameDisplayMode FULL -noincremental),
+                'react4j.todomvc.TodomvcProd' => %w(-XdisableClassMetadata -XdisableCastChecking -optimize 9 -nocheckAssertions -XmethodNameDisplayMode NONE -noincremental -compileReport)
+              })
 
   iml.excluded_directories << project._('tmp')
 
@@ -51,5 +57,5 @@ define 'react4j-todomvc' do
                             :gwt_module => 'react4j.todomvc.TodomvcDev',
                             :start_javascript_debugger => false,
                             :vm_parameters => "-Xmx2G -Djava.io.tmpdir=#{_('tmp/gwt')}",
-                            :shell_parameters => "-port 8888 -codeServerPort 8889 -bindAddress 0.0.0.0 -war #{_(:generated, 'gwt-export')}/")
+                            :shell_parameters => "-XmethodNameDisplayMode FULL -noincremental -port 8888 -codeServerPort 8889 -bindAddress 0.0.0.0 -war #{_(:generated, 'gwt-export')}/")
 end

@@ -26,6 +26,11 @@ def gwt_enhance(project, options = {})
     end
   end if gwt_modules.empty?
 
+  compile_report_dir = options[:compile_report_dir]
+  if modules_complete && compile_report_dir.nil?
+    compile_report_dir = project._(:target, :gwt_compile_reports)
+  end
+
   unless modules_complete
     base_synthetic_module_dir = project._(:generated, :synthetic_gwt_module, :main, :resources)
     t = project.task('gwt_synthetic_module') do
@@ -48,9 +53,13 @@ CONTENT
   if ENV['GWT'].nil? || ENV['GWT'] == project.name
     modules = modules_complete ? gwt_modules : gwt_modules.collect {|gwt_module| "#{gwt_module}Test"}
     modules.each do |m|
+      gwtc_args = options[:module_gwtc_args].nil? ? nil : options[:module_gwtc_args][m]
+      output_key = options[:output_key] || m
       project.gwt([m], { :java_args => %w(-Xms512M -Xmx1024M),
                          :dependencies => dependencies,
-                         :output_key => options[:output_key] || m })
+                         :gwtc_args => gwtc_args,
+                         :compile_report_dir => compile_report_dir.nil? ? nil : "#{compile_report_dir}/#{output_key}",
+                         :output_key => output_key })
     end
   end
 
