@@ -34,7 +34,14 @@ define 'react4j-todomvc' do
                :arez_browser_extras,
                :gwt_user
 
-  gwt_enhance(project, :modules_complete => true, :package_jars => false, :gwt_modules => %w(react4j.todomvc.TodomvcDev react4j.todomvc.TodomvcProd))
+  gwt_enhance(project,
+              :modules_complete => true,
+              :package_jars => false,
+              :gwt_modules => %w(react4j.todomvc.TodomvcDev react4j.todomvc.TodomvcProd),
+              :module_gwtc_args => {
+                'react4j.todomvc.TodomvcDev' => %w(-optimize 9 -checkAssertions -XmethodNameDisplayMode FULL -noincremental),
+                'react4j.todomvc.TodomvcProd' => %w(-XdisableClassMetadata -XdisableCastChecking -optimize 9 -nocheckAssertions -XmethodNameDisplayMode NONE -noincremental -compileReport)
+              })
 
   iml.excluded_directories << project._('tmp')
 
