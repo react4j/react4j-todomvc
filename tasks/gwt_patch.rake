@@ -13,7 +13,7 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-raise 'Buildr addon already integrated into buildr code' unless Buildr::VERSION.to_s == '1.5.4'
+raise 'Buildr addon already integrated into buildr code' unless Buildr::VERSION.to_s == '1.5.5'
 
 module Buildr
   module GWT
