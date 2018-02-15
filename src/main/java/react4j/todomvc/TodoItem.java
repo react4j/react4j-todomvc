@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
-import react4j.annotations.EventHandler;
+import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
@@ -82,7 +82,7 @@ abstract class TodoItem
     setEditText( getTodo().getTitle() );
   }
 
-  @EventHandler( KeyboardEventHandler.class )
+  @Callback( KeyboardEventHandler.class )
   void handleKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ESCAPE_KEY == event.getWhich() )
@@ -95,7 +95,7 @@ abstract class TodoItem
     }
   }
 
-  @EventHandler( FocusEventHandler.class )
+  @Callback( FocusEventHandler.class )
   void onSubmitTodo()
   {
     final String val = getEditText();
@@ -111,20 +111,20 @@ abstract class TodoItem
     }
   }
 
-  @EventHandler( FormEventHandler.class )
+  @Callback( FormEventHandler.class )
   void onToggle()
   {
     getTodo().toggle();
   }
 
-  @EventHandler( MouseEventHandler.class )
+  @Callback( MouseEventHandler.class )
   void onEdit()
   {
     _viewService.setTodoBeingEdited( getTodo() );
     resetEditText();
   }
 
-  @EventHandler( MouseEventHandler.class )
+  @Callback( MouseEventHandler.class )
   void onDestroy()
   {
     _todoRepository.destroy( getTodo() );
@@ -136,7 +136,7 @@ abstract class TodoItem
     _viewService.setTodoBeingEdited( null );
   }
 
-  @EventHandler( FormEventHandler.class )
+  @Callback( FormEventHandler.class )
   void handleChange( @Nonnull final FormEvent event )
   {
     if ( isTodoBeingEdited() )
