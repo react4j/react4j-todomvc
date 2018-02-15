@@ -5,7 +5,7 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.annotations.EventHandler;
+import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.core.ReactNode;
@@ -35,7 +35,7 @@ abstract class TodoEntry
     _todoText = todoText;
   }
 
-  @EventHandler( KeyboardEventHandler.class )
+  @Callback( KeyboardEventHandler.class )
   void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ENTER_KEY == event.getKeyCode() )
@@ -50,7 +50,7 @@ abstract class TodoEntry
     }
   }
 
-  @EventHandler( FormEventHandler.class )
+  @Callback( FormEventHandler.class )
   void handleChange( @Nonnull final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
