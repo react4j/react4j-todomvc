@@ -12,7 +12,6 @@ import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.core.BaseState;
 import react4j.core.ReactNode;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
@@ -139,7 +138,7 @@ abstract class TodoItem
   @Action( reportParameters = false )
   @Override
   protected void componentDidUpdate( @Nullable final JsPropertyMap<Object> prevProps,
-                                     @Nullable final BaseState prevState )
+                                     @Nullable final JsPropertyMap<Object> prevState )
   {
     super.componentDidUpdate( prevProps, prevState );
     final boolean todoBeingEdited = isTodoBeingEdited();
