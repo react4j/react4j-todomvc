@@ -12,7 +12,7 @@ public final class TodoRepository
   private final ArrayList<Todo> _entities = new ArrayList<>();
   private final ArrayList<Procedure> _subscribers = new ArrayList<>();
 
-  public boolean isEmpty()
+  private boolean isEmpty()
   {
     return 0 == totalCount();
   }
@@ -27,7 +27,7 @@ public final class TodoRepository
     return (int) entities().count();
   }
 
-  public int activeCount()
+  private int activeCount()
   {
     return (int) entities().filter( todo -> !todo.isCompleted() ).count();
   }
