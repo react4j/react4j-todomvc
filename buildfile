@@ -10,7 +10,6 @@ define 'react4j-todomvc' do
   project.version = ENV['PRODUCT_VERSION'] if ENV['PRODUCT_VERSION']
 
   project.processorpath << :react4j_processor
-  project.processorpath << :arez_processor
 
   compile.with :javax_jsr305,
                :jetbrains_annotations,
@@ -26,12 +25,6 @@ define 'react4j-todomvc' do
                :react4j_annotation,
                :react4j_core,
                :react4j_dom,
-               :react4j_arez,
-               :arez_annotations,
-               :arez_core,
-               :arez_component,
-               :arez_extras,
-               :arez_browser_extras,
                :gwt_user
 
   gwt_enhance(project,
