@@ -66,6 +66,12 @@ public final class TodoRepository
     notifySubscribers();
   }
 
+  public void toggle( final Todo todo )
+  {
+    todo.toggle();
+    notifySubscribers();
+  }
+
   public void clearCompleted()
   {
     entities()
