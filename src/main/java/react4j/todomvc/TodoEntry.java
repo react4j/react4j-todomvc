@@ -1,13 +1,14 @@
 package react4j.todomvc;
 
-import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
 import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
-import react4j.arez.ReactArezComponent;
+import react4j.annotations.State;
+import react4j.core.Component;
 import react4j.core.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
@@ -20,20 +21,18 @@ import static react4j.todomvc.TodoEntry_.*;
 
 @ReactComponent
 abstract class TodoEntry
-  extends ReactArezComponent
+  extends Component
 {
-  private String _todoText = "";
-
-  @Observable
-  String getTodoText()
+  @Override
+  protected void postConstruct()
   {
-    return _todoText;
+    setInitialState( JsPropertyMap.of( "todoText", "" ) );
   }
 
-  void setTodoText( final String todoText )
-  {
-    _todoText = todoText;
-  }
+  @State
+  abstract String getTodoText();
+
+  abstract void setTodoText( @Nonnull final String todoText );
 
   @Callback( KeyboardEventHandler.class )
   void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
