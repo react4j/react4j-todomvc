@@ -88,11 +88,6 @@ public final class TodoRepository
     _subscribers.add( subscriber );
   }
 
-  public void unsubscribe( @Nonnull final Procedure subscriber )
-  {
-    _subscribers.remove( subscriber );
-  }
-
   private void notifySubscribers()
   {
     _subscribers.forEach( Procedure::call );
