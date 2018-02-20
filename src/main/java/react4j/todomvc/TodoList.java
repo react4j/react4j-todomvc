@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
-import react4j.arez.ReactArezComponent;
+import react4j.core.Component;
 import react4j.core.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
@@ -19,7 +19,7 @@ import static react4j.todomvc.TodoList_.*;
 
 @ReactComponent
 abstract class TodoList
-  extends ReactArezComponent
+  extends Component
 {
   @Callback( MouseEventHandler.class )
   void handleClearCompleted()
@@ -45,7 +45,7 @@ abstract class TodoList
                      TodoEntryBuilder.build()
              ),
              renderMainSection(),
-             AppData.model.isNotEmpty() ? FooterBuilder.build() : null
+             AppData.service.isNotEmpty() ? FooterBuilder.build() : null
         )
       );
   }
@@ -53,7 +53,7 @@ abstract class TodoList
   @Nullable
   private ReactNode renderMainSection()
   {
-    if ( AppData.model.isNotEmpty() )
+    if ( AppData.service.isNotEmpty() )
     {
       return section( new HtmlProps().className( "header" ),
                       input( new InputProps()
