@@ -26,18 +26,18 @@ artifacts:
   elemental2_dom: com.google.elemental2:elemental2-dom:jar:1.0.0-RC1
   elemental2_promise: com.google.elemental2:elemental2-promise:jar:1.0.0-RC1
 
-  react4j_annotation: org.realityforge.react4j:react4j-annotations:jar:0.46
-  react4j_core: org.realityforge.react4j:react4j-core:jar:0.46
-  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.46
-  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.46
-  react4j_arez: org.realityforge.react4j:react4j-arez:jar:0.46
+  react4j_annotation: org.realityforge.react4j:react4j-annotations:jar:0.47
+  react4j_core: org.realityforge.react4j:react4j-core:jar:0.47
+  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.47
+  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.47
+  react4j_arez: org.realityforge.react4j:react4j-arez:jar:0.47
 
-  arez_annotations: org.realityforge.arez:arez-annotations:jar:gwt:0.54
-  arez_core: org.realityforge.arez:arez-core:jar:gwt:0.54
-  arez_processor: org.realityforge.arez:arez-processor:jar:0.54
-  arez_component: org.realityforge.arez:arez-component:jar:gwt:0.54
-  arez_extras: org.realityforge.arez:arez-extras:jar:gwt:0.54
-  arez_browser_extras: org.realityforge.arez:arez-browser-extras:jar:gwt:0.54
+  arez_annotations: org.realityforge.arez:arez-annotations:jar:gwt:0.55
+  arez_core: org.realityforge.arez:arez-core:jar:gwt:0.55
+  arez_processor: org.realityforge.arez:arez-processor:jar:0.55
+  arez_component: org.realityforge.arez:arez-component:jar:gwt:0.55
+  arez_extras: org.realityforge.arez:arez-extras:jar:gwt:0.55
+  arez_browser_extras: org.realityforge.arez:arez-browser-extras:jar:gwt:0.55
 
   braincheck: org.realityforge.braincheck:braincheck:jar:gwt:1.4.0
 
