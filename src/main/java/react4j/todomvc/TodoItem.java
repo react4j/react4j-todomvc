@@ -1,8 +1,5 @@
 package react4j.todomvc;
 
-import arez.annotations.Action;
-import arez.annotations.Computed;
-import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -11,7 +8,8 @@ import jsinterop.base.JsPropertyMap;
 import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
-import react4j.arez.ReactArezComponent;
+import react4j.annotations.State;
+import react4j.core.Component;
 import react4j.core.ReactNode;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
@@ -31,30 +29,22 @@ import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends ReactArezComponent
+  extends Component
 {
   @Nullable
   private HTMLInputElement _editField;
 
   private boolean _isEditing;
-  private String _editText;
 
   @Prop
   abstract Todo getTodo();
 
-  @Observable
-  String getEditText()
-  {
-    return _editText;
-  }
+  @State
+  abstract String getEditText();
 
-  void setEditText( @Nonnull final String editText )
-  {
-    _editText = editText;
-  }
+  abstract void setEditText( @Nonnull String editText );
 
-  @Computed
-  boolean isTodoBeingEdited()
+  private boolean isTodoBeingEdited()
   {
     return AppData.viewService.getTodoBeingEdited() == getTodo();
   }
@@ -62,11 +52,11 @@ abstract class TodoItem
   @Override
   protected void postConstruct()
   {
-    resetEditText();
+    //TODO: This should be replaced by setter call once setters can safely be called during construction.
+    setInitialState( JsPropertyMap.of( "editText", getTodo().getTitle() ) );
   }
 
-  @Action
-  void resetEditText()
+  private void resetEditText()
   {
     setEditText( getTodo().getTitle() );
   }
@@ -96,14 +86,14 @@ abstract class TodoItem
     }
     else
     {
-      AppData.model.destroy( getTodo() );
+      AppData.service.destroy( getTodo() );
     }
   }
 
   @Callback( FormEventHandler.class )
   void onToggle()
   {
-    getTodo().toggle();
+    AppData.service.toggle( getTodo() );
   }
 
   @Callback( MouseEventHandler.class )
@@ -116,7 +106,7 @@ abstract class TodoItem
   @Callback( MouseEventHandler.class )
   void onDestroy()
   {
-    AppData.model.destroy( getTodo() );
+    AppData.service.destroy( getTodo() );
   }
 
   private void onCancel()
@@ -135,7 +125,6 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
   @Override
   protected void componentDidUpdate( @Nullable final JsPropertyMap<Object> prevProps,
                                      @Nullable final JsPropertyMap<Object> prevState )
