@@ -19,8 +19,7 @@ public class App
       //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
       ArezSpyUtil.enableSpyEventLogging();
     }
-    // This next line forces the creation of all the resources, ensuring that the transactions
-    // are not wrapped in another transaction
+    // This next line forces the creation of all the resources
     @SuppressWarnings( "unused" )
     final ViewService viewService = AppData.viewService;
     ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
