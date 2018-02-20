@@ -1,10 +1,9 @@
 package react4j.todomvc;
 
-import arez.annotations.Computed;
 import javax.annotation.Nullable;
 import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
-import react4j.arez.ReactArezComponent;
+import react4j.core.Component;
 import react4j.core.ReactNode;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
@@ -17,7 +16,7 @@ import static react4j.todomvc.Footer_.*;
 
 @ReactComponent
 abstract class Footer
-  extends ReactArezComponent
+  extends Component
 {
   @Callback( MouseEventHandler.class )
   void handleClearCompleted()
@@ -47,16 +46,10 @@ abstract class Footer
                            .href( "#completed" ), "Completed" )
                   )
               ),
-              hasCompletedItems() ?
+              AppData.service.completedCount() > 0 ?
               button( new BtnProps().className( "clear-completed" ).onClick( _handleClearCompleted( this ) ),
                       "Clear Completed" ) :
               null
       );
-  }
-
-  @Computed
-  boolean hasCompletedItems()
-  {
-    return AppData.model.completedCount() > 0;
   }
 }
