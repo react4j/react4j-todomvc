@@ -1,34 +1,30 @@
 package react4j.todomvc.model;
 
-import arez.Disposable;
-import arez.annotations.ArezComponent;
-import arez.annotations.Autorun;
-import arez.annotations.Computed;
-import arez.annotations.Observable;
-import arez.browser.extras.BrowserLocation;
-import arez.component.RepositoryUtil;
+import elemental2.dom.DomGlobal;
+import elemental2.dom.Event;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import react4j.core.Procedure;
 
-@ArezComponent( nameIncludesId = false )
-public abstract class ViewService
+public final class ViewService
 {
+  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
   @Nonnull
   private final TodoRepository _todoRepository;
-  @Nonnull
-  private final BrowserLocation _browserLocation;
   @Nullable
   private Todo _todoBeingEdited;
 
-  ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
+  ViewService( @Nonnull final TodoRepository todoRepository )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    _browserLocation = Objects.requireNonNull( browserLocation );
+    DomGlobal.window.addEventListener( "hashchange", this::onHashChangeEvent, false );
+    todoRepository.subscribe( this::updateTodoBeingEdited );
   }
 
-  @Observable
   @Nullable
   public Todo getTodoBeingEdited()
   {
@@ -38,13 +34,13 @@ public abstract class ViewService
   public void setTodoBeingEdited( @Nullable final Todo todoBeingEdited )
   {
     _todoBeingEdited = todoBeingEdited;
+    notifySubscribers();
   }
 
-  @Computed
   @Nonnull
   public FilterMode getFilterMode()
   {
-    final String location = _browserLocation.getLocation();
+    final String location = getHash();
     if ( isValid( location ) )
     {
       if ( "active".equals( location ) )
@@ -66,38 +62,21 @@ public abstract class ViewService
     }
   }
 
-  @Computed
   public List<Todo> filteredTodos()
   {
     final FilterMode filterMode = getFilterMode();
-    return RepositoryUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
+    return _todoRepository
+      .entities()
+      .filter( todo -> todo.shouldShowTodo( filterMode ) )
+      .collect( Collectors.toList() );
   }
 
-  @Autorun( mutation = true )
-  void updateTodoBeingEdited()
+  private void updateTodoBeingEdited()
   {
     final Todo todoBeingEdited = getTodoBeingEdited();
-    if ( null != todoBeingEdited && Disposable.isDisposed( todoBeingEdited ) )
+    if ( null != todoBeingEdited && !_todoRepository.contains( todoBeingEdited ) )
     {
       setTodoBeingEdited( null );
-    }
-  }
-
-  @Autorun( mutation = true )
-  void cleanLocation()
-  {
-    final String browserLocation = _browserLocation.getBrowserLocation();
-    if ( isValid( browserLocation ) )
-    {
-      _browserLocation.changeLocation( browserLocation );
-    }
-    else if ( isValid( _browserLocation.getLocation() ) )
-    {
-      _browserLocation.resetBrowserLocation();
-    }
-    else
-    {
-      _browserLocation.changeLocation( "" );
     }
   }
 
@@ -106,5 +85,53 @@ public abstract class ViewService
     return "active".equals( location ) ||
            "completed".equals( location ) ||
            "".equals( location );
+  }
+
+  private void onHashChangeEvent( @Nonnull final Event e )
+  {
+    e.preventDefault();
+    final String browserLocation = getHash();
+    if ( isValid( browserLocation ) )
+    {
+      notifySubscribers();
+    }
+    else
+    {
+      setHash( "" );
+    }
+  }
+
+  @Nonnull
+  private String getHash()
+  {
+    final String hash = DomGlobal.window.location.getHash();
+    return null == hash ? "" : hash.substring( 1 );
+  }
+
+  private void setHash( @Nonnull final String hash )
+  {
+    if ( 0 == hash.length() )
+    {
+      /*
+       * This code is needed to remove the stray #.
+       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
+       */
+      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
+      DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
+    }
+    else
+    {
+      DomGlobal.window.location.setHash( hash );
+    }
+  }
+
+  public void subscribe( @Nonnull final Procedure subscriber )
+  {
+    _subscribers.add( subscriber );
+  }
+
+  private void notifySubscribers()
+  {
+    _subscribers.forEach( Procedure::call );
   }
 }

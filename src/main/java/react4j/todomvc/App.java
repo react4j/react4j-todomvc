@@ -12,6 +12,7 @@ public class App
   public void onModuleLoad()
   {
     AppData.service.subscribe( this::render );
+    AppData.viewService.subscribe( this::render );
     render();
   }
 
