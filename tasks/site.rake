@@ -38,7 +38,7 @@ end
 desc 'Build the website'
 task 'site:deploy' => ['site:build'] do
   # Only publish the site off the selected branches if running out of Travis
-  if ENV['TRAVIS_BRANCH'].nil? || %w(arez dagger).include?(ENV['TRAVIS_BRANCH'])
+  if ENV['TRAVIS_BRANCH'].nil? || %w(raw arez dagger).include?(ENV['TRAVIS_BRANCH'])
 
     origin_url = 'https://github.com/react4j/react4j-todomvc.git'
 
