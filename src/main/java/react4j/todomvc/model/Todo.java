@@ -1,16 +1,9 @@
 package react4j.todomvc.model;
 
-import arez.annotations.Action;
-import arez.annotations.ArezComponent;
-import arez.annotations.ComponentId;
-import arez.annotations.Observable;
-import arez.annotations.Repository;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
-@Repository( extensions = { TodoRepositoryExtension.class } )
-@ArezComponent
-public abstract class Todo
+public final class Todo
 {
   @Nonnull
   private String _id;
@@ -25,14 +18,12 @@ public abstract class Todo
     _completed = completed;
   }
 
-  @ComponentId
   @Nonnull
   public final String getId()
   {
     return _id;
   }
 
-  @Observable
   @Nonnull
   public String getTitle()
   {
@@ -44,7 +35,6 @@ public abstract class Todo
     _title = Objects.requireNonNull( title );
   }
 
-  @Observable
   public boolean isCompleted()
   {
     return _completed;
@@ -55,7 +45,6 @@ public abstract class Todo
     _completed = completed;
   }
 
-  @Action
   public void toggle()
   {
     setCompleted( !isCompleted() );
