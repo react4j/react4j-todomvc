@@ -37,6 +37,11 @@ public final class TodoRepository
     return totalCount() - activeCount();
   }
 
+  boolean contains( final Todo todo )
+  {
+    return _entities.contains( todo );
+  }
+
   Stream<Todo> entities()
   {
     return _entities.stream();
