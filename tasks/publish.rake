@@ -13,20 +13,20 @@ def is_tag_on_branch?(tag, branch)
   tags.include?(tag)
 end
 
-def is_tag_on_candidate_branches?(tag, branches)
+def find_tag_on_candidate_branches(tag, branches)
   sh 'git fetch origin'
   branches.each do |branch|
     if is_tag_on_branch?(tag, branch)
       puts "Tag #{tag} is on branch: #{branch}"
-      return true
+      return branch
     elsif is_tag_on_branch?(tag, "origin/#{branch}")
       puts "Tag #{tag} is on branch: origin/#{branch}"
-      return true
+      return branch
     else
       puts "Tag #{tag} is not on branches: #{branch} or origin/#{branch}"
     end
   end
-  false
+  nil
 end
 
 desc 'Publish release to github website iff current HEAD is a tag'
@@ -37,7 +37,9 @@ task 'publish_if_tagged' do
     puts 'Current HEAD is not a tag. Skipping publish step.'
   else
     puts "Current HEAD is a tag: #{tag}"
-    if is_tag_on_candidate_branches?(tag, candidate_branches)
+    branch = find_tag_on_candidate_branches(tag, candidate_branches)
+    if branch
+      ENV['SITE_BRANCH'] = branch
       task('site:deploy').invoke
     end
   end
