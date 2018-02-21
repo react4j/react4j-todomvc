@@ -16,4 +16,4 @@ install:
 - bundle install
 script: buildr package publish_if_tagged
 git:
-  depth: 10
+  depth: false
