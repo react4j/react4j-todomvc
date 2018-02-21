@@ -31,7 +31,7 @@ end
 
 desc 'Publish release to github website iff current HEAD is a tag'
 task 'publish_if_tagged' do
-  candidate_branches = %w(arez dagger)
+  candidate_branches = %w(raw arez dagger)
   tag = get_head_tag_if_any
   if tag.nil?
     puts 'Current HEAD is not a tag. Skipping publish step.'
