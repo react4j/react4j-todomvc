@@ -34,8 +34,8 @@ define 'react4j-todomvc' do
                :arez_browser_extras,
                :gwt_user
 
-  # Exclude the Dev module if EXCLUDE_GWT_MODULE is true
-  GWT_MODULES = %w(react4j.todomvc.TodomvcProd) + (ENV['EXCLUDE_GWT_MODULE'] == 'true' ? [] : %w(react4j.todomvc.TodomvcDev))
+  # Exclude the Dev module if EXCLUDE_GWT_DEV_MODULE is true
+  GWT_MODULES = %w(react4j.todomvc.TodomvcProd) + (ENV['EXCLUDE_GWT_DEV_MODULE'] == 'true' ? [] : %w(react4j.todomvc.TodomvcDev))
   gwt_enhance(project,
               :modules_complete => true,
               :package_jars => false,
