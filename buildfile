@@ -27,10 +27,12 @@ define 'react4j-todomvc' do
                :react4j_dom,
                :gwt_user
 
+  # Exclude the Dev module if EXCLUDE_GWT_MODULE is true
+  GWT_MODULES = %w(react4j.todomvc.TodomvcProd) + (ENV['EXCLUDE_GWT_MODULE'] == 'true' ? [] : %w(react4j.todomvc.TodomvcDev))
   gwt_enhance(project,
               :modules_complete => true,
               :package_jars => false,
-              :gwt_modules => %w(react4j.todomvc.TodomvcDev react4j.todomvc.TodomvcProd),
+              :gwt_modules => GWT_MODULES,
               :module_gwtc_args => {
                 'react4j.todomvc.TodomvcDev' => %w(-optimize 9 -checkAssertions -XmethodNameDisplayMode FULL -noincremental),
                 'react4j.todomvc.TodomvcProd' => %w(-XdisableClassMetadata -XdisableCastChecking -optimize 9 -nocheckAssertions -XmethodNameDisplayMode NONE -noincremental -compileReport)
