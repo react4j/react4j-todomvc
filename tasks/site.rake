@@ -74,6 +74,6 @@ task 'site:deploy_if_candidate_branch' do
     puts "Deploying site for branch '#{branch}'"
     task('site:deploy').invoke
   else
-    puts "Site Deploy skipped as branch '#{branch}' is not in the candidate set"
+    puts "Site deploy skipped as branch '#{branch}' is not in the candidate set"
   end
 end
