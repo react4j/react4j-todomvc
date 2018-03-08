@@ -51,7 +51,7 @@ task 'site:deploy' => ['site:build'] do
   branch = ENV['SITE_BRANCH'] || `git rev-parse --abbrev-ref HEAD`.strip
   rm_rf local_dir
 
-  sh "git clone -b gh-pages #{origin_url} #{local_dir}"
+  sh "git clone -b gh-pages --depth 1 #{origin_url} #{local_dir}"
 
   in_dir(local_dir) do
     message =
