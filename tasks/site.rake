@@ -26,6 +26,7 @@ task 'site:build' do
     cp_r Dir["#{output_dir}/*"], base_dir
     rm_f Dir["#{base_dir}/**/*.devmode.js"]
     rm_f Dir["#{base_dir}/**/compilation-mappings.txt"]
+    rm_rf "#{base_dir}/WEB-INF"
 
     cp_r project._('src/main/webapp/css'), "#{base_dir}/css"
     cp project._('src/main/webapp/index.html'), "#{base_dir}/index.html"
