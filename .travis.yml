@@ -1,5 +1,0 @@
-language: ruby
-sudo: false
-script: true
-git:
-  depth: false
