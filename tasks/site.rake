@@ -63,3 +63,17 @@ task 'site:deploy' => ['site:build'] do
     sh 'git push -f origin gh-pages'
   end
 end
+
+desc 'Publish the website if build is on candidate branch'
+task 'site:deploy_if_candidate_branch' do
+  candidate_branches = %w(raw arez dagger)
+  branch = `git branch | grep '* '`.gsub(/^\* /, '').strip
+
+  if candidate_branches.include?(branch)
+    ENV['SITE_BRANCH'] = branch
+    puts "Deploying site for branch '#{branch}'"
+    task('site:deploy').invoke
+  else
+    puts "Site Deploy skipped as branch '#{branch}' is not in the candidate set"
+  end
+end
