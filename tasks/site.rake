@@ -66,14 +66,12 @@ end
 
 desc 'Publish the website if build is on candidate branch'
 task 'site:deploy_if_candidate_branch' do
-  candidate_branches = %w(raw arez dagger)
-  branch = `git branch | grep '* '`.gsub(/^\* /, '').strip
-
-  if candidate_branches.include?(branch)
+  branch = ENV['TRAVIS_BRANCH']
+  if branch || %w(raw arez dagger).include?(branch)
     ENV['SITE_BRANCH'] = branch
     puts "Deploying site for branch '#{branch}'"
     task('site:deploy').invoke
   else
-    puts "Site Deploy skipped as branch '#{branch}' is not in the candidate set"
+    puts "Site deploy skipped as branch '#{branch}' is not in the candidate set"
   end
 end
