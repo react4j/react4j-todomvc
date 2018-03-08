@@ -60,8 +60,10 @@ task 'site:deploy' => ['site:build'] do
     rm_rf "#{local_dir}/#{branch}"
     cp_r "#{SITE_DIR}/#{branch}", "#{local_dir}/#{branch}"
     sh 'git add . -f'
-    sh "git commit -m \"#{message}\""
-    sh 'git push -f origin gh-pages'
+    puts `git commit -m "#{message}"`
+    if 0 == $?.exitstatus
+      sh 'git push -f origin gh-pages'
+    end
   end
 end
 
