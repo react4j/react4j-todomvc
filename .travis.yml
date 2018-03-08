@@ -14,6 +14,6 @@ install:
 - rvm use 2.3.1
 - gem install bundler
 - bundle install
-script: buildr package publish_if_tagged
+script: buildr package site:deploy_if_candidate_branch
 git:
   depth: false
