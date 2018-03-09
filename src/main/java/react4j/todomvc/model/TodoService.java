@@ -41,7 +41,7 @@ public abstract class TodoService
   @Action
   public void clearCompleted()
   {
-    _repository.findAll().stream()
+    _repository.entities()
       //Find all completed
       .filter( Todo::isCompleted )
       .collect( Collectors.toList() )
