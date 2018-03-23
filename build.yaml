@@ -33,12 +33,12 @@ artifacts:
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.53
   react4j_arez: org.realityforge.react4j:react4j-arez:jar:0.53
 
-  arez_annotations: org.realityforge.arez:arez-annotations:jar:0.70
-  arez_core: org.realityforge.arez:arez-core:jar:0.70
-  arez_processor: org.realityforge.arez:arez-processor:jar:0.70
-  arez_component: org.realityforge.arez:arez-component:jar:0.70
-  arez_extras: org.realityforge.arez:arez-extras:jar:0.70
-  arez_browser_extras: org.realityforge.arez:arez-browser-extras:jar:0.70
+  arez_annotations: org.realityforge.arez:arez-annotations:jar:0.71
+  arez_core: org.realityforge.arez:arez-core:jar:0.71
+  arez_processor: org.realityforge.arez:arez-processor:jar:0.71
+  arez_component: org.realityforge.arez:arez-component:jar:0.71
+  arez_extras: org.realityforge.arez:arez-extras:jar:0.71
+  arez_browser_extras: org.realityforge.arez:arez-browser-extras:jar:0.71
 
   braincheck: org.realityforge.braincheck:braincheck:jar:gwt:1.4.0
 
