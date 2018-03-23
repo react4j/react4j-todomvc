@@ -24,7 +24,7 @@
   <dependencies>
     <dependency>
       <groupId>org.realityforge.react4j</groupId>
-      <artifactId>react4j-dom</artifactId>
+      <artifactId>react4j-arez</artifactId>
       <version>${react4j.version}</version>
     </dependency>
     <dependency>
