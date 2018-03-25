@@ -3,4 +3,5 @@
   <inherits name="react4j.core.ReactDev"/>
 
   <source path='ignore'/>
+  <public path='public' excludes='index.html'/>
 </module>

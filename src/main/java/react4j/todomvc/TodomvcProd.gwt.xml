@@ -9,4 +9,5 @@
   <add-linker name="sso" />
 
   <source path='ignore'/>
+  <public path='public' excludes='dev.html'/>
 </module>
