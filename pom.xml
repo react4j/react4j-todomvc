@@ -22,6 +22,14 @@
     <arez.version>0.71</arez.version>
   </properties>
 
+  <repositories>
+    <repository>
+      <!-- Repository where releases are staged during release process -->
+      <id>staging-repository</id>
+      <url>https://stocksoftware.jfrog.io/stocksoftware/staging</url>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>org.realityforge.react4j</groupId>
