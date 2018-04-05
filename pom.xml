@@ -18,7 +18,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <gwt.version>2.8.2</gwt.version>
     <gwt-maven-plugin.version>1.0-rc-9</gwt-maven-plugin.version>
-    <react4j.version>0.59</react4j.version>
+    <react4j.version>0.60</react4j.version>
     <arez.version>0.74</arez.version>
     <dagger.version>2.13</dagger.version>
   </properties>
