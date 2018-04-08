@@ -32,6 +32,7 @@ define 'react4j-todomvc' do
                :arez_component,
                :arez_extras,
                :arez_browser_extras,
+               :arez_browserlocation,
                :gwt_user
 
   # Exclude the Dev module if EXCLUDE_GWT_DEV_MODULE is true

@@ -5,7 +5,7 @@ import arez.annotations.ArezComponent;
 import arez.annotations.Autorun;
 import arez.annotations.Computed;
 import arez.annotations.Observable;
-import arez.browser.extras.BrowserLocation;
+import arez.browserlocation.BrowserLocation;
 import arez.component.RepositoryUtil;
 import java.util.List;
 import java.util.Objects;
