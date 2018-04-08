@@ -33,6 +33,7 @@ define 'react4j-todomvc' do
                :arez_component,
                :arez_extras,
                :arez_browser_extras,
+               :arez_browserlocation,
                :dagger_core,
                :dagger_core_sources,
                :dagger_gwt,

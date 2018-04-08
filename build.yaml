@@ -39,6 +39,7 @@ artifacts:
   arez_component: org.realityforge.arez:arez-component:jar:0.75
   arez_extras: org.realityforge.arez:arez-extras:jar:0.75
   arez_browser_extras: org.realityforge.arez:arez-browser-extras:jar:0.75
+  arez_browserlocation: org.realityforge.arez.browserlocation:arez-browserlocation:jar:0.01
 
   braincheck: org.realityforge.braincheck:braincheck:jar:gwt:1.4.0
 
