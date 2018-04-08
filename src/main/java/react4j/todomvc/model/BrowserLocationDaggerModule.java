@@ -1,6 +1,6 @@
 package react4j.todomvc.model;
 
-import arez.browser.extras.BrowserLocation;
+import arez.browserlocation.BrowserLocation;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;

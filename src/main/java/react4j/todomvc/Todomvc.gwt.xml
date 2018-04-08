@@ -5,6 +5,7 @@
   <inherits name="react4j.dom.ReactDOM"/>
   <inherits name="dagger.Dagger"/>
   <inherits name="arez.browser.extras.BrowserExtras"/>
+  <inherits name="arez.browserlocation.BrowserLocation"/>
 
   <entry-point class='react4j.todomvc.App'/>
 
