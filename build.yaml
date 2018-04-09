@@ -42,16 +42,17 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck:jar:gwt:1.4.0
 
-  dagger_core: com.google.dagger:dagger:jar:2.13
-  dagger_producers: com.google.dagger:dagger-producers:jar:2.13
-  dagger_compiler: com.google.dagger:dagger-compiler:jar:2.13
+  dagger_core: com.google.dagger:dagger:jar:2.15
+  dagger_spi: com.google.dagger:dagger-spi:jar:2.15
+  dagger_producers: com.google.dagger:dagger-producers:jar:2.15
+  dagger_compiler: com.google.dagger:dagger-compiler:jar:2.15
   googlejavaformat: com.google.googlejavaformat:google-java-format:jar:1.4
   errorprone: com.google.errorprone:javac-shaded:jar:9-dev-r4023-3
   javapoet: com.squareup:javapoet:jar:1.8.0
-  guava: com.google.guava:guava:jar:21.0
+  guava: com.google.guava:guava:jar:23.3-jre
 
-  dagger_core_sources: com.google.dagger:dagger:jar:sources:2.13
-  dagger_gwt: com.google.dagger:dagger-gwt:jar:sources:2.13
+  dagger_core_sources: com.google.dagger:dagger:jar:sources:2.15
+  dagger_gwt: com.google.dagger:dagger-gwt:jar:sources:2.15
 
   javax_inject: javax.inject:javax.inject:jar:1
   javax_inject_sources: javax.inject:javax.inject:jar:sources:1

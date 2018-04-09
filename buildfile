@@ -11,7 +11,7 @@ define 'react4j-todomvc' do
 
   project.processorpath << :react4j_processor
   project.processorpath << :arez_processor
-  project.processorpath << [:javax_inject, :dagger_core, :dagger_producers, :dagger_compiler, :googlejavaformat, :errorprone, :javapoet, :guava]
+  project.processorpath << [:javax_inject, :dagger_core, :dagger_spi, :dagger_producers, :dagger_compiler, :googlejavaformat, :errorprone, :javapoet, :guava]
 
   compile.with :javax_jsr305,
                :jetbrains_annotations,
