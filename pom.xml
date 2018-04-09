@@ -21,6 +21,7 @@
     <react4j.version>0.61</react4j.version>
     <arez.version>0.76</arez.version>
     <arez-browserlocation.version>0.01</arez-browserlocation.version>
+    <arez-spytools.version>0.01</arez-spytools.version>
     <dagger.version>2.13</dagger.version>
   </properties>
 
@@ -50,9 +51,9 @@
       <version>${arez.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.realityforge.arez</groupId>
-      <artifactId>arez-browser-extras</artifactId>
-      <version>${arez.version}</version>
+      <groupId>org.realityforge.arez.spytools</groupId>
+      <artifactId>arez-spytools</artifactId>
+      <version>${arez-spytools.version}</version>
     </dependency>
     <dependency>
       <groupId>org.realityforge.arez.browserlocation</groupId>
