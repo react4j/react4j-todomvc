@@ -1,9 +1,9 @@
 <module>
-  <inherits name="react4j.annotations.Annotations"/>
-  <inherits name="react4j.arez.ReactArez"/>
-  <inherits name="react4j.arez.spy.ReactArezSpy"/>
-  <inherits name="react4j.dom.ReactDOM"/>
-  <inherits name="arez.browserlocation.BrowserLocation"/>
+  <inherits name='react4j.annotations.Annotations'/>
+  <inherits name='react4j.arez.ReactArez'/>
+  <inherits name='react4j.arez.spy.ReactArezSpy'/>
+  <inherits name='react4j.dom.ReactDOM'/>
+  <inherits name='arez.browserlocation.BrowserLocation'/>
 
   <entry-point class='react4j.todomvc.App'/>
 
