@@ -55,7 +55,7 @@ CONTENT
     modules.each do |m|
       gwtc_args = options[:module_gwtc_args].nil? ? nil : options[:module_gwtc_args][m]
       output_key = options[:output_key] || m
-      project.gwt([m], { :java_args => %w(-Xms512M -Xmx1024M),
+      project.gwt([m], { :java_args => %w(-Xms512M -Xmx1024M -Dgwt.watchFileChanges=false),
                          :dependencies => dependencies,
                          :gwtc_args => gwtc_args,
                          :compile_report_dir => compile_report_dir.nil? ? nil : "#{compile_report_dir}/#{output_key}",
