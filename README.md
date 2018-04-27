@@ -2,7 +2,7 @@
 
 This repository contains several implementations of the [TodoMVC](http://todomvc.com/) application written using
 [React4j](https://react4j.github.io). The project gives you an idea about what an application built using React4j
-looks like. There are several variants available on the [listing](https://react4j.github.io/todomvc/) page.
+looks like. There are several variants available on the [listing](https://react4j.github.io/docs/todomvc.html) page.
 
 # Credit
 
