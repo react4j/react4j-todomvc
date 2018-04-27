@@ -38,7 +38,7 @@ end
 
 desc 'Build the website'
 task 'site:deploy' => ['site:build'] do
-  origin_url = 'https://github.com/react4j/react4j-todomvc.git'
+  origin_url = 'https://github.com/react4j/react4j.github.io.git'
 
   travis_build_number = ENV['TRAVIS_BUILD_NUMBER']
   if travis_build_number
@@ -51,18 +51,19 @@ task 'site:deploy' => ['site:build'] do
   branch = ENV['SITE_BRANCH'] || `git rev-parse --abbrev-ref HEAD`.strip
   rm_rf local_dir
 
-  sh "git clone -b gh-pages --depth 1 #{origin_url} #{local_dir}"
+  sh "git clone -b master --depth 1 #{origin_url} #{local_dir}"
 
   in_dir(local_dir) do
     message =
       "Update website based on source branch #{branch}#{travis_build_number.nil? ? '' : " - Travis build: #{travis_build_number}"}"
 
     rm_rf "#{local_dir}/#{branch}"
-    cp_r "#{SITE_DIR}/#{branch}", "#{local_dir}/#{branch}"
+    mkdir_p "#{local_dir}/todomvc"
+    cp_r "#{SITE_DIR}/#{branch}", "#{local_dir}/todomvc/#{branch}"
     sh 'git add . -f'
     puts `git commit -m "#{message}"`
     if 0 == $?.exitstatus
-      sh 'git push -f origin gh-pages'
+      sh 'git push -f origin master'
     end
   end
 end
