@@ -57,7 +57,7 @@ task 'site:deploy' => ['site:build'] do
     message =
       "Update website based on source branch #{branch}#{travis_build_number.nil? ? '' : " - Travis build: #{travis_build_number}"}"
 
-    rm_rf "#{local_dir}/#{branch}"
+    rm_rf "#{local_dir}/todomvc/#{branch}"
     mkdir_p "#{local_dir}/todomvc"
     cp_r "#{SITE_DIR}/#{branch}", "#{local_dir}/todomvc/#{branch}"
     sh 'git add . -f'
