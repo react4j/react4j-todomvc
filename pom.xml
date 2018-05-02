@@ -19,7 +19,7 @@
     <gwt.version>2.8.2</gwt.version>
     <gwt-maven-plugin.version>1.0-rc-9</gwt-maven-plugin.version>
     <react4j.version>0.68</react4j.version>
-    <arez.version>0.81</arez.version>
+    <arez.version>0.82</arez.version>
     <arez-browserlocation.version>0.01</arez-browserlocation.version>
     <arez-spytools.version>0.01</arez-spytools.version>
     <dagger.version>2.15</dagger.version>
