@@ -40,7 +40,7 @@ artifacts:
   arez_browserlocation: org.realityforge.arez.browserlocation:arez-browserlocation:jar:0.09
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.05
 
-  braincheck: org.realityforge.braincheck:braincheck:jar:gwt:1.6.0
+  braincheck: org.realityforge.braincheck:braincheck:jar:1.6.0
 
   dagger_core: com.google.dagger:dagger:jar:2.15
   dagger_spi: com.google.dagger:dagger-spi:jar:2.15
