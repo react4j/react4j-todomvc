@@ -15,7 +15,6 @@ define 'react4j-todomvc' do
 
   compile.with :javax_jsr305,
                :jetbrains_annotations,
-               :anodoc,
                :jsinterop_base,
                :jsinterop_base_sources,
                :jsinterop_annotations,
