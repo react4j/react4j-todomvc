@@ -4,6 +4,8 @@
 /Gemfile.lock
 /_buildr.rb
 /reports
+/out
+/jsZipCache
 /target
 /tmp
 /generated
