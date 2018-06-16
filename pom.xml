@@ -70,23 +70,73 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.vertispan.elemental2</groupId>
+      <artifactId>elemental2-dom</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.1</version>
+      <scope>compile</scope>
+      <classifier>sources</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.2</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.2</version>
+      <scope>compile</scope>
+      <classifier>sources</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
       <groupId>org.realityforge.react4j</groupId>
       <artifactId>react4j-dom</artifactId>
       <version>${react4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <version>${gwt.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-dev</artifactId>
-      <version>${gwt.version}</version>
-      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.gwt</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
+
 
   <build>
     <pluginManagement>
@@ -138,6 +188,151 @@
           </annotationProcessorPaths>
         </configuration>
       </plugin>
+      <!-- Compiles the app to JavaScript -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>2.8.2</version>
+        <executions>
+          <execution>
+            <id>compile-js-gwt</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- ship a classes jar too -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.1.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>devmode</id>
+      <build>
+        <defaultGoal>process-classes</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.0.2</version>
+            <executions>
+              <execution>
+                <id>build-java-classpath</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>build-classpath</goal>
+                </goals>
+                <configuration>
+                  <includeTypes>jar</includeTypes>
+                  <outputProperty>java-classpath</outputProperty>
+                </configuration>
+              </execution>
+              <execution>
+                <id>copy-bootstrap</id>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>com.vertispan.j2cl</groupId>
+                      <artifactId>jre</artifactId>
+                      <version>0.1-SNAPSHOT</version>
+                      <classifier>jszip</classifier>
+                      <type>zip</type>
+                      <destFileName>jre.js.zip</destFileName>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.vertispan.j2cl</groupId>
+                      <artifactId>jre</artifactId>
+                      <version>0.1-SNAPSHOT</version>
+                      <destFileName>jre.jar</destFileName>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.vertispan.j2cl</groupId>
+                      <artifactId>gwt-internal-annotations</artifactId>
+                      <version>0.1-SNAPSHOT</version>
+                      <destFileName>gwt-internal-annotations.jar</destFileName>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>com.vertispan.j2cl</groupId>
+                      <artifactId>bootstrap</artifactId>
+                      <version>0.1-SNAPSHOT</version>
+                      <classifier>jszip</classifier>
+                      <type>zip</type>
+                      <destFileName>bootstrap.js.zip</destFileName>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <id>run-devmode</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>java</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <includeProjectDependencies>false</includeProjectDependencies>
+              <includePluginDependencies>true</includePluginDependencies>
+              <includeProjectDependencies>false</includeProjectDependencies>
+              <mainClass>com.vertispan.j2cl.DevMode</mainClass>
+              <arguments>
+                <argument>-classpath</argument>
+                <argument>
+                  ${java-classpath}:${project.build.directory}/dependency/jre.jar:${project.build.directory}/dependency/gwt-internal-annotations.jar
+                </argument>
+                <argument>-jsClasspath</argument>
+                <argument>
+                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
+                </argument>
+                <argument>-out</argument>
+                <argument>out</argument>
+                <argument>-src</argument>
+                <argument>src/main/java</argument>
+                <argument>-src</argument>
+                <argument>generated/processors/main/java</argument>
+                <argument>-jsZipCache</argument>
+                <argument>jsZipCache</argument>
+                <argument>-entrypoint</argument>
+                <argument>react4j.todomvc.App</argument>
+              </arguments>
+            </configuration>
+            <dependencies>
+              <dependency>
+                <groupId>com.vertispan.j2cl</groupId>
+                <artifactId>build-tools</artifactId>
+                <version>0.1-SNAPSHOT</version>
+                <type>jar</type>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
