@@ -18,7 +18,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <gwt.version>2.8.2</gwt.version>
     <gwt-maven-plugin.version>1.0-rc-9</gwt-maven-plugin.version>
-    <react4j.version>0.75</react4j.version>
+    <react4j.version>0.76</react4j.version>
   </properties>
 
   <repositories>
@@ -84,12 +84,6 @@
       <groupId>org.realityforge.react4j</groupId>
       <artifactId>react4j-dom</artifactId>
       <version>${react4j.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.gwt</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
 
