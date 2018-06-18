@@ -4,7 +4,9 @@
 /Gemfile.lock
 /_buildr.rb
 /reports
-/out
+/out/app.js
+/out/sources
+/out/react4j
 /jsZipCache
 /target
 /tmp
