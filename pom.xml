@@ -73,6 +73,26 @@
       <groupId>org.realityforge.react4j</groupId>
       <artifactId>react4j-dom</artifactId>
       <version>${react4j.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.jsinterop</groupId>
+          <artifactId>base</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.elemental2</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.vertispan.elemental2</groupId>
+      <artifactId>elemental2-dom</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.vertispan.jsinterop</groupId>
+      <artifactId>base</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
