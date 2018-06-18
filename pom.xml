@@ -273,7 +273,7 @@
                 <argument>-src</argument>
                 <argument>src/main/java</argument>
                 <argument>-src</argument>
-                <argument>generated/processors/main/java</argument>
+                <argument>target/generated-sources</argument>
                 <argument>-jsZipCache</argument>
                 <argument>jsZipCache</argument>
                 <argument>-entrypoint</argument>
