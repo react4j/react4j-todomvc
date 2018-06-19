@@ -277,6 +277,8 @@
                 <argument>-jsZipCache</argument>
                 <argument>jsZipCache</argument>
                 <argument>-entrypoint</argument>
+                <argument>jsinterop</argument>
+                <argument>-entrypoint</argument>
                 <argument>react4j.todomvc.App</argument>
               </arguments>
             </configuration>
