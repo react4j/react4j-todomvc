@@ -14,12 +14,10 @@ define 'react4j-todomvc' do
   project.processorpath << :arez_processor
   project.processorpath << [:javax_inject, :dagger_core, :dagger_spi, :dagger_producers, :dagger_compiler, :googlejavaformat, :errorprone, :javapoet, :guava]
 
-  compile.with :javax_jsr305,
+  compile.with :javax_annotation,
                :jetbrains_annotations,
                :jsinterop_base,
-               :jsinterop_base_sources,
                :jsinterop_annotations,
-               :jsinterop_annotations_sources,
                :elemental2_core,
                :elemental2_dom,
                :elemental2_promise,
