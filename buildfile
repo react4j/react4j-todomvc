@@ -12,7 +12,7 @@ define 'react4j-todomvc' do
 
   project.processorpath << :react4j_processor
 
-  compile.with :javax_jsr305,
+  compile.with :javax_annotation,
                :jetbrains_annotations,
                :jsinterop_base,
                :jsinterop_annotations,
