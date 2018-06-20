@@ -28,4 +28,4 @@ artifacts:
   react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.78
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.78
 
-  braincheck: org.realityforge.braincheck:braincheck:jar:1.6.0
+  braincheck: org.realityforge.braincheck:braincheck:jar:1.9.0
