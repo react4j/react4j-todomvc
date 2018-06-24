@@ -271,8 +271,6 @@
                 <argument>--compilation_level=ADVANCED</argument>
                 <argument>--externs</argument>
                 <argument>${project.basedir}/src/main/externs/react.externs.js</argument>
-                <argument>--externs</argument>
-                <argument>${project.basedir}/src/main/externs/react-dom.externs.js</argument>
                 <argument>-out</argument>
                 <argument>out</argument>
                 <argument>-src</argument>
