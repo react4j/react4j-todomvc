@@ -12,7 +12,7 @@ import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.core.ReactNode;
+import react4j.ReactNode;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
