@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
-import react4j.core.Procedure;
+import react4j.Procedure;
 
 public final class TodoRepository
 {

@@ -1,10 +1,10 @@
 package react4j.todomvc;
 
 import javax.annotation.Nullable;
+import react4j.Component;
+import react4j.ReactNode;
 import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
-import react4j.core.Component;
-import react4j.core.ReactNode;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
