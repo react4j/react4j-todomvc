@@ -1,6 +1,7 @@
 <module rename-to='todomvc_dev'>
   <inherits name='react4j.todomvc.Todomvc'/>
-  <inherits name='react4j.core.ReactDev'/>
+  <inherits name='react4j.ReactDev'/>
+  <inherits name='react4j.dom.DomDev'/>
 
   <source path='ignore'/>
   <public path='public' excludes='index.html'/>
