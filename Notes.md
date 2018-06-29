@@ -13,7 +13,7 @@ the directory used by j2cl compile. To install build tools locally do:
 To compile in bundle mode simply open up the `pom.xml` and change `--compilation_level=ADVANCED` to
 `--compilation_level=BUNDLE` and then run `./build.sh`.
 
-## BUNDLE Mode
+## ADVANCED Mode
 
 The `ADVANCED` mode currently does not work as the process is not using the externs for some reason.
 The externs are located at `src/main/externs/react.externs.js` and are configured in the `pom.xml`.
