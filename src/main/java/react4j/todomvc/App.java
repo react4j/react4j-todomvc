@@ -1,14 +1,11 @@
 package react4j.todomvc;
 
-import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import react4j.dom.ReactDOM;
 import react4j.todomvc.model.AppData;
 
-public class App
-  implements EntryPoint
+public final class App
 {
-  @Override
   public void onModuleLoad()
   {
     AppData.service.subscribe( this::render );
