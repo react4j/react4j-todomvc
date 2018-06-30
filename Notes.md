@@ -54,6 +54,10 @@ These are short-hand notes of the changes that were needed to get this "working"
   annotations.
 * `@JsType( isNative = true )` to `@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "Object" )`
   In GWT2.x if the objects were created by the javascript library and passed to java it did not matter.
+* Change the namespace the jsinterop typing of the `React` class from
+  `@JsType( isNative = true, namespace = "React", name = "Component" )` to
+  `@JsType( isNative = true, namespace = JsPackage.GLOBAL, name = "React.Component" )` as J2CL only considers
+  types with a namespace of `JsPackage.GLOBAL` to be capable of being externs.
 
 ## Externs/Closure specifics  
   
