@@ -1,8 +1,0 @@
-<module rename-to='todomvc_dev'>
-  <inherits name='react4j.todomvc.Todomvc'/>
-  <inherits name='react4j.arez.ArezDev'/>
-  <inherits name='arez.ArezDebug'/>
-
-  <source path='ignore'/>
-  <public path='public' excludes='index.html'/>
-</module>

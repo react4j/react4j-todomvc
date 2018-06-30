@@ -1,6 +1,8 @@
 package react4j.todomvc;
 
 import javax.annotation.Nullable;
+import react4j.Component;
+import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.ReactNode;
