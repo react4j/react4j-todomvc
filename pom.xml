@@ -227,6 +227,8 @@
                 <argument>--compilation_level=ADVANCED</argument>
                 <argument>--externs</argument>
                 <argument>${project.basedir}/src/main/externs/react.externs.js</argument>
+                <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
+                <argument>--define=jre.classMetadata=STRIPPED</argument>
                 <argument>-out</argument>
                 <argument>out</argument>
                 <argument>-src</argument>
