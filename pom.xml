@@ -79,10 +79,6 @@
           <artifactId>base</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>com.google.elemental2</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-        <exclusion>
           <groupId>org.realityforge.arez</groupId>
           <artifactId>*</artifactId>
         </exclusion>
@@ -102,11 +98,6 @@
       <groupId>org.realityforge.arez.browserlocation</groupId>
       <artifactId>arez-browserlocation</artifactId>
       <version>${arez-browserlocation.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.vertispan.elemental2</groupId>
-      <artifactId>elemental2-dom</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
@@ -258,11 +249,14 @@
                 </argument>
                 <argument>-jsClasspath</argument>
                 <argument>
-                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
+                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip:${project.basedir}/src/main/java/react.js.zip
                 </argument>
                 <argument>--compilation_level=ADVANCED</argument>
                 <argument>--externs</argument>
                 <argument>${project.basedir}/src/main/externs/react.externs.js</argument>
+                <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
+                <argument>--define=jre.classMetadata=STRIPPED</argument>
+                <argument>--define=goog.DEBUG=false</argument>
                 <argument>-out</argument>
                 <argument>out</argument>
                 <argument>-src</argument>
@@ -273,6 +267,10 @@
                 <argument>jsZipCache</argument>
                 <argument>-entrypoint</argument>
                 <argument>jsinterop</argument>
+                <argument>-entrypoint</argument>
+                <argument>react4j.todomvc.react4j</argument>
+                <argument>-entrypoint</argument>
+                <argument>braincheck</argument>
                 <argument>-entrypoint</argument>
                 <argument>react4j.todomvc.App</argument>
               </arguments>

@@ -74,8 +74,9 @@ React.ReactElement = function() {};
 
 /**
  * @constructor
+ * @param {Object} props Initial props of the component instance.
  */
-React.Component = function() {};
+React.Component = function(props) {};
 
 /**
  * @type {Object}
@@ -275,6 +276,11 @@ React.ReactAttribute.ref;
 // How to update list:
 //   1) Open http://facebook.github.io/react/docs/tags-and-attributes.html#html-attributes
 //   2) Github Search in google/closure-compiler for attribute.
+
+/**
+ * @type {Object}
+ */
+React.ReactAttribute.styleMedia;
 
 /**
  * @type {boolean}
