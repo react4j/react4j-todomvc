@@ -74,8 +74,9 @@ React.ReactElement = function() {};
 
 /**
  * @constructor
+ * @param {Object} props Initial props of the component instance.
  */
-React.Component = function() {};
+React.Component = function(props) {};
 
 /**
  * @type {Object}
