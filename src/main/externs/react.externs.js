@@ -277,6 +277,11 @@ React.ReactAttribute.ref;
 //   2) Github Search in google/closure-compiler for attribute.
 
 /**
+ * @type {Object}
+ */
+React.ReactAttribute.styleMedia;
+
+/**
  * @type {boolean}
  */
 React.ReactAttribute.allowFullScreen;
