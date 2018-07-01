@@ -229,6 +229,7 @@
                 <argument>${project.basedir}/src/main/externs/react.externs.js</argument>
                 <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
                 <argument>--define=jre.classMetadata=STRIPPED</argument>
+                <argument>--define=goog.DEBUG=false</argument>
                 <argument>-out</argument>
                 <argument>out</argument>
                 <argument>-src</argument>
