@@ -222,7 +222,7 @@
                 </argument>
                 <argument>-jsClasspath</argument>
                 <argument>
-                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
+                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip:${project.basedir}/src/main/java/react.js.zip
                 </argument>
                 <argument>--compilation_level=ADVANCED</argument>
                 <argument>--externs</argument>
@@ -239,6 +239,10 @@
                 <argument>jsZipCache</argument>
                 <argument>-entrypoint</argument>
                 <argument>jsinterop</argument>
+                <argument>-entrypoint</argument>
+                <argument>react4j.todomvc.react4j</argument>
+                <argument>-entrypoint</argument>
+                <argument>braincheck</argument>
                 <argument>-entrypoint</argument>
                 <argument>react4j.todomvc.App</argument>
               </arguments>
