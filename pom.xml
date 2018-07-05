@@ -20,7 +20,7 @@
     <gwt-maven-plugin.version>1.0-rc-9</gwt-maven-plugin.version>
     <react4j.version>0.81</react4j.version>
     <arez.version>0.96</arez.version>
-    <arez-browserlocation.version>0.21</arez-browserlocation.version>
+    <arez-browserlocation.version>0.23</arez-browserlocation.version>
     <arez-spytools.version>0.20</arez-spytools.version>
   </properties>
 
