@@ -35,7 +35,6 @@ abstract class TodoItem
 {
   @Nullable
   private HTMLInputElement _editField;
-
   private boolean _isEditing;
   private String _editText;
 
