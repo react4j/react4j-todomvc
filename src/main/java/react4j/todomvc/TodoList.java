@@ -4,13 +4,13 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
+import react4j.ReactNode;
 import react4j.annotations.Callback;
+import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
-import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
@@ -31,13 +31,7 @@ abstract class TodoList
   @Inject
   ViewService _viewService;
 
-  @Callback( MouseEventHandler.class )
-  void handleClearCompleted()
-  {
-    _todoService.clearCompleted();
-  }
-
-  @Callback( FormEventHandler.class )
+  @Callback( value = FormEventHandler.class, initCallbackContext = Feature.DISABLE )
   void handleToggleAll( FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
