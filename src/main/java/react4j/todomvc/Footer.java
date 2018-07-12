@@ -3,10 +3,11 @@ package react4j.todomvc;
 import arez.annotations.Computed;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
+import react4j.ReactNode;
 import react4j.annotations.Callback;
+import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.ReactNode;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
@@ -29,7 +30,7 @@ abstract class Footer
   @Inject
   ViewService _viewService;
 
-  @Callback( MouseEventHandler.class )
+  @Callback( value = MouseEventHandler.class, initCallbackContext = Feature.DISABLE )
   void handleClearCompleted()
   {
     _todoService.clearCompleted();
