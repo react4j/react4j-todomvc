@@ -1,14 +1,16 @@
 package react4j.todomvc;
 
+import arez.annotations.Action;
 import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
+import react4j.ReactNode;
 import react4j.annotations.Callback;
+import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
@@ -35,18 +37,24 @@ abstract class TodoEntry
     _todoText = todoText;
   }
 
-  @Callback( KeyboardEventHandler.class )
+  @Callback( value = KeyboardEventHandler.class, initCallbackContext = Feature.DISABLE )
   void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ENTER_KEY == event.getKeyCode() )
     {
       event.preventDefault();
-      final String val = getTodoText().trim();
-      if ( val.length() > 0 )
-      {
-        AppData.service.addTodo( val );
-        setTodoText( "" );
-      }
+      addTodo();
+    }
+  }
+
+  @Action
+  void addTodo()
+  {
+    final String val = getTodoText().trim();
+    if ( val.length() > 0 )
+    {
+      AppData.service.addTodo( val );
+      setTodoText( "" );
     }
   }
 

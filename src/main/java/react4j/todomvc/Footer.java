@@ -2,10 +2,11 @@ package react4j.todomvc;
 
 import arez.annotations.Computed;
 import javax.annotation.Nullable;
+import react4j.ReactNode;
 import react4j.annotations.Callback;
+import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.ReactNode;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
@@ -19,7 +20,7 @@ import static react4j.todomvc.Footer_.*;
 abstract class Footer
   extends ReactArezComponent
 {
-  @Callback( MouseEventHandler.class )
+  @Callback( value = MouseEventHandler.class, initCallbackContext = Feature.DISABLE )
   void handleClearCompleted()
   {
     AppData.service.clearCompleted();
