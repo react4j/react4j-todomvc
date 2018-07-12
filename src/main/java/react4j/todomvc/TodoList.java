@@ -9,7 +9,6 @@ import react4j.arez.ReactArezComponent;
 import react4j.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
-import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
@@ -21,12 +20,6 @@ import static react4j.todomvc.TodoList_.*;
 abstract class TodoList
   extends ReactArezComponent
 {
-  @Callback( MouseEventHandler.class )
-  void handleClearCompleted()
-  {
-    AppData.service.clearCompleted();
-  }
-
   @Callback( FormEventHandler.class )
   void handleToggleAll( FormEvent event )
   {
