@@ -3,10 +3,11 @@ package react4j.todomvc;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
+import react4j.ReactNode;
 import react4j.annotations.Callback;
+import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.ReactNode;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -20,7 +21,7 @@ import static react4j.todomvc.TodoList_.*;
 abstract class TodoList
   extends ReactArezComponent
 {
-  @Callback( FormEventHandler.class )
+  @Callback( value = FormEventHandler.class, initCallbackContext = Feature.DISABLE )
   void handleToggleAll( FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
