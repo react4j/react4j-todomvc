@@ -1,6 +1,7 @@
 
 
 * Move arez-spytools `0.22` into all react4j-todomvc branches
+* Zim out org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.0.0
 * Add J2CL compatible flags onto all react4j libraries
 * Add J2CL compatible flags onto all arez libraries
 * Do size analysis when arez included
