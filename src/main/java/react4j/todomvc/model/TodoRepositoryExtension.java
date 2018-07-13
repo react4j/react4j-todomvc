@@ -1,10 +1,11 @@
 package react4j.todomvc.model;
 
-import arez.annotations.Computed;
-
+/*
+ * Re-add the @Computed annotations when https://github.com/google/j2cl/issues/2 is addressed
+ */
 public interface TodoRepositoryExtension
 {
-  @Computed
+  //TODO (Readd this once J2CL supports it): @Computed
   default boolean isEmpty()
   {
     return 0 == totalCount();
@@ -15,19 +16,19 @@ public interface TodoRepositoryExtension
     return !isEmpty();
   }
 
-  @Computed
+  //TODO (Readd this once J2CL supports it): @Computed
   default int totalCount()
   {
     return (int) self().entities().count();
   }
 
-  @Computed
+  //TODO (Readd this once J2CL supports it): @Computed
   default int activeCount()
   {
     return (int) self().entities().filter( todo -> !todo.isCompleted() ).count();
   }
 
-  @Computed
+  //TODO (Readd this once J2CL supports it): @Computed
   default int completedCount()
   {
     return totalCount() - activeCount();
