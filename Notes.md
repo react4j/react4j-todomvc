@@ -14,7 +14,6 @@ the directory used by j2cl compile. To install build tools locally do:
   - https://github.com/facebook/react/pull/11967/files
   - https://github.com/tadeegan/react-closure-sample
 * Experiment with Bazel - https://github.com/bazelbuild/rules_closure
-* https://github.com/Axellience/vue-gwt-demo/blob/feature/j2cl/pom.xml
 
 # Change Notes
 
