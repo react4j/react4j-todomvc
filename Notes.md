@@ -39,6 +39,7 @@ These are short-hand notes of the changes that were needed to get this "working"
   libraries such as `com.google.code.findbugs:jsr305:jar`. It uses several jre only features so instead of
   trying to fix that library I just extracted a j2cl compatible library `org.realityforge.javax.annotation:javax.annotation:jar`
   that included a few commonly used annotations (i.e. `@Nonnull`, `@Nullable` and `@Generated`).
+  A similar approach was taken for jetbrains annotations - `org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.0.0`
 * As annotation processors were moved off the classpath onto processor classpath.
 * Some annotation processors had not been shaded and now needed to be. Previously when annotation
   processors were only on the classpath, each module would only have a processor and it deps on the
