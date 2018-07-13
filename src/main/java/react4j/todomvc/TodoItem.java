@@ -8,14 +8,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.ReactNode;
-import react4j.annotations.State;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
@@ -38,7 +35,6 @@ abstract class TodoItem
 {
   @Nullable
   private HTMLInputElement _editField;
-
   private boolean _isEditing;
   private String _editText;
 

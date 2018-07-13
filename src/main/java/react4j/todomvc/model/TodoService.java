@@ -18,7 +18,6 @@ public abstract class TodoService
     _repository = Objects.requireNonNull( repository );
   }
 
-  @Action
   public void addTodo( @Nonnull final String title )
   {
     _repository.create( Long.toString( new Date().getTime() ), title, false );
