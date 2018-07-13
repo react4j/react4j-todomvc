@@ -52,6 +52,7 @@ These are short-hand notes of the changes that were needed to get this "working"
 ## Externs/Closure specifics  
   
 * Find and include externs.
-* Many places needed to add the equivalent of `goog.define('goog.DEBUG', true);` for own compile time constants.
-  These have been stripped out but will need to be added back in to get `ADVANCED` mode working.
+* Add defines for all the compile time properties that are used in downstream libraries. (Braincheck, react4j,
+  arez). These are all placed in react4j.js and zipped up to be compatible with j2cl via:
+  `(cd src/main/java && zip react.js.zip react4j/todomvc/react4j.js)`
 
