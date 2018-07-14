@@ -1,3 +1,4 @@
+* Get j2cl variants built from react4j/arez build process
 * Experiment by converting some interfaces into JsFunction to see if can improve numbers under J2CL
 
 * Size Analysis:
