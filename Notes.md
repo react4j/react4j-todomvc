@@ -70,3 +70,8 @@ The patched Arez mostly involved converting interfaces into `@JsFunction` interf
 GWT 2.8.2 and decreases sizes under J2CL. Thus it has not been applied to master. See the associated
 [Pull Request](https://github.com/arez/arez/pull/7).
 
+## TODO
+
+* Make sure build process is actually building J2CL process.
+* Get j2cl variants built from react4j/arez build process. Drop the associated maven builds or at least drop
+  the size recording and comparison. Add J2CL to size comparisons recorded but do not fail if they vary.
