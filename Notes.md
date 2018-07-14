@@ -58,4 +58,3 @@ These are short-hand notes of the changes that were needed to get this "working"
 ## Some differenes in output
 
 * No way to convert Enums into integers?
-* Strings constants are not made into vars and reused
