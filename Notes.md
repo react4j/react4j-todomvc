@@ -55,6 +55,6 @@ These are short-hand notes of the changes that were needed to get this "working"
   arez). These are all placed in react4j.js and zipped up to be compatible with j2cl via:
   `(cd src/main/java && zip react.js.zip react4j/todomvc/react4j.js)`
 
-## Some differenes in output
+## Questions
 
 * No way to convert Enums into integers?
