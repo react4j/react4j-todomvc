@@ -283,7 +283,7 @@
             </configuration>
             <dependencies>
               <dependency>
-                <groupId>com.vertispan.j2cl</groupId>
+                <groupId>org.realityforge.j2cl</groupId>
                 <artifactId>build-tools</artifactId>
                 <version>0.1-SNAPSHOT</version>
                 <type>jar</type>

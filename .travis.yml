@@ -2,7 +2,7 @@ language: ruby
 jdk:
 - oraclejdk8
 sudo: false
-script: cp src/main/etc/settings.xml $HOME/.m2/settings.xml && mvn clean package
+script: cp src/main/etc/settings.xml $HOME/.m2/settings.xml && mvn clean package -Pdevmode
 git:
   depth: false
 env:
