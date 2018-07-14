@@ -58,3 +58,15 @@ These are short-hand notes of the changes that were needed to get this "working"
 ## Questions
 
 * No way to convert Enums into integers?
+
+## Size Analysis
+
+- Raw: 30598 (J2CL) vs 36826 (GWT 2.8.2) ~ 83%
+- Arez: 63316 (J2CL) vs 70358 (GWT 2.8.2) ~ 90%
+- Arez (with patched Arez): 62989 (J2CL) vs 70358 (GWT 2.8.2) ~ 90%
+- Dagger: 66418 (J2CL) vs 75335 (GWT 2.8.2) ~ 88%
+
+The patched Arez mostly involved converting interfaces into `@JsFunction` interfaces. This increases sizes under
+GWT 2.8.2 and decreases sizes under J2CL. Thus it has not been applied to master. See the associated
+[Pull Request](https://github.com/arez/arez/pull/7).
+
