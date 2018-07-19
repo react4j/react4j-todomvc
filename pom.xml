@@ -15,7 +15,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <react4j.version>0.82</react4j.version>
+    <react4j.version>0.85</react4j.version>
     <arez.version>0.97</arez.version>
     <arez-browserlocation.version>0.24</arez-browserlocation.version>
     <arez-spytools.version>0.22</arez-spytools.version>
@@ -284,8 +284,6 @@
                 <argument>jsZipCache</argument>
                 <argument>-entrypoint</argument>
                 <argument>jsinterop</argument>
-                <argument>-entrypoint</argument>
-                <argument>react4j.todomvc.react4j</argument>
                 <argument>-entrypoint</argument>
                 <argument>braincheck</argument>
                 <argument>-entrypoint</argument>
