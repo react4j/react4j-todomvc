@@ -72,5 +72,4 @@ GWT 2.8.2 and decreases sizes under J2CL. Thus it has not been applied to master
 
 ## TODO
 
-* Get j2cl variants built from react4j/arez build process. Drop the associated maven builds or at least drop
-  the size recording and comparison. Add J2CL to size comparisons recorded but do not fail if they vary.
+* Get j2cl variants built from react4j/arez build process and add to size comparisons recorded.
