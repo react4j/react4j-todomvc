@@ -51,9 +51,8 @@ These are short-hand notes of the changes that were needed to get this "working"
 ## Externs/Closure specifics  
   
 * Find and include externs.
-* Add defines for all the compile time properties that are used in downstream libraries. (Braincheck, react4j,
-  arez). These are all placed in react4j.js and zipped up to be compatible with j2cl via:
-  `(cd src/main/java && zip react.js.zip react4j/todomvc/react4j.js)`
+* Add defines to the source projects (react4j+braincheck+arez) that required the defines from a `ArezConfig.native.js`
+  file so that the compile constants were available to closure compiler.
 
 ## Questions
 
