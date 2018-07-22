@@ -72,3 +72,11 @@ GWT 2.8.2 and decreases sizes under J2CL. Thus it has not been applied to master
 ## TODO
 
 * Get j2cl variants built from react4j/arez build process and add to size comparisons recorded.
+
+* Document `namespace` parameter value `"<window>"` of `@JsType`. Consider suggeating Extraction of jsinterop,
+  javaemul and jre libraries to be moved outside GWT repository. Here is the description from Colin
+
+    > <window> is an "escape hatch" of sorts, undocumented but supported, which lets you say "just let me run without any namespace at all"
+    > in gwt, GLOBAL means a $wnd. prefix
+    > (in j2cl it means goog.global. prefix)
+    > see jsinterop.base.Js for a few examples of <window>
