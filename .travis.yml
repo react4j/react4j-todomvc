@@ -2,8 +2,6 @@ language: ruby
 jdk:
 - oraclejdk8
 sudo: false
-rvm:
-- 2.3.1
 before_install:
 - openssl aes-256-cbc -K $encrypted_47150f95ffd7_key -iv $encrypted_47150f95ffd7_iv
   -in etc/secrets -out ../secrets.tar -d
@@ -11,9 +9,10 @@ before_install:
 - chmod 600 ../deploy
 - eval `ssh-agent -s` && ssh-add ../deploy
 install:
-- rvm use 2.3.1
-- gem install bundler
-- bundle install
-script: buildr package site:deploy_if_candidate_branch
+- wget -O install.sh "https://github.com/bazelbuild/bazel/releases/download/0.15.2/bazel-0.15.2-installer-linux-x86_64.sh"
+- chmod +x install.sh
+- ./install.sh --user
+- rm -f install.sh
+script: bazel build :react4j-todomvc
 git:
   depth: false
