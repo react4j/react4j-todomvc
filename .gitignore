@@ -1,9 +1,7 @@
 *.iml
 /*.ipr
 /*.iws
-/Gemfile.lock
-/_buildr.rb
-/reports
-/target
+/.gradle
+/build
 /tmp
 /generated
