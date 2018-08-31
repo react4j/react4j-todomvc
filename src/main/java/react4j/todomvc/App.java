@@ -1,8 +1,8 @@
 package react4j.todomvc;
 
 import arez.Arez;
+import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import elemental2.dom.DomGlobal;
-import react4j.arez.spy.ArezSpyUtil;
 import react4j.dom.ReactDOM;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.ViewService;
@@ -14,7 +14,7 @@ public final class App
     if ( Arez.areSpiesEnabled() )
     {
       //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
-      ArezSpyUtil.enableSpyEventLogging();
+      ReactArezSpyUtil.enableSpyEventLogging();
     }
     // This next line forces the creation of all the resources, ensuring that the transactions
     // are not wrapped in another transaction
