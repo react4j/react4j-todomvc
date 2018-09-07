@@ -16,9 +16,9 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.95</react4j.version>
-    <arez.version>0.106</arez.version>
-    <arez-browserlocation.version>0.31</arez-browserlocation.version>
-    <arez-spytools.version>0.30</arez-spytools.version>
+    <arez.version>0.107</arez.version>
+    <arez-browserlocation.version>0.33</arez-browserlocation.version>
+    <arez-spytools.version>0.32</arez-spytools.version>
     <dagger.version>2.15</dagger.version>
   </properties>
 
