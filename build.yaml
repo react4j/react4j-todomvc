@@ -28,9 +28,9 @@ artifacts:
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.95
   react4j_arez: org.realityforge.react4j:react4j-arez:jar:0.95
 
-  arez_core: org.realityforge.arez:arez-core:jar:0.106
-  arez_processor: org.realityforge.arez:arez-processor:jar:0.106
-  arez_browserlocation: org.realityforge.arez.browserlocation:arez-browserlocation:jar:0.31
-  arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.30
+  arez_core: org.realityforge.arez:arez-core:jar:0.107
+  arez_processor: org.realityforge.arez:arez-processor:jar:0.107
+  arez_browserlocation: org.realityforge.arez.browserlocation:arez-browserlocation:jar:0.33
+  arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.32
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.9.0
