@@ -2,9 +2,9 @@ package react4j.todomvc.model;
 
 import arez.Disposable;
 import arez.annotations.ArezComponent;
-import arez.annotations.Autorun;
 import arez.annotations.Computed;
 import arez.annotations.Observable;
+import arez.annotations.Observed;
 import arez.browserlocation.BrowserLocation;
 import arez.component.CollectionsUtil;
 import java.util.List;
@@ -75,7 +75,7 @@ public abstract class ViewService
     return CollectionsUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 
-  @Autorun( mutation = true )
+  @Observed( mutation = true )
   void updateTodoBeingEdited()
   {
     final Todo todoBeingEdited = getTodoBeingEdited();
@@ -85,7 +85,7 @@ public abstract class ViewService
     }
   }
 
-  @Autorun( mutation = true )
+  @Observed( mutation = true )
   void cleanLocation()
   {
     final String browserLocation = _browserLocation.getBrowserLocation();
