@@ -150,7 +150,7 @@ abstract class TodoItem
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
-    return li( new HtmlProps().className( classesFor( completed, isTodoBeingEdited() ) ),
+    return li( new HtmlProps().className( completed ? "completed" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
@@ -174,19 +174,5 @@ abstract class TodoItem
                         .onKeyDown( _handleKeyDown( this ) )
                )
     );
-  }
-
-  private static String classesFor( final boolean completed, final boolean editing )
-  {
-    String cls = completed ? "completed" : "";
-    if ( editing )
-    {
-      if ( !cls.isEmpty() )
-      {
-        cls += " ";
-      }
-      cls += "editing";
-    }
-    return cls;
   }
 }
