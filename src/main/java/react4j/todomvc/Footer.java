@@ -36,15 +36,15 @@ abstract class Footer
               FooterTodoCountBuilder.build(),
               ul( new HtmlProps().className( "filters" ),
                   li( a( new AnchorProps()
-                           .className( FilterMode.ALL == filterMode ? "selected" : "" )
+                           .className( FilterMode.ALL == filterMode ? "selected" : null )
                            .href( "#" ), "All" )
                   ),
                   li( a( new AnchorProps()
-                           .className( FilterMode.ACTIVE == filterMode ? "selected" : "" )
+                           .className( FilterMode.ACTIVE == filterMode ? "selected" : null )
                            .href( "#active" ), "Active" )
                   ),
                   li( a( new AnchorProps()
-                           .className( FilterMode.COMPLETED == filterMode ? "selected" : "" )
+                           .className( FilterMode.COMPLETED == filterMode ? "selected" : null )
                            .href( "#completed" ), "Completed" )
                   )
               ),
