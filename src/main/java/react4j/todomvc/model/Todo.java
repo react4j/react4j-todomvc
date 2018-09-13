@@ -2,9 +2,9 @@ package react4j.todomvc.model;
 
 import arez.annotations.Action;
 import arez.annotations.ArezComponent;
+import arez.annotations.ComponentIdRef;
 import arez.annotations.Observable;
 import arez.annotations.Repository;
-import arez.component.Identifiable;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
@@ -22,11 +22,8 @@ public abstract class Todo
     _completed = completed;
   }
 
-  public final int getId()
-  {
-    // Just extract the synthetic id. Consider replacing this with @ComponentIdRef when it is implemented
-    return Objects.requireNonNull( Identifiable.getArezId( this ) );
-  }
+  @ComponentIdRef
+  public abstract int getId();
 
   @Observable
   @Nonnull
