@@ -83,7 +83,7 @@ public abstract class ViewService
     }
   }
 
-  @Observed( mutation = true )
+  @Observed( mutation = true, nestedActionsAllowed = true )
   void cleanLocation()
   {
     final String browserLocation = _browserLocation.getBrowserLocation();

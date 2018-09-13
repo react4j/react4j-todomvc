@@ -2,7 +2,6 @@ package react4j.todomvc.model;
 
 import arez.annotations.Action;
 import arez.annotations.ArezComponent;
-import java.util.Date;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -20,7 +19,7 @@ public abstract class TodoService
 
   public void addTodo( @Nonnull final String title )
   {
-    _repository.create( Long.toString( new Date().getTime() ), title, false );
+    _repository.create( title, false );
   }
 
   @Action
