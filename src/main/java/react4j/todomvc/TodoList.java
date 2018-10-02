@@ -21,7 +21,7 @@ abstract class TodoList
   extends Component
 {
   @Callback( FormEventHandler.class )
-  void handleToggleAll( FormEvent event )
+  void handleToggleAll( final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
     AppData.service.toggleAll( input.checked );
