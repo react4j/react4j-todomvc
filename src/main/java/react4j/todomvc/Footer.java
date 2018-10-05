@@ -4,11 +4,8 @@ import arez.annotations.Computed;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import react4j.ReactNode;
-import react4j.annotations.Callback;
-import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -17,7 +14,6 @@ import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
-import static react4j.todomvc.Footer_.*;
 
 @ReactComponent
 abstract class Footer
@@ -29,12 +25,6 @@ abstract class Footer
   TodoService _todoService;
   @Inject
   ViewService _viewService;
-
-  @Callback( value = MouseEventHandler.class, initCallbackContext = Feature.DISABLE )
-  void handleClearCompleted()
-  {
-    _todoService.clearCompleted();
-  }
 
   @Nullable
   @Override
@@ -59,7 +49,7 @@ abstract class Footer
                   )
               ),
               hasCompletedItems() ?
-              button( new BtnProps().className( "clear-completed" ).onClick( _handleClearCompleted( this ) ),
+              button( new BtnProps().className( "clear-completed" ).onClick( e -> _todoService.clearCompleted() ),
                       "Clear Completed" ) :
               null
       );
