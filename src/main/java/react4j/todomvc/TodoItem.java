@@ -11,6 +11,7 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import react4j.ReactNode;
 import react4j.annotations.Callback;
+import react4j.annotations.Feature;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
@@ -80,7 +81,7 @@ abstract class TodoItem
     setEditText( getTodo().getTitle() );
   }
 
-  @Callback( KeyboardEventHandler.class )
+  @Callback( value = KeyboardEventHandler.class, initCallbackContext = Feature.DISABLE )
   void handleKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ESCAPE_KEY == event.getWhich() )
@@ -128,7 +129,8 @@ abstract class TodoItem
     _todoRepository.destroy( getTodo() );
   }
 
-  private void onCancel()
+  @Action
+  void onCancel()
   {
     resetEditText();
     _viewService.setTodoBeingEdited( null );
