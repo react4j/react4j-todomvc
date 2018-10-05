@@ -9,7 +9,6 @@ import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
-import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
@@ -21,14 +20,8 @@ import static react4j.todomvc.TodoList_.*;
 abstract class TodoList
   extends Component
 {
-  @Callback( MouseEventHandler.class )
-  void handleClearCompleted()
-  {
-    AppData.service.clearCompleted();
-  }
-
   @Callback( FormEventHandler.class )
-  void handleToggleAll( FormEvent event )
+  void handleToggleAll( final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
     AppData.service.toggleAll( input.checked );

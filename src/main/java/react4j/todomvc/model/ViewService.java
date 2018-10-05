@@ -8,7 +8,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import react4j.Procedure;
 
 public final class ViewService
 {
