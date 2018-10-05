@@ -32,7 +32,7 @@ public abstract class Todo
     return _title;
   }
 
-  public void setTitle( @Nonnull final String title )
+  void setTitle( @Nonnull final String title )
   {
     _title = Objects.requireNonNull( title );
   }
@@ -43,7 +43,7 @@ public abstract class Todo
     return _completed;
   }
 
-  public void setCompleted( final boolean completed )
+  void setCompleted( final boolean completed )
   {
     _completed = completed;
   }
