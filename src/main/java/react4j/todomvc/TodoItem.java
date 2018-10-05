@@ -9,17 +9,11 @@ import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import react4j.ReactNode;
-import react4j.annotations.Callback;
-import react4j.annotations.Feature;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
-import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
-import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
-import react4j.dom.events.KeyboardEventHandler;
-import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
@@ -28,7 +22,6 @@ import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
 import static react4j.dom.DOM.*;
-import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
@@ -62,71 +55,56 @@ abstract class TodoItem
   @Override
   protected void postConstruct()
   {
-    resetEditText();
+    resetEditText( getTodo() );
   }
 
   @Action
-  void resetEditText()
+  void resetEditText( @Nonnull final Todo todo )
   {
-    setEditText( getTodo().getTitle() );
+    setEditText( todo.getTitle() );
   }
 
-  @Callback( value = KeyboardEventHandler.class, initCallbackContext = Feature.DISABLE )
-  void handleKeyDown( @Nonnull final KeyboardEvent event )
+  private void handleKeyDown( @Nonnull final KeyboardEvent event, @Nonnull final Todo todo )
   {
     if ( KeyCodes.ESCAPE_KEY == event.getWhich() )
     {
-      onCancel();
+      onCancel( todo );
     }
     else if ( KeyCodes.ENTER_KEY == event.getWhich() )
     {
-      onSubmitTodo();
+      onSubmitTodo( todo );
     }
   }
 
-  @Callback( FocusEventHandler.class )
-  void onSubmitTodo()
+  private void onSubmitTodo( @Nonnull final Todo todo )
   {
     final String val = getEditText();
     if ( null != val && !val.isEmpty() )
     {
-      AppData.service.save( getTodo(), val );
+      AppData.service.save( todo, val );
       AppData.viewService.setTodoBeingEdited( null );
       setEditText( val );
     }
     else
     {
-      AppData.model.destroy( getTodo() );
+      AppData.model.destroy( todo );
     }
   }
 
-  @Callback( FormEventHandler.class )
-  void onToggle()
+  private void onEdit( @Nonnull final Todo todo )
   {
-    getTodo().toggle();
+    AppData.viewService.setTodoBeingEdited( todo );
+    resetEditText( todo );
   }
 
-  @Callback( MouseEventHandler.class )
-  void onEdit()
+  @Action( reportParameters = false )
+  void onCancel( @Nonnull final Todo todo )
   {
-    AppData.viewService.setTodoBeingEdited( getTodo() );
-    resetEditText();
-  }
-
-  @Callback( MouseEventHandler.class )
-  void onDestroy()
-  {
-    AppData.model.destroy( getTodo() );
-  }
-
-  @Action
-  void onCancel()
-  {
-    resetEditText();
+    resetEditText( todo );
     AppData.viewService.setTodoBeingEdited( null );
   }
 
-  @Callback( FormEventHandler.class )
+  @Action( reportParameters = false )
   void handleChange( @Nonnull final FormEvent event )
   {
     if ( isTodoBeingEdited() )
@@ -146,7 +124,7 @@ abstract class TodoItem
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
-      resetEditText();
+      resetEditText( getTodo() );
       assert null != _editField;
       _editField.focus();
       _editField.select();
@@ -169,22 +147,19 @@ abstract class TodoItem
                              .className( "toggle" )
                              .type( InputType.checkbox )
                              .checked( completed )
-                             .onChange( _onToggle( this ) )
+                             .onChange( e -> todo.toggle() )
                     ),
-                    label( new LabelProps().onDoubleClick( _onEdit( this ) ),
-                           todo.getTitle() ),
-                    button( new BtnProps()
-                              .className( "destroy" )
-                              .onClick( _onDestroy( this ) )
+                    label( new LabelProps().onDoubleClick( e -> onEdit( todo ) ), todo.getTitle() ),
+                    button( new BtnProps().className( "destroy" ).onClick( e -> AppData.model.destroy( todo ) )
                     )
                ),
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
                         .defaultValue( getEditText() )
-                        .onBlur( _onSubmitTodo( this ) )
-                        .onChange( _handleChange( this ) )
-                        .onKeyDown( _handleKeyDown( this ) )
+                        .onBlur( e -> onSubmitTodo( todo ) )
+                        .onChange( this::handleChange )
+                        .onKeyDown( e -> handleKeyDown( e, todo ) )
                )
     );
   }
