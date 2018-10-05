@@ -1,16 +1,14 @@
 package react4j.todomvc;
 
 import elemental2.dom.HTMLInputElement;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
 import react4j.ReactNode;
-import react4j.annotations.Callback;
-import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.dom.events.FormEvent;
-import react4j.dom.events.FormEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
@@ -18,7 +16,6 @@ import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
-import static react4j.todomvc.TodoList_.*;
 
 @ReactComponent
 abstract class TodoList
@@ -31,8 +28,7 @@ abstract class TodoList
   @Inject
   ViewService _viewService;
 
-  @Callback( value = FormEventHandler.class, initCallbackContext = Feature.DISABLE )
-  void handleToggleAll( FormEvent event )
+  private void handleToggleAll( @Nonnull final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
     _todoService.toggleAll( input.checked );
@@ -44,10 +40,7 @@ abstract class TodoList
   {
     return
       div(
-        div( header( new HtmlProps().className( "header" ),
-                     h1( "todos" ),
-                     TodoEntryBuilder.build()
-             ),
+        div( header( new HtmlProps().className( "header" ), h1( "todos" ), TodoEntryBuilder.build() ),
              renderMainSection(),
              _todoRepository.isNotEmpty() ? FooterBuilder.build() : null
         )
@@ -63,10 +56,9 @@ abstract class TodoList
                       input( new InputProps()
                                .className( "toggle-all" )
                                .type( InputType.checkbox )
-                               .onChange( _handleToggleAll( this ) )
+                               .onChange( this::handleToggleAll )
                       ),
-                      ul( new HtmlProps()
-                            .className( "todo-list" ),
+                      ul( new HtmlProps().className( "todo-list" ),
                           _viewService.filteredTodos().stream().
                             map( todo -> TodoItemBuilder.key( todo.getId() ).todo( todo ) )
                       )
