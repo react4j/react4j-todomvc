@@ -8,18 +8,13 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
 import react4j.ReactNode;
-import react4j.annotations.Callback;
-import react4j.annotations.Feature;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
 import react4j.dom.events.FormEvent;
-import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
-import react4j.dom.events.KeyboardEventHandler;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.todomvc.model.TodoService;
 import static react4j.dom.DOM.*;
-import static react4j.todomvc.TodoEntry_.*;
 
 @ReactComponent
 abstract class TodoEntry
@@ -41,8 +36,7 @@ abstract class TodoEntry
     _todoText = todoText;
   }
 
-  @Callback( value = KeyboardEventHandler.class, initCallbackContext = Feature.DISABLE )
-  void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
+  private void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ENTER_KEY == event.getKeyCode() )
     {
@@ -62,7 +56,7 @@ abstract class TodoEntry
     }
   }
 
-  @Callback( FormEventHandler.class )
+  @Action( reportParameters = false )
   void handleChange( @Nonnull final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
@@ -77,8 +71,8 @@ abstract class TodoEntry
                     .className( "new-todo" )
                     .placeHolder( "What needs to be done?" )
                     .value( getTodoText() )
-                    .onKeyDown( _handleNewTodoKeyDown( this ) )
-                    .onChange( _handleChange( this ) )
+                    .onKeyDown( this::handleNewTodoKeyDown )
+                    .onChange( this::handleChange )
                     .autoFocus( true )
     );
   }

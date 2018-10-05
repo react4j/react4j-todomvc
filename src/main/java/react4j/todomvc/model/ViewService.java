@@ -21,8 +21,6 @@ public abstract class ViewService
   private final TodoRepository _todoRepository;
   @Nonnull
   private final BrowserLocation _browserLocation;
-  @Nullable
-  private Todo _todoBeingEdited;
 
   ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
   {
@@ -32,15 +30,9 @@ public abstract class ViewService
 
   @Observable
   @Nullable
-  public Todo getTodoBeingEdited()
-  {
-    return _todoBeingEdited;
-  }
+  public abstract Todo getTodoBeingEdited();
 
-  public void setTodoBeingEdited( @Nullable final Todo todoBeingEdited )
-  {
-    _todoBeingEdited = todoBeingEdited;
-  }
+  public abstract void setTodoBeingEdited( @Nullable Todo todoBeingEdited );
 
   @Computed
   @Nonnull
