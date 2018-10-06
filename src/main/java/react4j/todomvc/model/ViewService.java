@@ -4,7 +4,7 @@ import arez.Disposable;
 import arez.annotations.ArezComponent;
 import arez.annotations.Computed;
 import arez.annotations.Observable;
-import arez.annotations.Observed;
+import arez.annotations.Observe;
 import arez.browserlocation.BrowserLocation;
 import arez.component.CollectionsUtil;
 import java.util.List;
@@ -67,7 +67,7 @@ public abstract class ViewService
     return CollectionsUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 
-  @Observed( mutation = true )
+  @Observe( mutation = true )
   void updateTodoBeingEdited()
   {
     final Todo todoBeingEdited = getTodoBeingEdited();
@@ -77,7 +77,7 @@ public abstract class ViewService
     }
   }
 
-  @Observed( mutation = true, nestedActionsAllowed = true )
+  @Observe( mutation = true, nestedActionsAllowed = true )
   void cleanLocation()
   {
     final String browserLocation = _browserLocation.getBrowserLocation();
