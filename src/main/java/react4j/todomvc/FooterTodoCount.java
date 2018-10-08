@@ -20,7 +20,7 @@ abstract class FooterTodoCount
     final String activeTodoWord = "item" + ( count == 1 ? "" : "s" );
     return
       span( new HtmlProps().className( "todo-count" ),
-            strong( Integer.toString( count ) ),
+            strong( count ),
             text( " " + activeTodoWord + " left" )
       );
   }
