@@ -1,7 +1,6 @@
 package react4j.todomvc.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
@@ -48,7 +47,7 @@ public final class TodoRepository
 
   public void addTodo( @Nonnull final String title )
   {
-    _entities.add( new Todo( Long.toString( new Date().getTime() ), title, false ) );
+    _entities.add( new Todo( Long.toString( System.currentTimeMillis() ), title, false ) );
     notifySubscribers();
   }
 
