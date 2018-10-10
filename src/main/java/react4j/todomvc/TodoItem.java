@@ -7,15 +7,10 @@ import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 import react4j.Component;
 import react4j.ReactNode;
-import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
-import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
-import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
-import react4j.dom.events.KeyboardEventHandler;
-import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
@@ -24,7 +19,6 @@ import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
 import static react4j.dom.DOM.*;
-import static react4j.todomvc.TodoItem_.*;
 
 @ReactComponent
 abstract class TodoItem
@@ -66,8 +60,7 @@ abstract class TodoItem
     scheduleRender( true );
   }
 
-  @Callback( KeyboardEventHandler.class )
-  void handleKeyDown( @Nonnull final KeyboardEvent event )
+  private void handleKeyDown( @Nonnull final KeyboardEvent event )
   {
     if ( KeyCodes.ESCAPE_KEY == event.getWhich() )
     {
@@ -79,8 +72,7 @@ abstract class TodoItem
     }
   }
 
-  @Callback( FocusEventHandler.class )
-  void onSubmitTodo()
+  private void onSubmitTodo()
   {
     if ( null != _editText && !_editText.isEmpty() )
     {
@@ -94,21 +86,18 @@ abstract class TodoItem
     }
   }
 
-  @Callback( FormEventHandler.class )
-  void onToggle()
+  private void onToggle()
   {
     AppData.service.toggle( getTodo() );
   }
 
-  @Callback( MouseEventHandler.class )
-  void onEdit()
+  private void onEdit()
   {
     AppData.viewService.setTodoBeingEdited( getTodo() );
     resetEditTextAndReRender();
   }
 
-  @Callback( MouseEventHandler.class )
-  void onDestroy()
+  private void onDestroy()
   {
     AppData.service.destroy( getTodo() );
   }
@@ -119,8 +108,7 @@ abstract class TodoItem
     resetEditTextAndReRender();
   }
 
-  @Callback( FormEventHandler.class )
-  void handleChange( @Nonnull final FormEvent event )
+  private void handleChange( @Nonnull final FormEvent event )
   {
     if ( isTodoBeingEdited() )
     {
@@ -161,22 +149,22 @@ abstract class TodoItem
                              .className( "toggle" )
                              .type( InputType.checkbox )
                              .checked( completed )
-                             .onChange( _onToggle( this ) )
+                             .onChange( e -> onToggle() )
                     ),
-                    label( new LabelProps().onDoubleClick( _onEdit( this ) ),
+                    label( new LabelProps().onDoubleClick( e -> onEdit() ),
                            todo.getTitle() ),
                     button( new BtnProps()
                               .className( "destroy" )
-                              .onClick( _onDestroy( this ) )
+                              .onClick( e -> onDestroy() )
                     )
                ),
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
                         .defaultValue( _editText )
-                        .onBlur( _onSubmitTodo( this ) )
-                        .onChange( _handleChange( this ) )
-                        .onKeyDown( _handleKeyDown( this ) )
+                        .onBlur( e -> onSubmitTodo() )
+                        .onChange( this::handleChange )
+                        .onKeyDown( this::handleKeyDown )
                )
     );
   }
