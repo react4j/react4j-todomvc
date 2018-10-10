@@ -151,11 +151,8 @@ abstract class TodoItem
                              .checked( completed )
                              .onChange( e -> onToggle() )
                     ),
-                    label( new LabelProps().onDoubleClick( e -> onEdit() ),
-                           todo.getTitle() ),
-                    button( new BtnProps()
-                              .className( "destroy" )
-                              .onClick( e -> onDestroy() )
+                    label( new LabelProps().onDoubleClick( e -> onEdit() ), todo.getTitle() ),
+                    button( new BtnProps().className( "destroy" ).onClick( e -> onDestroy() )
                     )
                ),
                input( new InputProps()
