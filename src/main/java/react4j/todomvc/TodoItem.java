@@ -10,7 +10,6 @@ import react4j.ReactNode;
 import react4j.annotations.Callback;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
-import react4j.annotations.State;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
@@ -34,14 +33,16 @@ abstract class TodoItem
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
+  private String _editText;
 
   @Prop
   abstract Todo getTodo();
 
-  @State
-  abstract String getEditText();
-
-  abstract void setEditText( @Nonnull String editText );
+  private void setEditText( @Nonnull final String editText )
+  {
+    _editText = editText;
+    scheduleRender( true );
+  }
 
   private boolean isTodoBeingEdited()
   {
@@ -51,13 +52,18 @@ abstract class TodoItem
   @Override
   protected void postConstruct()
   {
-    //TODO: This should be replaced by setter call once setters can safely be called during construction.
-    setInitialState( JsPropertyMap.of( "editText", getTodo().getTitle() ) );
+    resetEditText();
   }
 
   private void resetEditText()
   {
-    setEditText( getTodo().getTitle() );
+    _editText = getTodo().getTitle();
+  }
+
+  private void resetEditTextAndReRender()
+  {
+    resetEditText();
+    scheduleRender( true );
   }
 
   @Callback( KeyboardEventHandler.class )
@@ -76,12 +82,11 @@ abstract class TodoItem
   @Callback( FocusEventHandler.class )
   void onSubmitTodo()
   {
-    final String val = getEditText();
-    if ( null != val && !val.isEmpty() )
+    if ( null != _editText && !_editText.isEmpty() )
     {
-      AppData.service.save( getTodo(), val );
+      AppData.service.save( getTodo(), _editText );
       AppData.viewService.setTodoBeingEdited( null );
-      setEditText( val );
+      setEditText( _editText );
     }
     else
     {
@@ -99,7 +104,7 @@ abstract class TodoItem
   void onEdit()
   {
     AppData.viewService.setTodoBeingEdited( getTodo() );
-    resetEditText();
+    resetEditTextAndReRender();
   }
 
   @Callback( MouseEventHandler.class )
@@ -110,8 +115,8 @@ abstract class TodoItem
 
   private void onCancel()
   {
-    resetEditText();
     AppData.viewService.setTodoBeingEdited( null );
+    resetEditTextAndReRender();
   }
 
   @Callback( FormEventHandler.class )
@@ -133,10 +138,10 @@ abstract class TodoItem
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
-      resetEditText();
       assert null != _editField;
       _editField.focus();
       _editField.select();
+      resetEditTextAndReRender();
     }
     else if ( _isEditing && !todoBeingEdited )
     {
@@ -168,7 +173,7 @@ abstract class TodoItem
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
-                        .defaultValue( getEditText() )
+                        .defaultValue( _editText )
                         .onBlur( _onSubmitTodo( this ) )
                         .onChange( _handleChange( this ) )
                         .onKeyDown( _handleKeyDown( this ) )

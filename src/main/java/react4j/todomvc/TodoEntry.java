@@ -4,12 +4,10 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import jsinterop.base.JsPropertyMap;
 import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.Callback;
 import react4j.annotations.ReactComponent;
-import react4j.annotations.State;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
@@ -23,16 +21,14 @@ import static react4j.todomvc.TodoEntry_.*;
 abstract class TodoEntry
   extends Component
 {
-  @Override
-  protected void postConstruct()
+  @Nonnull
+  private String _todoText = "";
+
+  private void setTodoText( @Nonnull final String todoText )
   {
-    setInitialState( JsPropertyMap.of( "todoText", "" ) );
+    _todoText = todoText;
+    scheduleRender( true );
   }
-
-  @State
-  abstract String getTodoText();
-
-  abstract void setTodoText( @Nonnull final String todoText );
 
   @Callback( KeyboardEventHandler.class )
   void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
@@ -40,7 +36,7 @@ abstract class TodoEntry
     if ( KeyCodes.ENTER_KEY == event.getKeyCode() )
     {
       event.preventDefault();
-      final String val = getTodoText().trim();
+      final String val = _todoText.trim();
       if ( val.length() > 0 )
       {
         AppData.service.addTodo( val );
@@ -63,7 +59,7 @@ abstract class TodoEntry
     return input( new InputProps()
                     .className( "new-todo" )
                     .placeHolder( "What needs to be done?" )
-                    .value( getTodoText() )
+                    .value( _todoText )
                     .onKeyDown( _handleNewTodoKeyDown( this ) )
                     .onChange( _handleChange( this ) )
                     .autoFocus( true )
