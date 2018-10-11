@@ -23,7 +23,7 @@ abstract class TodoEntry
   private void setTodoText( @Nonnull final String todoText )
   {
     _todoText = todoText;
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
