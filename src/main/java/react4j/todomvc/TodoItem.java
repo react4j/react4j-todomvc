@@ -118,10 +118,8 @@ abstract class TodoItem
   }
 
   @Override
-  protected void componentDidUpdate( @Nullable final JsPropertyMap<Object> prevProps,
-                                     @Nullable final JsPropertyMap<Object> prevState )
+  protected void componentDidUpdate( @Nullable final JsPropertyMap<Object> prevProps )
   {
-    super.componentDidUpdate( prevProps, prevState );
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
     {
