@@ -8,7 +8,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
-import jsinterop.base.JsPropertyMap;
 import react4j.ReactNode;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
@@ -126,7 +125,7 @@ abstract class TodoItem
 
   @Action( reportParameters = false )
   @Override
-  protected void componentDidUpdate( @Nullable final JsPropertyMap<Object> prevProps )
+  protected void componentDidUpdate()
   {
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
