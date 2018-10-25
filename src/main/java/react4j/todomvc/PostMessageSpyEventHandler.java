@@ -35,7 +35,6 @@ public final class PostMessageSpyEventHandler
         Any value = Js.asAny( entry.getValue() );
         if ( isActionEvent && "parameters".equals( key ) )
         {
-
           value = Js.asAny( parametersToArray( value.cast() ) );
           //continue;
         }
