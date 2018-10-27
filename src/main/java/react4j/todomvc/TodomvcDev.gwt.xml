@@ -3,5 +3,7 @@
   <inherits name='react4j.arez.ArezDev'/>
   <inherits name='arez.ArezDebug'/>
 
+  <set-property name='arez.enable_environments' value='true'/>
+
   <source path='ignore'/>
 </module>

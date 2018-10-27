@@ -18,7 +18,9 @@ public class App
       //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
       //ReactArezSpyUtil.enableSpyEventLogging();
 
-      Arez.context().getSpy().addSpyEventHandler( new PostMessageSpyEventHandler() );
+      final PostMessageSpyEventHandler handler = new PostMessageSpyEventHandler();
+      Arez.context().setEnvironment( handler );
+      Arez.context().getSpy().addSpyEventHandler( handler );
 
       //final EventListener eventListener = m -> {
       //  @SuppressWarnings( "unchecked" )
