@@ -2,7 +2,7 @@ package react4j.todomvc.model;
 
 import arez.Disposable;
 import arez.annotations.ArezComponent;
-import arez.annotations.Computed;
+import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
 import arez.browserlocation.BrowserLocation;
@@ -32,7 +32,7 @@ public abstract class ViewService
 
   public abstract void setTodoBeingEdited( @Nullable Todo todoBeingEdited );
 
-  @Computed
+  @Memoize
   @Nonnull
   public FilterMode getFilterMode()
   {
@@ -58,7 +58,7 @@ public abstract class ViewService
     }
   }
 
-  @Computed
+  @Memoize
   public List<Todo> filteredTodos()
   {
     final FilterMode filterMode = getFilterMode();
