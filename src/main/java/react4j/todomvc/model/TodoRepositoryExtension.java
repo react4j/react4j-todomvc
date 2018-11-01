@@ -1,10 +1,10 @@
 package react4j.todomvc.model;
 
-import arez.annotations.Computed;
+import arez.annotations.Memoize;
 
 public interface TodoRepositoryExtension
 {
-  @Computed
+  @Memoize
   default boolean isEmpty()
   {
     return 0 == totalCount();
@@ -15,19 +15,19 @@ public interface TodoRepositoryExtension
     return !isEmpty();
   }
 
-  @Computed
+  @Memoize
   default int totalCount()
   {
     return (int) self().entities().count();
   }
 
-  @Computed
+  @Memoize
   default int activeCount()
   {
     return (int) self().entities().filter( todo -> !todo.isCompleted() ).count();
   }
 
-  @Computed
+  @Memoize
   default int completedCount()
   {
     return totalCount() - activeCount();
