@@ -1,6 +1,6 @@
 package react4j.todomvc;
 
-import arez.annotations.Computed;
+import arez.annotations.Memoize;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import react4j.ReactNode;
@@ -55,7 +55,7 @@ abstract class Footer
       );
   }
 
-  @Computed
+  @Memoize
   boolean hasCompletedItems()
   {
     return _todoRepository.completedCount() > 0;
