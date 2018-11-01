@@ -1,7 +1,7 @@
 package react4j.todomvc;
 
 import arez.annotations.Action;
-import arez.annotations.Computed;
+import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
@@ -55,7 +55,7 @@ abstract class TodoItem
     _editText = editText;
   }
 
-  @Computed
+  @Memoize
   boolean isTodoBeingEdited()
   {
     return _viewService.getTodoBeingEdited() == getTodo();
