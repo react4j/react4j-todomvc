@@ -75,7 +75,8 @@ abstract class TodoItem
     }
   }
 
-  private void onSubmitTodo( @Nonnull final Todo todo )
+  @Action( reportParameters = false )
+  void onSubmitTodo( @Nonnull final Todo todo )
   {
     final String val = getEditText();
     if ( null != val && !val.isEmpty() )
@@ -90,7 +91,8 @@ abstract class TodoItem
     }
   }
 
-  private void onEdit( @Nonnull final Todo todo )
+  @Action( reportParameters = false )
+  void onEdit( @Nonnull final Todo todo )
   {
     AppData.viewService.setTodoBeingEdited( todo );
     resetEditText( todo );
