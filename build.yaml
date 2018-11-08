@@ -23,8 +23,8 @@ artifacts:
   elemental2_dom: com.google.elemental2:elemental2-dom:jar:1.0.0-RC1
   elemental2_promise: com.google.elemental2:elemental2-promise:jar:1.0.0-RC1
 
-  react4j_core: org.realityforge.react4j:react4j-core:jar:0.105
-  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.105
-  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.105
+  react4j_core: org.realityforge.react4j:react4j-core:jar:0.106
+  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.106
+  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.106
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.9.0
