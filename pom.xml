@@ -278,7 +278,7 @@
                 <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
                 <argument>--define=jre.classMetadata=STRIPPED</argument>
                 <argument>--define=goog.DEBUG=false</argument>
-                <argument>--define=arez.purge_reactions_when_runaway_detected=false</argument>
+                <argument>--define=arez.purge_tasks_when_runaway_detected=false</argument>
                 <argument>--define=arez.enable_observer_error_handlers=false</argument>
                 <argument>-out</argument>
                 <argument>out</argument>
