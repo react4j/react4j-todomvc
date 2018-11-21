@@ -19,7 +19,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.107</react4j.version>
-    <arez.version>0.115</arez.version>
+    <arez.version>0.116</arez.version>
     <arez-browserlocation.version>0.41</arez-browserlocation.version>
     <arez-spytools.version>0.37</arez-spytools.version>
   </properties>
