@@ -1,7 +1,0 @@
-<module>
-  <inherits name='react4j.dom.Dom'/>
-
-  <entry-point class='react4j.todomvc.App'/>
-
-  <source path=''/>
-</module>
