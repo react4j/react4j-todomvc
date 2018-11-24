@@ -37,17 +37,17 @@ maven_jar(
 
 maven_jar(
     name = "org_realityforge_react4j_core",
-    artifact = "org.realityforge.react4j:react4j-core:0.87",
+    artifact = "org.realityforge.react4j:react4j-core:0.108",
 )
 
 maven_jar(
     name = "org_realityforge_react4j_dom",
-    artifact = "org.realityforge.react4j:react4j-dom:0.87",
+    artifact = "org.realityforge.react4j:react4j-dom:0.108",
 )
 
 maven_jar(
     name = "org_realityforge_react4j_processor",
-    artifact = "org.realityforge.react4j:react4j-processor:0.87",
+    artifact = "org.realityforge.react4j:react4j-processor:0.108",
 )
 
 maven_jar(
