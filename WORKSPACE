@@ -1,3 +1,5 @@
+workspace(name = "org_realityforge_react4j_todomvc")
+
 maven_jar(
     name = "org_realityforge_javax_annotation",
     artifact = "org.realityforge.javax.annotation:javax.annotation:1.0.0",
