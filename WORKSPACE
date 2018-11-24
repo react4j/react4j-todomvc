@@ -52,7 +52,7 @@ maven_jar(
 
 maven_jar(
     name = "org_realityforge_braincheck",
-    artifact = "org.realityforge.braincheck:braincheck:1.9.0",
+    artifact = "org.realityforge.braincheck:braincheck:1.12.0",
 )
 
 maven_jar(
