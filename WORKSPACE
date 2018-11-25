@@ -25,11 +25,6 @@ maven_jar(
 )
 
 maven_jar(
-    name = "org_realityforge_org_jetbrains_annotations",
-    artifact = "org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:1.0.0",
-)
-
-maven_jar(
     name = "com_google_elemental2_core",
     artifact = "com.google.elemental2:elemental2-core:1.0.0-RC1",
 )

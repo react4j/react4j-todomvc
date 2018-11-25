@@ -14,7 +14,6 @@ java_library(
         "@org_realityforge_javax_annotation//jar",
         "@com_google_jsinterop_annotations//jar",
         "@com_google_jsinterop_base//jar",
-        "@org_realityforge_org_jetbrains_annotations//jar",
         "@com_google_elemental2_core//jar",
         "@com_google_elemental2_promise//jar",
         "@com_google_elemental2_dom//jar",
