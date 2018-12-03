@@ -227,8 +227,6 @@
                   ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
                 </argument>
                 <argument>--compilation_level=ADVANCED</argument>
-                <argument>--externs</argument>
-                <argument>${project.basedir}/src/main/externs/react.externs.js</argument>
                 <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
                 <argument>--define=jre.classMetadata=STRIPPED</argument>
                 <argument>--define=goog.DEBUG=false</argument>
