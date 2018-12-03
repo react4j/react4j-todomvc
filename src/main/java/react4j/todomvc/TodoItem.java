@@ -9,6 +9,7 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
 import react4j.ReactNode;
+import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.arez.ReactArezComponent;
@@ -126,8 +127,8 @@ abstract class TodoItem
   }
 
   @Action( reportParameters = false )
-  @Override
-  protected void componentDidUpdate()
+  @PostUpdate
+  void postUpdate()
   {
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
