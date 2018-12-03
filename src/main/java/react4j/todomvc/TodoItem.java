@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.Component;
 import react4j.ReactNode;
+import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
@@ -34,7 +35,7 @@ abstract class TodoItem
   private void setEditText( @Nonnull final String editText )
   {
     _editText = editText;
-    scheduleRender();
+    scheduleRender( true );
   }
 
   private boolean isTodoBeingEdited()
@@ -56,7 +57,7 @@ abstract class TodoItem
   private void resetEditTextAndReRender()
   {
     resetEditText();
-    scheduleRender();
+    scheduleRender( true );
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
@@ -116,8 +117,8 @@ abstract class TodoItem
     }
   }
 
-  @Override
-  protected void componentDidUpdate()
+  @PostUpdate
+  final void postUpdate()
   {
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
