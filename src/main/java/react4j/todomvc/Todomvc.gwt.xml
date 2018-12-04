@@ -3,7 +3,6 @@
   <inherits name='react4j.arez.Arez'/>
   <inherits name='arez.spytools.browser.react4j.ReactArezSpyTools'/>
   <inherits name='dagger.Dagger'/>
-  <inherits name='arez.browserlocation.BrowserLocation'/>
 
   <entry-point class='react4j.todomvc.App'/>
 
