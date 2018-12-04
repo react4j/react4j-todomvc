@@ -20,7 +20,6 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.108</react4j.version>
     <arez.version>0.118</arez.version>
-    <arez-browserlocation.version>0.41</arez-browserlocation.version>
     <arez-spytools.version>0.37</arez-spytools.version>
     <dagger.version>2.15</dagger.version>
   </properties>
@@ -59,11 +58,6 @@
       <groupId>org.realityforge.arez.spytools</groupId>
       <artifactId>arez-spytools</artifactId>
       <version>${arez-spytools.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.realityforge.arez.browserlocation</groupId>
-      <artifactId>arez-browserlocation</artifactId>
-      <version>${arez-browserlocation.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.dagger</groupId>
