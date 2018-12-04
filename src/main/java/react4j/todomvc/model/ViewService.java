@@ -5,7 +5,6 @@ import arez.annotations.ArezComponent;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
-import arez.browserlocation.BrowserLocation;
 import arez.component.CollectionsUtil;
 import java.util.List;
 import java.util.Objects;
