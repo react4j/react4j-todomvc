@@ -5,7 +5,6 @@ import arez.annotations.ArezComponent;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
-import arez.browserlocation.BrowserLocation;
 import arez.component.CollectionsUtil;
 import java.util.List;
 import java.util.Objects;
@@ -20,10 +19,10 @@ public abstract class ViewService
   @Nonnull
   private final BrowserLocation _browserLocation;
 
-  ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
+  ViewService( @Nonnull final TodoRepository todoRepository )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    _browserLocation = Objects.requireNonNull( browserLocation );
+    _browserLocation = BrowserLocation.create();
   }
 
   @Observable
@@ -68,8 +67,7 @@ public abstract class ViewService
   @Observe( mutation = true )
   void updateTodoBeingEdited()
   {
-    final Todo todoBeingEdited = getTodoBeingEdited();
-    if ( null != todoBeingEdited && Disposable.isDisposed( todoBeingEdited ) )
+    if ( Disposable.isDisposed( getTodoBeingEdited() ) )
     {
       setTodoBeingEdited( null );
     }
