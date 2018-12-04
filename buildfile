@@ -25,7 +25,6 @@ define 'react4j-todomvc' do
                :react4j_dom,
                :react4j_arez,
                :arez_core,
-               :arez_browserlocation,
                :arez_spytools,
                :gwt_user
 
