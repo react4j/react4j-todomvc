@@ -67,8 +67,7 @@ public abstract class ViewService
   @Observe( mutation = true )
   void updateTodoBeingEdited()
   {
-    final Todo todoBeingEdited = getTodoBeingEdited();
-    if ( null != todoBeingEdited && Disposable.isDisposed( todoBeingEdited ) )
+    if ( Disposable.isDisposed( getTodoBeingEdited() ) )
     {
       setTodoBeingEdited( null );
     }
