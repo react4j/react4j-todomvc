@@ -7,6 +7,7 @@ import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import react4j.dom.ReactDOM;
+import react4j.todomvc.devtool.DevToolBuilder;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.ViewService;
 
