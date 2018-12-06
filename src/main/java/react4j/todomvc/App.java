@@ -3,7 +3,6 @@ package react4j.todomvc;
 import arez.Arez;
 import arez.ArezContext;
 import arez.Zone;
-import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import react4j.dom.ReactDOM;
@@ -19,8 +18,11 @@ public class App
   {
     if ( Arez.areSpiesEnabled() )
     {
-      //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
-      ReactArezSpyUtil.enableSpyEventLogging();
+      Arez.context().getSpy().addSpyEventHandler( new PostMessageSpyEventHandler() );
+
+      DomGlobal.window.addEventListener( "message",
+                                         new PostMessageConsoleEventHandler( DomGlobal.location.getOrigin() ),
+                                         false );
     }
     // This next line forces the creation of all the resources, ensuring that the transactions
     // are not wrapped in another transaction
