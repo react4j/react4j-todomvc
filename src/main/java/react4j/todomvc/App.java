@@ -1,6 +1,8 @@
 package react4j.todomvc;
 
 import arez.Arez;
+import arez.ArezContext;
+import arez.Zone;
 import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
@@ -24,5 +26,10 @@ public class App
     @SuppressWarnings( "unused" )
     final ViewService viewService = AppData.viewService;
     ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
+
+    final ArezContext context = Arez.context();
+    final Zone zone = Arez.createZone();
+    zone.safeRun( () -> ReactDOM.render( DevToolBuilder.target( context ),
+                                         DomGlobal.document.getElementById( "devtools" ) ) );
   }
 }
