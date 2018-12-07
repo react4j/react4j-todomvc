@@ -103,9 +103,9 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>com.google.dagger</groupId>
-      <artifactId>dagger-gwt</artifactId>
-      <version>${dagger.version}</version>
+      <groupId>org.realityforge.dagger</groupId>
+      <artifactId>dagger-gwt-lite</artifactId>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
