@@ -5,8 +5,8 @@ import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import react4j.dom.ReactDOM;
-import react4j.todomvc.model.DaggerTodoComponent;
-import react4j.todomvc.model.TodoComponent;
+import react4j.todomvc.dagger.DaggerTodoComponent;
+import react4j.todomvc.dagger.TodoComponent;
 
 public class App
   implements EntryPoint
