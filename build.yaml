@@ -44,7 +44,7 @@ artifacts:
   guava: com.google.guava:guava:jar:23.3-jre
 
   dagger_core_sources: com.google.dagger:dagger:jar:sources:2.15
-  dagger_gwt: org.realityforge.dagger:dagger-gwt-lite:jar:sources:1.0.1
+  dagger_gwt: org.realityforge.dagger:dagger-gwt-lite:jar:sources:1.0.2
 
   javax_inject: javax.inject:javax.inject:jar:1
   javax_inject_sources: javax.inject:javax.inject:jar:sources:1
