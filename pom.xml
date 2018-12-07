@@ -10,6 +10,8 @@
   <description>React4j TodoMVC implementation</description>
 
   <properties>
+    <gwt.version>2.8.2</gwt.version>
+    <gwt-maven-plugin.version>1.0-rc-9</gwt-maven-plugin.version>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
