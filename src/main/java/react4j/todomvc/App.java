@@ -5,7 +5,6 @@ import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import react4j.dom.ReactDOM;
-import react4j.todomvc.dagger.DaggerTodoComponent;
 import react4j.todomvc.dagger.TodoComponent;
 
 public class App
@@ -19,12 +18,7 @@ public class App
       //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
       ReactArezSpyUtil.enableSpyEventLogging();
     }
-    final TodoComponent todoComponent = DaggerTodoComponent.create();
-    todoComponent.bindFooter();
-    todoComponent.bindFooterTodoCount();
-    todoComponent.bindTodoItem();
-    todoComponent.bindTodoList();
-    todoComponent.bindTodoEntry();
+    TodoComponent.create();
     ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
   }
 }

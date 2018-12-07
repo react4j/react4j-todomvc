@@ -24,4 +24,14 @@ public interface TodoComponent
           TodoEntryDaggerFactory,
           FooterTodoCountDaggerFactory
 {
+  static TodoComponent create()
+  {
+    final TodoComponent todoComponent = DaggerTodoComponent.create();
+    todoComponent.bindFooter();
+    todoComponent.bindFooterTodoCount();
+    todoComponent.bindTodoItem();
+    todoComponent.bindTodoList();
+    todoComponent.bindTodoEntry();
+    return todoComponent;
+  }
 }
