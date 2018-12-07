@@ -20,7 +20,7 @@
     <react4j.version>0.109</react4j.version>
     <arez.version>0.119</arez.version>
     <arez-spytools.version>0.37</arez-spytools.version>
-    <dagger.version>2.15</dagger.version>
+    <dagger.version>2.19</dagger.version>
   </properties>
 
   <repositories>
@@ -105,7 +105,7 @@
     <dependency>
       <groupId>org.realityforge.dagger</groupId>
       <artifactId>dagger-gwt-lite</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
