@@ -27,8 +27,6 @@ define 'react4j-todomvc' do
                :react4j_arez,
                :arez_core,
                :arez_spytools,
-               :dagger_core,
-               :dagger_core_sources,
                :dagger_gwt,
                :javax_inject,
                :javax_inject_sources,
