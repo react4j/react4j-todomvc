@@ -34,14 +34,14 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.9.0
 
-  dagger_core: com.google.dagger:dagger:jar:2.15
-  dagger_spi: com.google.dagger:dagger-spi:jar:2.15
-  dagger_producers: com.google.dagger:dagger-producers:jar:2.15
-  dagger_compiler: com.google.dagger:dagger-compiler:jar:2.15
-  googlejavaformat: com.google.googlejavaformat:google-java-format:jar:1.4
+  dagger_core: com.google.dagger:dagger:jar:2.19
+  dagger_spi: com.google.dagger:dagger-spi:jar:2.19
+  dagger_producers: com.google.dagger:dagger-producers:jar:2.19
+  dagger_compiler: com.google.dagger:dagger-compiler:jar:2.19
+  googlejavaformat: com.google.googlejavaformat:google-java-format:jar:1.5
   errorprone: com.google.errorprone:javac-shaded:jar:9-dev-r4023-3
-  javapoet: com.squareup:javapoet:jar:1.8.0
-  guava: com.google.guava:guava:jar:23.3-jre
+  javapoet: com.squareup:javapoet:jar:1.11.1
+  guava: com.google.guava:guava:jar:25.0-jre
 
   dagger_core_sources: com.google.dagger:dagger:jar:sources:2.15
   dagger_gwt: org.realityforge.dagger:dagger-gwt-lite:jar:sources:1.0.2
