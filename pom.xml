@@ -62,7 +62,7 @@
     <dependency>
       <groupId>org.realityforge.dagger</groupId>
       <artifactId>dagger-gwt-lite</artifactId>
-      <version>1.0.2</version>
+      <version>2.19-rf1</version>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
