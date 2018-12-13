@@ -18,13 +18,6 @@ public interface FooDaggerFactory
     InjectSupport.c_subComponent = getFooDaggerSubcomponent();
   }
 
-  @Module
-  interface DaggerModule
-  {
-    @Binds
-    Foo bindComponent( Enhanced_Foo component );
-  }
-
   final class InjectSupport
   {
     static DaggerSubcomponent c_subComponent;
@@ -32,8 +25,11 @@ public interface FooDaggerFactory
   }
 
   @Module
-  class DaggerModule2
+  interface DaggerModule
   {
+    @Binds
+    Foo bindComponent( Enhanced_Foo component );
+
     @Provides
     static Consumer<Enhanced_Foo> provideEnhancer()
     {
@@ -41,15 +37,14 @@ public interface FooDaggerFactory
     }
 
     @Provides
-    static Enhanced_Foo provideInstance( @Nonnull final Provider<Consumer<Enhanced_Foo>> p1, @Nonnull final TodoRepository repository )
+    static Enhanced_Foo provideInstance( @Nonnull final Provider<Consumer<Enhanced_Foo>> p1,
+                                         @Nonnull final TodoRepository repository )
     {
       return new Enhanced_Foo( p1.get(), repository );
     }
   }
 
-  @Subcomponent(
-    modules = { DaggerModule.class, DaggerModule2.class }
-  )
+  @Subcomponent( modules = DaggerModule.class )
   interface DaggerSubcomponent
   {
     void inject( Enhanced_Foo foo );
