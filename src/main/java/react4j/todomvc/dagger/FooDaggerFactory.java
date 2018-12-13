@@ -25,7 +25,7 @@ public interface FooDaggerFactory
     Foo bindComponent( Enhanced_Foo component );
   }
 
-  class InjectSupport
+  final class InjectSupport
   {
     static DaggerSubcomponent c_subComponent;
     static final Consumer<Enhanced_Foo> c_enhancer = e -> c_subComponent.inject( e );
