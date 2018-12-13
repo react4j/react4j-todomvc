@@ -7,7 +7,7 @@ import elemental2.dom.DomGlobal;
 import javax.inject.Provider;
 import jsinterop.base.Js;
 import react4j.dom.ReactDOM;
-import react4j.todomvc.dagger.Foo;
+import react4j.todomvc.dagger.foo.Foo;
 import react4j.todomvc.dagger.OtherComponent;
 import react4j.todomvc.dagger.TodoComponent;
 

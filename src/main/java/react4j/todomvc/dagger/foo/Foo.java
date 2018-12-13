@@ -1,4 +1,4 @@
-package react4j.todomvc.dagger;
+package react4j.todomvc.dagger.foo;
 
 import java.util.Objects;
 import javax.annotation.Nonnull;

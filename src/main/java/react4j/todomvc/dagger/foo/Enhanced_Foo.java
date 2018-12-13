@@ -1,4 +1,4 @@
-package react4j.todomvc.dagger;
+package react4j.todomvc.dagger.foo;
 
 import elemental2.dom.DomGlobal;
 import java.util.function.Consumer;

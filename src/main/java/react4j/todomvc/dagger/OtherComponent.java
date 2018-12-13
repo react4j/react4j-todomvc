@@ -2,6 +2,7 @@ package react4j.todomvc.dagger;
 
 import dagger.Component;
 import javax.inject.Singleton;
+import react4j.todomvc.dagger.foo.FooDaggerFactory;
 import react4j.todomvc.model.BrowserLocationDaggerModule;
 import react4j.todomvc.model.TodoRepositoryDaggerModule;
 import react4j.todomvc.model.TodoServiceDaggerModule;
