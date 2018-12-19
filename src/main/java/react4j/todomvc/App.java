@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import arez.Arez;
 import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
@@ -14,11 +13,7 @@ public class App
   @Override
   public void onModuleLoad()
   {
-    if ( Arez.areSpiesEnabled() )
-    {
-      //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
-      ReactArezSpyUtil.enableSpyEventLogging();
-    }
+    ReactArezSpyUtil.enableSpyEventLogging();
     // This next line forces the creation of all the resources, ensuring that the transactions
     // are not wrapped in another transaction
     @SuppressWarnings( "unused" )
