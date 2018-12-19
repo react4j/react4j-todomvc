@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import arez.Arez;
 import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
@@ -13,11 +12,7 @@ public class App
   @Override
   public void onModuleLoad()
   {
-    if ( Arez.areSpiesEnabled() )
-    {
-      //Avoid referencing ArezSpyUtil if spies are disabled so compiler optimizes it away
-      ReactArezSpyUtil.enableSpyEventLogging();
-    }
+    ReactArezSpyUtil.enableSpyEventLogging();
     TodoComponent.create();
     ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
   }
