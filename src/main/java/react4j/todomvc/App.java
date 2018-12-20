@@ -14,6 +14,6 @@ public class App
   {
     ReactArezSpyUtil.enableSpyEventLogging();
     TodoComponent.create();
-    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
+    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "app" ) );
   }
 }
