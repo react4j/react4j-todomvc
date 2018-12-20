@@ -10,6 +10,8 @@ import react4j.todomvc.model.TodoRepository;
 
 public interface FooDaggerFactory2
 {
+  Provider<Foo2> createFoo2Provider();
+
   void inject( Enhanced_Foo2 foo );
 
   default void bindFoo2()

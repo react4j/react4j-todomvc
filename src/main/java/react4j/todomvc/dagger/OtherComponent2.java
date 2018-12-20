@@ -19,8 +19,6 @@ import react4j.todomvc.model.ViewServiceDaggerModule;
 public interface OtherComponent2
   extends FooDaggerFactory2
 {
-  Provider<Foo2> createProvider();
-
   static OtherComponent2 create()
   {
     final OtherComponent2 component = DaggerOtherComponent2.create();

@@ -27,7 +27,7 @@ public class App
     TodoComponent.create();
     final Provider<Foo> provider = OtherComponent.create().getFooDaggerSubcomponent().createProvider();
     final Foo foo = provider.get();
-    final Provider<Foo2> provider2 = OtherComponent2.create().createProvider();
+    final Provider<Foo2> provider2 = OtherComponent2.create().createFoo2Provider();
     final Foo2 foo2 = provider2.get();
     Js.debugger();
     ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
