@@ -15,6 +15,6 @@ public final class App
     // are not wrapped in another transaction
     @SuppressWarnings( "unused" )
     final ViewService viewService = AppData.viewService;
-    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
+    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "app" ) );
   }
 }
