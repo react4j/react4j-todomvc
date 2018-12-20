@@ -15,6 +15,6 @@ public final class App
 
   private void render()
   {
-    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
+    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "app" ) );
   }
 }
