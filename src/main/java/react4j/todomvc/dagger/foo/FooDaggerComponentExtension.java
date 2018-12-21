@@ -20,12 +20,17 @@ public interface FooDaggerComponentExtension
     private static Enhanced_Foo.Enhancer c_enhancer;
   }
 
-  @Module
+  @Module( includes = EnhancerDaggerModule.class )
   interface DaggerModule
   {
     @Binds
     Foo bindComponent( Enhanced_Foo component );
+  }
 
+  // Need a separate module here due to limitations in Javapoet
+  @Module
+  class EnhancerDaggerModule
+  {
     @Provides
     static Enhanced_Foo.Enhancer provideEnhancer()
     {
