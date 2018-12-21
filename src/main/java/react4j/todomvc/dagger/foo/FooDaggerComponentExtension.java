@@ -4,7 +4,6 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.Subcomponent;
-import java.util.function.Consumer;
 import javax.inject.Provider;
 
 public interface FooDaggerComponentExtension
