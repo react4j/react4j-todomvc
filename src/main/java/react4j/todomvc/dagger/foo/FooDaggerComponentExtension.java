@@ -24,7 +24,7 @@ public interface FooDaggerComponentExtension
   interface DaggerModule
   {
     @Binds
-    Foo bindComponent( Enhanced_Foo component );
+    Object bindComponent( Enhanced_Foo component );
   }
 
   // Need a separate module here due to limitations in Javapoet
@@ -43,6 +43,12 @@ public interface FooDaggerComponentExtension
   {
     void inject( Enhanced_Foo foo );
 
-    Provider<Foo> createProvider();
+    Provider<Object> createFooProvider();
+
+    @SuppressWarnings( "unchecked" )
+    default Provider<Foo> createProvider()
+    {
+      return (Provider<Foo>) (Provider) createFooProvider();
+    }
   }
 }

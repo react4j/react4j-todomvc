@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
 
-public abstract class Foo
+abstract class Foo
 {
   @Inject
   TodoService _service;
