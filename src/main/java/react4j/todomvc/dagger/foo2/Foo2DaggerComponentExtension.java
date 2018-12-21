@@ -22,7 +22,7 @@ public interface Foo2DaggerComponentExtension
 
   final class InjectSupport
   {
-    static Enhanced_Foo2.Enhancer c_enhancer;
+    private static Enhanced_Foo2.Enhancer c_enhancer;
   }
 
   @Module

@@ -17,7 +17,7 @@ public interface FooDaggerComponentExtension
 
   final class InjectSupport
   {
-    static Enhanced_Foo.Enhancer c_enhancer;
+    private static Enhanced_Foo.Enhancer c_enhancer;
   }
 
   @Module
