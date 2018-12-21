@@ -5,9 +5,7 @@ import dagger.Module;
 import dagger.Provides;
 import dagger.Subcomponent;
 import java.util.function.Consumer;
-import javax.annotation.Nonnull;
 import javax.inject.Provider;
-import react4j.todomvc.model.TodoRepository;
 
 public interface FooDaggerFactory
 {
@@ -15,13 +13,12 @@ public interface FooDaggerFactory
 
   default void bindFoo()
   {
-    InjectSupport.c_subComponent = getFooDaggerSubcomponent();
+    InjectSupport.c_enhancer = instance -> getFooDaggerSubcomponent().inject( instance );
   }
 
   final class InjectSupport
   {
-    private static DaggerSubcomponent c_subComponent;
-    private static final Consumer<Enhanced_Foo> c_enhancer = e -> c_subComponent.inject( e );
+    static Enhanced_Foo.Enhancer c_enhancer;
   }
 
   @Module
@@ -31,16 +28,9 @@ public interface FooDaggerFactory
     Foo bindComponent( Enhanced_Foo component );
 
     @Provides
-    static Consumer<Enhanced_Foo> provideEnhancer()
+    static Enhanced_Foo.Enhancer provideEnhancer()
     {
       return InjectSupport.c_enhancer;
-    }
-
-    @Provides
-    static Enhanced_Foo provideInstance( @Nonnull final Provider<Consumer<Enhanced_Foo>> p1,
-                                         @Nonnull final TodoRepository repository )
-    {
-      return new Enhanced_Foo( p1.get(), repository );
     }
   }
 

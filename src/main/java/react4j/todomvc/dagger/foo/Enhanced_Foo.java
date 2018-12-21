@@ -1,18 +1,23 @@
 package react4j.todomvc.dagger.foo;
 
 import elemental2.dom.DomGlobal;
-import java.util.function.Consumer;
 import javax.annotation.Nonnull;
+import javax.inject.Inject;
 import react4j.todomvc.model.TodoRepository;
 
 public class Enhanced_Foo
   extends Foo
 {
-  Enhanced_Foo( @Nonnull final Consumer<Enhanced_Foo> enhancer,
-                @Nonnull final TodoRepository repository )
+  interface Enhancer
+  {
+    void enhance( Enhanced_Foo object );
+  }
+
+  @Inject
+  Enhanced_Foo( @Nonnull final Enhancer enhancer, @Nonnull final TodoRepository repository )
   {
     super( repository );
-    enhancer.accept( this );
+    enhancer.enhance( this );
     postConstruct();
   }
 

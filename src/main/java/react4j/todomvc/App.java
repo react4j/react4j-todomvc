@@ -11,6 +11,7 @@ import react4j.todomvc.dagger.OtherComponent2;
 import react4j.todomvc.dagger.foo.Foo;
 import react4j.todomvc.dagger.OtherComponent;
 import react4j.todomvc.dagger.TodoComponent;
+import react4j.todomvc.dagger.foo2.Enhanced_Foo2;
 import react4j.todomvc.dagger.foo2.Foo2;
 
 public class App
@@ -25,10 +26,8 @@ public class App
       ReactArezSpyUtil.enableSpyEventLogging();
     }
     TodoComponent.create();
-    final Provider<Foo> provider = OtherComponent.create().getFooDaggerSubcomponent().createProvider();
-    final Foo foo = provider.get();
-    final Provider<Foo2> provider2 = OtherComponent2.create().createFoo2Provider();
-    final Foo2 foo2 = provider2.get();
+    final Foo foo = OtherComponent.create().getFooDaggerSubcomponent().createProvider().get();
+    final Enhanced_Foo2 foo2 = OtherComponent2.create().createEnhanced_Foo2Provider().get();
     Js.debugger();
     ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "todoapp" ) );
   }
