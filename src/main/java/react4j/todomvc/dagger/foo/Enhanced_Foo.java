@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 import javax.inject.Inject;
 import react4j.todomvc.model.TodoRepository;
 
-public class Enhanced_Foo
+public final class Enhanced_Foo
   extends Foo
 {
   interface Enhancer
