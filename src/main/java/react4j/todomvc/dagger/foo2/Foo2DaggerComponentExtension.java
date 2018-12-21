@@ -7,10 +7,8 @@ import javax.inject.Provider;
 
 public interface Foo2DaggerComponentExtension
 {
-  // TODO: This is only required if PROVIDE = true
   Provider<Foo2> createFoo2Provider();
 
-  // TODO: This is only required if PROVIDE = false
   Provider<Enhanced_Foo2> createEnhanced_Foo2Provider();
 
   void inject( Enhanced_Foo2 foo );
@@ -28,7 +26,6 @@ public interface Foo2DaggerComponentExtension
   @Module( includes = EnhancerDaggerModule.class )
   interface DaggerModule
   {
-    // TODO: This is only required if PROVIDE = true
     @Binds
     Foo2 bindComponent( Enhanced_Foo2 component );
   }
