@@ -1,10 +1,8 @@
 package react4j.todomvc.dagger;
 
 import dagger.Component;
-import javax.inject.Provider;
 import javax.inject.Singleton;
-import react4j.todomvc.dagger.foo2.Foo2;
-import react4j.todomvc.dagger.foo2.FooDaggerFactory2;
+import react4j.todomvc.dagger.foo2.Foo2DaggerComponentExtension;
 import react4j.todomvc.model.BrowserLocationDaggerModule;
 import react4j.todomvc.model.TodoRepositoryDaggerModule;
 import react4j.todomvc.model.TodoServiceDaggerModule;
@@ -15,9 +13,9 @@ import react4j.todomvc.model.ViewServiceDaggerModule;
                         BrowserLocationDaggerModule.class,
                         TodoServiceDaggerModule.class,
                         ViewServiceDaggerModule.class,
-                        FooDaggerFactory2.DaggerModule.class } )
+                        Foo2DaggerComponentExtension.DaggerModule.class } )
 public interface OtherComponent2
-  extends FooDaggerFactory2
+  extends Foo2DaggerComponentExtension
 {
   static OtherComponent2 create()
   {

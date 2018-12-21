@@ -5,7 +5,7 @@ import dagger.Module;
 import dagger.Provides;
 import javax.inject.Provider;
 
-public interface FooDaggerFactory2
+public interface Foo2DaggerComponentExtension
 {
   // TODO: This is only required if PROVIDE = true
   Provider<Foo2> createFoo2Provider();

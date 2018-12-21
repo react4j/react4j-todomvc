@@ -7,7 +7,7 @@ import dagger.Subcomponent;
 import java.util.function.Consumer;
 import javax.inject.Provider;
 
-public interface FooDaggerFactory
+public interface FooDaggerComponentExtension
 {
   DaggerSubcomponent getFooDaggerSubcomponent();
 
