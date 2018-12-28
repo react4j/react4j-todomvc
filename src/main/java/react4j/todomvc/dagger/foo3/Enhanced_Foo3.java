@@ -22,6 +22,7 @@ public final class Enhanced_Foo3
       _repository = Objects.requireNonNull( repository );
     }
 
+    @Nonnull
     public Enhanced_Foo3 create( @Nonnull final Map<String, String> props )
     {
       return new Enhanced_Foo3( _enhancer, _repository, props );
