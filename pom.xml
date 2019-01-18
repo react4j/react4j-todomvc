@@ -18,7 +18,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <react4j.version>0.111</react4j.version>
+    <react4j.version>0.112</react4j.version>
   </properties>
 
   <repositories>
