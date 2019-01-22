@@ -11,6 +11,7 @@ define 'react4j-todomvc' do
   project.version = ENV['PRODUCT_VERSION'] if ENV['PRODUCT_VERSION']
 
   project.processorpath << :react4j_processor
+  project.processorpath << :arez_processor
 
   compile.with :javax_annotation,
                :jetbrains_annotations,
