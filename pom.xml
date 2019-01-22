@@ -72,7 +72,7 @@
   <dependencies>
     <dependency>
       <groupId>org.realityforge.react4j</groupId>
-      <artifactId>react4j-arez</artifactId>
+      <artifactId>react4j-dom</artifactId>
       <version>${react4j.version}</version>
       <exclusions>
         <exclusion>
