@@ -23,7 +23,6 @@ define 'react4j-todomvc' do
                :braincheck,
                :react4j_core,
                :react4j_dom,
-               :react4j_arez,
                :arez_core,
                :arez_spytools,
                :gwt_user
