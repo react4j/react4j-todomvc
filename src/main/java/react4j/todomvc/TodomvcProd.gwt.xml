@@ -8,4 +8,5 @@
   <add-linker name='sso'/>
 
   <source path='ignore'/>
+  <public path='public/prod'/>
 </module>
