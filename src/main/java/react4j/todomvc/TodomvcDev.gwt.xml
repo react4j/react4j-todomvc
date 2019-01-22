@@ -5,5 +5,5 @@
   <inherits name='arez.ArezDebug'/>
 
   <source path='ignore'/>
-  <public path='public' excludes='index.html'/>
+  <public path='public/dev'/>
 </module>
