@@ -4,5 +4,5 @@
   <inherits name='react4j.dom.DomDev'/>
 
   <source path='ignore'/>
-  <public path='public' excludes='index.html'/>
+  <public path='public/dev'/>
 </module>
