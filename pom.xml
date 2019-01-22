@@ -18,6 +18,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.113</react4j.version>
+    <arez.version>0.124</arez.version>
   </properties>
 
   <repositories>
@@ -77,7 +78,16 @@
           <groupId>com.google.jsinterop</groupId>
           <artifactId>base</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.arez</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.realityforge.arez</groupId>
+      <artifactId>arez-core</artifactId>
+      <version>${arez.version}</version>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
@@ -89,6 +99,16 @@
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
