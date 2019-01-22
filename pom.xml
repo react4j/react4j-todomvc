@@ -40,7 +40,7 @@
       <groupId>org.realityforge.react4j</groupId>
       <artifactId>react4j-dom</artifactId>
       <version>${react4j.version}</version>
-       <exclusions>
+      <exclusions>
         <exclusion>
           <groupId>org.realityforge.arez</groupId>
           <artifactId>*</artifactId>
