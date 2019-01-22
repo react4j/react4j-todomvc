@@ -123,6 +123,11 @@
               <artifactId>react4j-processor</artifactId>
               <version>${react4j.version}</version>
             </path>
+            <path>
+              <groupId>org.realityforge.arez</groupId>
+              <artifactId>arez-processor</artifactId>
+              <version>${arez.version}</version>
+            </path>
           </annotationProcessorPaths>
         </configuration>
       </plugin>
