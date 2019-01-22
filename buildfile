@@ -22,6 +22,8 @@ define 'react4j-todomvc' do
                :braincheck,
                :react4j_core,
                :react4j_dom,
+               :arez_core,
+               :arez_spytools,
                :gwt_user
 
   # Exclude the Dev module if EXCLUDE_GWT_DEV_MODULE is true
