@@ -45,6 +45,8 @@ define 'react4j-todomvc' do
   ipr.add_gwt_configuration(project,
                             :gwt_module => 'react4j.todomvc.TodomvcDev',
                             :start_javascript_debugger => false,
+                            :open_in_browser => false,
                             :vm_parameters => "-Xmx2G -Djava.io.tmpdir=#{_('tmp/gwt')}",
-                            :shell_parameters => "-style PRETTY -XmethodNameDisplayMode FULL -noincremental -port 8888 -codeServerPort 8889 -bindAddress 0.0.0.0 -war #{_(:generated, 'gwt-export')}/")
+                            :shell_parameters => "-style PRETTY -XmethodNameDisplayMode FULL -noincremental -port 8888 -codeServerPort 8889 -bindAddress 0.0.0.0 -war #{_(:generated, 'gwt-export')}/",
+                            :launch_page => "http://127.0.0.1:8888/todomvc_dev/")
 end
