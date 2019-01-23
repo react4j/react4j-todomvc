@@ -94,21 +94,12 @@
       <groupId>org.realityforge.arez.spytools</groupId>
       <artifactId>arez-spytools</artifactId>
       <version>${arez-spytools.version}</version>
-<<<<<<< HEAD
       <exclusions>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
           <artifactId>base</artifactId>
         </exclusion>
       </exclusions>
-=======
-    </dependency>
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <version>${gwt.version}</version>
-      <scope>provided</scope>
->>>>>>> origin/arez_maven-React4jUpgrade-0.114
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
