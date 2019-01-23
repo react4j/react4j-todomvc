@@ -3,6 +3,7 @@ package react4j.todomvc;
 import arez.annotations.Action;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
+import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -52,8 +53,8 @@ abstract class TodoItem
     return AppData.viewService.getTodoBeingEdited() == getTodo();
   }
 
-  @Override
-  protected void postConstruct()
+  @PostConstruct
+  final void postConstruct()
   {
     resetEditText( getTodo() );
   }
