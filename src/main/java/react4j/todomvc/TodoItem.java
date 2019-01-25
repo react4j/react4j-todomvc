@@ -36,7 +36,7 @@ abstract class TodoItem
   private void setEditText( @Nonnull final String editText )
   {
     _editText = editText;
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private boolean isTodoBeingEdited()
@@ -58,7 +58,7 @@ abstract class TodoItem
   private void resetEditTextAndReRender()
   {
     resetEditText();
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
