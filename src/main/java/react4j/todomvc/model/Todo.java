@@ -2,8 +2,10 @@ package react4j.todomvc.model;
 
 import java.util.Objects;
 import javax.annotation.Nonnull;
+import react4j.Keyed;
 
 public final class Todo
+  implements Keyed
 {
   @Nonnull
   private String _id;
@@ -16,6 +18,13 @@ public final class Todo
     _id = Objects.requireNonNull( id );
     _title = Objects.requireNonNull( title );
     _completed = completed;
+  }
+
+  @Nonnull
+  @Override
+  public String getKey()
+  {
+    return getId();
   }
 
   @Nonnull

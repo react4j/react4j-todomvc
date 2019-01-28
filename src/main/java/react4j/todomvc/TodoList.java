@@ -51,10 +51,8 @@ abstract class TodoList
                                .type( InputType.checkbox )
                                .onChange( this::handleToggleAll )
                       ),
-                      ul( new HtmlProps()
-                            .className( "todo-list" ),
-                          AppData.viewService.filteredTodos().stream().
-                            map( todo -> TodoItemBuilder.key( todo.getId() ).todo( todo ) )
+                      ul( new HtmlProps().className( "todo-list" ),
+                          AppData.viewService.filteredTodos().stream().map( TodoItemBuilder::todo )
                       )
       );
     }

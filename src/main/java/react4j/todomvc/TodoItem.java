@@ -30,7 +30,7 @@ abstract class TodoItem
   private boolean _isEditing;
   private String _editText;
 
-  @Prop
+  @Prop( immutable = true )
   abstract Todo getTodo();
 
   private void setEditText( @Nonnull final String editText )
