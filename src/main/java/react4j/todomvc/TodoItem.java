@@ -33,7 +33,8 @@ abstract class TodoItem
   private boolean _isEditing;
   private String _editText;
 
-  @Prop
+  @Prop( immutable = true )
+  @Nonnull
   abstract Todo getTodo();
 
   @Observable

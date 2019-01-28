@@ -49,8 +49,7 @@ abstract class TodoList
                                .onChange( this::handleToggleAll )
                       ),
                       ul( new HtmlProps().className( "todo-list" ),
-                          AppData.viewService.filteredTodos().stream().
-                            map( todo -> TodoItemBuilder.key( todo.getId() ).todo( todo ) )
+                          AppData.viewService.filteredTodos().stream().map( TodoItemBuilder::todo )
                       )
       );
     }
