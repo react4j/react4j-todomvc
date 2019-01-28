@@ -31,6 +31,7 @@ abstract class TodoItem
   private String _editText;
 
   @Prop( immutable = true )
+  @Nonnull
   abstract Todo getTodo();
 
   private void setEditText( @Nonnull final String editText )
