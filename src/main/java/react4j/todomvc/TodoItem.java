@@ -30,13 +30,14 @@ abstract class TodoItem
   private boolean _isEditing;
   private String _editText;
 
-  @Prop
+  @Prop( immutable = true )
+  @Nonnull
   abstract Todo getTodo();
 
   private void setEditText( @Nonnull final String editText )
   {
     _editText = editText;
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private boolean isTodoBeingEdited()
@@ -58,7 +59,7 @@ abstract class TodoItem
   private void resetEditTextAndReRender()
   {
     resetEditText();
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
