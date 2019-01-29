@@ -1,6 +1,5 @@
 <module>
   <inherits name='com.google.gwt.core.Core'/>
-  <inherits name='react4j.arez.Arez'/>
   <inherits name='react4j.dom.Dom'/>
   <inherits name='arez.spytools.browser.react4j.ReactArezSpyTools'/>
 
