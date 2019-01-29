@@ -1,6 +1,7 @@
 package react4j.todomvc;
 
 import elemental2.dom.DomGlobal;
+import react4j.ReactElement;
 import react4j.dom.ReactDOM;
 import react4j.todomvc.model.AppData;
 
@@ -15,6 +16,7 @@ public final class App
 
   private void render()
   {
-    ReactDOM.render( TodoListBuilder.build(), DomGlobal.document.getElementById( "app" ) );
+    ReactDOM.render( ReactElement.createStrictMode( TodoListBuilder.build() ),
+                     DomGlobal.document.getElementById( "app" ) );
   }
 }
