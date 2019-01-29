@@ -9,11 +9,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
 import jsinterop.base.Js;
+import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
-import react4j.arez.ReactArezComponent;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.KeyboardEvent;
 import react4j.dom.proptypes.html.BtnProps;
@@ -27,9 +27,9 @@ import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
 
-@ReactComponent
+@ReactComponent( type = ReactComponent.Type.TRACKING )
 abstract class TodoItem
-  extends ReactArezComponent
+  extends Component
 {
   @Inject
   TodoRepository _todoRepository;
