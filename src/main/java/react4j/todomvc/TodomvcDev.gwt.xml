@@ -1,6 +1,5 @@
 <module rename-to='todomvc_dev'>
   <inherits name='react4j.todomvc.Todomvc'/>
-  <inherits name='react4j.arez.ArezDev'/>
   <inherits name='react4j.dom.DomDev'/>
   <inherits name='arez.ArezDebug'/>
 
