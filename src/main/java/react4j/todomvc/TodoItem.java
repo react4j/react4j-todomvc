@@ -49,6 +49,7 @@ abstract class TodoItem
   final void postConstruct()
   {
     resetEditText();
+    getTodo().subscribe( this::scheduleRender );
   }
 
   private void resetEditText()

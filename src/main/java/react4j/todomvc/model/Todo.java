@@ -1,5 +1,6 @@
 package react4j.todomvc.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import react4j.Keyed;
@@ -8,10 +9,11 @@ public final class Todo
   implements Keyed
 {
   @Nonnull
-  private String _id;
+  private final String _id;
   @Nonnull
   private String _title;
   private boolean _completed;
+  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
 
   Todo( @Nonnull final String id, @Nonnull final String title, final boolean completed )
   {
@@ -42,6 +44,7 @@ public final class Todo
   void setTitle( @Nonnull final String title )
   {
     _title = Objects.requireNonNull( title );
+    notifySubscribers();
   }
 
   public boolean isCompleted()
@@ -52,6 +55,7 @@ public final class Todo
   void setCompleted( final boolean completed )
   {
     _completed = completed;
+    notifySubscribers();
   }
 
   void toggle()
@@ -73,5 +77,15 @@ public final class Todo
     {
       return isCompleted();
     }
+  }
+
+  public void subscribe( @Nonnull final Procedure subscriber )
+  {
+    _subscribers.add( subscriber );
+  }
+
+  private void notifySubscribers()
+  {
+    _subscribers.forEach( Procedure::call );
   }
 }
