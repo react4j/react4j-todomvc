@@ -12,6 +12,7 @@ public final class App
   {
     ReactArezSpyUtil.enableSpyEventLogging();
     TodoComponent.create();
-    ReactDOM.render( ReactElement.createStrictMode( TodoListBuilder.build() ), DomGlobal.document.getElementById( "app" ) );
+    ReactDOM.render( ReactElement.createStrictMode( TodoListBuilder.build() ),
+                     DomGlobal.document.getElementById( "app" ) );
   }
 }
