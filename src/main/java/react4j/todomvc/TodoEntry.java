@@ -3,9 +3,9 @@ package react4j.todomvc;
 import arez.annotations.Action;
 import arez.annotations.Observable;
 import elemental2.dom.HTMLInputElement;
+import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Inject;
 import jsinterop.base.Js;
 import react4j.Component;
 import react4j.ReactNode;
@@ -20,10 +20,14 @@ import static react4j.dom.DOM.*;
 abstract class TodoEntry
   extends Component
 {
-  @Inject
-  TodoService _todoService;
-
+  @Nonnull
+  private final TodoService _todoService;
   private String _todoText = "";
+
+  TodoEntry( @Nonnull final TodoService todoService )
+  {
+    _todoService = Objects.requireNonNull( todoService );
+  }
 
   @Observable
   String getTodoText()

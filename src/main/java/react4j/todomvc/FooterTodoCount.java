@@ -1,7 +1,8 @@
 package react4j.todomvc;
 
+import java.util.Objects;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Inject;
 import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
@@ -13,8 +14,13 @@ import static react4j.dom.DOM.*;
 abstract class FooterTodoCount
   extends Component
 {
-  @Inject
-  TodoRepository _todoRepository;
+  @Nonnull
+  private final TodoRepository _todoRepository;
+
+  FooterTodoCount( @Nonnull final TodoRepository todoRepository )
+  {
+    _todoRepository = Objects.requireNonNull( todoRepository );
+  }
 
   @Nullable
   @Override
