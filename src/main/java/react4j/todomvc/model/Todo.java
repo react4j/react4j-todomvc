@@ -8,7 +8,7 @@ public final class Todo
   implements Keyed
 {
   @Nonnull
-  private String _id;
+  private final String _id;
   @Nonnull
   private String _title;
   private boolean _completed;
