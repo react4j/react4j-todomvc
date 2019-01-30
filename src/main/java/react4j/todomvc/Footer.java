@@ -1,8 +1,9 @@
 package react4j.todomvc;
 
 import arez.annotations.Memoize;
+import java.util.Objects;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Inject;
 import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
@@ -19,12 +20,21 @@ import static react4j.dom.DOM.*;
 abstract class Footer
   extends Component
 {
-  @Inject
-  TodoRepository _todoRepository;
-  @Inject
-  TodoService _todoService;
-  @Inject
-  ViewService _viewService;
+  @Nonnull
+  private final TodoRepository _todoRepository;
+  @Nonnull
+  private final TodoService _todoService;
+  @Nonnull
+  private final ViewService _viewService;
+
+  Footer( @Nonnull final TodoRepository todoRepository,
+          @Nonnull final TodoService todoService,
+          @Nonnull final ViewService viewService )
+  {
+    _todoRepository = Objects.requireNonNull( todoRepository );
+    _todoService = Objects.requireNonNull( todoService );
+    _viewService = Objects.requireNonNull( viewService );
+  }
 
   @Nullable
   @Override
