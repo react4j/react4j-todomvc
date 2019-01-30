@@ -116,7 +116,7 @@ abstract class TodoItem
   void onEdit( @Nonnull final Todo todo )
   {
     _viewService.setTodoBeingEdited( todo );
-    resetEditText(todo);
+    resetEditText( todo );
   }
 
   @Action( reportParameters = false )
