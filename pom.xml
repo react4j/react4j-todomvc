@@ -100,6 +100,14 @@
           <groupId>com.google.jsinterop</groupId>
           <artifactId>base</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>com.google.elemental2</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.com.google.elemental2</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
