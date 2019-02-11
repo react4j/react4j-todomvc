@@ -65,7 +65,7 @@ end
 desc 'Publish the website if build is on candidate branch'
 task 'site:deploy_if_candidate_branch' do
   branch = ENV['TRAVIS_BRANCH']
-  if branch || %w(raw arez dagger).include?(branch)
+  if branch.nil? || %w(raw arez dagger).include?(branch)
     ENV['SITE_BRANCH'] = branch
     puts "Deploying site for branch '#{branch}'"
     task('site:deploy').invoke
