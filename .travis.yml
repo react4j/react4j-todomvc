@@ -1,7 +1,6 @@
 language: ruby
 jdk:
 - oraclejdk8
-sudo: false
 install:
 - wget -O install.sh "https://github.com/bazelbuild/bazel/releases/download/0.19.0/bazel-0.19.0-installer-linux-x86_64.sh"
 - chmod +x install.sh

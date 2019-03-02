@@ -1,11 +1,13 @@
 package react4j.todomvc;
 
+import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.Component;
 import react4j.ReactNode;
+import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
@@ -28,7 +30,8 @@ abstract class TodoItem
   private boolean _isEditing;
   private String _editText;
 
-  @Prop
+  @Prop( immutable = true )
+  @Nonnull
   abstract Todo getTodo();
 
   private void setEditText( @Nonnull final String editText )
@@ -42,10 +45,11 @@ abstract class TodoItem
     return AppData.viewService.getTodoBeingEdited() == getTodo();
   }
 
-  @Override
-  protected void postConstruct()
+  @PostConstruct
+  final void postConstruct()
   {
     resetEditText();
+    getTodo().subscribe( this::scheduleRender );
   }
 
   private void resetEditText()
@@ -116,8 +120,8 @@ abstract class TodoItem
     }
   }
 
-  @Override
-  protected void componentDidUpdate()
+  @PostUpdate
+  final void postUpdate()
   {
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
