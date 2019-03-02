@@ -23,7 +23,6 @@ java_library(
         "react4j_processor",
     ],
     deps = [
-        "@com_google_gwt_user//jar",
         "@com_google_jsinterop_annotations//jar",
         "@org_realityforge_arez_core//jar",
         "@org_realityforge_braincheck//jar",

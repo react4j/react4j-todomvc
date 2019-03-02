@@ -15,11 +15,6 @@ load("@com_google_j2cl//build_defs:rules.bzl", "setup_j2cl_workspace")
 setup_j2cl_workspace()
 
 maven_jar(
-    name = "com_google_gwt_user",
-    artifact = "com.google.gwt:gwt-user:jar:2.8.2",
-)
-
-maven_jar(
     name = "org_realityforge_javax_annotation",
     artifact = "org.realityforge.javax.annotation:javax.annotation:1.0.0",
     sha1 = "1ebb2908a65d23131748a11158f5984ac242800b",
