@@ -25,6 +25,6 @@ before_script:
   # This is so we understand failures better
   - echo "build --verbose_failures" >> .bazelrc
 
-script: bazel build :react4j-todomvc
+script: bazel build :all
 git:
   depth: false
