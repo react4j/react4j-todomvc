@@ -1,6 +1,8 @@
 package(default_visibility = ["//visibility:public"])
 
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library", "j2cl_import", "j2cl_application")
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
+
 java_plugin(
     name = "react4j_processor",
     processor_class = "react4j.processor.ReactProcessor",
@@ -98,4 +100,10 @@ j2cl_library(
         "org_realityforge_react4j_dom-j2cl",
         "org_realityforge_braincheck-j2cl",
     ],
+)
+
+closure_js_library(
+    name = "react4j-closure",
+    srcs = ["src/main/java/react4j/todomvc/App.js"],
+    deps = [":react4j-todomvc-j2cl"],
 )
