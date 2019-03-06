@@ -37,73 +37,40 @@ java_library(
 )
 
 j2cl_import(
-    name = "org_realityforge_javax_annotation-j2cl",
-    jar = "@org_realityforge_javax_annotation//jar",
-)
-
-j2cl_import(
     name = "com_google_jsinterop_annotations-j2cl",
     jar = "@com_google_jsinterop_annotations//jar",
 )
 
 j2cl_import(
-    name = "org_realityforge_com_google_jsinterop_base-j2cl",
-    jar = "@org_realityforge_com_google_jsinterop_base//jar",
+    name = "org_realityforge_javax_annotation-j2cl",
+    jar = "@org_realityforge_javax_annotation//jar",
 )
 
 j2cl_import(
-    name = "org_realityforge_com_google_elemental2_core-j2cl",
-    jar = "@org_realityforge_com_google_elemental2_core//jar",
-)
-
-j2cl_import(
-    name = "org_realityforge_com_google_elemental2_promise-j2cl",
-    jar = "@org_realityforge_com_google_elemental2_promise//jar",
-)
-
-j2cl_import(
-    name = "org_realityforge_com_google_elemental2_dom-j2cl",
-    jar = "@org_realityforge_com_google_elemental2_dom//jar",
-)
-
-j2cl_import(
-    name = "org_realityforge_arez_core-j2cl",
-    jar = "@org_realityforge_arez_core//jar",
-)
-
-j2cl_import(
-    name = "org_realityforge_react4j_core-j2cl",
-    jar = "@org_realityforge_react4j_core//jar",
-)
-
-j2cl_import(
-    name = "org_realityforge_react4j_dom-j2cl",
-    jar = "@org_realityforge_react4j_dom//jar",
-)
-
-j2cl_import(
-    name = "org_realityforge_braincheck-j2cl",
-    jar = "@org_realityforge_braincheck//jar",
+    name = "gwt-javaemul-internal-annotations-j2cl",
+    jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
 )
 
 j2cl_library(
     name = "react4j-todomvc-j2cl",
-    srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]),
+    srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]) + [
+            "@org_realityforge_arez_core//jar",
+            "@org_realityforge_braincheck//jar",
+            "@org_realityforge_react4j_core//jar",
+            "@org_realityforge_react4j_dom//jar",
+            "@org_realityforge_com_google_jsinterop_base//jar",
+            "@org_realityforge_com_google_elemental2_core//jar",
+            "@org_realityforge_com_google_elemental2_promise//jar",
+            "@org_realityforge_com_google_elemental2_dom//jar",
+            "@org_realityforge_javax_annotation//jar",
+            ],
+    deps = [
+        ":com_google_jsinterop_annotations-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+    ],
     plugins = [
         "arez_processor",
         "react4j_processor",
-    ],
-    deps = [
-        "com_google_jsinterop_annotations-j2cl",
-        "org_realityforge_arez_core-j2cl",
-        "org_realityforge_braincheck-j2cl",
-        "org_realityforge_com_google_elemental2_core-j2cl",
-        "org_realityforge_com_google_elemental2_dom-j2cl",
-        "org_realityforge_com_google_elemental2_promise-j2cl",
-        "org_realityforge_com_google_jsinterop_base-j2cl",
-        "org_realityforge_javax_annotation-j2cl",
-        "org_realityforge_react4j_core-j2cl",
-        "org_realityforge_react4j_dom-j2cl",
     ],
 )
 
