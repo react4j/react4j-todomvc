@@ -23,7 +23,7 @@ maven_jar(
 maven_jar(
     name = "org_realityforge_com_google_jsinterop_base",
     artifact = "org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f",
-    sha1 = "f930995bc3d51f767cd72c7da816cb9256d0e485",
+    sha1 = "5019e4e51236b5fb35f31d5ffde52679d7dd121f",
 )
 
 maven_jar(
