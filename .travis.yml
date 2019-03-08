@@ -2,7 +2,7 @@ language: ruby
 jdk:
 - oraclejdk8
 env:
-  - BAZEL=0.22.0
+  - BAZEL=0.23.0
 
 before_install:
   - |
