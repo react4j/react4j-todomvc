@@ -53,7 +53,7 @@ j2cl_import(
 
 j2cl_library(
     name = "react4j-core",
-    srcs = glob(["src/main/java/react4j/todomvc/*eact*.js"]) + [
+    srcs = glob(["src/main/react4j-core-0.121.zip"]) + [
             "@org_realityforge_react4j_core//jar",
             "@org_realityforge_react4j_dom//jar",
             "@org_realityforge_arez_core//jar",
