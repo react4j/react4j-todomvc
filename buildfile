@@ -21,6 +21,7 @@ define 'react4j-todomvc' do
                :elemental2_dom,
                :elemental2_promise,
                :braincheck,
+               :spritz_core,
                :react4j_core,
                :react4j_dom,
                :arez_core,
