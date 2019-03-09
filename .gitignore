@@ -8,4 +8,5 @@
 /tmp
 /generated
 /bazel-*
-/.ijwb
+/.ijwb/.blaze
+/.ijwb/.idea
