@@ -70,5 +70,4 @@ public final class ViewService
       filterMode$.next( FilterMode.ALL );
     }
   }
-
 }
