@@ -74,7 +74,8 @@ public final class ViewService
 
   private void computeFilterMode()
   {
-    final String location = getHash();
+    final String hash = DomGlobal.window.location.getHash();
+    final String location = null == hash ? "" : hash.substring( 1 );
     if ( "active".equals( location ) )
     {
       filterMode$.next( FilterMode.ACTIVE );
@@ -85,7 +86,7 @@ public final class ViewService
     }
     else
     {
-      if ( !location.equals( "" ) )
+      if ( null != hash )
       {
         /*
          * This code is needed to remove the stray #.
@@ -98,10 +99,4 @@ public final class ViewService
     }
   }
 
-  @Nonnull
-  private String getHash()
-  {
-    final String hash = DomGlobal.window.location.getHash();
-    return null == hash ? "" : hash.substring( 1 );
-  }
 }
