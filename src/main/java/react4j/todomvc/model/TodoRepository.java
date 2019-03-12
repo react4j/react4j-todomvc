@@ -43,7 +43,6 @@ public final class TodoRepository
       results.add( new Todo( Long.toString( System.currentTimeMillis() ), title, false ) );
       return results;
     } ).subscribe( update$ );
-
     toggle$.map( todo -> (Function<List<Todo>, List<Todo>>) todos -> {
       todo.toggle();
       return todos;
@@ -52,7 +51,6 @@ public final class TodoRepository
       action.getTodo().setTitle( action.getNewTitle() );
       return todos;
     } ).subscribe( update$ );
-
     destroy$.map( todo -> (Function<List<Todo>, List<Todo>>) todos -> {
       final ArrayList<Todo> results = new ArrayList<>( todos );
       results.remove( todo );
@@ -61,7 +59,6 @@ public final class TodoRepository
     setTodoBeingEdited$.map( todoId -> (Function<List<Todo>, List<Todo>>) todos ->
       todos.stream().peek( todo -> todo.setEditing( todo.getId().equals( todoId ) ) ).collect( Collectors.toList() )
     ).subscribe( update$ );
-
     toggleAll$.map( completed -> (Function<List<Todo>, List<Todo>>) todos ->
       todos.stream().peek( todo -> todo.setCompleted( completed ) ).collect( Collectors.toList() )
     ).subscribe( update$ );
