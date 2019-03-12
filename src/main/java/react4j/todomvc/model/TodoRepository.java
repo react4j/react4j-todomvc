@@ -1,98 +1,141 @@
 package react4j.todomvc.model;
 
+import arez.component.CollectionsUtil;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.annotation.Nonnull;
+import spritz.Stream;
+import spritz.Subject;
 
 public final class TodoRepository
 {
-  private final ArrayList<Todo> _entities = new ArrayList<>();
-  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
+  private final Subject<String> add$ = Stream.subject( "add" );
+  private final Subject<Todo> destroy$ = Stream.subject( "destroy" );
+  private final Subject<Todo> toggle$ = Stream.subject( "toggle" );
+  private final Subject<SaveAction> save$ = Stream.subject( "save" );
+  private final Subject<Boolean> toggleAll$ = Stream.subject( "toggleAll" );
+  private final Subject<Object> clearCompleted$ = Stream.subject( "clearCompleted" );
+  /**
+   * This stream consists of a list of operations that are applied to a list of Todos.
+   */
+  private final Subject<Function<List<Todo>, List<Todo>>> update$ = Stream.subject( "update" );
+  @SuppressWarnings( "NullableProblems" )
+  private final Stream<List<Todo>> todo$ =
+    update$
+      .startWith( Function.identity() )
+      .<List<Todo>>scan( Function::apply, new ArrayList<>() )
+      .map( todos -> CollectionsUtil.wrap( new ArrayList<>( todos ) ) )
+      .publishReplayWithMaxSize( 1 )
+      .refCount();
+  private final Stream<Integer> totalCount$ = todo$.map( List::size );
+  private final Stream<Integer> completedCount$ =
+    todo$.map( todos -> (int) todos.stream().filter( Todo::isCompleted ).count() );
 
-  private boolean isEmpty()
+  TodoRepository()
   {
-    return 0 == totalCount();
-  }
+    //TODO: Need this subscription returned so can cancel it ... as well as all the other Stream above
+    add$.map( title -> (Function<List<Todo>, List<Todo>>) todos -> {
+      final ArrayList<Todo> results = new ArrayList<>( todos );
+      results.add( new Todo( Long.toString( System.currentTimeMillis() ), title, false ) );
+      return results;
+    } ).subscribe( update$ );
 
-  public boolean isNotEmpty()
-  {
-    return !isEmpty();
-  }
+    toggle$.map( todo -> (Function<List<Todo>, List<Todo>>) todos -> {
+      todo.toggle();
+      return todos;
+    } ).subscribe( update$ );
+    save$.map( action -> (Function<List<Todo>, List<Todo>>) todos -> {
+      action.getTodo().setTitle( action.getNewTitle() );
+      return todos;
+    } ).subscribe( update$ );
 
-  public int totalCount()
-  {
-    return (int) entities().count();
-  }
+    destroy$.map( todo -> (Function<List<Todo>, List<Todo>>) todos -> {
+      final ArrayList<Todo> results = new ArrayList<>( todos );
+      results.remove( todo );
+      return results;
+    } ).subscribe( update$ );
 
-  private int activeCount()
-  {
-    return (int) entities().filter( todo -> !todo.isCompleted() ).count();
-  }
-
-  public int completedCount()
-  {
-    return totalCount() - activeCount();
-  }
-
-  boolean contains( final Todo todo )
-  {
-    return _entities.contains( todo );
-  }
-
-  Stream<Todo> entities()
-  {
-    return _entities.stream();
+    toggleAll$.map( completed -> (Function<List<Todo>, List<Todo>>) todos ->
+      todos.stream().peek( todo -> todo.setCompleted( completed ) ).collect( Collectors.toList() )
+    ).subscribe( update$ );
+    clearCompleted$.map( v -> (Function<List<Todo>, List<Todo>>) todos ->
+      todos.stream().filter( todo -> !todo.isCompleted() ).collect( Collectors.toList() )
+    ).subscribe( update$ );
   }
 
   public void addTodo( @Nonnull final String title )
   {
-    _entities.add( new Todo( Long.toString( System.currentTimeMillis() ), title, false ) );
-    notifySubscribers();
+    add$.next( title );
+  }
+
+  public void toggle( @Nonnull final Todo todo )
+  {
+    toggle$.next( todo );
   }
 
   public void destroy( @Nonnull final Todo todo )
   {
-    _entities.remove( todo );
-    notifySubscribers();
+    destroy$.next( todo );
   }
 
   public void toggleAll( final boolean completed )
   {
-    entities().forEach( todo -> todo.setCompleted( completed ) );
-    notifySubscribers();
-  }
-
-  public void save( final Todo todo, final String newTitle )
-  {
-    todo.setTitle( newTitle );
-    notifySubscribers();
-  }
-
-  public void toggle( final Todo todo )
-  {
-    todo.toggle();
-    notifySubscribers();
+    toggleAll$.next( completed );
   }
 
   public void clearCompleted()
   {
-    entities()
-      //Find all completed
-      .filter( Todo::isCompleted )
-      .collect( Collectors.toList() )
-      // Have to collect() to create new list so can mutate
-      // by destroy in following line
-      .forEach( this::destroy );
+    clearCompleted$.next( this );
   }
 
-  public void subscribe( @Nonnull final Procedure subscriber )
+  public void save( @Nonnull final Todo todo, @Nonnull final String newTitle )
   {
-    _subscribers.add( subscriber );
+    save$.next( new SaveAction( todo, newTitle ) );
   }
 
-  private void notifySubscribers()
+  @Nonnull
+  public Stream<Integer> totalCount()
   {
-    _subscribers.forEach( Procedure::call );
+    return totalCount$;
+  }
+
+  @Nonnull
+  public Stream<Integer> completedCount()
+  {
+    return completedCount$;
+  }
+
+  @Nonnull
+  Stream<List<Todo>> getTodos()
+  {
+    return todo$;
+  }
+
+  private static class SaveAction
+  {
+    @Nonnull
+    private final Todo _todo;
+    @Nonnull
+    private final String _newTitle;
+
+    SaveAction( @Nonnull final Todo todo, @Nonnull final String newTitle )
+    {
+      _todo = todo;
+      _newTitle = newTitle;
+    }
+
+    @Nonnull
+    Todo getTodo()
+    {
+      return _todo;
+    }
+
+    @Nonnull
+    String getNewTitle()
+    {
+      return _newTitle;
+    }
   }
 }

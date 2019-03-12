@@ -1,10 +1,11 @@
 package react4j.todomvc;
 
+import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
+import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
@@ -12,12 +13,25 @@ import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.AppData;
+import react4j.todomvc.model.Todo;
 import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class TodoList
-  extends Component
+  extends SpritzComponent
 {
+  private List<Todo> _todos;
+
+  @PostConstruct
+  void postConstruct()
+  {
+    // TODO: Return a susbcription so it can be cancelled on unmount
+    AppData.viewService.filteredTodos().forEach( todos -> {
+      _todos = todos;
+      maybeScheduleRender();
+    } );
+  }
+
   private void handleToggleAll( @Nonnull final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
@@ -35,7 +49,7 @@ abstract class TodoList
                      TodoEntryBuilder.build()
              ),
              renderMainSection(),
-             AppData.service.isNotEmpty() ? FooterBuilder.build() : null
+             !_todos.isEmpty() ? FooterBuilder.build() : null
         )
       );
   }
@@ -43,7 +57,7 @@ abstract class TodoList
   @Nullable
   private ReactNode renderMainSection()
   {
-    if ( AppData.service.isNotEmpty() )
+    if ( !_todos.isEmpty() )
     {
       return section( new HtmlProps().className( "header" ),
                       input( new InputProps()
@@ -52,7 +66,7 @@ abstract class TodoList
                                .onChange( this::handleToggleAll )
                       ),
                       ul( new HtmlProps().className( "todo-list" ),
-                          AppData.viewService.filteredTodos().stream().map( TodoItemBuilder::todo )
+                          _todos.stream().map( TodoItemBuilder::todo )
                       )
       );
     }

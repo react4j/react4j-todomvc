@@ -1,7 +1,7 @@
 package react4j.todomvc;
 
+import arez.annotations.PostConstruct;
 import javax.annotation.Nullable;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -10,17 +10,28 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class FooterTodoCount
-  extends Component
+  extends SpritzComponent
 {
+  private int _totalCount;
+
+  @PostConstruct
+  void postConstruct()
+  {
+    // TODO: Return a susbcription so it can be cancelled on unmount
+    AppData.service.totalCount().forEach( totalCount -> {
+      _totalCount = totalCount;
+      maybeScheduleRender();
+    } );
+  }
+
   @Nullable
   @Override
   protected ReactNode render()
   {
-    final int count = AppData.service.totalCount();
-    final String activeTodoWord = "item" + ( count == 1 ? "" : "s" );
+    final String activeTodoWord = "item" + ( _totalCount == 1 ? "" : "s" );
     return
       span( new HtmlProps().className( "todo-count" ),
-            strong( count ),
+            strong( _totalCount ),
             text( " " + activeTodoWord + " left" )
       );
   }

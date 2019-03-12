@@ -1,7 +1,7 @@
 package react4j.todomvc;
 
+import arez.annotations.PostConstruct;
 import javax.annotation.Nullable;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
 import react4j.dom.proptypes.html.AnchorProps;
@@ -13,8 +13,25 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class Footer
-  extends Component
+  extends SpritzComponent
 {
+  private int _completedCount;
+  private FilterMode _filterMode;
+
+  @PostConstruct
+  void postConstruct()
+  {
+    // TODO: Return a susbcription so it can be cancelled on unmount
+    AppData.service.completedCount().forEach( completedCount -> {
+      _completedCount = completedCount;
+      maybeScheduleRender();
+    } );
+    AppData.viewService.getFilterMode().forEach( filterMode -> {
+      _filterMode = filterMode;
+      maybeScheduleRender();
+    } );
+  }
+
   private void handleClearCompleted()
   {
     AppData.service.clearCompleted();
@@ -24,25 +41,24 @@ abstract class Footer
   @Override
   protected ReactNode render()
   {
-    final FilterMode filterMode = AppData.viewService.getFilterMode();
     return
       footer( new HtmlProps().className( "footer" ),
               FooterTodoCountBuilder.build(),
               ul( new HtmlProps().className( "filters" ),
                   li( a( new AnchorProps()
-                           .className( FilterMode.ALL == filterMode ? "selected" : null )
+                           .className( FilterMode.ALL == _filterMode ? "selected" : null )
                            .href( "#" ), "All" )
                   ),
                   li( a( new AnchorProps()
-                           .className( FilterMode.ACTIVE == filterMode ? "selected" : null )
+                           .className( FilterMode.ACTIVE == _filterMode ? "selected" : null )
                            .href( "#active" ), "Active" )
                   ),
                   li( a( new AnchorProps()
-                           .className( FilterMode.COMPLETED == filterMode ? "selected" : null )
+                           .className( FilterMode.COMPLETED == _filterMode ? "selected" : null )
                            .href( "#completed" ), "Completed" )
                   )
               ),
-              AppData.service.completedCount() > 0 ?
+              _completedCount > 0 ?
               button( new BtnProps().className( "clear-completed" ).onClick( e -> handleClearCompleted() ),
                       "Clear Completed" ) :
               null
