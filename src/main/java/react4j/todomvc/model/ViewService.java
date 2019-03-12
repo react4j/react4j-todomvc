@@ -5,21 +5,17 @@ import elemental2.dom.Event;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import spritz.Stream;
 import spritz.Subject;
 
 public final class ViewService
 {
-  @Nullable
-  private Todo _todoBeingEdited;
   private final Stream<List<Todo>> filteredTodo$;
   private final Subject<FilterMode> filterMode$;
 
   ViewService( @Nonnull final TodoRepository todoRepository )
   {
     DomGlobal.window.addEventListener( "hashchange", this::onHashChangeEvent, false );
-    //TODO: todoRepository.subscribe( this::updateTodoBeingEdited );
 
     filterMode$ = Stream.subject( "filterMode" );
     computeFilterMode();
@@ -28,18 +24,6 @@ public final class ViewService
         .map( todos -> todos.stream()
           .filter( todo -> todo.shouldShowTodo( FilterMode.ALL ) )
           .collect( Collectors.toList() ) );
-  }
-
-  @Nullable
-  public Todo getTodoBeingEdited()
-  {
-    return _todoBeingEdited;
-  }
-
-  public void setTodoBeingEdited( @Nullable final Todo todoBeingEdited )
-  {
-    _todoBeingEdited = todoBeingEdited;
-    //TODO: notifySubscribers();
   }
 
   @Nonnull
@@ -53,18 +37,6 @@ public final class ViewService
   {
     return filteredTodo$;
   }
-
-  /*
-  TODO
-  private void updateTodoBeingEdited()
-  {
-    final Todo todoBeingEdited = getTodoBeingEdited();
-    if ( null != todoBeingEdited && !_todoRepository.contains( todoBeingEdited ) )
-    {
-      setTodoBeingEdited( null );
-    }
-  }
-  */
 
   private void onHashChangeEvent( @Nonnull final Event e )
   {

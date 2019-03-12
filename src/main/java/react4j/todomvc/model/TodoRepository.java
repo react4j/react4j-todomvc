@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import spritz.Stream;
 import spritz.Subject;
 
@@ -14,6 +15,7 @@ public final class TodoRepository
   private final Subject<String> add$ = Stream.subject( "add" );
   private final Subject<Todo> destroy$ = Stream.subject( "destroy" );
   private final Subject<Todo> toggle$ = Stream.subject( "toggle" );
+  private final Subject<String> setTodoBeingEdited$ = Stream.subject( "setTodoBeingEdited" );
   private final Subject<SaveAction> save$ = Stream.subject( "save" );
   private final Subject<Boolean> toggleAll$ = Stream.subject( "toggleAll" );
   private final Subject<Object> clearCompleted$ = Stream.subject( "clearCompleted" );
@@ -56,6 +58,9 @@ public final class TodoRepository
       results.remove( todo );
       return results;
     } ).subscribe( update$ );
+    setTodoBeingEdited$.map( todoId -> (Function<List<Todo>, List<Todo>>) todos ->
+      todos.stream().peek( todo -> todo.setEditing( todo.getId().equals( todoId ) ) ).collect( Collectors.toList() )
+    ).subscribe( update$ );
 
     toggleAll$.map( completed -> (Function<List<Todo>, List<Todo>>) todos ->
       todos.stream().peek( todo -> todo.setCompleted( completed ) ).collect( Collectors.toList() )
@@ -78,6 +83,11 @@ public final class TodoRepository
   public void destroy( @Nonnull final Todo todo )
   {
     destroy$.next( todo );
+  }
+
+  public void setTodoBeingEdited( @Nullable final Todo todo )
+  {
+    setTodoBeingEdited$.next( null == todo ? "" : todo.getId() );
   }
 
   public void toggleAll( final boolean completed )

@@ -40,11 +40,6 @@ abstract class TodoItem
     scheduleRender();
   }
 
-  private boolean isTodoBeingEdited()
-  {
-    return AppData.viewService.getTodoBeingEdited() == getTodo();
-  }
-
   @PostConstruct
   final void postConstruct()
   {
@@ -80,7 +75,7 @@ abstract class TodoItem
     if ( null != _editText && !_editText.isEmpty() )
     {
       AppData.service.save( getTodo(), _editText );
-      AppData.viewService.setTodoBeingEdited( null );
+      AppData.service.setTodoBeingEdited( null );
       setEditText( _editText );
     }
     else
@@ -96,7 +91,7 @@ abstract class TodoItem
 
   private void onEdit()
   {
-    AppData.viewService.setTodoBeingEdited( getTodo() );
+    AppData.service.setTodoBeingEdited( getTodo() );
     resetEditTextAndReRender();
   }
 
@@ -107,13 +102,13 @@ abstract class TodoItem
 
   private void onCancel()
   {
-    AppData.viewService.setTodoBeingEdited( null );
+    AppData.service.setTodoBeingEdited( null );
     resetEditTextAndReRender();
   }
 
   private void handleChange( @Nonnull final FormEvent event )
   {
-    if ( isTodoBeingEdited() )
+    if ( getTodo().isEditing() )
     {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setEditText( input.value );
@@ -123,7 +118,7 @@ abstract class TodoItem
   @PostUpdate
   final void postUpdate()
   {
-    final boolean todoBeingEdited = isTodoBeingEdited();
+    final boolean todoBeingEdited = getTodo().isEditing();
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
@@ -144,7 +139,7 @@ abstract class TodoItem
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
-    return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
+    return li( new HtmlProps().className( completed ? "checked" : null, getTodo().isEditing() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )

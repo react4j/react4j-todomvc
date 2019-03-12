@@ -14,6 +14,8 @@ public final class Todo
   @Nonnull
   private String _title;
   private boolean _completed;
+  // Is the element currently being edited
+  private boolean _editing;
   private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
 
   Todo( @Nonnull final String id, @Nonnull final String title, final boolean completed )
@@ -57,6 +59,16 @@ public final class Todo
   {
     _completed = completed;
     notifySubscribers();
+  }
+
+  public boolean isEditing()
+  {
+    return _editing;
+  }
+
+  void setEditing( final boolean editing )
+  {
+    _editing = editing;
   }
 
   void toggle()
