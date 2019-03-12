@@ -25,7 +25,7 @@ abstract class TodoList
   @PostConstruct
   void postConstruct()
   {
-    // TODO: Return a susbcription so it can be cancelled on unmount
+    // TODO: Return a subscription so it can be cancelled on unmount
     AppData.viewService.filteredTodos().forEach( todos -> {
       _todos = todos;
       maybeScheduleRender();
