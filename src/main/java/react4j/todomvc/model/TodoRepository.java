@@ -37,7 +37,7 @@ public final class TodoRepository
 
   TodoRepository()
   {
-    //TODO: Need this subscription returned so can cancel it ... as well as all the other Stream above
+    //TODO: Need this subscription returned so can cancel it ... as well as all the other Subjects above
     add$.map( title -> (Function<List<Todo>, List<Todo>>) todos -> {
       final ArrayList<Todo> results = new ArrayList<>( todos );
       results.add( new Todo( Long.toString( System.currentTimeMillis() ), title, false ) );
