@@ -96,7 +96,12 @@ public final class ViewService
     }
     else
     {
-      setHash( "" );
+      /*
+       * This code is needed to remove the stray #.
+       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
+       */
+      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
+      DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
     }
   }
 
@@ -105,23 +110,6 @@ public final class ViewService
   {
     final String hash = DomGlobal.window.location.getHash();
     return null == hash ? "" : hash.substring( 1 );
-  }
-
-  private void setHash( @Nonnull final String hash )
-  {
-    if ( 0 == hash.length() )
-    {
-      /*
-       * This code is needed to remove the stray #.
-       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
-       */
-      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
-      DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
-    }
-    else
-    {
-      DomGlobal.window.location.setHash( hash );
-    }
   }
 
   public void subscribe( @Nonnull final Procedure subscriber )
