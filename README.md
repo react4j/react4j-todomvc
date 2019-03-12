@@ -10,10 +10,6 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 ## TODO
 
-* Route should be subject.
-
-* Each action is a subject.
-
 * Stream Props and other could be paired with another method that get's current value. Or is this `ComputableValue`?
 
 * Should auto-generate cancel of `Subscription` instances much like `@CascadeDispose`?
