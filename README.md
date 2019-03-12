@@ -11,7 +11,11 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 * Currently we manually trigger re-renders by explicitly serializing state from streams into a field. Should this
   some how be automated via Arez's `ComputableValue` such as:
-  - `@Memoize abstract int getMyValue(); @MemoizeStream Stream<Integer> getMyValueStream() { return ...; }` 
+  ```java
+  @Memoize abstract int getMyValue();
+
+  @MemoizeStream Stream<Integer> getMyValueStream() { return ...; }
+  ```
 
 * `Stream.subscribe(...)` should return a `Subscription` and there should be an annotation ala `@CascadeDispose`
   that automatically cancels subscription. Maybe Arez should be enhanced to support this via
