@@ -144,7 +144,7 @@ abstract class TodoItem
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
-    return li( new HtmlProps().className( completed ? "completed" : null, isTodoBeingEdited() ? "editing" : null ),
+    return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
