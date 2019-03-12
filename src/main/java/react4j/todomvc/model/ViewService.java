@@ -1,5 +1,6 @@
 package react4j.todomvc.model;
 
+import arez.SafeProcedure;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import javax.annotation.Nullable;
 
 public final class ViewService
 {
-  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
+  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
   @Nonnull
   private final TodoRepository _todoRepository;
   @Nullable
@@ -105,13 +106,13 @@ public final class ViewService
     return null == hash ? "" : hash.substring( 1 );
   }
 
-  public void subscribe( @Nonnull final Procedure subscriber )
+  public void subscribe( @Nonnull final SafeProcedure subscriber )
   {
     _subscribers.add( subscriber );
   }
 
   private void notifySubscribers()
   {
-    _subscribers.forEach( Procedure::call );
+    _subscribers.forEach( SafeProcedure::call );
   }
 }

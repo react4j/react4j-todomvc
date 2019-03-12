@@ -1,5 +1,6 @@
 package react4j.todomvc.model;
 
+import arez.SafeProcedure;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -13,7 +14,7 @@ public final class Todo
   @Nonnull
   private String _title;
   private boolean _completed;
-  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
+  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
 
   Todo( @Nonnull final String id, @Nonnull final String title, final boolean completed )
   {
@@ -79,13 +80,13 @@ public final class Todo
     }
   }
 
-  public void subscribe( @Nonnull final Procedure subscriber )
+  public void subscribe( @Nonnull final SafeProcedure subscriber )
   {
     _subscribers.add( subscriber );
   }
 
   private void notifySubscribers()
   {
-    _subscribers.forEach( Procedure::call );
+    _subscribers.forEach( SafeProcedure::call );
   }
 }
