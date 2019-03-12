@@ -7,11 +7,16 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 * [React4j](https://react4j.github.io) for the view layer.
 * [Spritz](https://spritz.github.io/) for the model layer.
 
-
 ## TODO
 
-* Stream Props and other could be paired with another method that get's current value. Or is this `ComputableValue`?
+* Currently we manually trigger re-renders by explicitly serializing state from streams into a field. Should this
+  some how be automated via Arez's `ComputableValue` such as:
+  - `@Memoize abstract int getMyValue(); @MemoizeStream Stream<Integer> getMyValueStream() { return ...; }` 
 
-* Should auto-generate cancel of `Subscription` instances much like `@CascadeDispose`?
+* `Stream.subscribe(...)` should return a `Subscription` and there should be an annotation ala `@CascadeDispose`
+  that automatically cancels subscription. Maybe Arez should be enhanced to support this via
+  `@CascadeDispose(type=Subscription.class,method=cancel)` or some other pattern that allows arbitrary release
+  of resources?
 
-* Some lifecycle methods should be represented by an observable stream that can subscribe to to produce effects
+* Lifecycle methods can be represented as a `Stream`. You should be able to declare methods like
+  `abstract Stream<Object> preRender$();` and have the framework generate them as appropriate.
