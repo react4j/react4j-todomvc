@@ -24,3 +24,10 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 * Lifecycle methods can be represented as a `Stream`. You should be able to declare methods like
   `abstract Stream<Object> preRender$();` and have the framework generate them as appropriate.
+
+* Consider supporting the creation of streams from `EventHandler` via code such as;
+  ```java
+  EventHandler h = EventHandler.mouse()
+  MouseEventHandler handler = h.getHandler();
+  Stream<MouseEvent> mouseEvents$ h.getStream();
+  ```
