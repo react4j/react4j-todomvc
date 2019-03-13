@@ -28,3 +28,5 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 * Change `CallbackAdapter` so that it captures a subscription by adding operation to `getStream()` which it can
   cancel when it is disposed. The subscription will be deregistered on completion or cancel.
+
+* Fix the filtering of items based on route
