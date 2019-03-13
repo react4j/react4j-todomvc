@@ -1,7 +1,6 @@
 package react4j.todomvc;
 
 import arez.annotations.PostConstruct;
-import arez.annotations.PreDispose;
 import javax.annotation.Nullable;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
@@ -10,7 +9,6 @@ import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.FilterMode;
-import spritz.Subscription;
 import static react4j.dom.DOM.*;
 
 @ReactComponent
@@ -19,17 +17,15 @@ abstract class Footer
 {
   private int _completedCount;
   private FilterMode _filterMode;
-  private Subscription _filterModeSubscription;
-  private Subscription _completedCountSubscription;
 
   @PostConstruct
   void postConstruct()
   {
-    _completedCountSubscription = AppData.service.completedCount().forEach( completedCount -> {
+    register( AppData.service.completedCount().forEach( completedCount -> {
       _completedCount = completedCount;
       maybeScheduleRender();
-    } );
-    _filterModeSubscription = AppData.viewService.getFilterMode().forEach( filterMode -> {
+    } ) );
+    register( AppData.viewService.getFilterMode().forEach( filterMode -> {
       _filterMode = filterMode;
       maybeScheduleRender();
     } );
