@@ -40,6 +40,11 @@ abstract class TodoItem
     scheduleRender();
   }
 
+  private void resetEditTextAndReRender()
+  {
+    setEditText( getTodo().getTitle() );
+  }
+
   private boolean isTodoBeingEdited()
   {
     return AppData.viewService.getTodoBeingEdited() == getTodo();
@@ -50,11 +55,6 @@ abstract class TodoItem
   {
     _editText = getTodo().getTitle();
     getTodo().subscribe( this::scheduleRender );
-  }
-
-  private void resetEditTextAndReRender()
-  {
-    setEditText( getTodo().getTitle() );
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
