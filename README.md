@@ -27,6 +27,8 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
   `abstract Stream<Object> preRender$();` and have the framework generate them as appropriate.
 
 * Change `CallbackAdapter` so that it captures a subscription by adding operation to `getStream()` which it can
-  cancel when it is disposed. The subscription will be deregistered on completion or cancel.
+  cancel when it is disposed. The subscription will be deregistered on completion or cancel. An alternative is to
+  add a method to `SpritzComponent` like `on(adapter).forEach(...)` that performs the required magic. We could also
+  explictly register the adapters for disposal using this mechanism rather than explicit `@CascadeDispose`
 
 * Fix the filtering of items based on route
