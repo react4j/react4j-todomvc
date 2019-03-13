@@ -1,6 +1,6 @@
 # Spritz+React4j TodoMVC variant
 
-[![Build Status](https://secure.travis-ci.org/react4j/react4j-todomvc.png?branch=raw_spritz)](http://travis-ci.org/react4j/react4j-todomvc)
+[![Build Status](https://secure.travis-ci.org/react4j/react4j-todomvc.png?branch=spritz)](http://travis-ci.org/react4j/react4j-todomvc)
 
 This [TodoMVC](http://todomvc.com/) implementation is written using:
 
