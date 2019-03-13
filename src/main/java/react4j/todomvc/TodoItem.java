@@ -48,19 +48,13 @@ abstract class TodoItem
   @PostConstruct
   final void postConstruct()
   {
-    resetEditText();
-    getTodo().subscribe( this::scheduleRender );
-  }
-
-  private void resetEditText()
-  {
     _editText = getTodo().getTitle();
+    getTodo().subscribe( this::scheduleRender );
   }
 
   private void resetEditTextAndReRender()
   {
-    resetEditText();
-    scheduleRender();
+    setEditText( getTodo().getTitle() );
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
