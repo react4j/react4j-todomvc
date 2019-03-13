@@ -50,12 +50,6 @@ public final class CallbackAdapter<E, H>
   }
 
   @Nonnull
-  Subject<E> getSubject()
-  {
-    return _subject;
-  }
-
-  @Nonnull
   public H getCallback()
   {
     return _callback;
