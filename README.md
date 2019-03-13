@@ -17,10 +17,11 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
   @MemoizeStream Stream<Integer> getMyValueStream() { return ...; }
   ```
 
-* `Stream.subscribe(...)` should return a `Subscription` and there should be an annotation ala `@CascadeDispose`
-  that automatically cancels subscription. Maybe Arez should be enhanced to support this via
-  `@CascadeDispose(type=Subscription.class,method=cancel)` or some other pattern that allows arbitrary release
-  of resources?
+* There should be an annotation like `@CascadeDispose` that automatically cancels subscription during dispose.
+  Maybe Arez should be enhanced to support this by allowing `@CascadeDispose` to specify an interface to use to
+  release resources. If it has a single no-arg, no-return, no-throw method then assume that is resource release
+  method or perhaps search standard names (`dispose`, `cancel`, `close`, `release`) or maybe fully specify it via
+  `@CascadeDispose(type=Subscription.class,method=cancel)`.
 
 * Lifecycle methods can be represented as a `Stream`. You should be able to declare methods like
   `abstract Stream<Object> preRender$();` and have the framework generate them as appropriate.
