@@ -222,7 +222,7 @@ public final class CallbackAdapter<E, H>
    * @return the name.
    */
   @Nullable
-  static String generateName( @Nullable final String name, @Nonnull final String prefix )
+  private static String generateName( @Nullable final String name, @Nonnull final String prefix )
   {
     return Spritz.areNamesEnabled() ?
            null != name ? name : prefix + "()" :
