@@ -1,14 +1,15 @@
 package react4j.todomvc;
 
+import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
 import java.util.List;
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
+import react4j.dom.events.FormEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
@@ -20,6 +21,8 @@ import static react4j.dom.DOM.*;
 abstract class TodoList
   extends SpritzComponent
 {
+  @CascadeDispose
+  final CallbackAdapter<FormEvent, FormEventHandler> _handleToggleAll = CallbackAdapter.form();
   private List<Todo> _todos;
 
   @PostConstruct
@@ -29,12 +32,10 @@ abstract class TodoList
       _todos = todos;
       maybeScheduleRender();
     } ) );
-  }
-
-  private void handleToggleAll( @Nonnull final FormEvent event )
-  {
-    final HTMLInputElement input = Js.cast( event.getTarget() );
-    AppData.service.toggleAll( input.checked );
+    register( _handleToggleAll.getStream().forEach( event -> {
+      final HTMLInputElement input = Js.cast( event.getTarget() );
+      AppData.service.toggleAll( input.checked );
+    } ) );
   }
 
   @Nullable
@@ -62,7 +63,7 @@ abstract class TodoList
                       input( new InputProps()
                                .className( "toggle-all" )
                                .type( InputType.checkbox )
-                               .onChange( this::handleToggleAll )
+                               .onChange( _handleToggleAll.getCallback() )
                       ),
                       ul( new HtmlProps().className( "todo-list" ),
                           _todos.stream().map( TodoItemBuilder::todo )

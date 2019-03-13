@@ -1,35 +1,36 @@
 package react4j.todomvc;
 
+import arez.annotations.CascadeDispose;
+import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
+import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
+import react4j.dom.events.KeyboardEventHandler;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.todomvc.model.AppData;
 import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class TodoEntry
-  extends Component
+  extends SpritzComponent
 {
+  @CascadeDispose
+  final CallbackAdapter<KeyboardEvent, KeyboardEventHandler> _handleNewTodoKeyDown = CallbackAdapter.keyboard();
+  @CascadeDispose
+  final CallbackAdapter<FormEvent, FormEventHandler> _handleChange = CallbackAdapter.form();
   @Nonnull
   private String _todoText = "";
 
-  private void setTodoText( @Nonnull final String todoText )
+  @PostConstruct
+  final void postConstruct()
   {
-    _todoText = todoText;
-    scheduleRender( true );
-  }
-
-  private void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
-  {
-    if ( KeyCodes.ENTER_KEY == event.getKeyCode() )
-    {
+    register( _handleNewTodoKeyDown.getStream().filter( e -> KeyCodes.ENTER_KEY == e.getKeyCode() ).forEach( event -> {
       event.preventDefault();
       final String val = _todoText.trim();
       if ( val.length() > 0 )
@@ -37,13 +38,17 @@ abstract class TodoEntry
         AppData.service.addTodo( val );
         setTodoText( "" );
       }
-    }
+    } ) );
+    register( _handleChange.getStream().forEach( event -> {
+      final HTMLInputElement input = Js.cast( event.getTarget() );
+      setTodoText( input.value );
+    } ) );
   }
 
-  private void handleChange( @Nonnull final FormEvent event )
+  private void setTodoText( @Nonnull final String todoText )
   {
-    final HTMLInputElement input = Js.cast( event.getTarget() );
-    setTodoText( input.value );
+    _todoText = todoText;
+    scheduleRender( true );
   }
 
   @Nullable
@@ -54,8 +59,8 @@ abstract class TodoEntry
                     .className( "new-todo" )
                     .placeHolder( "What needs to be done?" )
                     .value( _todoText )
-                    .onKeyDown( this::handleNewTodoKeyDown )
-                    .onChange( this::handleChange )
+                    .onKeyDown( _handleNewTodoKeyDown.getCallback() )
+                    .onChange( _handleChange.getCallback() )
                     .autoFocus( true )
     );
   }

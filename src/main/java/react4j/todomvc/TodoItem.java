@@ -1,17 +1,23 @@
 package react4j.todomvc;
 
+import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
+import react4j.dom.events.FocusEvent;
+import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
+import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
+import react4j.dom.events.KeyboardEventHandler;
+import react4j.dom.events.MouseEvent;
+import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
@@ -23,8 +29,20 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends Component
+  extends SpritzComponent
 {
+  @CascadeDispose
+  final CallbackAdapter<FormEvent, FormEventHandler> _handleChange = CallbackAdapter.form();
+  @CascadeDispose
+  final CallbackAdapter<FormEvent, FormEventHandler> _handleToggle = CallbackAdapter.form();
+  @CascadeDispose
+  final CallbackAdapter<MouseEvent, MouseEventHandler> _handleEdit = CallbackAdapter.mouse();
+  @CascadeDispose
+  final CallbackAdapter<MouseEvent, MouseEventHandler> _handleDestroy = CallbackAdapter.mouse();
+  @CascadeDispose
+  final CallbackAdapter<FocusEvent, FocusEventHandler> _handleBlur = CallbackAdapter.focus();
+  @CascadeDispose
+  final CallbackAdapter<KeyboardEvent, KeyboardEventHandler> _handleKeyDown = CallbackAdapter.keyboard();
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
@@ -40,34 +58,34 @@ abstract class TodoItem
     scheduleRender();
   }
 
+  private void resetEditTextAndReRender()
+  {
+    setEditText( getTodo().getTitle() );
+  }
+
   @PostConstruct
   final void postConstruct()
   {
-    resetEditText();
-    getTodo().subscribe( this::scheduleRender );
-  }
-
-  private void resetEditText()
-  {
     _editText = getTodo().getTitle();
-  }
-
-  private void resetEditTextAndReRender()
-  {
-    resetEditText();
-    scheduleRender();
-  }
-
-  private void handleKeyDown( @Nonnull final KeyboardEvent event )
-  {
-    if ( KeyCodes.ESCAPE_KEY == event.getWhich() )
-    {
-      onCancel();
-    }
-    else if ( KeyCodes.ENTER_KEY == event.getWhich() )
-    {
-      onSubmitTodo();
-    }
+    getTodo().subscribe( this::scheduleRender );
+    register( _handleChange.getStream().filter( e -> getTodo().isEditing() ).forEach( event -> {
+      final HTMLInputElement input = Js.cast( event.getTarget() );
+      setEditText( input.value );
+    } ) );
+    register( _handleToggle.getStream().forEach( event -> AppData.service.toggle( getTodo() ) ) );
+    register( _handleEdit.getStream().forEach( e -> {
+      AppData.service.setTodoBeingEdited( getTodo() );
+      resetEditTextAndReRender();
+    } ) );
+    register( _handleDestroy.getStream().forEach( e -> AppData.service.destroy( getTodo() ) ) );
+    register( _handleBlur.getStream().forEach( e -> onSubmitTodo() ) );
+    register( _handleKeyDown.getStream().filter( e -> KeyCodes.ESCAPE_KEY == e.getWhich() ).forEach( e -> {
+      AppData.service.setTodoBeingEdited( null );
+      resetEditTextAndReRender();
+    } ) );
+    register( _handleKeyDown.getStream()
+                .filter( e -> KeyCodes.ENTER_KEY == e.getWhich() )
+                .forEach( e -> onSubmitTodo() ) );
   }
 
   private void onSubmitTodo()
@@ -81,37 +99,6 @@ abstract class TodoItem
     else
     {
       AppData.service.destroy( getTodo() );
-    }
-  }
-
-  private void onToggle()
-  {
-    AppData.service.toggle( getTodo() );
-  }
-
-  private void onEdit()
-  {
-    AppData.service.setTodoBeingEdited( getTodo() );
-    resetEditTextAndReRender();
-  }
-
-  private void onDestroy()
-  {
-    AppData.service.destroy( getTodo() );
-  }
-
-  private void onCancel()
-  {
-    AppData.service.setTodoBeingEdited( null );
-    resetEditTextAndReRender();
-  }
-
-  private void handleChange( @Nonnull final FormEvent event )
-  {
-    if ( getTodo().isEditing() )
-    {
-      final HTMLInputElement input = Js.cast( event.getTarget() );
-      setEditText( input.value );
     }
   }
 
@@ -145,10 +132,10 @@ abstract class TodoItem
                              .className( "toggle" )
                              .type( InputType.checkbox )
                              .checked( completed )
-                             .onChange( e -> onToggle() )
+                             .onChange( _handleToggle.getCallback() )
                     ),
-                    label( new LabelProps().onDoubleClick( e -> onEdit() ), todo.getTitle() ),
-                    button( new BtnProps().className( "destroy" ).onClick( e -> onDestroy() )
+                    label( new LabelProps().onDoubleClick( _handleEdit.getCallback() ), todo.getTitle() ),
+                    button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.getCallback() )
                     )
                ),
                input( new InputProps()
@@ -156,8 +143,8 @@ abstract class TodoItem
                         .className( "edit" )
                         .defaultValue( _editText )
                         .onBlur( e -> onSubmitTodo() )
-                        .onChange( this::handleChange )
-                        .onKeyDown( this::handleKeyDown )
+                        .onChange( _handleChange.getCallback() )
+                        .onKeyDown( _handleKeyDown.getCallback() )
                )
     );
   }

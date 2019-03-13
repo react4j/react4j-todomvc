@@ -1,9 +1,12 @@
 package react4j.todomvc;
 
+import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import javax.annotation.Nullable;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.dom.events.MouseEvent;
+import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -17,6 +20,8 @@ abstract class Footer
 {
   private int _completedCount;
   private FilterMode _filterMode;
+  @CascadeDispose
+  final CallbackAdapter<MouseEvent, MouseEventHandler> _handleClearCompleted = CallbackAdapter.mouse();
 
   @PostConstruct
   void postConstruct()
@@ -28,21 +33,8 @@ abstract class Footer
     register( AppData.viewService.getFilterMode().forEach( filterMode -> {
       _filterMode = filterMode;
       maybeScheduleRender();
-    } );
-  }
-
-  @PreDispose
-  @Override
-  void preDispose()
-  {
-    super.preDispose();
-    _filterModeSubscription.cancel();
-    _completedCountSubscription.cancel();
-  }
-
-  private void handleClearCompleted()
-  {
-    AppData.service.clearCompleted();
+    } ) );
+    register( _handleClearCompleted.getStream().forEach( e -> AppData.service.clearCompleted() ) );
   }
 
   @Nullable
@@ -67,7 +59,7 @@ abstract class Footer
                   )
               ),
               _completedCount > 0 ?
-              button( new BtnProps().className( "clear-completed" ).onClick( e -> handleClearCompleted() ),
+              button( new BtnProps().className( "clear-completed" ).onClick( _handleClearCompleted.getCallback() ),
                       "Clear Completed" ) :
               null
       );
