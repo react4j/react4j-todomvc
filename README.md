@@ -32,3 +32,6 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
   MouseEventHandler handler = h.getHandler();
   Stream<MouseEvent> mouseEvents$ h.getStream();
   ```
+
+* Change `CallbackAdapter` so that it captures a subscription by adding operation to `getStream()` which it can
+  cancel when it is disposed. The subscription will be deregistered on completion or cancel.
