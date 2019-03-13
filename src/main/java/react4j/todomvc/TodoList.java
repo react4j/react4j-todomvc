@@ -1,6 +1,7 @@
 package react4j.todomvc;
 
 import arez.annotations.PostConstruct;
+import arez.annotations.PreDispose;
 import elemental2.dom.HTMLInputElement;
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -14,6 +15,7 @@ import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
+import spritz.Subscription;
 import static react4j.dom.DOM.*;
 
 @ReactComponent
@@ -21,15 +23,23 @@ abstract class TodoList
   extends SpritzComponent
 {
   private List<Todo> _todos;
+  private Subscription _filteredTodosSubscription;
 
   @PostConstruct
   void postConstruct()
   {
-    // TODO: Return a subscription so it can be cancelled on unmount
-    AppData.viewService.filteredTodos().forEach( todos -> {
+    _filteredTodosSubscription = AppData.viewService.filteredTodos().forEach( todos -> {
       _todos = todos;
       maybeScheduleRender();
     } );
+  }
+
+  @PreDispose
+  @Override
+  void preDispose()
+  {
+    super.preDispose();
+    _filteredTodosSubscription.cancel();
   }
 
   private void handleToggleAll( @Nonnull final FormEvent event )
