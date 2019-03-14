@@ -30,7 +30,7 @@ abstract class TodoEntry
   @PostConstruct
   final void postConstruct()
   {
-    register( _handleNewTodoKeyDown.stream().filter( e -> KeyCodes.ENTER_KEY == e.getKeyCode() ).forEach( event -> {
+    _handleNewTodoKeyDown.stream().filter( e -> KeyCodes.ENTER_KEY == e.getKeyCode() ).forEach( event -> {
       event.preventDefault();
       final String val = _todoText.trim();
       if ( val.length() > 0 )
@@ -38,11 +38,11 @@ abstract class TodoEntry
         AppData.service.addTodo( val );
         setTodoText( "" );
       }
-    } ) );
-    register( _handleChange.stream().forEach( event -> {
+    } );
+    _handleChange.stream().forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setTodoText( input.value );
-    } ) );
+    } );
   }
 
   private void setTodoText( @Nonnull final String todoText )

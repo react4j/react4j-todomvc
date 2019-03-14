@@ -32,10 +32,10 @@ abstract class TodoList
       _todos = todos;
       maybeScheduleRender();
     } ) );
-    register( _handleToggleAll.stream().forEach( event -> {
+    _handleToggleAll.stream().forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       AppData.service.toggleAll( input.checked );
-    } ) );
+    } );
   }
 
   @Nullable

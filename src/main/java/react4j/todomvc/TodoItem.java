@@ -68,24 +68,24 @@ abstract class TodoItem
   {
     _editText = getTodo().getTitle();
     getTodo().subscribe( this::scheduleRender );
-    register( _handleChange.stream().filter( e -> getTodo().isEditing() ).forEach( event -> {
+    _handleChange.stream().filter( e -> getTodo().isEditing() ).forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setEditText( input.value );
-    } ) );
-    register( _handleToggle.stream().forEach( event -> AppData.service.toggle( getTodo() ) ) );
-    register( _handleEdit.stream().forEach( e -> {
+    } );
+    _handleToggle.stream().forEach( event -> AppData.service.toggle( getTodo() ) );
+    _handleEdit.stream().forEach( e -> {
       AppData.service.setTodoBeingEdited( getTodo() );
       resetEditTextAndReRender();
-    } ) );
-    register( _handleDestroy.stream().forEach( e -> AppData.service.destroy( getTodo() ) ) );
-    register( _handleBlur.stream().forEach( e -> onSubmitTodo() ) );
-    register( _handleKeyDown.stream().filter( e -> KeyCodes.ESCAPE_KEY == e.getWhich() ).forEach( e -> {
+    } );
+    _handleDestroy.stream().forEach( e -> AppData.service.destroy( getTodo() ) );
+    _handleBlur.stream().forEach( e -> onSubmitTodo() );
+    _handleKeyDown.stream().filter( e -> KeyCodes.ESCAPE_KEY == e.getWhich() ).forEach( e -> {
       AppData.service.setTodoBeingEdited( null );
       resetEditTextAndReRender();
-    } ) );
-    register( _handleKeyDown.stream()
-                .filter( e -> KeyCodes.ENTER_KEY == e.getWhich() )
-                .forEach( e -> onSubmitTodo() ) );
+    } );
+    _handleKeyDown.stream()
+      .filter( e -> KeyCodes.ENTER_KEY == e.getWhich() )
+      .forEach( e -> onSubmitTodo() );
   }
 
   private void onSubmitTodo()
@@ -135,8 +135,7 @@ abstract class TodoItem
                              .onChange( _handleToggle.callback() )
                     ),
                     label( new LabelProps().onDoubleClick( _handleEdit.callback() ), todo.getTitle() ),
-                    button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.callback() )
-                    )
+                    button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.callback() ) )
                ),
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
