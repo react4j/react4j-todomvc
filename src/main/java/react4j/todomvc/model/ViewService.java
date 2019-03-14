@@ -1,5 +1,6 @@
 package react4j.todomvc.model;
 
+import arez.SafeProcedure;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Event;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import javax.annotation.Nullable;
 
 public final class ViewService
 {
-  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
+  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
   @Nonnull
   private final TodoRepository _todoRepository;
   @Nullable
@@ -40,20 +41,13 @@ public final class ViewService
   public FilterMode getFilterMode()
   {
     final String location = getHash();
-    if ( isValid( location ) )
+    if ( "active".equals( location ) )
     {
-      if ( "active".equals( location ) )
-      {
-        return FilterMode.ACTIVE;
-      }
-      else if ( "completed".equals( location ) )
-      {
-        return FilterMode.COMPLETED;
-      }
-      else
-      {
-        return FilterMode.ALL;
-      }
+      return FilterMode.ACTIVE;
+    }
+    else if ( "completed".equals( location ) )
+    {
+      return FilterMode.COMPLETED;
     }
     else
     {
@@ -96,7 +90,12 @@ public final class ViewService
     }
     else
     {
-      setHash( "" );
+      /*
+       * This code is needed to remove the stray #.
+       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
+       */
+      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
+      DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
     }
   }
 
@@ -107,30 +106,13 @@ public final class ViewService
     return null == hash ? "" : hash.substring( 1 );
   }
 
-  private void setHash( @Nonnull final String hash )
-  {
-    if ( 0 == hash.length() )
-    {
-      /*
-       * This code is needed to remove the stray #.
-       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
-       */
-      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
-      DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
-    }
-    else
-    {
-      DomGlobal.window.location.setHash( hash );
-    }
-  }
-
-  public void subscribe( @Nonnull final Procedure subscriber )
+  public void subscribe( @Nonnull final SafeProcedure subscriber )
   {
     _subscribers.add( subscriber );
   }
 
   private void notifySubscribers()
   {
-    _subscribers.forEach( Procedure::call );
+    _subscribers.forEach( SafeProcedure::call );
   }
 }
