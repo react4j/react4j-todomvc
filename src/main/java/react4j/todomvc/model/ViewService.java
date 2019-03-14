@@ -36,20 +36,13 @@ public abstract class ViewService
   public FilterMode getFilterMode()
   {
     final String location = _browserLocation.getLocation();
-    if ( isValid( location ) )
+    if ( "active".equals( location ) )
     {
-      if ( "active".equals( location ) )
-      {
-        return FilterMode.ACTIVE;
-      }
-      else if ( "completed".equals( location ) )
-      {
-        return FilterMode.COMPLETED;
-      }
-      else
-      {
-        return FilterMode.ALL;
-      }
+      return FilterMode.ACTIVE;
+    }
+    else if ( "completed".equals( location ) )
+    {
+      return FilterMode.COMPLETED;
     }
     else
     {
