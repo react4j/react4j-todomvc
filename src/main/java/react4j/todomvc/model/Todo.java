@@ -1,7 +1,5 @@
 package react4j.todomvc.model;
 
-import arez.SafeProcedure;
-import java.util.ArrayList;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import react4j.Keyed;
@@ -16,7 +14,6 @@ public final class Todo
   private boolean _completed;
   // Is the element currently being edited
   private boolean _editing;
-  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
 
   Todo( @Nonnull final String id, @Nonnull final String title, final boolean completed )
   {
@@ -47,7 +44,6 @@ public final class Todo
   void setTitle( @Nonnull final String title )
   {
     _title = Objects.requireNonNull( title );
-    notifySubscribers();
   }
 
   public boolean isCompleted()
@@ -58,7 +54,6 @@ public final class Todo
   void setCompleted( final boolean completed )
   {
     _completed = completed;
-    notifySubscribers();
   }
 
   public boolean isEditing()
@@ -90,15 +85,5 @@ public final class Todo
     {
       return isCompleted();
     }
-  }
-
-  public void subscribe( @Nonnull final SafeProcedure subscriber )
-  {
-    _subscribers.add( subscriber );
-  }
-
-  private void notifySubscribers()
-  {
-    _subscribers.forEach( SafeProcedure::call );
   }
 }

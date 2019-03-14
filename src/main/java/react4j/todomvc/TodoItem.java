@@ -67,7 +67,6 @@ abstract class TodoItem
   final void postConstruct()
   {
     _editText = getTodo().getTitle();
-    getTodo().subscribe( this::scheduleRender );
     _handleChange.stream().filter( e -> getTodo().isEditing() ).forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setEditText( input.value );
