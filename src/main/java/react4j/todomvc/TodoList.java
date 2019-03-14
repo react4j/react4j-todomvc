@@ -32,7 +32,7 @@ abstract class TodoList
       _todos = todos;
       maybeScheduleRender();
     } ) );
-    register( _handleToggleAll.getStream().forEach( event -> {
+    register( _handleToggleAll.stream().forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       AppData.service.toggleAll( input.checked );
     } ) );
@@ -63,7 +63,7 @@ abstract class TodoList
                       input( new InputProps()
                                .className( "toggle-all" )
                                .type( InputType.checkbox )
-                               .onChange( _handleToggleAll.getCallback() )
+                               .onChange( _handleToggleAll.callback() )
                       ),
                       ul( new HtmlProps().className( "todo-list" ),
                           _todos.stream().map( TodoItemBuilder::todo )

@@ -30,7 +30,7 @@ abstract class TodoEntry
   @PostConstruct
   final void postConstruct()
   {
-    register( _handleNewTodoKeyDown.getStream().filter( e -> KeyCodes.ENTER_KEY == e.getKeyCode() ).forEach( event -> {
+    register( _handleNewTodoKeyDown.stream().filter( e -> KeyCodes.ENTER_KEY == e.getKeyCode() ).forEach( event -> {
       event.preventDefault();
       final String val = _todoText.trim();
       if ( val.length() > 0 )
@@ -39,7 +39,7 @@ abstract class TodoEntry
         setTodoText( "" );
       }
     } ) );
-    register( _handleChange.getStream().forEach( event -> {
+    register( _handleChange.stream().forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setTodoText( input.value );
     } ) );
@@ -59,8 +59,8 @@ abstract class TodoEntry
                     .className( "new-todo" )
                     .placeHolder( "What needs to be done?" )
                     .value( _todoText )
-                    .onKeyDown( _handleNewTodoKeyDown.getCallback() )
-                    .onChange( _handleChange.getCallback() )
+                    .onKeyDown( _handleNewTodoKeyDown.callback() )
+                    .onChange( _handleChange.callback() )
                     .autoFocus( true )
     );
   }

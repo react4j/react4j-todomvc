@@ -44,13 +44,13 @@ public final class CallbackAdapter<E, H>
   }
 
   @Nonnull
-  public Stream<E> getStream()
+  public Stream<E> stream()
   {
     return _subject;
   }
 
   @Nonnull
-  public H getCallback()
+  public H callback()
   {
     return _callback;
   }

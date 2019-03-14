@@ -68,22 +68,22 @@ abstract class TodoItem
   {
     _editText = getTodo().getTitle();
     getTodo().subscribe( this::scheduleRender );
-    register( _handleChange.getStream().filter( e -> getTodo().isEditing() ).forEach( event -> {
+    register( _handleChange.stream().filter( e -> getTodo().isEditing() ).forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setEditText( input.value );
     } ) );
-    register( _handleToggle.getStream().forEach( event -> AppData.service.toggle( getTodo() ) ) );
-    register( _handleEdit.getStream().forEach( e -> {
+    register( _handleToggle.stream().forEach( event -> AppData.service.toggle( getTodo() ) ) );
+    register( _handleEdit.stream().forEach( e -> {
       AppData.service.setTodoBeingEdited( getTodo() );
       resetEditTextAndReRender();
     } ) );
-    register( _handleDestroy.getStream().forEach( e -> AppData.service.destroy( getTodo() ) ) );
-    register( _handleBlur.getStream().forEach( e -> onSubmitTodo() ) );
-    register( _handleKeyDown.getStream().filter( e -> KeyCodes.ESCAPE_KEY == e.getWhich() ).forEach( e -> {
+    register( _handleDestroy.stream().forEach( e -> AppData.service.destroy( getTodo() ) ) );
+    register( _handleBlur.stream().forEach( e -> onSubmitTodo() ) );
+    register( _handleKeyDown.stream().filter( e -> KeyCodes.ESCAPE_KEY == e.getWhich() ).forEach( e -> {
       AppData.service.setTodoBeingEdited( null );
       resetEditTextAndReRender();
     } ) );
-    register( _handleKeyDown.getStream()
+    register( _handleKeyDown.stream()
                 .filter( e -> KeyCodes.ENTER_KEY == e.getWhich() )
                 .forEach( e -> onSubmitTodo() ) );
   }
@@ -132,10 +132,10 @@ abstract class TodoItem
                              .className( "toggle" )
                              .type( InputType.checkbox )
                              .checked( completed )
-                             .onChange( _handleToggle.getCallback() )
+                             .onChange( _handleToggle.callback() )
                     ),
-                    label( new LabelProps().onDoubleClick( _handleEdit.getCallback() ), todo.getTitle() ),
-                    button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.getCallback() )
+                    label( new LabelProps().onDoubleClick( _handleEdit.callback() ), todo.getTitle() ),
+                    button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.callback() )
                     )
                ),
                input( new InputProps()
@@ -143,8 +143,8 @@ abstract class TodoItem
                         .className( "edit" )
                         .defaultValue( _editText )
                         .onBlur( e -> onSubmitTodo() )
-                        .onChange( _handleChange.getCallback() )
-                        .onKeyDown( _handleKeyDown.getCallback() )
+                        .onChange( _handleChange.callback() )
+                        .onKeyDown( _handleKeyDown.callback() )
                )
     );
   }

@@ -34,7 +34,7 @@ abstract class Footer
       _filterMode = filterMode;
       maybeScheduleRender();
     } ) );
-    register( _handleClearCompleted.getStream().forEach( e -> AppData.service.clearCompleted() ) );
+    register( _handleClearCompleted.stream().forEach( e -> AppData.service.clearCompleted() ) );
   }
 
   @Nullable
@@ -59,7 +59,7 @@ abstract class Footer
                   )
               ),
               _completedCount > 0 ?
-              button( new BtnProps().className( "clear-completed" ).onClick( _handleClearCompleted.getCallback() ),
+              button( new BtnProps().className( "clear-completed" ).onClick( _handleClearCompleted.callback() ),
                       "Clear Completed" ) :
               null
       );
