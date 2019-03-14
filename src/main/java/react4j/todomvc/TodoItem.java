@@ -139,7 +139,7 @@ abstract class TodoItem
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
-                        .defaultValue( _editText )
+                        .value( _editText )
                         .onBlur( e -> onSubmitTodo() )
                         .onChange( _handleChange.callback() )
                         .onKeyDown( _handleKeyDown.callback() )
