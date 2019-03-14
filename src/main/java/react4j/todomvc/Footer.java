@@ -34,7 +34,6 @@ abstract class Footer
       _filterMode = filterMode;
       maybeScheduleRender();
     } ) );
-    } );
     _handleClearCompleted.stream().forEach( e -> AppData.service.clearCompleted() );
   }
 
