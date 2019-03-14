@@ -31,22 +31,15 @@ abstract class TodoItem
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
-  private String _editText;
 
   @Prop( immutable = true )
   @Nonnull
   abstract Todo getTodo();
 
   @Observable
-  String getEditText()
-  {
-    return _editText;
-  }
+  abstract String getEditText();
 
-  void setEditText( @Nonnull final String editText )
-  {
-    _editText = editText;
-  }
+  abstract void setEditText( @Nonnull String editText );
 
   @Memoize
   boolean isTodoBeingEdited()
