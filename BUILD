@@ -25,9 +25,10 @@ j2cl_import(
     jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
 )
 
+# TODO: react4j_dom should be source from upstream project
 j2cl_library(
     name = "react4j-todomvc-j2cl",
-    srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]),
+    srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]) + ["@org_realityforge_react4j_dom//jar"],
     deps = [
         "@org_realityforge_react4j//core:react4j-core-j2cl",
         ":com_google_jsinterop_annotations-j2cl",
