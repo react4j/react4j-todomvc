@@ -21,11 +21,6 @@ j2cl_import(
 )
 
 j2cl_import(
-    name = "org_realityforge_react4j_core-j2cl",
-    jar = "@org_realityforge_react4j_core//jar",
-)
-
-j2cl_import(
     name = "gwt-javaemul-internal-annotations-j2cl",
     jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
 )
@@ -34,7 +29,7 @@ j2cl_library(
     name = "react4j-todomvc-j2cl",
     srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]),
     deps = [
-        ":org_realityforge_react4j_core-j2cl",
+        "@org_realityforge_react4j//core:react4j-core-j2cl",
         ":com_google_jsinterop_annotations-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
     ],
