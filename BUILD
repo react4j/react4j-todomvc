@@ -31,7 +31,6 @@ gwt_application(
     ],
     modules = [
         "react4j.todomvc.TodomvcProd",
-        "react4j.todomvc.TodomvcDev",
     ],
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
