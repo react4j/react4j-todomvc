@@ -9,12 +9,19 @@ gwt_application(
         "-strict",
         "-sourceLevel 1.8",
         "-logLevel INFO",
+        "-XdisableClassMetadata",
+        "-XdisableCastChecking",
+        "-optimize 9",
+        "-nocheckAssertions",
+        "-XmethodNameDisplayMode NONE",
     ],
     compiler_jvm_flags = [
         "-Xmx1G",
     ],
     dev_flags = [
         "-logLevel INFO",
+        "-checkAssertions",
+        "-XmethodNameDisplayMode FULL",
     ],
     dev_jvm_flags = [
         "-Xmx1G",
