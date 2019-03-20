@@ -1,4 +1,3 @@
-
 load("//build_defs:gwt_2_8_2_deps.bzl", gwt_generated_maven_jars = "generated_maven_jars")
 
 gwt_generated_maven_jars()
