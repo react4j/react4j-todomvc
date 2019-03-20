@@ -90,7 +90,7 @@ _gwt_war = rule(
         ),
     },
     outputs = {
-        "output_war": "root.war",
+        "output_war": "%{name}.war",
     },
 )
 
