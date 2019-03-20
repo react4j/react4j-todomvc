@@ -59,8 +59,6 @@ java_library(
     exported_plugins = [
         ":react4j_processor_plugin",
     ],
-    visibility = ["//visibility:public"],
-    exports = ["@org_realityforge_react4j_processor//jar"],
 )
 
 java_plugin(
@@ -74,6 +72,4 @@ java_library(
     exported_plugins = [
         ":arez_processor_plugin",
     ],
-    visibility = ["//visibility:public"],
-    exports = ["@org_realityforge_arez_processor//jar"],
 )
