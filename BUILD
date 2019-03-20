@@ -33,10 +33,6 @@ gwt_application(
         "react4j.todomvc.TodomvcProd",
         "react4j.todomvc.TodomvcDev",
     ],
-    pubs = glob(
-        ["src/main/java/*"],
-        exclude_directories = 0,
-    ),
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
