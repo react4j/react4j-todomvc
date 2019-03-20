@@ -20,7 +20,6 @@ gwt_application(
     ],
     dev_flags = [
         "-logLevel INFO",
-        "-checkAssertions",
         "-XmethodNameDisplayMode FULL",
     ],
     dev_jvm_flags = [
