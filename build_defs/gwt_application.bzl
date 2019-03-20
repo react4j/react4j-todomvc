@@ -100,10 +100,14 @@ def _gwt_dev_impl(ctx):
     dep_paths = [dep.short_path for dep in all_deps]
     cmd = "#!/bin/bash\n\n"
 
+    cmd += "rm -rf war\n"
+    cmd += "mkdir war\n"
+
     # Copy pubs to the war directory
-    cmd += "rm -rf war\nmkdir war\ncp -LR %s war\n" % (
-        " ".join([pub.path for pub in ctx.files.pubs]),
-    )
+    if len(ctx.files.pubs) > 0:
+        cmd += "cp -LR %s war\n" % (
+            " ".join([pub.path for pub in ctx.files.pubs]),
+        )
 
     # Set up a working directory for dev mode
     cmd += "mkdir -p dev-workdir\n"
