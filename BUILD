@@ -22,7 +22,10 @@ gwt_application(
     java_roots = [
         "app/src/main/java",
     ],
-    modules = ["react4j.todomvc.TodomvcProd"],
+    modules = [
+        "react4j.todomvc.TodomvcProd",
+        "react4j.todomvc.TodomvcDev",
+    ],
     pubs = glob(
         ["src/main/java/*"],
         exclude_directories = 0,
