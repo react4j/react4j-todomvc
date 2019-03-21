@@ -28,6 +28,8 @@ def _gwt_archive_impl(ctx):
     # Don't include the unit cache in the output
     cmd += "rm -rf %s/gwt-unitCache\n" % output_dir
 
+    cmd += "find %s -name compilation-mappings.txt -exec rm -f {} \;\n" % output_dir
+
     # Discover all of the generated files and write their paths to a file. Run the
     # paths through sed to trim out everything before the package root so that the
     # paths match how they should look in the archive file.
