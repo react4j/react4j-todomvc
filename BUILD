@@ -35,18 +35,11 @@ gwt_application(
     output_root = "dev",
     visibility = ["//visibility:public"],
     deps = [
-        ":arez_processor",
-        ":react4j_processor",
-        "@org_realityforge_arez_core//jar",
-        "@org_realityforge_arez_processor//jar",
-        "@org_realityforge_braincheck//jar",
-        "@org_realityforge_com_google_elemental2_core//jar",
-        "@org_realityforge_com_google_elemental2_dom//jar",
-        "@org_realityforge_com_google_elemental2_promise//jar",
-        "@org_realityforge_com_google_jsinterop_base//jar",
-        "@org_realityforge_javax_annotation//jar",
-        "@org_realityforge_react4j_core//jar",
-        "@org_realityforge_react4j_dom//jar",
+        "//3rdparty/jvm/org/realityforge/arez:arez_core",
+        "//3rdparty/jvm/org/realityforge/arez:arez_processor",
+        "//3rdparty/jvm/org/realityforge/com/google/elemental2:elemental2_dom",
+        "//3rdparty/jvm/org/realityforge/react4j:react4j_dom",
+        "//3rdparty/jvm/org/realityforge/react4j:react4j_processor",
     ],
 )
 
@@ -82,43 +75,10 @@ gwt_application(
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
-        ":arez_processor",
-        ":react4j_processor",
-        "@org_realityforge_arez_core//jar",
-        "@org_realityforge_arez_processor//jar",
-        "@org_realityforge_braincheck//jar",
-        "@org_realityforge_com_google_elemental2_core//jar",
-        "@org_realityforge_com_google_elemental2_dom//jar",
-        "@org_realityforge_com_google_elemental2_promise//jar",
-        "@org_realityforge_com_google_jsinterop_base//jar",
-        "@org_realityforge_javax_annotation//jar",
-        "@org_realityforge_react4j_core//jar",
-        "@org_realityforge_react4j_dom//jar",
-    ],
-)
-
-java_plugin(
-    name = "react4j_processor_plugin",
-    processor_class = "react4j.processor.ReactProcessor",
-    deps = ["@org_realityforge_react4j_processor//jar"],
-)
-
-java_library(
-    name = "react4j_processor",
-    exported_plugins = [
-        ":react4j_processor_plugin",
-    ],
-)
-
-java_plugin(
-    name = "arez_processor_plugin",
-    processor_class = "arez.processor.ArezProcessor",
-    deps = ["@org_realityforge_arez_processor//jar"],
-)
-
-java_library(
-    name = "arez_processor",
-    exported_plugins = [
-        ":arez_processor_plugin",
+        "//3rdparty/jvm/org/realityforge/arez:arez_core",
+        "//3rdparty/jvm/org/realityforge/arez:arez_processor",
+        "//3rdparty/jvm/org/realityforge/com/google/elemental2:elemental2_dom",
+        "//3rdparty/jvm/org/realityforge/react4j:react4j_dom",
+        "//3rdparty/jvm/org/realityforge/react4j:react4j_processor",
     ],
 )
