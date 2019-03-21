@@ -1,7 +1,6 @@
 def _gwt_war_impl(ctx):
     output_war = ctx.outputs.output_war
     output_dir = output_war.path + ".gwt_output"
-    lib_dir = output_dir + "/" + "WEB-INF/lib"
     extra_dir = output_war.path + ".extra"
 
     # Find all transitive dependencies
@@ -18,8 +17,6 @@ def _gwt_war_impl(ctx):
         " ".join(ctx.attr.compiler_flags),
         " ".join(ctx.attr.modules),
     )
-
-    cmd += "mkdir -p %s\n" % lib_dir
 
     # Copy pubs into the output war
     if len(ctx.files.pubs) > 0:
