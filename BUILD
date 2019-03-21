@@ -27,7 +27,6 @@ gwt_application(
         "react4j.todomvc.TodomvcDev",
     ],
     resources = glob(["src/main/java/**/*"]),
-    output_root = "dev",
     visibility = ["//visibility:public"],
     deps = [
         "//3rdparty/jvm/org/realityforge/arez:arez_core",

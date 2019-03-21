@@ -12,7 +12,7 @@ def _gwt_war_impl(ctx):
         ctx.executable._java.path,
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
-        output_dir + "/" + ctx.attr.output_root,
+        output_dir,
         output_dir + "/" + "WEB-INF/deploy",
         extra_dir,
         " ".join(ctx.attr.compiler_flags),
@@ -69,7 +69,6 @@ _gwt_war = rule(
         "deps": attr.label_list(allow_files = FileType([".jar"])),
         "pubs": attr.label_list(allow_files = True),
         "modules": attr.string_list(mandatory = True),
-        "output_root": attr.string(default = "."),
         "compiler_flags": attr.string_list(),
         "jvm_flags": attr.string_list(),
         "_java": attr.label(
@@ -132,7 +131,7 @@ def _gwt_dev_impl(ctx):
         ctx.executable._java.path,
         " ".join(ctx.attr.jvm_flags),
         ":".join(dep_paths),
-        "war/" + ctx.attr.output_root,
+        "war",
         " ".join(ctx.attr.dev_flags),
         " ".join(ctx.attr.modules),
     )
@@ -155,7 +154,6 @@ _gwt_dev = rule(
         "deps": attr.label_list(mandatory = True, allow_files = FileType([".jar"])),
         "modules": attr.string_list(mandatory = True),
         "pubs": attr.label_list(allow_files = True),
-        "output_root": attr.string(default = "."),
         "dev_flags": attr.string_list(),
         "jvm_flags": attr.string_list(),
         "_java": attr.label(
@@ -188,7 +186,6 @@ def gwt_application(
         pubs = [],
         deps = [],
         visibility = [],
-        output_root = ".",
         java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
         compiler_flags = [],
         compiler_jvm_flags = [],
@@ -246,7 +243,6 @@ def gwt_application(
     # Create the war and dev mode targets
     _gwt_war(
         name = name,
-        output_root = output_root,
         pubs = pubs,
         deps = [
             name + "-deps_deploy.jar",
@@ -260,7 +256,6 @@ def gwt_application(
     _gwt_dev(
         name = name + "-dev",
         java_roots = java_roots,
-        output_root = output_root,
         package_name = native.package_name(),
         deps = [
             name + "-deps_deploy.jar",
