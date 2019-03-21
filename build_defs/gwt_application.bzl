@@ -21,12 +21,6 @@ def _gwt_war_impl(ctx):
 
     cmd += "mkdir -p %s\n" % lib_dir
 
-    # Copy deps in lib dir
-    cmd += "cp -LR %s %s\n" % (
-        " ".join([dep.path for dep in all_deps]),
-        lib_dir,
-    )
-
     # Copy pubs into the output war
     if len(ctx.files.pubs) > 0:
         cmd += "cp -LR %s %s\n" % (
