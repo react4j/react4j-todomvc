@@ -1,10 +1,10 @@
 # DO NOT EDIT: File is auto-generated
 * -text
+*.bzl text
 *.css text
 *.html text
 *.java text
 *.md text
-*.rake text
 *.xml text
 *.yaml text
 *.yml text
@@ -15,4 +15,3 @@ BUILD text
 Gemfile text
 LICENSE text
 WORKSPACE text
-buildfile text
