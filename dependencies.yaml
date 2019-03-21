@@ -18,6 +18,7 @@ options:
       url: https://stocksoftware.jfrog.io/stocksoftware/staging
   strictVisibility: true
   # Ideally this next line should be runtime but the exports functionality from deps seems broken
+  # so can not declare exports per-dependency
   transitivity: exports
 
 dependencies:
@@ -36,6 +37,7 @@ dependencies:
       lang: java
       version: "0.122"
     react4j-processor:
+      # TODO: In an ideal world no need to specify dependency when it matches default/only
       lang: java
       version: "0.122"
       # TODO: In an ideal world processorClasses would be extracted from the jar
