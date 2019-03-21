@@ -12,7 +12,7 @@ def _gwt_war_impl(ctx):
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
         output_dir,
-        output_dir + "/" + "WEB-INF/deploy",
+        output_dir + "/WEB-INF/deploy",
         extra_dir,
         " ".join(ctx.attr.compiler_flags),
         " ".join(ctx.attr.modules),
