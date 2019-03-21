@@ -1,7 +1,7 @@
-def _gwt_war_impl(ctx):
-    output_war = ctx.outputs.output_war
-    output_dir = output_war.path + ".gwt_output"
-    extra_dir = output_war.path + ".extra"
+def _gwt_archive_impl(ctx):
+    output_archive = ctx.outputs.output_archive
+    output_dir = output_archive.path + ".gwt_output"
+    extra_dir = output_archive.path + ".extra"
 
     # Find all transitive dependencies
     all_deps = _get_dep_jars(ctx)
@@ -18,7 +18,7 @@ def _gwt_war_impl(ctx):
         " ".join(ctx.attr.modules),
     )
 
-    # Copy pubs into the output war
+    # Copy pubs into the output archive
     if len(ctx.files.pubs) > 0:
         cmd += "cp -LR %s %s\n" % (
             " ".join([pub.path for pub in ctx.files.pubs]),
@@ -30,32 +30,32 @@ def _gwt_war_impl(ctx):
 
     # Discover all of the generated files and write their paths to a file. Run the
     # paths through sed to trim out everything before the package root so that the
-    # paths match how they should look in the war file.
+    # paths match how they should look in the archive file.
     cmd += "find %s -type f | sed 's:^%s/::' > file_list\n" % (
         output_dir,
         output_dir,
     )
 
-    # Create a war file using the discovered paths
+    # Create a archive file using the discovered paths
     cmd += "root=`pwd`\n"
     cmd += "cd %s; $root/%s Cc ../%s @$root/file_list\n" % (
         output_dir,
         ctx.executable._zip.path,
-        output_war.basename,
+        output_archive.basename,
     )
     cmd += "cd $root\n"
 
     # Execute the command
     ctx.action(
         inputs = ctx.files.pubs + list(all_deps) + ctx.files._jdk + ctx.files._zip,
-        outputs = [output_war],
+        outputs = [output_archive],
         mnemonic = "GwtCompile",
-        progress_message = "GWT compiling " + output_war.short_path,
+        progress_message = "GWT compiling " + output_archive.short_path,
         command = "set -e\n" + cmd,
     )
 
-_gwt_war = rule(
-    implementation = _gwt_war_impl,
+_gwt_archive = rule(
+    implementation = _gwt_archive_impl,
     attrs = {
         "deps": attr.label_list(allow_files = FileType([".jar"])),
         "pubs": attr.label_list(allow_files = True),
@@ -80,7 +80,7 @@ _gwt_war = rule(
         ),
     },
     outputs = {
-        "output_war": "%{name}.war",
+        "output_archive": "%{name}.zip",
     },
 )
 
@@ -90,12 +90,12 @@ def _gwt_dev_impl(ctx):
     dep_paths = [dep.short_path for dep in all_deps]
     cmd = "#!/bin/bash\n\n"
 
-    cmd += "rm -rf war\n"
-    cmd += "mkdir war\n"
+    cmd += "rm -rf archive\n"
+    cmd += "mkdir archive\n"
 
-    # Copy pubs to the war directory
+    # Copy pubs to the archive directory
     if len(ctx.files.pubs) > 0:
-        cmd += "cp -LR %s war\n" % (
+        cmd += "cp -LR %s archive\n" % (
             " ".join([pub.path for pub in ctx.files.pubs]),
         )
 
@@ -118,11 +118,10 @@ def _gwt_dev_impl(ctx):
     cmd += "done\n"
 
     # Run dev mode
-    cmd += "%s %s -cp $srcClasspath:%s com.google.gwt.dev.DevMode -war %s -workDir ./dev-workdir %s %s\n" % (
+    cmd += "%s %s -cp $srcClasspath:%s com.google.gwt.dev.DevMode -war archive -workDir ./dev-workdir %s %s\n" % (
         ctx.executable._java.path,
         " ".join(ctx.attr.jvm_flags),
         ":".join(dep_paths),
-        "war",
         " ".join(ctx.attr.dev_flags),
         " ".join(ctx.attr.modules),
     )
@@ -231,8 +230,8 @@ def gwt_application(
             runtime_deps = all_deps,
         )
 
-    # Create the war and dev mode targets
-    _gwt_war(
+    # Create the archive and dev mode targets
+    _gwt_archive(
         name = name,
         pubs = pubs,
         deps = [
