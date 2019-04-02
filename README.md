@@ -25,4 +25,3 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
   - consider auto-scanning deps for annotation processors and adding required declarations
   - consider supporting `omit_*`
   - consider adding support for `java_library`, `j2cl_library`, `j2cl_import` etc.
-  - convert gwt plugin to using this

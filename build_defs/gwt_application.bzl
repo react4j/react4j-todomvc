@@ -183,54 +183,14 @@ def gwt_application(
         compiler_jvm_flags = [],
         dev_flags = [],
         dev_jvm_flags = []):
-    all_deps = deps + [
-        "@com_google_gwt_gwt_dev//jar",
-        "@com_google_gwt_gwt_user//jar",
-        "@com_google_gwt_gwt_servlet//jar",
-        "@colt_colt//jar",
-        "@ant_ant//jar",
-        "@org_ow2_asm_asm//jar",
-        "@commons_io_commons_io//jar",
-        "@com_google_code_gson_gson//jar",
-        "@javax_servlet_javax_servlet_api//jar",
-        "@javax_validation_validation_api//jar",
-        "@javax_validation_api_sources//jar",
-        "@com_google_jsinterop_jsinterop_annotations//jar",
-        "@jsinterop_sources//jar",
-        "@javax_annotation_javax_annotation_api//jar",
-        "@org_w3c_css_sac//jar",
-        "@tapestry_tapestry//jar",
-        "@com_google_code_findbugs_jsr305//jar",
-        "@com_ibm_icu_icu4j//jar",
-        "@net_sourceforge_htmlunit_htmlunit//jar",
-        "@org_eclipse_jetty_jetty_webapp//jar",
-        "@org_eclipse_jetty_jetty_servlet//jar",
-        "@org_eclipse_jetty_jetty_server//jar",
-        "@org_eclipse_jetty_jetty_util//jar",
-        "@org_eclipse_jetty_jetty_annotations//jar",
-        "@org_eclipse_jetty_jetty_http//jar",
-        "@org_eclipse_jetty_jetty_io//jar",
-        "@org_eclipse_jetty_jetty_jndi//jar",
-        "@org_eclipse_jetty_jetty_plus//jar",
-        "@org_eclipse_jetty_jetty_security//jar",
-        "@org_eclipse_jetty_jetty_servlets//jar",
-        "@org_eclipse_jetty_jetty_xml//jar",
-    ]
-    if len(srcs) > 0:
-        native.java_binary(
-            name = name + "-deps",
-            main_class = name,
-            resources = resources,
-            srcs = srcs,
-            deps = all_deps,
-        )
-    else:
-        native.java_binary(
-            name = name + "-deps",
-            main_class = name,
-            resources = resources,
-            runtime_deps = all_deps,
-        )
+    native.java_binary(
+        name = name + "-deps",
+        main_class = name,
+        resources = resources,
+        srcs = srcs,
+        deps = deps,
+        runtime_deps = ["@maven_gwt//:com_google_gwt_gwt_dev"],
+    )
 
     # Create the archive and dev mode targets
     _gwt_archive(
