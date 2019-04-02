@@ -29,11 +29,13 @@ gwt_application(
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//3rdparty/jvm/org/realityforge/arez:arez_core",
-        "//3rdparty/jvm/org/realityforge/arez:arez_processor",
-        "//3rdparty/jvm/org/realityforge/com/google/elemental2:elemental2_dom",
-        "//3rdparty/jvm/org/realityforge/react4j:react4j_dom",
-        "//3rdparty/jvm/org/realityforge/react4j:react4j_processor",
+        "//3rdparty:arez_core",
+        "//3rdparty:arez_processor",
+        "//3rdparty:elemental2_dom",
+        "//3rdparty:jsinterop_base",
+        "//3rdparty:react4j_core",
+        "//3rdparty:react4j_dom",
+        "//3rdparty:react4j_processor",
     ],
 )
 
@@ -69,10 +71,12 @@ gwt_application(
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//3rdparty/jvm/org/realityforge/arez:arez_core",
-        "//3rdparty/jvm/org/realityforge/arez:arez_processor",
-        "//3rdparty/jvm/org/realityforge/com/google/elemental2:elemental2_dom",
-        "//3rdparty/jvm/org/realityforge/react4j:react4j_dom",
-        "//3rdparty/jvm/org/realityforge/react4j:react4j_processor",
+        "//3rdparty:arez_core",
+        "//3rdparty:arez_processor",
+        "//3rdparty:elemental2_dom",
+        "//3rdparty:jsinterop_base",
+        "//3rdparty:react4j_core",
+        "//3rdparty:react4j_dom",
+        "//3rdparty:react4j_processor",
     ],
 )
