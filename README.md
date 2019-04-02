@@ -9,9 +9,9 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 ## TODO
 
-* add processing of `dependencies.bzl` to zim for dependency upgrades
+* add processing of `WORKSPACE` to zim for dependency upgrades
 
-* add processing of `dependencies.bzl` to arez/react4j/spritz for dependency upgrades during releases
+* add processing of `WORKSPACE` to arez/react4j/spritz for dependency upgrades during releases
 
 * Make it possible to disable GWT dev mode for a gwt application and just do gwt compile
 
