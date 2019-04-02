@@ -1,6 +1,21 @@
 package(default_visibility = ["//visibility:public"])
 
 alias(
+    name = "javax_annotation",
+    actual = "@maven//:org_realityforge_javax_annotation_javax_annotation",
+)
+
+alias(
+    name = "gwt_user",
+    actual = "@maven//:com_google_gwt_gwt_user",
+)
+
+alias(
+    name = "jsinterop_annotations",
+    actual = "@maven//:com_google_jsinterop_jsinterop_annotations",
+)
+
+alias(
     name = "jsinterop_base",
     actual = "@maven//:org_realityforge_com_google_jsinterop_base",
 )

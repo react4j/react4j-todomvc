@@ -15,6 +15,9 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 
 maven_install(
     artifacts = [
+        "com.google.gwt:gwt-user:2.8.2",
+        "org.realityforge.javax.annotation:javax.annotation:1.0.0",
+        "com.google.jsinterop:jsinterop-annotations:1.0.2",
         "org.realityforge.arez:arez-core:0.132",
         "org.realityforge.arez:arez-processor:0.132",
         "org.realityforge.react4j:react4j-dom:0.122",
