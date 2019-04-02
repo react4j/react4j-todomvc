@@ -27,6 +27,7 @@ maven_install(
     repositories = [
         "https://repo1.maven.org/maven2",
     ],
+    use_unsafe_shared_cache = True,
 )
 
 load("//build_defs:gwt_2_8_2_deps.bzl", gwt_generated_maven_jars = "generated_maven_jars")
