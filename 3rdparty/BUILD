@@ -30,9 +30,6 @@ java_library(
     exported_plugins = [
         ":arez_processor_plugin",
     ],
-    visibility = [
-        "//visibility:public",
-    ],
     exports = [
         "@maven//:org_realityforge_arez_arez_processor",
     ],
