@@ -82,6 +82,7 @@ def gwt_binary_impl(ctx):
     # Execute the command
     ctx.action(
         inputs = ctx.files.pubs + list(all_deps) + ctx.files._jdk + ctx.files._zip,
+        tools = ctx.files._zip,
         outputs = [output_archive, extras_archive],
         mnemonic = "GwtCompile",
         progress_message = "GWT compiling " + output_archive.short_path,
