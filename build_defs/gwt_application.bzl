@@ -8,7 +8,7 @@ def _gwt_binary_impl(ctx):
     all_deps = _get_dep_jars(ctx)
 
     # Run the GWT compiler
-    cmd = "%s %s -cp %s com.google.gwt.dev.Compiler -war %s -deploy %s -extra %s %s %s\n" % (
+    cmd = "%s %s -Dgwt.normalizeTimestamps=true -cp %s com.google.gwt.dev.Compiler -war %s -deploy %s -extra %s %s %s\n" % (
         ctx.executable._java.path,
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
