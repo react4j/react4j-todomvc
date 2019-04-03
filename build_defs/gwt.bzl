@@ -21,7 +21,7 @@ GWT_OPTIMIZED_COMPILER_FLAGS = [
     "-XmethodNameDisplayMode NONE",
 ] + _GWT_COMPILER_FLAGS
 
-_GWT_DEV_SERVER_JVM_FLAGS = [ "-Xmx1G" ]
+_GWT_DEV_SERVER_JVM_FLAGS = ["-Xmx1G"]
 
 _GWT_DEV_SERVER_FLAGS = [
     "-logLevel INFO",
