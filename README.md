@@ -19,10 +19,5 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
   https://github.com/tadeoj/nalu-bazel-example
 
-* Move to https://blog.bazel.build/2019/03/31/rules-jvm-external-maven.html
-  - consider auto-scanning deps for annotation processors and adding required declarations
-  - consider supporting `omit_*`
-  - consider adding support for `java_library`, `j2cl_library`, `j2cl_import` etc.
-
 * Introduce `gwt_dev_server` macro that wraps the rule and generates the required -deps artifact
   and update `gwt_application` to use macros.
