@@ -33,10 +33,7 @@ def _gwt_binary_impl(ctx):
     # Discover all of the generated files and write their paths to a file. Run the
     # paths through sed to trim out everything before the package root so that the
     # paths match how they should look in the archive file.
-    cmd += "find %s -type f | sed 's:^%s/::' > file_list\n" % (
-        output_dir,
-        output_dir,
-    )
+    cmd += "find %s -type f | sed 's:^%s/::' > file_list\n" % (output_dir, output_dir)
 
     # Create a archive file using the discovered paths
     cmd += "root=`pwd`\n"
