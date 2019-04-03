@@ -231,6 +231,15 @@ def gwt_application(
             visibility = ["//visibility:private"],
         )
 
+    dev_server_deps_artifact = name + "-dev_server_deps"
+    native.java_binary(
+        name = dev_server_deps_artifact,
+        main_class = name,
+        resources = resources,
+        runtime_deps = deps + gwt_dev_deps,
+        visibility = ["//visibility:private"],
+    )
+
     # Create the archive and dev mode targets
     gwt_binary(
         name = name,
@@ -250,8 +259,8 @@ def gwt_application(
         java_roots = java_roots,
         package_name = native.package_name(),
         deps = [
-            deps_artifact + "_deploy.jar",
-            deps_artifact + "_deploy-src.jar",
+            dev_server_deps_artifact + "_deploy.jar",
+            dev_server_deps_artifact + "_deploy-src.jar",
         ],
         modules = modules,
         visibility = visibility,
