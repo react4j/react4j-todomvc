@@ -202,6 +202,7 @@ def gwt_application(
         resources = resources,
         srcs = srcs,
         deps = deps,
+        visibility = ["//visibility:private"],
         runtime_deps = ["@maven_gwt//:com_google_gwt_gwt_dev"],
     )
 
