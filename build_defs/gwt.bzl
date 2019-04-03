@@ -154,6 +154,7 @@ def _gwt_dev_server_impl(ctx):
     cmd += '    echo "Using Java sources rooted at $rootDir"\n'
     cmd += "  else\n"
     cmd += '    echo "No Java sources found under $rootDir"\n'
+    cmd += '    exit 1\n'
     cmd += "  fi\n"
     cmd += "done\n"
 
