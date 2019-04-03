@@ -36,11 +36,11 @@ maven_install(
     name = "maven_gwt",
     artifacts = [
         maven.artifact(
-           group = "com.google.gwt",
-           artifact = "gwt-dev",
-           version = "2.8.2",
-           exclusions = [
-              "xerces:xercesImpl",
+            group = "com.google.gwt",
+            artifact = "gwt-dev",
+            version = "2.8.2",
+            exclusions = [
+                "xerces:xercesImpl",
             ],
         ),
     ],

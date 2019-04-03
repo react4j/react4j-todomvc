@@ -29,10 +29,10 @@ gwt_application(
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//3rdparty:gwt_user",
         "//3rdparty:arez_core",
         "//3rdparty:arez_processor",
         "//3rdparty:elemental2_dom",
+        "//3rdparty:gwt_user",
         "//3rdparty:javax_annotation",
         "//3rdparty:jsinterop_annotations",
         "//3rdparty:jsinterop_base",
@@ -74,10 +74,10 @@ gwt_application(
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//3rdparty:gwt_user",
         "//3rdparty:arez_core",
         "//3rdparty:arez_processor",
         "//3rdparty:elemental2_dom",
+        "//3rdparty:gwt_user",
         "//3rdparty:javax_annotation",
         "//3rdparty:jsinterop_annotations",
         "//3rdparty:jsinterop_base",
