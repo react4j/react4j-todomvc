@@ -32,9 +32,7 @@ gwt_application(
     dev_jvm_flags = [
         "-Xmx1G",
     ],
-    modules = [
-        "react4j.todomvc.TodomvcDev",
-    ],
+    modules = ["react4j.todomvc.TodomvcDev"],
     resources = RESOURCES,
     visibility = ["//visibility:public"],
     deps = DEPS,
@@ -51,9 +49,7 @@ gwt_application(
     dev_jvm_flags = [
         "-Xmx1G",
     ],
-    modules = [
-        "react4j.todomvc.TodomvcProd",
-    ],
+    modules = ["react4j.todomvc.TodomvcProd"],
     resources = RESOURCES,
     visibility = ["//visibility:public"],
     deps = DEPS,
