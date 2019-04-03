@@ -50,7 +50,7 @@ def gwt_binary_impl(ctx):
         output_dir + "/" + ctx.attr.output_root,
         output_dir + "/WEB-INF/deploy/" + ctx.attr.output_root,
         extra_dir,
-        " ".join(ctx.attr.compiler_flags),
+        " ".join(ctx.attr.flags),
         " ".join(ctx.attr.modules),
     )
 
@@ -110,7 +110,7 @@ gwt_binary = rule(
         "pubs": attr.label_list(allow_files = True),
         "modules": attr.string_list(mandatory = True),
         "output_root": attr.string(default = ""),
-        "compiler_flags": attr.string_list(default = _GWT_COMPILER_FLAGS),
+        "flags": attr.string_list(default = _GWT_COMPILER_FLAGS),
         "jvm_flags": attr.string_list(default = _GWT_COMPILER_JVM_FLAGS),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
         "_zip": attr.label(
@@ -232,7 +232,7 @@ def gwt_application(
         ],
         modules = modules,
         visibility = visibility,
-        compiler_flags = compiler_flags,
+        flags = compiler_flags,
         jvm_flags = compiler_jvm_flags,
     )
     _gwt_dev(
