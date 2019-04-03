@@ -31,7 +31,7 @@ gwt_application(
 )
 
 gwt_application(
-    name = "react4j_todomvc",
+    name = "react4j_todomvc_prod",
     srcs = _SRCS,
     compiler_flags = GWT_OPTIMIZED_COMPILER_FLAGS,
     modules = ["react4j.todomvc.TodomvcProd"],
