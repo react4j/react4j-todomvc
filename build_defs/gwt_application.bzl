@@ -11,7 +11,7 @@ def _get_dep_jars(ctx):
             all_deps += this_dep.java.transitive_source_jars
     return all_deps
 
-def _gwt_binary_impl(ctx):
+def gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
     extras_archive = ctx.outputs.extras_archive
     output_dir = output_archive.path + ".gwt_output"
@@ -83,8 +83,8 @@ def _gwt_binary_impl(ctx):
         command = cmd,
     )
 
-_gwt_binary = rule(
-    implementation = _gwt_binary_impl,
+gwt_binary = rule(
+    implementation = gwt_binary_impl,
     attrs = {
         "deps": attr.label_list(allow_files = FileType([".jar"])),
         "pubs": attr.label_list(allow_files = True),
@@ -199,7 +199,7 @@ def gwt_application(
     )
 
     # Create the archive and dev mode targets
-    _gwt_binary(
+    gwt_binary(
         name = name,
         pubs = pubs,
         output_root = output_root,

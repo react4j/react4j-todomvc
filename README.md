@@ -13,8 +13,6 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 * add processing of `WORKSPACE` to arez/react4j/spritz for dependency upgrades during releases
 
-* Make it possible to disable GWT dev mode for a gwt application and just do gwt compile
-
 * Consider helping maintain https://github.com/bazelbuild/rules_gwt
 
 * Add documentation and examples from
