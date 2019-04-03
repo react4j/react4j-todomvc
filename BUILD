@@ -2,7 +2,7 @@ package(default_visibility = ["//visibility:private"])
 
 load("//build_defs:gwt.bzl", "GWT_OPTIMIZED_COMPILER_FLAGS", "gwt_application")
 
-DEPS = [
+_DEPS = [
     "//thirdparty:arez_core",
     "//thirdparty:arez_processor",
     "//thirdparty:elemental2_dom",
@@ -15,16 +15,16 @@ DEPS = [
     "//thirdparty:react4j_processor",
 ]
 
-SRCS = glob(["src/main/java/**/*.java"])
+_SRCS = glob(["src/main/java/**/*.java"])
 
-RESOURCES = glob(
+_RESOURCES = glob(
     ["src/main/java/**/*"],
     exclude = ["**/*.java"],
 )
 
 gwt_application(
     name = "react4j_todomvc_dev",
-    srcs = SRCS,
+    srcs = _SRCS,
     dev_flags = [
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",
@@ -33,14 +33,14 @@ gwt_application(
         "-Xmx1G",
     ],
     modules = ["react4j.todomvc.TodomvcDev"],
-    resources = RESOURCES,
+    resources = _RESOURCES,
     visibility = ["//visibility:public"],
-    deps = DEPS,
+    deps = _DEPS,
 )
 
 gwt_application(
     name = "react4j_todomvc",
-    srcs = SRCS,
+    srcs = _SRCS,
     compiler_flags = GWT_OPTIMIZED_COMPILER_FLAGS,
     dev_flags = [
         "-logLevel INFO",
@@ -50,7 +50,7 @@ gwt_application(
         "-Xmx1G",
     ],
     modules = ["react4j.todomvc.TodomvcProd"],
-    resources = RESOURCES,
+    resources = _RESOURCES,
     visibility = ["//visibility:public"],
-    deps = DEPS,
+    deps = _DEPS,
 )
