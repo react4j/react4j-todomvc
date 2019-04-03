@@ -1,5 +1,6 @@
 package react4j.todomvc.model;
 
+import arez.SafeProcedure;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -8,7 +9,7 @@ import javax.annotation.Nonnull;
 public final class TodoRepository
 {
   private final ArrayList<Todo> _entities = new ArrayList<>();
-  private final ArrayList<Procedure> _subscribers = new ArrayList<>();
+  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
 
   private boolean isEmpty()
   {
@@ -86,13 +87,13 @@ public final class TodoRepository
       .forEach( this::destroy );
   }
 
-  public void subscribe( @Nonnull final Procedure subscriber )
+  public void subscribe( @Nonnull final SafeProcedure subscriber )
   {
     _subscribers.add( subscriber );
   }
 
   private void notifySubscribers()
   {
-    _subscribers.forEach( Procedure::call );
+    _subscribers.forEach( SafeProcedure::call );
   }
 }

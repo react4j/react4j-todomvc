@@ -1,11 +1,13 @@
 package react4j.todomvc;
 
+import arez.annotations.PreDispose;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.Component;
 import react4j.ReactNode;
+import react4j.annotations.PostMount;
 import react4j.annotations.ReactComponent;
 import react4j.dom.events.FormEvent;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -38,6 +40,13 @@ abstract class TodoList
              AppData.service.isNotEmpty() ? FooterBuilder.build() : null
         )
       );
+  }
+
+  @PostMount
+  final void postMount()
+  {
+    AppData.service.subscribe( this::scheduleRender );
+    AppData.viewService.subscribe( this::scheduleRender );
   }
 
   @Nullable

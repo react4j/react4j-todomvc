@@ -40,6 +40,11 @@ abstract class TodoItem
     scheduleRender();
   }
 
+  private void resetEditTextAndReRender()
+  {
+    setEditText( getTodo().getTitle() );
+  }
+
   private boolean isTodoBeingEdited()
   {
     return AppData.viewService.getTodoBeingEdited() == getTodo();
@@ -48,19 +53,8 @@ abstract class TodoItem
   @PostConstruct
   final void postConstruct()
   {
-    resetEditText();
-    getTodo().subscribe( this::scheduleRender );
-  }
-
-  private void resetEditText()
-  {
     _editText = getTodo().getTitle();
-  }
-
-  private void resetEditTextAndReRender()
-  {
-    resetEditText();
-    scheduleRender();
+    getTodo().subscribe( this::scheduleRender );
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
@@ -144,7 +138,7 @@ abstract class TodoItem
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
-    return li( new HtmlProps().className( completed ? "completed" : null, isTodoBeingEdited() ? "editing" : null ),
+    return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
@@ -159,7 +153,7 @@ abstract class TodoItem
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
-                        .defaultValue( _editText )
+                        .value( _editText )
                         .onBlur( e -> onSubmitTodo() )
                         .onChange( this::handleChange )
                         .onKeyDown( this::handleKeyDown )
