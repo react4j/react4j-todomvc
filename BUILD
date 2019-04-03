@@ -1,4 +1,4 @@
-package(default_visibility = ["//visibility:public"])
+package(default_visibility = ["//visibility:private"])
 
 load("//build_defs:gwt_application.bzl", "gwt_application")
 
