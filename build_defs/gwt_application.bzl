@@ -1,4 +1,4 @@
-def _gwt_archive_impl(ctx):
+def _gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
     output_dir = output_archive.path + ".gwt_output"
     extra_dir = output_archive.path + ".extra"
@@ -56,8 +56,8 @@ def _gwt_archive_impl(ctx):
         command = "set -e\n" + cmd,
     )
 
-_gwt_archive = rule(
-    implementation = _gwt_archive_impl,
+_gwt_binary = rule(
+    implementation = _gwt_binary_impl,
     attrs = {
         "deps": attr.label_list(allow_files = FileType([".jar"])),
         "pubs": attr.label_list(allow_files = True),
@@ -193,7 +193,7 @@ def gwt_application(
     )
 
     # Create the archive and dev mode targets
-    _gwt_archive(
+    _gwt_binary(
         name = name,
         pubs = pubs,
         deps = [
