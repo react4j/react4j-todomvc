@@ -191,6 +191,7 @@ def gwt_application(
         visibility = [],
         output_root = "",
         java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
+        gwt_dev_deps = ["@gwt_maven//:com_google_gwt_gwt_dev"],
         compiler_flags = [],
         compiler_jvm_flags = [],
         dev_flags = [],
@@ -205,7 +206,7 @@ def gwt_application(
         srcs = srcs,
         deps = deps,
         visibility = ["//visibility:private"],
-        runtime_deps = ["@maven_gwt//:com_google_gwt_gwt_dev"],
+        runtime_deps = gwt_dev_deps,
     )
 
     # Create the archive and dev mode targets
@@ -241,16 +242,16 @@ def gwt_application(
 load("@rules_jvm_external//:specs.bzl", "maven")
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 
-def setup_workspace():
+def setup_workspace(repository_name = "gwt_maven", version = "2.8.2"):
     """Load all dependencies needed for GWT."""
 
     maven_install(
-        name = "maven_gwt",
+        name = repository_name,
         artifacts = [
             maven.artifact(
                 group = "com.google.gwt",
                 artifact = "gwt-dev",
-                version = "2.8.2",
+                version = version,
                 exclusions = [
                     "xerces:xercesImpl",
                 ],
