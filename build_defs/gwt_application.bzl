@@ -20,8 +20,10 @@ def _gwt_binary_impl(ctx):
     # Find all transitive dependencies
     all_deps = _get_dep_jars(ctx)
 
+    cmd = "set -e\n"
+
     # Run the GWT compiler
-    cmd = "%s %s -Dgwt.normalizeTimestamps=true -cp %s %s -war %s -deploy %s -extra %s %s %s\n" % (
+    cmd += "%s %s -Dgwt.normalizeTimestamps=true -cp %s %s -war %s -deploy %s -extra %s %s %s\n" % (
         ctx.attr._jdk[java_common.JavaRuntimeInfo].java_executable_exec_path,
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
@@ -78,7 +80,7 @@ def _gwt_binary_impl(ctx):
         outputs = [output_archive, extras_archive],
         mnemonic = "GwtCompile",
         progress_message = "GWT compiling " + output_archive.short_path,
-        command = "set -e\n" + cmd,
+        command = cmd,
     )
 
 _gwt_binary = rule(
