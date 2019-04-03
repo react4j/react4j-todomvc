@@ -132,7 +132,7 @@ label[for='toggle-all'] {
 }
 
 .toggle-all:before {
-  content: '❯';
+  content: '\276F';
   font-size: 22px;
   color: #e6e6e6;
   padding: 10px 27px 10px 27px;
@@ -189,11 +189,11 @@ label[for='toggle-all'] {
 }
 
 .todo-list li .toggle:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+  content: url('toggle.svg');
 }
 
 .todo-list li .toggle:checked:after {
-  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+  content: url('toggle_checked.svg');
 }
 
 .todo-list li label {
@@ -231,7 +231,7 @@ label[for='toggle-all'] {
 }
 
 .todo-list li .destroy:after {
-  content: '×';
+  content: '\00D7';
 }
 
 .todo-list li:hover .destroy {
