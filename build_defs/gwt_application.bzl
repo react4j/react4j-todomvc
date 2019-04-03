@@ -1,3 +1,5 @@
+_GWT_COMPILER = "com.google.gwt.dev.Compiler"
+
 def _gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
     extras_archive = ctx.outputs.extras_archive
@@ -8,10 +10,11 @@ def _gwt_binary_impl(ctx):
     all_deps = _get_dep_jars(ctx)
 
     # Run the GWT compiler
-    cmd = "%s %s -Dgwt.normalizeTimestamps=true -cp %s com.google.gwt.dev.Compiler -war %s -deploy %s -extra %s %s %s\n" % (
+    cmd = "%s %s -Dgwt.normalizeTimestamps=true -cp %s %s -war %s -deploy %s -extra %s %s %s\n" % (
         ctx.attr._jdk[java_common.JavaRuntimeInfo].java_executable_exec_path,
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
+        _GWT_COMPILER,
         output_dir,
         output_dir + "/WEB-INF/deploy",
         extra_dir,
