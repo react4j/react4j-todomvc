@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:private"])
 
-load("//build_defs:gwt.bzl", "gwt_application")
+load("//build_defs:gwt.bzl", "GWT_OPTIMIZED_COMPILER_FLAGS", "gwt_application")
 
 DEPS = [
     "//thirdparty:arez_core",
@@ -18,11 +18,6 @@ DEPS = [
 gwt_application(
     name = "react4j_todomvc_dev",
     srcs = glob(["src/main/java/**/*.java"]),
-    compiler_flags = [
-        "-strict",
-        "-sourceLevel 1.8",
-        "-logLevel INFO",
-    ],
     dev_flags = [
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",
@@ -44,16 +39,7 @@ gwt_application(
 gwt_application(
     name = "react4j_todomvc",
     srcs = glob(["src/main/java/**/*.java"]),
-    compiler_flags = [
-        "-strict",
-        "-sourceLevel 1.8",
-        "-logLevel INFO",
-        "-XdisableClassMetadata",
-        "-XdisableCastChecking",
-        "-optimize 9",
-        "-nocheckAssertions",
-        "-XmethodNameDisplayMode NONE",
-    ],
+    compiler_flags = GWT_OPTIMIZED_COMPILER_FLAGS,
     dev_flags = [
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",

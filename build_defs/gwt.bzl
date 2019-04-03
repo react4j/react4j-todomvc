@@ -7,6 +7,20 @@ _GWT_COMPILER = "com.google.gwt.dev.Compiler"
 
 _GWT_COMPILER_JVM_FLAGS = ["-Xmx1G"]
 
+_GWT_COMPILER_FLAGS = [
+    "-strict",
+    "-sourceLevel 1.8",
+    "-logLevel INFO",
+]
+
+GWT_OPTIMIZED_COMPILER_FLAGS = [
+    "-XdisableClassMetadata",
+    "-XdisableCastChecking",
+    "-optimize 9",
+    "-nocheckAssertions",
+    "-XmethodNameDisplayMode NONE",
+] + _GWT_COMPILER_FLAGS
+
 def _get_dep_jars(ctx):
     """ Find all transitive dependencies """
     all_deps = depset(ctx.files.deps)
@@ -96,7 +110,7 @@ gwt_binary = rule(
         "pubs": attr.label_list(allow_files = True),
         "modules": attr.string_list(mandatory = True),
         "output_root": attr.string(default = ""),
-        "compiler_flags": attr.string_list(),
+        "compiler_flags": attr.string_list(default = _GWT_COMPILER_FLAGS),
         "jvm_flags": attr.string_list(default = _GWT_COMPILER_JVM_FLAGS),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
         "_zip": attr.label(
