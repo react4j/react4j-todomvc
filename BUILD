@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:private"])
 
-load("//build_defs:gwt_application.bzl", "gwt_application")
+load("//build_defs:gwt.bzl", "gwt_application")
 
 gwt_application(
     name = "react4j_todomvc_dev",

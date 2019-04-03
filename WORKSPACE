@@ -30,23 +30,6 @@ maven_install(
     use_unsafe_shared_cache = True,
 )
 
-load("@rules_jvm_external//:specs.bzl", "maven")
+load("//build_defs:gwt.bzl", _gwt_setup_workspace = "setup_workspace")
 
-maven_install(
-    name = "maven_gwt",
-    artifacts = [
-        maven.artifact(
-            group = "com.google.gwt",
-            artifact = "gwt-dev",
-            version = "2.8.2",
-            exclusions = [
-                "xerces:xercesImpl",
-            ],
-        ),
-    ],
-    fetch_sources = True,
-    repositories = [
-        "https://repo1.maven.org/maven2",
-    ],
-    use_unsafe_shared_cache = True,
-)
+_gwt_setup_workspace()

@@ -237,3 +237,28 @@ def gwt_application(
         dev_flags = dev_flags,
         jvm_flags = dev_jvm_flags,
     )
+
+load("@rules_jvm_external//:specs.bzl", "maven")
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+
+def setup_workspace():
+    """Load all dependencies needed for GWT."""
+
+    maven_install(
+        name = "maven_gwt",
+        artifacts = [
+            maven.artifact(
+                group = "com.google.gwt",
+                artifact = "gwt-dev",
+                version = "2.8.2",
+                exclusions = [
+                    "xerces:xercesImpl",
+                ],
+            ),
+        ],
+        fetch_sources = True,
+        repositories = [
+            "https://repo1.maven.org/maven2",
+        ],
+        use_unsafe_shared_cache = True,
+    )
