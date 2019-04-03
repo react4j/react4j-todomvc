@@ -37,7 +37,7 @@ def _get_dep_jars(ctx):
             all_deps += this_dep.java.transitive_source_jars
     return all_deps
 
-def gwt_binary_impl(ctx):
+def _gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
     extras_archive = ctx.outputs.extras_archive
     output_dir = output_archive.path + ".gwt_output"
@@ -110,8 +110,8 @@ def gwt_binary_impl(ctx):
         command = cmd,
     )
 
-gwt_binary = rule(
-    implementation = gwt_binary_impl,
+_gwt_binary = rule(
+    implementation = _gwt_binary_impl,
     attrs = {
         "deps": attr.label_list(allow_files = FileType([".jar"])),
         "pubs": attr.label_list(allow_files = True),
@@ -201,7 +201,7 @@ _gwt_dev_server = rule(
     executable = True,
 )
 
-def gwt_application(
+def gwt_binary(
         name,
         srcs = [],
         resources = [],
@@ -210,12 +210,9 @@ def gwt_application(
         deps = [],
         visibility = [],
         output_root = "",
-        java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
         gwt_dev_deps = ["@gwt_maven//:com_google_gwt_gwt_dev"],
         compiler_flags = [],
-        compiler_jvm_flags = [],
-        dev_flags = [],
-        dev_jvm_flags = []):
+        compiler_jvm_flags = []):
     # We build up a separate deploy jar to avoid attempting to pass classpath on the command line
     # which will break in some environments that have many deps
     deps_artifact = name + "-deps"
@@ -238,17 +235,8 @@ def gwt_application(
             visibility = ["//visibility:private"],
         )
 
-    dev_server_deps_artifact = name + "-dev_server_deps"
-    native.java_binary(
-        name = dev_server_deps_artifact,
-        main_class = name,
-        resources = resources,
-        runtime_deps = deps + gwt_dev_deps,
-        visibility = ["//visibility:private"],
-    )
-
     # Create the archive and dev mode targets
-    gwt_binary(
+    _gwt_binary(
         name = name,
         pubs = pubs,
         output_root = output_root,
@@ -261,6 +249,33 @@ def gwt_application(
         flags = compiler_flags,
         jvm_flags = compiler_jvm_flags,
     )
+
+def gwt_application(
+        name,
+        srcs = [],
+        resources = [],
+        modules = [],
+        pubs = [],
+        deps = [],
+        visibility = [],
+        output_root = "",
+        java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
+        gwt_dev_deps = ["@gwt_maven//:com_google_gwt_gwt_dev"],
+        compiler_flags = [],
+        compiler_jvm_flags = [],
+        dev_flags = [],
+        dev_jvm_flags = []):
+    gwt_binary(name, srcs, resources, modules, pubs, deps, visibility, output_root, gwt_dev_deps, compiler_flags, compiler_jvm_flags)
+
+    dev_server_deps_artifact = name + "-dev_server_deps"
+    native.java_binary(
+        name = dev_server_deps_artifact,
+        main_class = name,
+        resources = resources,
+        runtime_deps = deps + gwt_dev_deps,
+        visibility = ["//visibility:private"],
+    )
+
     _gwt_dev_server(
         name = name + "-dev-server",
         java_roots = java_roots,

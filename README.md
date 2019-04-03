@@ -24,8 +24,5 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
   - consider supporting `omit_*`
   - consider adding support for `java_library`, `j2cl_library`, `j2cl_import` etc.
 
-* Change `gwt_binary` into macro that wraps the rule and generates the required -deps artifact
-
 * Introduce `gwt_dev_server` macro that wraps the rule and generates the required -deps artifact
-
-* change `gwt_application` so that it calls above macros.
+  and update `gwt_application` to use macros.
