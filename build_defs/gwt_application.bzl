@@ -2,6 +2,15 @@ _GWT_COMPILER = "com.google.gwt.dev.Compiler"
 
 _GWT_COMPILER_JVM_FLAGS = ["-Xmx1G"]
 
+def _get_dep_jars(ctx):
+    """ Find all transitive dependencies """
+    all_deps = depset(ctx.files.deps)
+    for this_dep in ctx.attr.deps:
+        if hasattr(this_dep, "java"):
+            all_deps += this_dep.java.transitive_runtime_deps
+            all_deps += this_dep.java.transitive_source_jars
+    return all_deps
+
 def _gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
     extras_archive = ctx.outputs.extras_archive
@@ -160,14 +169,6 @@ _gwt_dev = rule(
     },
     executable = True,
 )
-
-def _get_dep_jars(ctx):
-    all_deps = depset(ctx.files.deps)
-    for this_dep in ctx.attr.deps:
-        if hasattr(this_dep, "java"):
-            all_deps += this_dep.java.transitive_runtime_deps
-            all_deps += this_dep.java.transitive_source_jars
-    return all_deps
 
 def gwt_application(
         name,
