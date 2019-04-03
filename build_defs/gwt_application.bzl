@@ -68,9 +68,7 @@ _gwt_binary = rule(
             single_file = True,
             allow_files = True,
         ),
-        "_jdk": attr.label(
-            default = Label("@bazel_tools//tools/jdk:current_java_runtime"),
-        ),
+        "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
         "_zip": attr.label(
             default = Label("@bazel_tools//tools/zip:zipper"),
             executable = True,
