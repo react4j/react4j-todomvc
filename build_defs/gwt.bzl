@@ -137,9 +137,7 @@ def _gwt_dev_impl(ctx):
 
     # Copy pubs to the archive directory
     if len(ctx.files.pubs) > 0:
-        cmd += "cp -LR %s archive\n" % (
-            " ".join([pub.path for pub in ctx.files.pubs]),
-        )
+        cmd += "cp -LR %s archive\n" % " ".join([pub.path for pub in ctx.files.pubs])
 
     # Set up a working directory for dev mode
     cmd += "mkdir -p dev-workdir\n"
