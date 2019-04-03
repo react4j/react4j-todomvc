@@ -1,5 +1,6 @@
 def _gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
+    extras_archive = ctx.outputs.extras_archive
     output_dir = output_archive.path + ".gwt_output"
     extra_dir = output_archive.path + ".extra"
 
@@ -44,10 +45,23 @@ def _gwt_binary_impl(ctx):
     )
     cmd += "cd $root\n"
 
+    # Discover all of the generated files and write their paths to a file. Run the
+    # paths through sed to trim out everything before the package root so that the
+    # paths match how they should look in the archive file.
+    cmd += "find %s -type f | sort | sed 's:^%s/::' > file_list\n" % (extra_dir, extra_dir)
+
+    # Create the extras archive file using the discovered paths
+    cmd += "cd %s; $root/%s Cc ../%s @$root/file_list\n" % (
+        extra_dir,
+        ctx.executable._zip.path,
+        extras_archive.basename,
+    )
+    cmd += "cd $root\n"
+
     # Execute the command
     ctx.action(
         inputs = ctx.files.pubs + list(all_deps) + ctx.files._jdk + ctx.files._zip,
-        outputs = [output_archive],
+        outputs = [output_archive, extras_archive],
         mnemonic = "GwtCompile",
         progress_message = "GWT compiling " + output_archive.short_path,
         command = "set -e\n" + cmd,
@@ -78,6 +92,7 @@ _gwt_binary = rule(
     },
     outputs = {
         "output_archive": "%{name}.zip",
+        "extras_archive": "%{name}-extras.zip",
     },
 )
 
