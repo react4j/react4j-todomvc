@@ -168,7 +168,7 @@ def _gwt_dev_server_impl(ctx):
     )
 
     # Return the script and all dependencies needed to run it
-    ctx.file_action(
+    ctx.actions.write(
         output = ctx.outputs.executable,
         content = cmd,
     )
