@@ -10,9 +10,6 @@ gwt_application(
         "-sourceLevel 1.8",
         "-logLevel INFO",
     ],
-    compiler_jvm_flags = [
-        "-Xmx1G",
-    ],
     dev_flags = [
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",
@@ -54,9 +51,6 @@ gwt_application(
         "-optimize 9",
         "-nocheckAssertions",
         "-XmethodNameDisplayMode NONE",
-    ],
-    compiler_jvm_flags = [
-        "-Xmx1G",
     ],
     dev_flags = [
         "-logLevel INFO",

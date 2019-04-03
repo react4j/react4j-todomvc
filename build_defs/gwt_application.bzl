@@ -1,5 +1,7 @@
 _GWT_COMPILER = "com.google.gwt.dev.Compiler"
 
+_GWT_COMPILER_JVM_FLAGS = ["-Xmx1G"]
+
 def _gwt_binary_impl(ctx):
     output_archive = ctx.outputs.output_archive
     extras_archive = ctx.outputs.extras_archive
@@ -77,7 +79,7 @@ _gwt_binary = rule(
         "pubs": attr.label_list(allow_files = True),
         "modules": attr.string_list(mandatory = True),
         "compiler_flags": attr.string_list(),
-        "jvm_flags": attr.string_list(),
+        "jvm_flags": attr.string_list(default = _GWT_COMPILER_JVM_FLAGS),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
         "_zip": attr.label(
             default = Label("@bazel_tools//tools/zip:zipper"),
