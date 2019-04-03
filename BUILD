@@ -25,9 +25,6 @@ gwt_application(
     dev_jvm_flags = [
         "-Xmx1G",
     ],
-    java_roots = [
-        "app/src/main/java",
-    ],
     modules = [
         "react4j.todomvc.TodomvcDev",
     ],
@@ -46,9 +43,6 @@ gwt_application(
     ],
     dev_jvm_flags = [
         "-Xmx1G",
-    ],
-    java_roots = [
-        "app/src/main/java",
     ],
     modules = [
         "react4j.todomvc.TodomvcProd",
