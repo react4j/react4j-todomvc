@@ -195,8 +195,9 @@ def gwt_application(
         compiler_jvm_flags = [],
         dev_flags = [],
         dev_jvm_flags = []):
+    deps_artifact = name + "-deps"
     native.java_binary(
-        name = name + "-deps",
+        name = deps_artifact,
         main_class = name,
         resources = resources,
         srcs = srcs,
@@ -210,8 +211,8 @@ def gwt_application(
         pubs = pubs,
         output_root = output_root,
         deps = [
-            name + "-deps_deploy.jar",
-            name + "-deps_deploy-src.jar",
+            deps_artifact + "_deploy.jar",
+            deps_artifact + "_deploy-src.jar",
         ],
         modules = modules,
         visibility = visibility,
@@ -223,8 +224,8 @@ def gwt_application(
         java_roots = java_roots,
         package_name = native.package_name(),
         deps = [
-            name + "-deps_deploy.jar",
-            name + "-deps_deploy-src.jar",
+            deps_artifact + "_deploy.jar",
+            deps_artifact + "_deploy-src.jar",
         ],
         modules = modules,
         visibility = visibility,
