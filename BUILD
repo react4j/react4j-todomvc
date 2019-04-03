@@ -29,9 +29,6 @@ gwt_application(
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",
     ],
-    dev_jvm_flags = [
-        "-Xmx1G",
-    ],
     modules = ["react4j.todomvc.TodomvcDev"],
     resources = _RESOURCES,
     visibility = ["//visibility:public"],
@@ -45,9 +42,6 @@ gwt_application(
     dev_flags = [
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",
-    ],
-    dev_jvm_flags = [
-        "-Xmx1G",
     ],
     modules = ["react4j.todomvc.TodomvcProd"],
     resources = _RESOURCES,

@@ -21,6 +21,8 @@ GWT_OPTIMIZED_COMPILER_FLAGS = [
     "-XmethodNameDisplayMode NONE",
 ] + _GWT_COMPILER_FLAGS
 
+_GWT_DEV_SERVER_JVM_FLAGS = [ "-Xmx1G" ]
+
 def _get_dep_jars(ctx):
     """ Find all transitive dependencies """
     all_deps = depset(ctx.files.deps)
@@ -188,7 +190,7 @@ _gwt_dev_server = rule(
         "pubs": attr.label_list(allow_files = True),
         "output_root": attr.string(default = ""),
         "dev_flags": attr.string_list(),
-        "jvm_flags": attr.string_list(),
+        "jvm_flags": attr.string_list(default = _GWT_DEV_SERVER_JVM_FLAGS),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
     },
     executable = True,
