@@ -195,6 +195,8 @@ def gwt_application(
         compiler_jvm_flags = [],
         dev_flags = [],
         dev_jvm_flags = []):
+    # We build up a separate deploy jar to avoid attempting to pass classpath on the command line
+    # which will break in some environments that have many deps
     deps_artifact = name + "-deps"
     native.java_binary(
         name = deps_artifact,
