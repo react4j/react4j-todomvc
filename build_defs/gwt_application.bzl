@@ -1,3 +1,8 @@
+"""GWT Rules
+
+Starlark rules for building [GWT](http://www.gwtproject.org/) applications using Bazel.
+"""
+
 _GWT_COMPILER = "com.google.gwt.dev.Compiler"
 
 _GWT_COMPILER_JVM_FLAGS = ["-Xmx1G"]
