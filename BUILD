@@ -17,6 +17,11 @@ DEPS = [
 
 SRCS = glob(["src/main/java/**/*.java"])
 
+RESOURCES = glob(
+    ["src/main/java/**/*"],
+    exclude = ["**/*.java"],
+)
+
 gwt_application(
     name = "react4j_todomvc_dev",
     srcs = SRCS,
@@ -30,7 +35,7 @@ gwt_application(
     modules = [
         "react4j.todomvc.TodomvcDev",
     ],
-    resources = glob(["src/main/java/**/*"]),
+    resources = RESOURCES,
     visibility = ["//visibility:public"],
     deps = DEPS,
 )
@@ -49,7 +54,7 @@ gwt_application(
     modules = [
         "react4j.todomvc.TodomvcProd",
     ],
-    resources = glob(["src/main/java/**/*"]),
+    resources = RESOURCES,
     visibility = ["//visibility:public"],
     deps = DEPS,
 )
