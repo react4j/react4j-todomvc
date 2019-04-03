@@ -126,7 +126,7 @@ gwt_binary = rule(
     },
 )
 
-def _gwt_dev_impl(ctx):
+def _gwt_dev_server_impl(ctx):
     # Find all transitive dependencies that need to go on the classpath
     all_deps = _get_dep_jars(ctx)
     dep_paths = [dep.short_path for dep in all_deps]
@@ -177,8 +177,8 @@ def _gwt_dev_impl(ctx):
         runfiles = ctx.runfiles(files = list(all_deps) + ctx.files.pubs + ctx.files._jdk),
     )
 
-_gwt_dev = rule(
-    implementation = _gwt_dev_impl,
+_gwt_dev_server = rule(
+    implementation = _gwt_dev_server_impl,
     attrs = {
         "package_name": attr.string(mandatory = True),
         "java_roots": attr.string_list(mandatory = True),
@@ -235,8 +235,8 @@ def gwt_application(
         flags = compiler_flags,
         jvm_flags = compiler_jvm_flags,
     )
-    _gwt_dev(
-        name = name + "-dev",
+    _gwt_dev_server(
+        name = name + "-dev-server",
         java_roots = java_roots,
         package_name = native.package_name(),
         deps = [
