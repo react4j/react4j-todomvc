@@ -25,10 +25,6 @@ _RESOURCES = glob(
 gwt_application(
     name = "react4j_todomvc_dev",
     srcs = _SRCS,
-    dev_flags = [
-        "-logLevel INFO",
-        "-XmethodNameDisplayMode FULL",
-    ],
     modules = ["react4j.todomvc.TodomvcDev"],
     resources = _RESOURCES,
     visibility = ["//visibility:public"],
@@ -39,10 +35,6 @@ gwt_application(
     name = "react4j_todomvc",
     srcs = _SRCS,
     compiler_flags = GWT_OPTIMIZED_COMPILER_FLAGS,
-    dev_flags = [
-        "-logLevel INFO",
-        "-XmethodNameDisplayMode FULL",
-    ],
     modules = ["react4j.todomvc.TodomvcProd"],
     resources = _RESOURCES,
     visibility = ["//visibility:public"],
