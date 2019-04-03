@@ -2,6 +2,19 @@ package(default_visibility = ["//visibility:private"])
 
 load("//build_defs:gwt.bzl", "gwt_application")
 
+DEPS = [
+    "//thirdparty:arez_core",
+    "//thirdparty:arez_processor",
+    "//thirdparty:elemental2_dom",
+    "//thirdparty:gwt_user",
+    "//thirdparty:javax_annotation",
+    "//thirdparty:jsinterop_annotations",
+    "//thirdparty:jsinterop_base",
+    "//thirdparty:react4j_core",
+    "//thirdparty:react4j_dom",
+    "//thirdparty:react4j_processor",
+]
+
 gwt_application(
     name = "react4j_todomvc_dev",
     srcs = glob(["src/main/java/**/*.java"]),
@@ -25,18 +38,7 @@ gwt_application(
     ],
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
-    deps = [
-        "//thirdparty:arez_core",
-        "//thirdparty:arez_processor",
-        "//thirdparty:elemental2_dom",
-        "//thirdparty:gwt_user",
-        "//thirdparty:javax_annotation",
-        "//thirdparty:jsinterop_annotations",
-        "//thirdparty:jsinterop_base",
-        "//thirdparty:react4j_core",
-        "//thirdparty:react4j_dom",
-        "//thirdparty:react4j_processor",
-    ],
+    deps = DEPS,
 )
 
 gwt_application(
@@ -67,16 +69,5 @@ gwt_application(
     ],
     resources = glob(["src/main/java/**/*"]),
     visibility = ["//visibility:public"],
-    deps = [
-        "//thirdparty:arez_core",
-        "//thirdparty:arez_processor",
-        "//thirdparty:elemental2_dom",
-        "//thirdparty:gwt_user",
-        "//thirdparty:javax_annotation",
-        "//thirdparty:jsinterop_annotations",
-        "//thirdparty:jsinterop_base",
-        "//thirdparty:react4j_core",
-        "//thirdparty:react4j_dom",
-        "//thirdparty:react4j_processor",
-    ],
+    deps = DEPS,
 )
