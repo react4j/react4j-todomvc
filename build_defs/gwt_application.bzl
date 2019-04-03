@@ -28,8 +28,8 @@ def _gwt_binary_impl(ctx):
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
         _GWT_COMPILER,
-        output_dir,
-        output_dir + "/WEB-INF/deploy",
+        output_dir + "/" + ctx.attr.output_root,
+        output_dir + "/WEB-INF/deploy/" + ctx.attr.output_root,
         extra_dir,
         " ".join(ctx.attr.compiler_flags),
         " ".join(ctx.attr.modules),
@@ -89,6 +89,7 @@ _gwt_binary = rule(
         "deps": attr.label_list(allow_files = FileType([".jar"])),
         "pubs": attr.label_list(allow_files = True),
         "modules": attr.string_list(mandatory = True),
+        "output_root": attr.string(default = ""),
         "compiler_flags": attr.string_list(),
         "jvm_flags": attr.string_list(default = _GWT_COMPILER_JVM_FLAGS),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
@@ -139,10 +140,11 @@ def _gwt_dev_impl(ctx):
     cmd += "done\n"
 
     # Run dev mode
-    cmd += "%s %s -cp $srcClasspath:%s com.google.gwt.dev.DevMode -war archive -workDir ./dev-workdir %s %s\n" % (
+    cmd += "%s %s -cp $srcClasspath:%s com.google.gwt.dev.DevMode -war %s -workDir ./dev-workdir %s %s\n" % (
         ctx.attr._jdk[java_common.JavaRuntimeInfo].java_executable_exec_path,
         " ".join(ctx.attr.jvm_flags),
         ":".join(dep_paths),
+        "archive/" + ctx.attr.output_root,
         " ".join(ctx.attr.dev_flags),
         " ".join(ctx.attr.modules),
     )
@@ -165,6 +167,7 @@ _gwt_dev = rule(
         "deps": attr.label_list(mandatory = True, allow_files = FileType([".jar"])),
         "modules": attr.string_list(mandatory = True),
         "pubs": attr.label_list(allow_files = True),
+        "output_root": attr.string(default = ""),
         "dev_flags": attr.string_list(),
         "jvm_flags": attr.string_list(),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
@@ -180,6 +183,7 @@ def gwt_application(
         pubs = [],
         deps = [],
         visibility = [],
+        output_root = "",
         java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
         compiler_flags = [],
         compiler_jvm_flags = [],
@@ -198,6 +202,7 @@ def gwt_application(
     _gwt_binary(
         name = name,
         pubs = pubs,
+        output_root = output_root,
         deps = [
             name + "-deps_deploy.jar",
             name + "-deps_deploy-src.jar",
@@ -218,6 +223,7 @@ def gwt_application(
         modules = modules,
         visibility = visibility,
         pubs = pubs,
+        output_root = output_root,
         dev_flags = dev_flags,
         jvm_flags = dev_jvm_flags,
     )
