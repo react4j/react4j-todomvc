@@ -15,9 +15,11 @@ DEPS = [
     "//thirdparty:react4j_processor",
 ]
 
+SRCS = glob(["src/main/java/**/*.java"])
+
 gwt_application(
     name = "react4j_todomvc_dev",
-    srcs = glob(["src/main/java/**/*.java"]),
+    srcs = SRCS,
     dev_flags = [
         "-logLevel INFO",
         "-XmethodNameDisplayMode FULL",
@@ -35,7 +37,7 @@ gwt_application(
 
 gwt_application(
     name = "react4j_todomvc",
-    srcs = glob(["src/main/java/**/*.java"]),
+    srcs = SRCS,
     compiler_flags = GWT_OPTIMIZED_COMPILER_FLAGS,
     dev_flags = [
         "-logLevel INFO",
