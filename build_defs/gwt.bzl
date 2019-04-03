@@ -263,7 +263,7 @@ def gwt_application(
             dev_server_deps_artifact + "_deploy-src.jar",
         ],
         modules = modules,
-        visibility = visibility,
+        visibility = ["//visibility:private"],
         pubs = pubs,
         output_root = output_root,
         dev_flags = dev_flags,
