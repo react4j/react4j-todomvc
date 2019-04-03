@@ -40,7 +40,6 @@ abstract class TodoItem
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
-  private String _editText;
 
   TodoItem( @Nonnull final TodoRepository todoRepository,
             @Nonnull final TodoService todoService,
@@ -56,15 +55,9 @@ abstract class TodoItem
   abstract Todo getTodo();
 
   @Observable
-  String getEditText()
-  {
-    return _editText;
-  }
+  abstract String getEditText();
 
-  void setEditText( @Nonnull final String editText )
-  {
-    _editText = editText;
-  }
+  abstract void setEditText( @Nonnull String editText );
 
   @Memoize
   boolean isTodoBeingEdited()
@@ -161,7 +154,7 @@ abstract class TodoItem
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
-    return li( new HtmlProps().className( completed ? "completed" : null, isTodoBeingEdited() ? "editing" : null ),
+    return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
@@ -176,7 +169,7 @@ abstract class TodoItem
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
-                        .defaultValue( getEditText() )
+                        .value( getEditText() )
                         .onBlur( e -> onSubmitTodo( todo ) )
                         .onChange( this::handleChange )
                         .onKeyDown( e -> handleKeyDown( e, todo ) )
