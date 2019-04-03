@@ -212,15 +212,24 @@ def gwt_application(
     # We build up a separate deploy jar to avoid attempting to pass classpath on the command line
     # which will break in some environments that have many deps
     deps_artifact = name + "-deps"
-    native.java_binary(
-        name = deps_artifact,
-        main_class = name,
-        resources = resources,
-        srcs = srcs,
-        deps = deps,
-        visibility = ["//visibility:private"],
-        runtime_deps = gwt_dev_deps,
-    )
+    if len(srcs) > 0:
+        native.java_binary(
+            name = deps_artifact,
+            main_class = name,
+            resources = resources,
+            srcs = srcs,
+            deps = deps,
+            runtime_deps = gwt_dev_deps,
+            visibility = ["//visibility:private"],
+        )
+    else:
+        native.java_binary(
+            name = deps_artifact,
+            main_class = name,
+            resources = resources,
+            runtime_deps = deps + gwt_dev_deps,
+            visibility = ["//visibility:private"],
+        )
 
     # Create the archive and dev mode targets
     gwt_binary(
