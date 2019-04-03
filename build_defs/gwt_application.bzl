@@ -165,9 +165,7 @@ _gwt_dev = rule(
             single_file = True,
             allow_files = True,
         ),
-        "_jdk": attr.label(
-            default = Label("@bazel_tools//tools/jdk:jdk"),
-        ),
+        "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
     },
     executable = True,
 )
