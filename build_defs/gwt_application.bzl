@@ -9,7 +9,7 @@ def _gwt_binary_impl(ctx):
 
     # Run the GWT compiler
     cmd = "%s %s -Dgwt.normalizeTimestamps=true -cp %s com.google.gwt.dev.Compiler -war %s -deploy %s -extra %s %s %s\n" % (
-        ctx.executable._java.path,
+        ctx.attr._jdk[java_common.JavaRuntimeInfo].java_executable_exec_path,
         " ".join(ctx.attr.jvm_flags),
         ":".join([dep.path for dep in all_deps]),
         output_dir,
@@ -75,13 +75,6 @@ _gwt_binary = rule(
         "modules": attr.string_list(mandatory = True),
         "compiler_flags": attr.string_list(),
         "jvm_flags": attr.string_list(),
-        "_java": attr.label(
-            default = Label("@bazel_tools//tools/jdk:java"),
-            executable = True,
-            cfg = "host",
-            single_file = True,
-            allow_files = True,
-        ),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
         "_zip": attr.label(
             default = Label("@bazel_tools//tools/zip:zipper"),
@@ -131,7 +124,7 @@ def _gwt_dev_impl(ctx):
 
     # Run dev mode
     cmd += "%s %s -cp $srcClasspath:%s com.google.gwt.dev.DevMode -war archive -workDir ./dev-workdir %s %s\n" % (
-        ctx.executable._java.path,
+        ctx.attr._jdk[java_common.JavaRuntimeInfo].java_executable_exec_path,
         " ".join(ctx.attr.jvm_flags),
         ":".join(dep_paths),
         " ".join(ctx.attr.dev_flags),
@@ -158,13 +151,6 @@ _gwt_dev = rule(
         "pubs": attr.label_list(allow_files = True),
         "dev_flags": attr.string_list(),
         "jvm_flags": attr.string_list(),
-        "_java": attr.label(
-            default = Label("@bazel_tools//tools/jdk:java"),
-            executable = True,
-            cfg = "host",
-            single_file = True,
-            allow_files = True,
-        ),
         "_jdk": attr.label(default = Label("@bazel_tools//tools/jdk:current_java_runtime")),
     },
     executable = True,
