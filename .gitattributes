@@ -10,7 +10,8 @@
 .gitattributes text
 .gitignore text
 .ruby-version text
-BUILD text
+BUILD text allow_empty
+BUILD.bazel text allow_empty
 Gemfile text
 LICENSE text
 WORKSPACE text
