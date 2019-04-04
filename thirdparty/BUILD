@@ -17,12 +17,27 @@ alias(
 
 alias(
     name = "jsinterop_base",
-    actual = "@maven//:org_realityforge_com_google_jsinterop_base",
+    actual = "@maven//:org_realityforge_com_google_jsinterop_base_j2cl",
+)
+
+alias(
+    name = "elemental2_promise",
+    actual = "@maven//:org_realityforge_com_google_elemental2_elemental2_promise",
+)
+
+alias(
+    name = "elemental2_core",
+    actual = "@maven//:org_realityforge_com_google_elemental2_elemental2_core",
 )
 
 alias(
     name = "elemental2_dom",
     actual = "@maven//:org_realityforge_com_google_elemental2_elemental2_dom",
+)
+
+alias(
+    name = "braincheck",
+    actual = "@maven//:org_realityforge_braincheck_braincheck",
 )
 
 alias(

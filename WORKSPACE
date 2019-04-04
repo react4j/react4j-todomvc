@@ -28,14 +28,26 @@ http_archive(
 )
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("@rules_jvm_external//:specs.bzl", "maven")
 
 maven_install(
     artifacts = [
         "org.realityforge.javax.annotation:javax.annotation:1.0.0",
         "com.google.jsinterop:jsinterop-annotations:1.0.2",
+        "org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f",
         "org.realityforge.arez:arez-core:0.132",
         "org.realityforge.arez:arez-processor:0.132",
-        "org.realityforge.react4j:react4j-dom:0.122",
+        maven.artifact(
+            group = "org.realityforge.react4j",
+            artifact = "react4j-dom",
+            version = "0.122",
+            exclusions = [
+                maven.exclusion(
+                    group = "org.realityforge.com.google.jsinterop",
+                    artifact = "base",
+                ),
+            ],
+        ),
         "org.realityforge.react4j:react4j-processor:0.122",
     ],
     fetch_sources = True,

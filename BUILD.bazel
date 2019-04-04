@@ -1,0 +1,153 @@
+package(default_visibility = ["//visibility:private"])
+
+load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_application", "j2cl_import", "j2cl_library")
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
+
+_SRCS = glob(["src/main/java/**/*.java"])
+
+_RESOURCES = glob(
+    ["src/main/java/**/*"],
+    exclude = ["**/*.java"],
+)
+
+j2cl_import(
+    name = "jsinterop_annotations-j2cl",
+    jar = "@com_google_jsinterop_annotations_head//jar",
+)
+
+j2cl_import(
+    name = "gwt-javaemul-internal-annotations-j2cl",
+    jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
+)
+
+j2cl_library(
+    name = "javax_annotation-j2cl",
+    srcs = ["//thirdparty:javax_annotation"],
+)
+
+j2cl_library(
+    name = "arez_core-j2cl",
+    srcs = ["//thirdparty:arez_core"],
+    deps = [
+        ":javax_annotation-j2cl",
+        ":jsinterop_annotations-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "jsinterop_base-j2cl",
+    srcs = ["//thirdparty:jsinterop_base"],
+    deps = [
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":jsinterop_annotations-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "elemental2_promise-j2cl",
+    srcs = ["//thirdparty:elemental2_promise"],
+    deps = [
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "elemental2_core-j2cl",
+    srcs = ["//thirdparty:elemental2_core"],
+    deps = [
+        ":elemental2_promise-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "elemental2_dom-j2cl",
+    srcs = ["//thirdparty:elemental2_dom"],
+    deps = [
+        ":elemental2_core-j2cl",
+        ":elemental2_promise-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "braincheck-j2cl",
+    srcs = ["//thirdparty:braincheck"],
+    deps = [
+        ":javax_annotation-j2cl",
+        #        ":elemental2_promise-j2cl",
+        #        ":elemental2_core-j2cl",
+        #        ":arez_core-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "react4j_core-j2cl",
+    srcs = ["//thirdparty:react4j_core"],
+    deps = [
+        ":arez_core-j2cl",
+        ":braincheck-j2cl",
+        ":elemental2_core-j2cl",
+        ":elemental2_promise-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":javax_annotation-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "react4j_dom-j2cl",
+    srcs = ["//thirdparty:react4j_dom"],
+    deps = [
+        ":braincheck-j2cl",
+        ":elemental2_core-j2cl",
+        ":elemental2_dom-j2cl",
+        ":elemental2_promise-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":javax_annotation-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+        ":react4j_core-j2cl",
+    ],
+)
+
+j2cl_library(
+    name = "react4j-todomvc-j2cl",
+    srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]),
+    plugins = [
+        "//thirdparty:arez_processor",
+        "//thirdparty:react4j_processor",
+    ],
+    deps = [
+        ":arez_core-j2cl",
+        ":elemental2_dom-j2cl",
+        ":gwt-javaemul-internal-annotations-j2cl",
+        ":javax_annotation-j2cl",
+        ":jsinterop_annotations-j2cl",
+        ":jsinterop_base-j2cl",
+        ":react4j_core-j2cl",
+        ":react4j_dom-j2cl",
+    ],
+)
+
+closure_js_library(
+    name = "react4j-closure",
+    srcs = ["src/main/java/react4j/todomvc/App.js"],
+    deps = [":react4j-todomvc-j2cl"],
+)
+
+j2cl_application(
+    name = "react4j",
+    entry_points = ["react4j.todomvc.App"],
+    deps = [":react4j-closure"],
+)
