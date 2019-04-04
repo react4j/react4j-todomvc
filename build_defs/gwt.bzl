@@ -159,11 +159,12 @@ def _gwt_dev_server_impl(ctx):
     cmd += "  if [ -d $rootDir ]; then\n"
     cmd += "    srcClasspath+=:$rootDir\n"
     cmd += '    echo "Using Java sources rooted at $rootDir"\n'
-    cmd += "  else\n"
-    cmd += '    echo "No Java sources found under $rootDir"\n'
-    cmd += '    exit 1\n'
     cmd += "  fi\n"
     cmd += "done\n"
+    cmd += "if [ -z $srcClasspath ]; then\n"
+    cmd += '  echo "No Java sources detected in java roots: %s"\n' % ' '.join(ctx.attr.java_roots)
+    cmd += "  exit 1\n"
+    cmd += "fi\n"
 
     # Run dev mode
     cmd += "%s %s -cp $srcClasspath:%s com.google.gwt.dev.DevMode -war %s -workDir ./dev-workdir %s %s\n" % (
