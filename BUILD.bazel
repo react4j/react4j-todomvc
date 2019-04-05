@@ -81,9 +81,6 @@ j2cl_library(
     srcs = ["//thirdparty:braincheck"],
     deps = [
         ":javax_annotation-j2cl",
-        #        ":elemental2_promise-j2cl",
-        #        ":elemental2_core-j2cl",
-        #        ":arez_core-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
