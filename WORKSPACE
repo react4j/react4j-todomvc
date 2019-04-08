@@ -40,7 +40,7 @@ maven_install(
         maven.artifact(
             group = "org.realityforge.react4j",
             artifact = "react4j-dom",
-            version = "0.123",
+            version = "0.124",
             exclusions = [
                 maven.exclusion(
                     group = "org.realityforge.com.google.jsinterop",
@@ -48,7 +48,7 @@ maven_install(
                 ),
             ],
         ),
-        "org.realityforge.react4j:react4j-processor:0.123",
+        "org.realityforge.react4j:react4j-processor:0.124",
     ],
     fetch_sources = True,
     repositories = [
