@@ -27,8 +27,8 @@ artifacts:
   react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.124
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.124
 
-  arez_core: org.realityforge.arez:arez-core:jar:0.134
-  arez_processor: org.realityforge.arez:arez-processor:jar:0.134
+  arez_core: org.realityforge.arez:arez-core:jar:0.135
+  arez_processor: org.realityforge.arez:arez-processor:jar:0.135
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.56
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.15.0
