@@ -36,7 +36,18 @@ maven_install(
         "com.google.jsinterop:jsinterop-annotations:1.0.2",
         "org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f",
         "org.realityforge.arez:arez-core:0.132",
-        "org.realityforge.arez:arez-processor:0.132",
+        maven.artifact(
+            group = "org.realityforge.arez",
+            artifact = "arez-core",
+            version = "0.135",
+            exclusions = [
+                maven.exclusion(
+                    group = "org.realityforge.com.google.jsinterop",
+                    artifact = "base",
+                ),
+            ],
+        ),
+        "org.realityforge.arez:arez-processor:0.135",
         maven.artifact(
             group = "org.realityforge.react4j",
             artifact = "react4j-dom",
