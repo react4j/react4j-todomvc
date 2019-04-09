@@ -35,6 +35,8 @@ maven_install(
         "org.realityforge.javax.annotation:javax.annotation:1.0.0",
         "com.google.jsinterop:jsinterop-annotations:1.0.2",
         "org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f",
+        # TODO: Unclear why I need to force braincheck version here. SHould it not be picked up through react dependency?
+        "org.realityforge.braincheck:braincheck:1.15.0",
         "org.realityforge.arez:arez-core:0.132",
         maven.artifact(
             group = "org.realityforge.arez",
