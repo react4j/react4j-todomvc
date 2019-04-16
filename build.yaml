@@ -33,4 +33,4 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.15.0
 
-  spritz_core: org.realityforge.spritz:spritz-core:jar:0.06
+  spritz_core: org.realityforge.spritz:spritz-core:jar:0.07
