@@ -20,8 +20,8 @@ maven_install(
         "com.google.jsinterop:jsinterop-annotations:1.0.2",
         "org.realityforge.arez:arez-core:0.132",
         "org.realityforge.arez:arez-processor:0.132",
-        "org.realityforge.react4j:react4j-dom:0.123",
-        "org.realityforge.react4j:react4j-processor:0.123",
+        "org.realityforge.react4j:react4j-dom:0.125",
+        "org.realityforge.react4j:react4j-processor:0.125",
     ],
     fetch_sources = True,
     repositories = [
