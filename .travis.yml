@@ -2,8 +2,6 @@
 language: ruby
 jdk:
 - oraclejdk8
-env:
-- BAZEL=0.23.0
 before_install:
 - |
   if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
@@ -12,6 +10,7 @@ before_install:
     sysctl kernel.unprivileged_userns_clone=1
     OS=linux
   fi
+  BAZEL=$(cat ".bazelversion")
   wget -O install.sh "https://github.com/bazelbuild/bazel/releases/download/${BAZEL}/bazel-${BAZEL}-installer-${OS}-x86_64.sh"
   chmod +x install.sh
   ./install.sh --user
