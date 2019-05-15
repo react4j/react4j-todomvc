@@ -6,11 +6,12 @@
 *.java text
 *.md text
 *.xml text
+*.yaml text
 *.yml text
+.bazelversion text
 .gitattributes text
 .gitignore text
 .ruby-version text
-BUILD text allow_empty
 BUILD.bazel text allow_empty
 Gemfile text
 LICENSE text
