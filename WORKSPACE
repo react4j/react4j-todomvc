@@ -11,24 +11,9 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
 )
 
-load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("//thirdparty:dependencies.bzl", "generate_workspace_rules")
 
-maven_install(
-    artifacts = [
-        "com.google.gwt:gwt-user:2.8.2",
-        "org.realityforge.javax.annotation:javax.annotation:1.0.0",
-        "com.google.jsinterop:jsinterop-annotations:1.0.2",
-        "org.realityforge.arez:arez-core:0.136",
-        "org.realityforge.arez:arez-processor:0.136",
-        "org.realityforge.react4j:react4j-dom:0.125",
-        "org.realityforge.react4j:react4j-processor:0.125",
-    ],
-    fetch_sources = True,
-    repositories = [
-        "https://repo1.maven.org/maven2",
-    ],
-    use_unsafe_shared_cache = True,
-)
+generate_workspace_rules()
 
 load("//build_defs:gwt.bzl", _gwt_setup_workspace = "setup_workspace")
 
