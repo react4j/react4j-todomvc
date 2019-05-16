@@ -26,7 +26,6 @@
 # +- org.realityforge.arez:arez-core:jar:0.136 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
-# |     \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 # +- org.realityforge.arez:arez-processor:jar:0.136 [compile]
 # +- org.realityforge.react4j:react4j-dom:jar:0.126 [compile]
 # |  +- org.realityforge.react4j:react4j-core:jar:0.126 [compile]
@@ -430,6 +429,7 @@ def generate_targets(
         native.java_plugin(
             name = "org_realityforge_arez__arez_processor__0_136__arez_processor_arezprocessor__plugin",
             processor_class = "arez.processor.ArezProcessor",
+            generates_api = True,
             visibility = ["//visibility:private"],
             deps = [":org_realityforge_arez__arez_processor__0_136__library"],
         )
@@ -526,7 +526,6 @@ def generate_targets(
             srcjar = "@org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f__sources//file",
             tags = ["maven_coordinates=org.realityforge.com.google.jsinterop:base:1.0.0-b2-e6d791f"],
             visibility = ["//visibility:private"],
-            deps = [":jsinterop_annotations"],
         )
 
     if not omit_javax_annotation:
@@ -597,6 +596,7 @@ def generate_targets(
         native.java_plugin(
             name = "org_realityforge_react4j__react4j_processor__0_126__react4j_processor_reactprocessor__plugin",
             processor_class = "react4j.processor.ReactProcessor",
+            generates_api = True,
             visibility = ["//visibility:private"],
             deps = [":org_realityforge_react4j__react4j_processor__0_126__library"],
         )
