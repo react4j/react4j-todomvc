@@ -211,7 +211,7 @@ def gwt_binary(
         deps = [],
         visibility = [],
         output_root = "",
-        gwt_dev_deps = ["@gwt_maven//:com_google_gwt_gwt_dev"],
+        gwt_dev_deps = [Label("//build_defs:gwt_dev", relative_to_caller_repository = False)],
         compiler_flags = [],
         compiler_jvm_flags = []):
     # We build up a separate deploy jar to avoid attempting to pass classpath on the command line
@@ -261,7 +261,7 @@ def gwt_application(
         visibility = [],
         output_root = "",
         java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
-        gwt_dev_deps = ["@gwt_maven//:com_google_gwt_gwt_dev"],
+        gwt_dev_deps = [Label("//build_defs:gwt_dev", relative_to_caller_repository = False)],
         compiler_flags = [],
         compiler_jvm_flags = [],
         dev_flags = [],
@@ -291,29 +291,4 @@ def gwt_application(
         output_root = output_root,
         dev_flags = dev_flags,
         jvm_flags = dev_jvm_flags,
-    )
-
-load("@rules_jvm_external//:specs.bzl", "maven")
-load("@rules_jvm_external//:defs.bzl", "maven_install")
-
-def setup_workspace(repository_name = "gwt_maven", version = "2.8.2"):
-    """Load all dependencies needed for GWT."""
-
-    maven_install(
-        name = repository_name,
-        artifacts = [
-            maven.artifact(
-                group = "com.google.gwt",
-                artifact = "gwt-dev",
-                version = version,
-                exclusions = [
-                    "xerces:xercesImpl",
-                ],
-            ),
-        ],
-        fetch_sources = True,
-        repositories = [
-            "https://repo1.maven.org/maven2",
-        ],
-        use_unsafe_shared_cache = True,
     )
