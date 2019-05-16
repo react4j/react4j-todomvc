@@ -1,3 +1,5 @@
+workspace(name = "react4j_todomvc")
+
 load("//thirdparty:dependencies.bzl", "generate_workspace_rules")
 
 generate_workspace_rules()
