@@ -1,6 +1,6 @@
 repositories:
   stock: https://stocksoftware.jfrog.io/stocksoftware/staging
-  central: http://repo1.maven.org/maven2
+  central: https://repo.maven.apache.org/maven2/
 options:
   aliasStrategy: ArtifactId
 artifacts:
