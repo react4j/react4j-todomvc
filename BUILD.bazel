@@ -78,6 +78,8 @@ j2cl_library(
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
     ],
+    # TODO: Suppression required until we can figure out how to compile against specific version of closure compiler that aligns with the externs we use
+    js_suppress = ["checkTypes"],
 )
 
 j2cl_library(
