@@ -1,4 +1,4 @@
-workspace(name = "react4j_todomvc")
+workspace(name = "org_realityforge_react4j_todomvc")
 
 load("//thirdparty:dependencies.bzl", "generate_workspace_rules")
 
