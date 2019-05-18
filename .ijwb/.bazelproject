@@ -5,6 +5,5 @@ targets:
   //...:all
 
 additional_languages:
-  #javascript
   javascript
   java
