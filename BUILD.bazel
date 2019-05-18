@@ -30,6 +30,7 @@ j2cl_library(
     srcs = ["//thirdparty:arez_core"],
     deps = [
         ":javax_annotation-j2cl",
+        ":jsinterop_base-j2cl",
         ":jsinterop_annotations-j2cl",
     ],
 )
