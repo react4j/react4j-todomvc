@@ -33,6 +33,8 @@ j2cl_library(
         ":jsinterop_base-j2cl",
         ":jsinterop_annotations-j2cl",
     ],
+    # TODO: This is required until braincheck upgrades to version that links against jsinterop-base to invoke Js.debugger()
+    js_suppress = ["checkDebuggerStatement"],
 )
 
 j2cl_library(
@@ -87,6 +89,8 @@ j2cl_library(
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
     ],
+    # TODO: This is required until braincheck upgrades to version that links against jsinterop-base to invoke Js.debugger()
+    js_suppress = ["checkDebuggerStatement"],
 )
 
 j2cl_library(
