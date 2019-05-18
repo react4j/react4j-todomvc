@@ -130,63 +130,45 @@ def generate_workspace_rules(
         http_file(
             name = "org_realityforge_arez__arez_core__0_138",
             downloaded_file_path = "org/realityforge/arez/arez-core/0.138/arez-core-0.138.jar",
-            sha256 = "f8f3528029e0b101681fb81d28662291458f808903335e1fe4486fd6f2c2e69e",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.138/arez-core-0.138.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.138/arez-core-0.138.jar",
-            ],
+            sha256 = "6c7aa63c1309902c9a1455ae33637e3d968930f2115d552d427d2d9b458e4847",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.138/arez-core-0.138.jar"],
         )
 
         http_file(
             name = "org_realityforge_arez__arez_core__0_138__sources",
             downloaded_file_path = "org/realityforge/arez/arez-core/0.138/arez-core-0.138-sources.jar",
-            sha256 = "694782429e45d1b2c6e5c46b8d8fe0c36f0d124ee1559e2f08caa07de9d67d5b",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.138/arez-core-0.138-sources.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.138/arez-core-0.138-sources.jar",
-            ],
+            sha256 = "e4db680c7b15a4099b6fbdb7acf1427a268b19cfb751aa404bd6ca2d112e73ac",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.138/arez-core-0.138-sources.jar"],
         )
 
     if not omit_arez_processor:
         http_file(
             name = "org_realityforge_arez__arez_processor__0_138",
             downloaded_file_path = "org/realityforge/arez/arez-processor/0.138/arez-processor-0.138.jar",
-            sha256 = "9d5fbf4cb061c488f1624ac31c8e506e6ef6e6482414b6e71fa8b1eaea7a79d9",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138.jar",
-            ],
+            sha256 = "6fc189cc3126744dedf92d97b308f9d81835fddd2b1b3838ad4f1edf33931224",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138.jar"],
         )
 
         http_file(
             name = "org_realityforge_arez__arez_processor__0_138__sources",
             downloaded_file_path = "org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar",
-            sha256 = "54d09c544eb0cddaea447ca200c0a313bb12a2b6b5e31c358f353101d8234a94",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar",
-            ],
+            sha256 = "6d3984310480425dfa48df7b3010dd2eb82e5362b5b9164c7ded222b49e5fd2b",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar"],
         )
 
     if not omit_braincheck:
         http_file(
             name = "org_realityforge_braincheck__braincheck__1_16_0",
             downloaded_file_path = "org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0.jar",
-            sha256 = "2beb46fe416744d1b8bfe70ba6d055c6d4fea79315361a028a10d7237efa2d5b",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0.jar",
-            ],
+            sha256 = "9370edd88e26d5442ca2a083c77fd71e6ea212bb1848c2a56ad1d921cae61dfc",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0.jar"],
         )
 
         http_file(
             name = "org_realityforge_braincheck__braincheck__1_16_0__sources",
             downloaded_file_path = "org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0-sources.jar",
-            sha256 = "a8d1b90c26ee1c79ae2397c640d427637b98ee5da5b4559fe68bc9955f675542",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0-sources.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0-sources.jar",
-            ],
+            sha256 = "21884be11869f91f353c365896ddb1e265d3d792a364cb8753cd3b587a45ad39",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0-sources.jar"],
         )
 
     if not omit_elemental2_core:
@@ -268,63 +250,45 @@ def generate_workspace_rules(
         http_file(
             name = "org_realityforge_react4j__react4j_core__0_128",
             downloaded_file_path = "org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128.jar",
-            sha256 = "d5f37d981d66617123d03b318672c6539f3fc87913b8ec0a1666d8943e72e5e3",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128.jar",
-            ],
+            sha256 = "7c0e9817278b24e0ab39f07502fbcba1a9640b2acded755cf7b639256c490bd1",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128.jar"],
         )
 
         http_file(
             name = "org_realityforge_react4j__react4j_core__0_128__sources",
             downloaded_file_path = "org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128-sources.jar",
-            sha256 = "bbc008ff2fd8b4803d0e3710ff6125595ed35c70fa89c6f1a232219c9a66e192",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128-sources.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128-sources.jar",
-            ],
+            sha256 = "e72a99a083efcfc838ee3746b6bf8f2226122a508b2ed08878988bef15ceae91",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128-sources.jar"],
         )
 
     if not omit_react4j_dom:
         http_file(
             name = "org_realityforge_react4j__react4j_dom__0_128",
             downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128.jar",
-            sha256 = "859d00aae227c72a02b5e190d7bac1be5a8f11ac4ca1d26aa5fa17306b03f431",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128.jar",
-            ],
+            sha256 = "2235df3c6cff25cbdd87f1b23ba57db38535ea46e09fe78dd1a47a3ffad20958",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128.jar"],
         )
 
         http_file(
             name = "org_realityforge_react4j__react4j_dom__0_128__sources",
             downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128-sources.jar",
-            sha256 = "9594dc4e897e1d7a958fa37abd15648a507892254c2e3645b3e9bd09fa84f6ce",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128-sources.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128-sources.jar",
-            ],
+            sha256 = "d8594f177de1511af951dec8abbed9e59821c24f22c90aced4005d9f23b659f9",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128-sources.jar"],
         )
 
     if not omit_react4j_processor:
         http_file(
             name = "org_realityforge_react4j__react4j_processor__0_128",
             downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128.jar",
-            sha256 = "6f2b55ffae91eab01c0d2e6a2e9e8e2795e51b5949acd17696078306bd8bd998",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128.jar",
-            ],
+            sha256 = "8a8709cec353f487c3f2542c4e15fe125863e7a4afc8db02142d649ca67b1118",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128.jar"],
         )
 
         http_file(
             name = "org_realityforge_react4j__react4j_processor__0_128__sources",
             downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128-sources.jar",
-            sha256 = "fe908db9fc7a0e0037724ed8d9c0ef9b6ddca55a9f62ba44ba368ad780ee59b6",
-            urls = [
-                "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128-sources.jar",
-                "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128-sources.jar",
-            ],
+            sha256 = "0172031ee46162d3668f4d3e91b8b7c1bab497f8e8cc85a627d056ba07e0f388",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128-sources.jar"],
         )
 
     if not omit_sac:
