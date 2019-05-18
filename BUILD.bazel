@@ -142,12 +142,12 @@ j2cl_library(
 
 closure_js_library(
     name = "react4j-closure",
-    srcs = ["src/main/java/react4j/todomvc/App.js"],
+    srcs = ["src/main/java/react4j/todomvc/Main.js"],
     deps = [":react4j-todomvc-j2cl"],
 )
 
 j2cl_application(
     name = "react4j-todomvc",
-    entry_points = ["react4j.todomvc.App"],
+    entry_points = ["react4j.todomvc.Main"],
     deps = [":react4j-closure"],
 )
