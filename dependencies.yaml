@@ -4,12 +4,12 @@ repositories:
 options:
   aliasStrategy: ArtifactId
 artifacts:
-  - coord: org.realityforge.react4j:react4j-core:0.126
   - coord: com.google.gwt:gwt-user:2.8.2
-  - coord: org.realityforge.arez:arez-core:0.136
-  - coord: org.realityforge.arez:arez-processor:0.136
-  - coord: org.realityforge.react4j:react4j-dom:0.126
-  - coord: org.realityforge.react4j:react4j-processor:0.126
+  - coord: org.realityforge.arez:arez-core:0.138
+  - coord: org.realityforge.arez:arez-processor:0.138
+  - coord: org.realityforge.react4j:react4j-core:0.128
+  - coord: org.realityforge.react4j:react4j-dom:0.128
+  - coord: org.realityforge.react4j:react4j-processor:0.128
 
   # The next dep is needed so we can switch out GWT version with J2CL version
   - coord: org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f
