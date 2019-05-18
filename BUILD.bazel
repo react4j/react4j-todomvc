@@ -147,7 +147,7 @@ closure_js_library(
 )
 
 j2cl_application(
-    name = "react4j",
+    name = "react4j-todomvc",
     entry_points = ["react4j.todomvc.App"],
     deps = [":react4j-closure"],
 )
