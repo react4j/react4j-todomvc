@@ -1,12 +1,15 @@
 # DO NOT EDIT: File is auto-generated
 * -text
+*.bzl text
 *.css text
 *.html text
 *.java text
 *.js text
 *.md text
+*.yaml text
 *.yml text
 .bazelrc text
+.bazelversion text
 .gitattributes text
 .gitignore text
 .ruby-version text

@@ -16,56 +16,6 @@ load("@com_google_j2cl//build_defs:rules.bzl", "setup_j2cl_workspace")
 
 setup_j2cl_workspace()
 
-RULES_JVM_EXTERNAL_TAG = "1.2"
+load("//thirdparty:dependencies.bzl", "generate_workspace_rules")
 
-RULES_JVM_EXTERNAL_SHA = "e5c68b87f750309a79f59c2b69ead5c3221ffa54ff9496306937bfa1c9c8c86b"
-
-http_archive(
-    name = "rules_jvm_external",
-    sha256 = RULES_JVM_EXTERNAL_SHA,
-    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
-    url = "https://github.com/bazelbuild/rules_jvm_external/archive/%s.zip" % RULES_JVM_EXTERNAL_TAG,
-)
-
-load("@rules_jvm_external//:defs.bzl", "maven_install")
-load("@rules_jvm_external//:specs.bzl", "maven")
-
-maven_install(
-    artifacts = [
-        "org.realityforge.javax.annotation:javax.annotation:1.0.0",
-        "com.google.jsinterop:jsinterop-annotations:1.0.2",
-        "org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f",
-        # TODO: Unclear why I need to force braincheck version here. SHould it not be picked up through react dependency?
-        "org.realityforge.braincheck:braincheck:1.15.0",
-        "org.realityforge.arez:arez-core:0.132",
-        maven.artifact(
-            group = "org.realityforge.arez",
-            artifact = "arez-core",
-            version = "0.135",
-            exclusions = [
-                maven.exclusion(
-                    group = "org.realityforge.com.google.jsinterop",
-                    artifact = "base",
-                ),
-            ],
-        ),
-        "org.realityforge.arez:arez-processor:0.135",
-        maven.artifact(
-            group = "org.realityforge.react4j",
-            artifact = "react4j-dom",
-            version = "0.124",
-            exclusions = [
-                maven.exclusion(
-                    group = "org.realityforge.com.google.jsinterop",
-                    artifact = "base",
-                ),
-            ],
-        ),
-        "org.realityforge.react4j:react4j-processor:0.124",
-    ],
-    fetch_sources = True,
-    repositories = [
-        "https://repo1.maven.org/maven2",
-    ],
-    use_unsafe_shared_cache = True,
-)
+generate_workspace_rules()
