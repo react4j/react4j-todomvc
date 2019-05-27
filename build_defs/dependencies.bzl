@@ -1022,7 +1022,6 @@ def generate_targets(
         native.java_import(
             name = "ant__ant__1_6_5",
             jars = ["@ant__ant__1_6_5//file"],
-            licenses = ["notice"],
             srcjar = "@ant__ant__1_6_5__sources//file",
             tags = ["maven_coordinates=ant:ant:1.6.5"],
             visibility = ["//visibility:private"],
@@ -1038,7 +1037,6 @@ def generate_targets(
         native.java_import(
             name = "avalon_framework__avalon_framework__4_1_5",
             jars = ["@avalon_framework__avalon_framework__4_1_5//file"],
-            licenses = ["notice"],
             tags = ["maven_coordinates=avalon-framework:avalon-framework:4.1.5"],
             visibility = ["//visibility:private"],
         )
@@ -1052,7 +1050,6 @@ def generate_targets(
         native.java_import(
             name = "colt__colt__1_2_0",
             jars = ["@colt__colt__1_2_0//file"],
-            licenses = ["notice"],
             tags = ["maven_coordinates=colt:colt:1.2.0"],
             visibility = ["//visibility:private"],
         )
@@ -1080,7 +1077,6 @@ def generate_targets(
         native.java_import(
             name = "com_google_code_gson__gson__2_6_2",
             jars = ["@com_google_code_gson__gson__2_6_2//file"],
-            licenses = ["notice"],
             srcjar = "@com_google_code_gson__gson__2_6_2__sources//file",
             tags = ["maven_coordinates=com.google.code.gson:gson:2.6.2"],
             visibility = ["//visibility:private"],
@@ -1094,7 +1090,6 @@ def generate_targets(
         native.java_import(
             name = "com_google_gwt__gwt_dev__2_8_2",
             jars = ["@com_google_gwt__gwt_dev__2_8_2//file"],
-            licenses = ["notice"],
             srcjar = "@com_google_gwt__gwt_dev__2_8_2__sources//file",
             tags = ["maven_coordinates=com.google.gwt:gwt-dev:2.8.2"],
             visibility = ["//visibility:private"],
@@ -1160,7 +1155,6 @@ def generate_targets(
         native.java_import(
             name = "commons_codec__commons_codec__1_10",
             jars = ["@commons_codec__commons_codec__1_10//file"],
-            licenses = ["notice"],
             srcjar = "@commons_codec__commons_codec__1_10__sources//file",
             tags = ["maven_coordinates=commons-codec:commons-codec:1.10"],
             visibility = ["//visibility:private"],
@@ -1175,7 +1169,6 @@ def generate_targets(
         native.java_import(
             name = "commons_collections__commons_collections__3_2_2",
             jars = ["@commons_collections__commons_collections__3_2_2//file"],
-            licenses = ["notice"],
             srcjar = "@commons_collections__commons_collections__3_2_2__sources//file",
             tags = ["maven_coordinates=commons-collections:commons-collections:3.2.2"],
             visibility = ["//visibility:private"],
@@ -1190,7 +1183,6 @@ def generate_targets(
         native.java_import(
             name = "commons_io__commons_io__2_4",
             jars = ["@commons_io__commons_io__2_4//file"],
-            licenses = ["notice"],
             srcjar = "@commons_io__commons_io__2_4__sources//file",
             tags = ["maven_coordinates=commons-io:commons-io:2.4"],
             visibility = ["//visibility:private"],
@@ -1205,7 +1197,6 @@ def generate_targets(
         native.java_import(
             name = "commons_logging__commons_logging__1_2",
             jars = ["@commons_logging__commons_logging__1_2//file"],
-            licenses = ["notice"],
             srcjar = "@commons_logging__commons_logging__1_2__sources//file",
             tags = ["maven_coordinates=commons-logging:commons-logging:1.2"],
             visibility = ["//visibility:private"],
@@ -1265,7 +1256,6 @@ def generate_targets(
         native.java_import(
             name = "logkit__logkit__1_0_1",
             jars = ["@logkit__logkit__1_0_1//file"],
-            licenses = ["notice"],
             srcjar = "@logkit__logkit__1_0_1__sources//file",
             tags = ["maven_coordinates=logkit:logkit:1.0.1"],
             visibility = ["//visibility:private"],
@@ -1280,7 +1270,7 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_cssparser__cssparser__0_9_18",
             jars = ["@net_sourceforge_cssparser__cssparser__0_9_18//file"],
-            licenses = ["notice"],
+            licenses = ["restricted"],
             srcjar = "@net_sourceforge_cssparser__cssparser__0_9_18__sources//file",
             tags = ["maven_coordinates=net.sourceforge.cssparser:cssparser:0.9.18"],
             visibility = ["//visibility:private"],
@@ -1325,7 +1315,7 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_htmlunit__htmlunit_core_js__2_17",
             jars = ["@net_sourceforge_htmlunit__htmlunit_core_js__2_17//file"],
-            licenses = ["notice"],
+            licenses = ["reciprocal"],
             srcjar = "@net_sourceforge_htmlunit__htmlunit_core_js__2_17__sources//file",
             tags = ["maven_coordinates=net.sourceforge.htmlunit:htmlunit-core-js:2.17"],
             visibility = ["//visibility:private"],
@@ -1355,7 +1345,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_commons__commons_lang3__3_4",
             jars = ["@org_apache_commons__commons_lang3__3_4//file"],
-            licenses = ["notice"],
             srcjar = "@org_apache_commons__commons_lang3__3_4__sources//file",
             tags = ["maven_coordinates=org.apache.commons:commons-lang3:3.4"],
             visibility = ["//visibility:private"],
@@ -1370,7 +1359,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_httpcomponents__httpclient__4_5_1",
             jars = ["@org_apache_httpcomponents__httpclient__4_5_1//file"],
-            licenses = ["notice"],
             srcjar = "@org_apache_httpcomponents__httpclient__4_5_1__sources//file",
             tags = ["maven_coordinates=org.apache.httpcomponents:httpclient:4.5.1"],
             visibility = ["//visibility:private"],
@@ -1390,7 +1378,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_httpcomponents__httpcore__4_4_3",
             jars = ["@org_apache_httpcomponents__httpcore__4_4_3//file"],
-            licenses = ["notice"],
             srcjar = "@org_apache_httpcomponents__httpcore__4_4_3__sources//file",
             tags = ["maven_coordinates=org.apache.httpcomponents:httpcore:4.4.3"],
             visibility = ["//visibility:private"],
@@ -1405,7 +1392,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_httpcomponents__httpmime__4_5_1",
             jars = ["@org_apache_httpcomponents__httpmime__4_5_1//file"],
-            licenses = ["notice"],
             srcjar = "@org_apache_httpcomponents__httpmime__4_5_1__sources//file",
             tags = ["maven_coordinates=org.apache.httpcomponents:httpmime:4.5.1"],
             visibility = ["//visibility:private"],
@@ -1451,7 +1437,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0",
             jars = ["@org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.toolchain:jetty-schemas:3.1.M0"],
             visibility = ["//visibility:private"],
@@ -1466,7 +1451,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730",
             jars = ["@org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.websocket:websocket-api:9.2.13.v20150730"],
             visibility = ["//visibility:private"],
@@ -1481,7 +1465,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730",
             jars = ["@org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.websocket:websocket-client:9.2.13.v20150730"],
             visibility = ["//visibility:private"],
@@ -1501,7 +1484,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730",
             jars = ["@org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.websocket:websocket-common:9.2.13.v20150730"],
             visibility = ["//visibility:private"],
@@ -1521,7 +1503,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__apache_jsp__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__apache_jsp__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__apache_jsp__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:apache-jsp:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1543,7 +1524,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_annotations__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_annotations__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_annotations__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-annotations:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1565,7 +1545,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_continuation__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_continuation__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_continuation__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-continuation:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1580,7 +1559,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_http__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_http__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_http__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-http:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1596,7 +1574,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_io__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_io__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_io__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-io:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1612,7 +1589,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_jmx__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_jmx__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_jmx__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-jmx:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1627,7 +1603,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_jndi__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_jndi__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_jndi__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-jndi:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1643,7 +1618,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_plus__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_plus__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_plus__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-plus:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1662,7 +1636,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_security__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_security__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_security__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-security:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1678,7 +1651,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_server__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_server__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_server__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-server:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1698,7 +1670,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_servlet__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_servlet__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_servlet__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-servlet:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1714,7 +1685,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_servlets__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_servlets__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_servlets__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-servlets:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1735,7 +1705,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_util__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_util__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_util__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-util:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1750,7 +1719,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_webapp__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_webapp__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_webapp__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-webapp:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1769,7 +1737,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_xml__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_xml__9_2_14_v20151106//file"],
-            licenses = ["notice"],
             srcjar = "@org_eclipse_jetty__jetty_xml__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-xml:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
@@ -1785,7 +1752,6 @@ def generate_targets(
         native.java_import(
             name = "org_mortbay_jasper__apache_el__8_0_9_m3",
             jars = ["@org_mortbay_jasper__apache_el__8_0_9_m3//file"],
-            licenses = ["notice"],
             srcjar = "@org_mortbay_jasper__apache_el__8_0_9_m3__sources//file",
             tags = ["maven_coordinates=org.mortbay.jasper:apache-el:8.0.9.M3"],
             visibility = ["//visibility:private"],
@@ -1799,7 +1765,6 @@ def generate_targets(
         native.java_import(
             name = "org_mortbay_jasper__apache_jsp__8_0_9_m3",
             jars = ["@org_mortbay_jasper__apache_jsp__8_0_9_m3//file"],
-            licenses = ["notice"],
             srcjar = "@org_mortbay_jasper__apache_jsp__8_0_9_m3__sources//file",
             tags = ["maven_coordinates=org.mortbay.jasper:apache-jsp:8.0.9.M3"],
             visibility = ["//visibility:private"],
@@ -1822,7 +1787,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm__5_0_3",
             jars = ["@org_ow2_asm__asm__5_0_3//file"],
-            licenses = ["notice"],
             srcjar = "@org_ow2_asm__asm__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm:5.0.3"],
             visibility = ["//visibility:private"],
@@ -1837,7 +1801,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm_commons__5_0_3",
             jars = ["@org_ow2_asm__asm_commons__5_0_3//file"],
-            licenses = ["notice"],
             srcjar = "@org_ow2_asm__asm_commons__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm-commons:5.0.3"],
             visibility = ["//visibility:private"],
@@ -1853,7 +1816,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm_tree__5_0_3",
             jars = ["@org_ow2_asm__asm_tree__5_0_3//file"],
-            licenses = ["notice"],
             srcjar = "@org_ow2_asm__asm_tree__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm-tree:5.0.3"],
             visibility = ["//visibility:private"],
@@ -1869,7 +1831,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm_util__5_0_3",
             jars = ["@org_ow2_asm__asm_util__5_0_3//file"],
-            licenses = ["notice"],
             srcjar = "@org_ow2_asm__asm_util__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm-util:5.0.3"],
             visibility = ["//visibility:private"],
@@ -1885,7 +1846,7 @@ def generate_targets(
         native.java_import(
             name = "org_w3c_css__sac__1_3",
             jars = ["@org_w3c_css__sac__1_3//file"],
-            licenses = ["notice"],
+            licenses = [],
             srcjar = "@org_w3c_css__sac__1_3__sources//file",
             tags = ["maven_coordinates=org.w3c.css:sac:1.3"],
             visibility = ["//visibility:private"],
@@ -1900,7 +1861,6 @@ def generate_targets(
         native.java_import(
             name = "tapestry__tapestry__4_0_2",
             jars = ["@tapestry__tapestry__4_0_2//file"],
-            licenses = ["notice"],
             tags = ["maven_coordinates=tapestry:tapestry:4.0.2"],
             visibility = ["//visibility:private"],
         )
@@ -1914,7 +1874,6 @@ def generate_targets(
         native.java_import(
             name = "xalan__serializer__2_7_2",
             jars = ["@xalan__serializer__2_7_2//file"],
-            licenses = ["notice"],
             srcjar = "@xalan__serializer__2_7_2__sources//file",
             tags = ["maven_coordinates=xalan:serializer:2.7.2"],
             visibility = ["//visibility:private"],
@@ -1930,7 +1889,6 @@ def generate_targets(
         native.java_import(
             name = "xalan__xalan__2_7_2",
             jars = ["@xalan__xalan__2_7_2//file"],
-            licenses = ["notice"],
             srcjar = "@xalan__xalan__2_7_2__sources//file",
             tags = ["maven_coordinates=xalan:xalan:2.7.2"],
             visibility = ["//visibility:private"],
@@ -1946,7 +1904,6 @@ def generate_targets(
         native.java_import(
             name = "xml_apis__xml_apis__1_3_04",
             jars = ["@xml_apis__xml_apis__1_3_04//file"],
-            licenses = ["notice"],
             srcjar = "@xml_apis__xml_apis__1_3_04__sources//file",
             tags = ["maven_coordinates=xml-apis:xml-apis:1.3.04"],
             visibility = ["//visibility:private"],
