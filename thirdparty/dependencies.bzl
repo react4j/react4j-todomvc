@@ -315,7 +315,6 @@ def generate_targets():
     native.java_import(
         name = "javax_servlet__javax_servlet_api__3_1_0",
         jars = ["@javax_servlet__javax_servlet_api__3_1_0//file"],
-        licenses = ["notice"],
         srcjar = "@javax_servlet__javax_servlet_api__3_1_0__sources//file",
         tags = ["maven_coordinates=javax.servlet:javax.servlet-api:3.1.0"],
         visibility = ["//visibility:private"],
@@ -329,7 +328,6 @@ def generate_targets():
     native.java_import(
         name = "javax_validation__validation_api__1_0_0_ga",
         jars = ["@javax_validation__validation_api__1_0_0_ga//file"],
-        licenses = ["notice"],
         srcjar = "@javax_validation__validation_api__1_0_0_ga__sources//file",
         tags = ["maven_coordinates=javax.validation:validation-api:1.0.0.GA"],
         visibility = ["//visibility:private"],
@@ -342,7 +340,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_arez__arez_core__0_138",
         jars = ["@org_realityforge_arez__arez_core__0_138//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_arez__arez_core__0_138__sources//file",
         tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.138"],
         visibility = ["//visibility:private"],
@@ -359,7 +356,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_arez__arez_processor__0_138__plugin_library",
         jars = ["@org_realityforge_arez__arez_processor__0_138//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_arez__arez_processor__0_138__sources//file",
         tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.138"],
         visibility = ["//visibility:private"],
@@ -385,7 +381,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_braincheck__braincheck__1_16_0",
         jars = ["@org_realityforge_braincheck__braincheck__1_16_0//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_braincheck__braincheck__1_16_0__sources//file",
         tags = ["maven_coordinates=org.realityforge.braincheck:braincheck:1.16.0"],
         visibility = ["//visibility:private"],
@@ -400,7 +395,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_com_google_elemental2__elemental2_core__2_23",
         jars = ["@org_realityforge_com_google_elemental2__elemental2_core__2_23//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_com_google_elemental2__elemental2_core__2_23__sources//file",
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-core:2.23"],
         visibility = ["//visibility:private"],
@@ -418,7 +412,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_com_google_elemental2__elemental2_dom__2_23",
         jars = ["@org_realityforge_com_google_elemental2__elemental2_dom__2_23//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_com_google_elemental2__elemental2_dom__2_23__sources//file",
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-dom:2.23"],
         visibility = ["//visibility:private"],
@@ -438,7 +431,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_com_google_elemental2__elemental2_promise__2_23",
         jars = ["@org_realityforge_com_google_elemental2__elemental2_promise__2_23//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_com_google_elemental2__elemental2_promise__2_23__sources//file",
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-promise:2.23"],
         visibility = ["//visibility:private"],
@@ -455,7 +447,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f",
         jars = ["@org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f__sources//file",
         tags = ["maven_coordinates=org.realityforge.com.google.jsinterop:base:1.0.0-b2-e6d791f"],
         visibility = ["//visibility:private"],
@@ -468,7 +459,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_0",
         jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_0//file"],
-        licenses = ["notice"],
         srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_0__sources//file",
         tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.0"],
         visibility = ["//visibility:private"],
@@ -540,7 +530,6 @@ def generate_targets():
     native.java_import(
         name = "org_w3c_css__sac__1_3",
         jars = ["@org_w3c_css__sac__1_3//file"],
-        licenses = [],
         srcjar = "@org_w3c_css__sac__1_3__sources//file",
         tags = ["maven_coordinates=org.w3c.css:sac:1.3"],
         visibility = ["//visibility:private"],

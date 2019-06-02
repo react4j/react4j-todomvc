@@ -1063,7 +1063,6 @@ def generate_targets(
         native.java_import(
             name = "com_google_code_findbugs__jsr305__1_3_9",
             jars = ["@com_google_code_findbugs__jsr305__1_3_9//file"],
-            licenses = ["notice"],
             tags = ["maven_coordinates=com.google.code.findbugs:jsr305:1.3.9"],
             visibility = ["//visibility:private"],
         )
@@ -1140,7 +1139,6 @@ def generate_targets(
         native.java_import(
             name = "com_ibm_icu__icu4j__50_1_1",
             jars = ["@com_ibm_icu__icu4j__50_1_1//file"],
-            licenses = ["notice"],
             srcjar = "@com_ibm_icu__icu4j__50_1_1__sources//file",
             tags = ["maven_coordinates=com.ibm.icu:icu4j:50.1.1"],
             visibility = ["//visibility:private"],
@@ -1211,7 +1209,6 @@ def generate_targets(
         native.java_import(
             name = "javax_annotation__javax_annotation_api__1_2",
             jars = ["@javax_annotation__javax_annotation_api__1_2//file"],
-            licenses = ["notice"],
             srcjar = "@javax_annotation__javax_annotation_api__1_2__sources//file",
             tags = ["maven_coordinates=javax.annotation:javax.annotation-api:1.2"],
             visibility = ["//visibility:private"],
@@ -1226,7 +1223,6 @@ def generate_targets(
         native.java_import(
             name = "javax_servlet__javax_servlet_api__3_1_0",
             jars = ["@javax_servlet__javax_servlet_api__3_1_0//file"],
-            licenses = ["notice"],
             srcjar = "@javax_servlet__javax_servlet_api__3_1_0__sources//file",
             tags = ["maven_coordinates=javax.servlet:javax.servlet-api:3.1.0"],
             visibility = ["//visibility:private"],
@@ -1241,7 +1237,6 @@ def generate_targets(
         native.java_import(
             name = "log4j__log4j__1_2_17",
             jars = ["@log4j__log4j__1_2_17//file"],
-            licenses = ["notice"],
             srcjar = "@log4j__log4j__1_2_17__sources//file",
             tags = ["maven_coordinates=log4j:log4j:1.2.17"],
             visibility = ["//visibility:private"],
@@ -1270,7 +1265,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_cssparser__cssparser__0_9_18",
             jars = ["@net_sourceforge_cssparser__cssparser__0_9_18//file"],
-            licenses = ["restricted"],
             srcjar = "@net_sourceforge_cssparser__cssparser__0_9_18__sources//file",
             tags = ["maven_coordinates=net.sourceforge.cssparser:cssparser:0.9.18"],
             visibility = ["//visibility:private"],
@@ -1286,7 +1280,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_htmlunit__htmlunit__2_19",
             jars = ["@net_sourceforge_htmlunit__htmlunit__2_19//file"],
-            licenses = ["notice"],
             srcjar = "@net_sourceforge_htmlunit__htmlunit__2_19__sources//file",
             tags = ["maven_coordinates=net.sourceforge.htmlunit:htmlunit:2.19"],
             visibility = ["//visibility:private"],
@@ -1315,7 +1308,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_htmlunit__htmlunit_core_js__2_17",
             jars = ["@net_sourceforge_htmlunit__htmlunit_core_js__2_17//file"],
-            licenses = ["reciprocal"],
             srcjar = "@net_sourceforge_htmlunit__htmlunit_core_js__2_17__sources//file",
             tags = ["maven_coordinates=net.sourceforge.htmlunit:htmlunit-core-js:2.17"],
             visibility = ["//visibility:private"],
@@ -1330,7 +1322,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_nekohtml__nekohtml__1_9_22",
             jars = ["@net_sourceforge_nekohtml__nekohtml__1_9_22//file"],
-            licenses = ["notice"],
             srcjar = "@net_sourceforge_nekohtml__nekohtml__1_9_22__sources//file",
             tags = ["maven_coordinates=net.sourceforge.nekohtml:nekohtml:1.9.22"],
             visibility = ["//visibility:private"],
@@ -1407,7 +1398,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_tomcat__tomcat_jasper__8_0_9",
             jars = ["@org_apache_tomcat__tomcat_jasper__8_0_9//file"],
-            licenses = ["notice"],
             srcjar = "@org_apache_tomcat__tomcat_jasper__8_0_9__sources//file",
             tags = ["maven_coordinates=org.apache.tomcat:tomcat-jasper:8.0.9"],
             visibility = ["//visibility:private"],
@@ -1422,7 +1412,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_tomcat__tomcat_jasper_el__8_0_9",
             jars = ["@org_apache_tomcat__tomcat_jasper_el__8_0_9//file"],
-            licenses = ["notice"],
             srcjar = "@org_apache_tomcat__tomcat_jasper_el__8_0_9__sources//file",
             tags = ["maven_coordinates=org.apache.tomcat:tomcat-jasper-el:8.0.9"],
             visibility = ["//visibility:private"],
@@ -1846,7 +1835,6 @@ def generate_targets(
         native.java_import(
             name = "org_w3c_css__sac__1_3",
             jars = ["@org_w3c_css__sac__1_3//file"],
-            licenses = [],
             srcjar = "@org_w3c_css__sac__1_3__sources//file",
             tags = ["maven_coordinates=org.w3c.css:sac:1.3"],
             visibility = ["//visibility:private"],
