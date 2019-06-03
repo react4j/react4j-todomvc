@@ -18,26 +18,26 @@
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
 # +- org.realityforge.arez:arez-processor:jar:0.138 [compile]
-# +- org.realityforge.react4j:react4j-core:jar:0.128 [compile]
+# +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
-# |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.23 [compile]
+# |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 # |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
 # |  +- org.realityforge.braincheck:braincheck:jar:1.16.0 [compile]
 # |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile, optional]
 # |  \- org.realityforge.arez:arez-core:jar:0.137 [compile] (conflicts with 0.138)
-# +- org.realityforge.react4j:react4j-dom:jar:0.128 [compile]
-# |  +- org.realityforge.react4j:react4j-core:jar:0.128 [compile]
-# |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.23 [compile]
+# +- org.realityforge.react4j:react4j-dom:jar:0.129 [compile]
+# |  +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
+# |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.24 [compile]
 # |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 # |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
-# |     +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.23 [compile]
+# |     +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.24 [compile]
 # |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 # |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
-# |     |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.23 [compile]
-# |     \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.23 [compile]
-# \- org.realityforge.react4j:react4j-processor:jar:0.128 [compile]
+# |     |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
+# |     \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
+# \- org.realityforge.react4j:react4j-processor:jar:0.129 [compile]
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
@@ -147,45 +147,45 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_com_google_elemental2__elemental2_core__2_23",
-        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-core/2.23/elemental2-core-2.23.jar",
-        sha256 = "4e331315454d7b1806a73eb39dcd5cb1c9a67e6b36f111ec06f5c5c7e375bbdb",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-core/2.23/elemental2-core-2.23.jar"],
+        name = "org_realityforge_com_google_elemental2__elemental2_core__2_24",
+        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-core/2.24/elemental2-core-2.24.jar",
+        sha256 = "6622ac035bfc2cdeff6689db11b85c72d12689e652a4649a3e384049367e2acf",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-core/2.24/elemental2-core-2.24.jar"],
     )
 
     http_file(
-        name = "org_realityforge_com_google_elemental2__elemental2_core__2_23__sources",
-        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-core/2.23/elemental2-core-2.23-sources.jar",
-        sha256 = "e36c498785657d983898bfae48941d683ab8125d985266da0300c4c71af31949",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-core/2.23/elemental2-core-2.23-sources.jar"],
+        name = "org_realityforge_com_google_elemental2__elemental2_core__2_24__sources",
+        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-core/2.24/elemental2-core-2.24-sources.jar",
+        sha256 = "d3cad5f6bd6a60bb5d904102d1ee19c2f7f7da43c27c16f2a4f0a20cdec2d1d7",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-core/2.24/elemental2-core-2.24-sources.jar"],
     )
 
     http_file(
-        name = "org_realityforge_com_google_elemental2__elemental2_dom__2_23",
-        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-dom/2.23/elemental2-dom-2.23.jar",
-        sha256 = "1830ba738649ffe450e05d0730b091b2ad83735f2e35d00b07bef8c1e77301cd",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-dom/2.23/elemental2-dom-2.23.jar"],
+        name = "org_realityforge_com_google_elemental2__elemental2_dom__2_24",
+        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-dom/2.24/elemental2-dom-2.24.jar",
+        sha256 = "1d285ba81f5d15b7b27bc25bc8a26a6d1faefa9e554281acdd08e31223c12c1b",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-dom/2.24/elemental2-dom-2.24.jar"],
     )
 
     http_file(
-        name = "org_realityforge_com_google_elemental2__elemental2_dom__2_23__sources",
-        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-dom/2.23/elemental2-dom-2.23-sources.jar",
-        sha256 = "965edab37e79ca5135a1f340b130ef7bb6f5101bf96bbdc67b9394b3ecd60b75",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-dom/2.23/elemental2-dom-2.23-sources.jar"],
+        name = "org_realityforge_com_google_elemental2__elemental2_dom__2_24__sources",
+        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-dom/2.24/elemental2-dom-2.24-sources.jar",
+        sha256 = "27b20f9729109760f284d9b5ed2dfa7cff956d07d03001a705910bed9f7b3613",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-dom/2.24/elemental2-dom-2.24-sources.jar"],
     )
 
     http_file(
-        name = "org_realityforge_com_google_elemental2__elemental2_promise__2_23",
-        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-promise/2.23/elemental2-promise-2.23.jar",
-        sha256 = "c68e9add46021532b72e9e368a56efd3d6d3128f3a5f239a291d5ab654f4f5d9",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-promise/2.23/elemental2-promise-2.23.jar"],
+        name = "org_realityforge_com_google_elemental2__elemental2_promise__2_24",
+        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-promise/2.24/elemental2-promise-2.24.jar",
+        sha256 = "e7055316c1474b749c5af451d18fc13ddde6f1455526dceca96e7988f22e8a14",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-promise/2.24/elemental2-promise-2.24.jar"],
     )
 
     http_file(
-        name = "org_realityforge_com_google_elemental2__elemental2_promise__2_23__sources",
-        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-promise/2.23/elemental2-promise-2.23-sources.jar",
+        name = "org_realityforge_com_google_elemental2__elemental2_promise__2_24__sources",
+        downloaded_file_path = "org/realityforge/com/google/elemental2/elemental2-promise/2.24/elemental2-promise-2.24-sources.jar",
         sha256 = "f1daaf91423d411d728218b52ffe16eeec994bb2a616e85254ff48665a0dbe33",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-promise/2.23/elemental2-promise-2.23-sources.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/elemental2/elemental2-promise/2.24/elemental2-promise-2.24-sources.jar"],
     )
 
     http_file(
@@ -217,45 +217,63 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_core__0_128",
-        downloaded_file_path = "org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128.jar",
-        sha256 = "7c0e9817278b24e0ab39f07502fbcba1a9640b2acded755cf7b639256c490bd1",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128.jar"],
+        name = "org_realityforge_react4j__react4j_core__0_129",
+        downloaded_file_path = "org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar",
+        sha256 = "6c6d7361b5f73c55a41e13ad648a9d0fb21b65297b88ed729872fbc62fcd4bbe",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar",
+        ],
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_core__0_128__sources",
-        downloaded_file_path = "org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128-sources.jar",
-        sha256 = "e72a99a083efcfc838ee3746b6bf8f2226122a508b2ed08878988bef15ceae91",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.128/react4j-core-0.128-sources.jar"],
+        name = "org_realityforge_react4j__react4j_core__0_129__sources",
+        downloaded_file_path = "org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar",
+        sha256 = "c7e1a22d4d9bc00d6689bc21a6afd5d263051d0e478cb5119a3a06f8022c6800",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar",
+        ],
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_dom__0_128",
-        downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128.jar",
-        sha256 = "2235df3c6cff25cbdd87f1b23ba57db38535ea46e09fe78dd1a47a3ffad20958",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128.jar"],
+        name = "org_realityforge_react4j__react4j_dom__0_129",
+        downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar",
+        sha256 = "88bfc5c508477b7d28b519af689894056a618013ba58d27bc96d9f93f8011a85",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar",
+        ],
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_dom__0_128__sources",
-        downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128-sources.jar",
-        sha256 = "d8594f177de1511af951dec8abbed9e59821c24f22c90aced4005d9f23b659f9",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.128/react4j-dom-0.128-sources.jar"],
+        name = "org_realityforge_react4j__react4j_dom__0_129__sources",
+        downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar",
+        sha256 = "09239606867ffba61ec027933badbcc9da13305a11811f97c0a4f7556d18099a",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar",
+        ],
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_processor__0_128",
-        downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128.jar",
-        sha256 = "8a8709cec353f487c3f2542c4e15fe125863e7a4afc8db02142d649ca67b1118",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128.jar"],
+        name = "org_realityforge_react4j__react4j_processor__0_129",
+        downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar",
+        sha256 = "186d9f82244271405f4dcb9687016f9307cbcef4e2c8fe6f1a8c32126cd7e389",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar",
+        ],
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_processor__0_128__sources",
-        downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128-sources.jar",
-        sha256 = "0172031ee46162d3668f4d3e91b8b7c1bab497f8e8cc85a627d056ba07e0f388",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.128/react4j-processor-0.128-sources.jar"],
+        name = "org_realityforge_react4j__react4j_processor__0_129__sources",
+        downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar",
+        sha256 = "0f8cc901578cf43a11b6f8eb238fcfca84790381c477363da76456b7c721d019",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar",
+        ],
     )
 
     http_file(
@@ -389,14 +407,14 @@ def generate_targets():
 
     native.alias(
         name = "elemental2_core",
-        actual = ":org_realityforge_com_google_elemental2__elemental2_core__2_23",
+        actual = ":org_realityforge_com_google_elemental2__elemental2_core__2_24",
         visibility = ["//visibility:private"],
     )
     native.java_import(
-        name = "org_realityforge_com_google_elemental2__elemental2_core__2_23",
-        jars = ["@org_realityforge_com_google_elemental2__elemental2_core__2_23//file"],
-        srcjar = "@org_realityforge_com_google_elemental2__elemental2_core__2_23__sources//file",
-        tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-core:2.23"],
+        name = "org_realityforge_com_google_elemental2__elemental2_core__2_24",
+        jars = ["@org_realityforge_com_google_elemental2__elemental2_core__2_24//file"],
+        srcjar = "@org_realityforge_com_google_elemental2__elemental2_core__2_24__sources//file",
+        tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-core:2.24"],
         visibility = ["//visibility:private"],
         deps = [
             ":elemental2_promise",
@@ -407,13 +425,13 @@ def generate_targets():
 
     native.alias(
         name = "elemental2_dom",
-        actual = ":org_realityforge_com_google_elemental2__elemental2_dom__2_23",
+        actual = ":org_realityforge_com_google_elemental2__elemental2_dom__2_24",
     )
     native.java_import(
-        name = "org_realityforge_com_google_elemental2__elemental2_dom__2_23",
-        jars = ["@org_realityforge_com_google_elemental2__elemental2_dom__2_23//file"],
-        srcjar = "@org_realityforge_com_google_elemental2__elemental2_dom__2_23__sources//file",
-        tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-dom:2.23"],
+        name = "org_realityforge_com_google_elemental2__elemental2_dom__2_24",
+        jars = ["@org_realityforge_com_google_elemental2__elemental2_dom__2_24//file"],
+        srcjar = "@org_realityforge_com_google_elemental2__elemental2_dom__2_24__sources//file",
+        tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-dom:2.24"],
         visibility = ["//visibility:private"],
         deps = [
             ":elemental2_core",
@@ -425,14 +443,14 @@ def generate_targets():
 
     native.alias(
         name = "elemental2_promise",
-        actual = ":org_realityforge_com_google_elemental2__elemental2_promise__2_23",
+        actual = ":org_realityforge_com_google_elemental2__elemental2_promise__2_24",
         visibility = ["//visibility:private"],
     )
     native.java_import(
-        name = "org_realityforge_com_google_elemental2__elemental2_promise__2_23",
-        jars = ["@org_realityforge_com_google_elemental2__elemental2_promise__2_23//file"],
-        srcjar = "@org_realityforge_com_google_elemental2__elemental2_promise__2_23__sources//file",
-        tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-promise:2.23"],
+        name = "org_realityforge_com_google_elemental2__elemental2_promise__2_24",
+        jars = ["@org_realityforge_com_google_elemental2__elemental2_promise__2_24//file"],
+        srcjar = "@org_realityforge_com_google_elemental2__elemental2_promise__2_24__sources//file",
+        tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-promise:2.24"],
         visibility = ["//visibility:private"],
         deps = [
             ":jsinterop_annotations",
@@ -466,13 +484,13 @@ def generate_targets():
 
     native.alias(
         name = "react4j_core",
-        actual = ":org_realityforge_react4j__react4j_core__0_128",
+        actual = ":org_realityforge_react4j__react4j_core__0_129",
     )
     native.java_import(
-        name = "org_realityforge_react4j__react4j_core__0_128",
-        jars = ["@org_realityforge_react4j__react4j_core__0_128//file"],
-        srcjar = "@org_realityforge_react4j__react4j_core__0_128__sources//file",
-        tags = ["maven_coordinates=org.realityforge.react4j:react4j-core:0.128"],
+        name = "org_realityforge_react4j__react4j_core__0_129",
+        jars = ["@org_realityforge_react4j__react4j_core__0_129//file"],
+        srcjar = "@org_realityforge_react4j__react4j_core__0_129__sources//file",
+        tags = ["maven_coordinates=org.realityforge.react4j:react4j-core:0.129"],
         visibility = ["//visibility:private"],
         deps = [
             ":arez_core",
@@ -484,13 +502,13 @@ def generate_targets():
 
     native.alias(
         name = "react4j_dom",
-        actual = ":org_realityforge_react4j__react4j_dom__0_128",
+        actual = ":org_realityforge_react4j__react4j_dom__0_129",
     )
     native.java_import(
-        name = "org_realityforge_react4j__react4j_dom__0_128",
-        jars = ["@org_realityforge_react4j__react4j_dom__0_128//file"],
-        srcjar = "@org_realityforge_react4j__react4j_dom__0_128__sources//file",
-        tags = ["maven_coordinates=org.realityforge.react4j:react4j-dom:0.128"],
+        name = "org_realityforge_react4j__react4j_dom__0_129",
+        jars = ["@org_realityforge_react4j__react4j_dom__0_129//file"],
+        srcjar = "@org_realityforge_react4j__react4j_dom__0_129__sources//file",
+        tags = ["maven_coordinates=org.realityforge.react4j:react4j-dom:0.129"],
         visibility = ["//visibility:private"],
         deps = [
             ":elemental2_dom",
@@ -500,25 +518,25 @@ def generate_targets():
 
     native.alias(
         name = "react4j_processor",
-        actual = ":org_realityforge_react4j__react4j_processor__0_128",
+        actual = ":org_realityforge_react4j__react4j_processor__0_129",
     )
     native.java_import(
-        name = "org_realityforge_react4j__react4j_processor__0_128__plugin_library",
-        jars = ["@org_realityforge_react4j__react4j_processor__0_128//file"],
-        srcjar = "@org_realityforge_react4j__react4j_processor__0_128__sources//file",
-        tags = ["maven_coordinates=org.realityforge.react4j:react4j-processor:0.128"],
+        name = "org_realityforge_react4j__react4j_processor__0_129__plugin_library",
+        jars = ["@org_realityforge_react4j__react4j_processor__0_129//file"],
+        srcjar = "@org_realityforge_react4j__react4j_processor__0_129__sources//file",
+        tags = ["maven_coordinates=org.realityforge.react4j:react4j-processor:0.129"],
         visibility = ["//visibility:private"],
     )
     native.java_plugin(
-        name = "org_realityforge_react4j__react4j_processor__0_128__react4j_processor_reactprocessor__plugin",
+        name = "org_realityforge_react4j__react4j_processor__0_129__react4j_processor_reactprocessor__plugin",
         processor_class = "react4j.processor.ReactProcessor",
         generates_api = True,
         visibility = ["//visibility:private"],
-        deps = [":org_realityforge_react4j__react4j_processor__0_128__plugin_library"],
+        deps = [":org_realityforge_react4j__react4j_processor__0_129__plugin_library"],
     )
     native.java_library(
-        name = "org_realityforge_react4j__react4j_processor__0_128",
-        exported_plugins = ["org_realityforge_react4j__react4j_processor__0_128__react4j_processor_reactprocessor__plugin"],
+        name = "org_realityforge_react4j__react4j_processor__0_129",
+        exported_plugins = ["org_realityforge_react4j__react4j_processor__0_129__react4j_processor_reactprocessor__plugin"],
         visibility = ["//visibility:private"],
     )
 
