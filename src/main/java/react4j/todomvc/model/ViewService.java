@@ -46,7 +46,7 @@ public final class ViewService
 
   private void computeFilterMode()
   {
-    final String hash = DomGlobal.window.location.getHash();
+    final String hash = DomGlobal.window.location.hash;
     final String location = null == hash ? "" : hash.substring( 1 );
     if ( "active".equals( location ) )
     {
@@ -64,7 +64,7 @@ public final class ViewService
          * This code is needed to remove the stray #.
          * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
          */
-        final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
+        final String url = DomGlobal.window.location.pathname + DomGlobal.window.location.search;
         DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
       }
       filterMode$.next( FilterMode.ALL );
