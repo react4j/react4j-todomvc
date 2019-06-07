@@ -15,7 +15,6 @@ artifacts:
 
   # The next dep is needed so we can switch out GWT version with J2CL version
   - coord: org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f
-    alias: jsinterop_base
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
@@ -27,4 +26,5 @@ artifacts:
 
 replacements:
   - coord: org.realityforge.com.google.jsinterop:base
-    target: "jsinterop_base"
+    targets:
+      - target: "org__realityforge__com__google__jsinterop__base-j2cl"
