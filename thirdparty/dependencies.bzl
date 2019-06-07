@@ -9,25 +9,25 @@
 # Dependency Graph Generated from the input data
 # +- org.realityforge.arez:arez-core:jar:0.138 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
-# |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY org__realityforge__com__google__jsinterop__base-j2cl (Java)
+# |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # +- org.realityforge.arez:arez-processor:jar:0.138 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY org__realityforge__com__google__jsinterop__base-j2cl (Java)
+# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # |  +- org.realityforge.braincheck:braincheck:jar:1.16.0 [compile]
 # |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
-# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile, optional] REPLACED BY org__realityforge__com__google__jsinterop__base-j2cl (Java)
+# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile, optional] REPLACED BY base_j2cl (Java)
 # |  \- org.realityforge.arez:arez-core:jar:0.137 [compile] (conflicts with 0.138)
 # +- org.realityforge.react4j:react4j-dom:jar:0.129 [compile]
 # |  +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.24 [compile]
 # |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY org__realityforge__com__google__jsinterop__base-j2cl (Java)
+# |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # |     +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.24 [compile]
 # |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY org__realityforge__com__google__jsinterop__base-j2cl (Java)
+# |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # |     |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # |     \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # +- org.realityforge.react4j:react4j-processor:jar:0.129 [compile]
@@ -257,8 +257,8 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.138"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base_j2cl",
             ":javax_annotation",
-            ":org__realityforge__com__google__jsinterop__base-j2cl",
         ],
     )
 
@@ -310,9 +310,9 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-core:2.24"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base_j2cl",
             ":elemental2_promise",
             ":jsinterop_annotations",
-            ":org__realityforge__com__google__jsinterop__base-j2cl",
         ],
     )
 
@@ -327,10 +327,10 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-dom:2.24"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base_j2cl",
             ":elemental2_core",
             ":elemental2_promise",
             ":jsinterop_annotations",
-            ":org__realityforge__com__google__jsinterop__base-j2cl",
         ],
     )
 
@@ -345,8 +345,8 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-promise:2.24"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base_j2cl",
             ":jsinterop_annotations",
-            ":org__realityforge__com__google__jsinterop__base-j2cl",
         ],
     )
 

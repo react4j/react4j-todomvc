@@ -39,7 +39,7 @@ j2cl_library(
 
 j2cl_library(
     name = "jsinterop_base-j2cl",
-    srcs = ["//thirdparty:jsinterop_base"],
+    srcs = ["//thirdparty:base_j2cl"],
     # TODO: The glob should be removed and the source be part of binary artifact
     native_srcs = glob(["src/main/java/jsinterop/base/*.js"]),
     deps = [

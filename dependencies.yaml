@@ -26,4 +26,4 @@ artifacts:
 replacements:
   - coord: org.realityforge.com.google.jsinterop:base
     targets:
-      - target: "org__realityforge__com__google__jsinterop__base-j2cl"
+      - target: base_j2cl
