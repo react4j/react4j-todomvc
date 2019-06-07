@@ -7,13 +7,6 @@
     Invoke 'generate_targets' from a BUILD.bazel file.
 """
 # Dependency Graph Generated from the input data
-# +- com.google.gwt:gwt-user:jar:2.8.2 [compile]
-# |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# |  +- com.google.jsinterop:jsinterop-annotations:jar:sources:1.0.2 [compile]
-# |  +- javax.validation:validation-api:jar:1.0.0.GA [compile]
-# |  +- javax.validation:validation-api:jar:sources:1.0.0.GA [compile]
-# |  +- javax.servlet:javax.servlet-api:jar:3.1.0 [compile]
-# |  \- org.w3c.css:sac:jar:1.3 [compile]
 # +- org.realityforge.arez:arez-core:jar:0.138 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY org__realityforge__com__google__jsinterop__base-j2cl (Java)
@@ -51,20 +44,6 @@ def generate_workspace_rules():
     """
 
     http_file(
-        name = "com_google_gwt__gwt_user__2_8_2",
-        downloaded_file_path = "com/google/gwt/gwt-user/2.8.2/gwt-user-2.8.2.jar",
-        sha256 = "9f420f0d0c2f177d71cb1794b3be1418f9755f6e4181101af3951b8302b9556d",
-        urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-user/2.8.2/gwt-user-2.8.2.jar"],
-    )
-
-    http_file(
-        name = "com_google_gwt__gwt_user__2_8_2__sources",
-        downloaded_file_path = "com/google/gwt/gwt-user/2.8.2/gwt-user-2.8.2-sources.jar",
-        sha256 = "cf5577fedfb4afee9246625e1ce9af8ab6de732c63426ade3f75a5b3fd26e4b1",
-        urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-user/2.8.2/gwt-user-2.8.2-sources.jar"],
-    )
-
-    http_file(
         name = "com_google_jsinterop__jsinterop_annotations__1_0_2",
         downloaded_file_path = "com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2.jar",
         sha256 = "fcaf44731f5b6a606fa428a6d1a9ede11dc628c6f7d0f91c235aa71e337bf014",
@@ -76,34 +55,6 @@ def generate_workspace_rules():
         downloaded_file_path = "com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2-sources.jar",
         sha256 = "9091354e2fccf3585fd0de6c5aac78418d84b15d59e5401cfb3c70ebf4950459",
         urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2-sources.jar"],
-    )
-
-    http_file(
-        name = "javax_servlet__javax_servlet_api__3_1_0",
-        downloaded_file_path = "javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar",
-        sha256 = "af456b2dd41c4e82cf54f3e743bc678973d9fe35bd4d3071fa05c7e5333b8482",
-        urls = ["https://repo.maven.apache.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"],
-    )
-
-    http_file(
-        name = "javax_servlet__javax_servlet_api__3_1_0__sources",
-        downloaded_file_path = "javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar",
-        sha256 = "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a",
-        urls = ["https://repo.maven.apache.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar"],
-    )
-
-    http_file(
-        name = "javax_validation__validation_api__1_0_0_ga",
-        downloaded_file_path = "javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar",
-        sha256 = "e459f313ebc6db2483f8ceaad39af07086361b474fa92e40f442e8de5d9895dc",
-        urls = ["https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar"],
-    )
-
-    http_file(
-        name = "javax_validation__validation_api__1_0_0_ga__sources",
-        downloaded_file_path = "javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar",
-        sha256 = "a394d52a9b7fe2bb14f0718d2b3c8308ffe8f37e911956012398d55c9f9f9b54",
-        urls = ["https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar"],
     )
 
     http_file(
@@ -278,42 +229,10 @@ def generate_workspace_rules():
         ],
     )
 
-    http_file(
-        name = "org_w3c_css__sac__1_3",
-        downloaded_file_path = "org/w3c/css/sac/1.3/sac-1.3.jar",
-        sha256 = "003785669f921aafe4f137468dd20a01a36111e94fd7449f26c16e7924d82d23",
-        urls = ["https://repo.maven.apache.org/maven2/org/w3c/css/sac/1.3/sac-1.3.jar"],
-    )
-
-    http_file(
-        name = "org_w3c_css__sac__1_3__sources",
-        downloaded_file_path = "org/w3c/css/sac/1.3/sac-1.3-sources.jar",
-        sha256 = "9ca0ff97617e9fe28fcdcf60f48c6cc1125cdce451e1a797dbce3bb5d3fcc398",
-        urls = ["https://repo.maven.apache.org/maven2/org/w3c/css/sac/1.3/sac-1.3-sources.jar"],
-    )
-
 def generate_targets():
     """
         Macro to define targets for dependencies specified by '../dependencies.yaml'.
     """
-
-    native.alias(
-        name = "gwt_user",
-        actual = ":com_google_gwt__gwt_user__2_8_2",
-    )
-    native.java_import(
-        name = "com_google_gwt__gwt_user__2_8_2",
-        jars = ["@com_google_gwt__gwt_user__2_8_2//file"],
-        srcjar = "@com_google_gwt__gwt_user__2_8_2__sources//file",
-        tags = ["maven_coordinates=com.google.gwt:gwt-user:2.8.2"],
-        visibility = ["//visibility:private"],
-        deps = [
-            ":javax_servlet_api",
-            ":jsinterop_annotations",
-            ":sac",
-            ":validation_api",
-        ],
-    )
 
     native.alias(
         name = "jsinterop_annotations",
@@ -324,32 +243,6 @@ def generate_targets():
         jars = ["@com_google_jsinterop__jsinterop_annotations__1_0_2//file"],
         srcjar = "@com_google_jsinterop__jsinterop_annotations__1_0_2__sources//file",
         tags = ["maven_coordinates=com.google.jsinterop:jsinterop-annotations:1.0.2"],
-        visibility = ["//visibility:private"],
-    )
-
-    native.alias(
-        name = "javax_servlet_api",
-        actual = ":javax_servlet__javax_servlet_api__3_1_0",
-        visibility = ["//visibility:private"],
-    )
-    native.java_import(
-        name = "javax_servlet__javax_servlet_api__3_1_0",
-        jars = ["@javax_servlet__javax_servlet_api__3_1_0//file"],
-        srcjar = "@javax_servlet__javax_servlet_api__3_1_0__sources//file",
-        tags = ["maven_coordinates=javax.servlet:javax.servlet-api:3.1.0"],
-        visibility = ["//visibility:private"],
-    )
-
-    native.alias(
-        name = "validation_api",
-        actual = ":javax_validation__validation_api__1_0_0_ga",
-        visibility = ["//visibility:private"],
-    )
-    native.java_import(
-        name = "javax_validation__validation_api__1_0_0_ga",
-        jars = ["@javax_validation__validation_api__1_0_0_ga//file"],
-        srcjar = "@javax_validation__validation_api__1_0_0_ga__sources//file",
-        tags = ["maven_coordinates=javax.validation:validation-api:1.0.0.GA"],
         visibility = ["//visibility:private"],
     )
 
@@ -537,18 +430,5 @@ def generate_targets():
     native.java_library(
         name = "org_realityforge_react4j__react4j_processor__0_129",
         exported_plugins = ["org_realityforge_react4j__react4j_processor__0_129__react4j_processor_reactprocessor__plugin"],
-        visibility = ["//visibility:private"],
-    )
-
-    native.alias(
-        name = "sac",
-        actual = ":org_w3c_css__sac__1_3",
-        visibility = ["//visibility:private"],
-    )
-    native.java_import(
-        name = "org_w3c_css__sac__1_3",
-        jars = ["@org_w3c_css__sac__1_3//file"],
-        srcjar = "@org_w3c_css__sac__1_3__sources//file",
-        tags = ["maven_coordinates=org.w3c.css:sac:1.3"],
         visibility = ["//visibility:private"],
     )

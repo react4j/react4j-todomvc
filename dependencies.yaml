@@ -6,7 +6,6 @@ repositories:
 options:
   aliasStrategy: ArtifactId
 artifacts:
-  - coord: com.google.gwt:gwt-user:2.8.2
   - coord: org.realityforge.arez:arez-core:0.138
   - coord: org.realityforge.arez:arez-processor:0.138
   - coord: org.realityforge.react4j:react4j-core:0.129
