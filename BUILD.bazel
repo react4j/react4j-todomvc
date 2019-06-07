@@ -39,8 +39,9 @@ j2cl_library(
 
 j2cl_library(
     name = "jsinterop_base-j2cl",
+    srcs = ["//thirdparty:jsinterop_base"],
     # TODO: The glob should be removed and the source be part of binary artifact
-    srcs = ["//thirdparty:jsinterop_base"] + glob(["src/main/java/jsinterop/base/*.js"]),
+    native_srcs = glob(["src/main/java/jsinterop/base/*.js"]),
     deps = [
         ":gwt-javaemul-internal-annotations-j2cl",
         ":jsinterop_annotations-j2cl",
@@ -97,8 +98,9 @@ j2cl_library(
 
 j2cl_library(
     name = "react4j_core-j2cl",
+    srcs = ["//thirdparty:react4j_core"],
     # TODO: The glob should be removed and the source be part of binary artifact
-    srcs = ["//thirdparty:react4j_core"] + glob(["src/main/java/react4j/*.js"]),
+    native_srcs = glob(["src/main/java/react4j/*.js"]),
     deps = [
         ":arez_core-j2cl",
         ":braincheck-j2cl",
