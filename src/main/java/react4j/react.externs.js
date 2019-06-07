@@ -42,7 +42,6 @@ React.Component.prototype.forceUpdate = function(callback) {};
 React.Component.prototype.setState = function(nextState, callback) {};
 
 /**
- * @protected
  * @return {void}
  */
 React.Component.prototype.componentDidMount = function() {};
@@ -51,7 +50,6 @@ React.Component.prototype.componentDidMount = function() {};
  * @param {Object} nextProps
  * @param {Object} nextState
  * @return {boolean}
- * @protected
  */
 React.Component.prototype.shouldComponentUpdate = function(nextProps, nextState) {};
 
@@ -59,30 +57,25 @@ React.Component.prototype.shouldComponentUpdate = function(nextProps, nextState)
  * @param {Object} prevProps
  * @param {Object} prevState
  * @return {void}
- * @protected
  */
 React.Component.prototype.componentDidUpdate = function(prevProps, prevState) {};
 
 /**
- * @protected
  * @return {void}
  */
 React.Component.prototype.componentWillUnmount = function() {};
 
 /**
- * @protected
  * @return {void}
  */
 React.Component.prototype.componentDidCatch = function() {};
 
 /**
- * @protected
  */
 React.Component.prototype.getSnapshotBeforeUpdate = function() {};
 
 /**
  * @return {React.Component}
- * @protected
  */
 React.Component.prototype.render = function() {};
 
