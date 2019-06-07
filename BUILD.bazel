@@ -21,15 +21,10 @@ j2cl_import(
 )
 
 j2cl_library(
-    name = "javax_annotation-j2cl",
-    srcs = ["//thirdparty:javax_annotation"],
-)
-
-j2cl_library(
     name = "arez_core-j2cl",
     srcs = ["//thirdparty:arez_core"],
     deps = [
-        ":javax_annotation-j2cl",
+        "//thirdparty:javax_annotation-j2cl",
         ":jsinterop_base-j2cl",
         ":jsinterop_annotations-j2cl",
     ],
@@ -87,7 +82,7 @@ j2cl_library(
     name = "braincheck-j2cl",
     srcs = ["//thirdparty:braincheck"],
     deps = [
-        ":javax_annotation-j2cl",
+        "//thirdparty:javax_annotation-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
@@ -107,7 +102,7 @@ j2cl_library(
         ":elemental2_core-j2cl",
         ":elemental2_promise-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
-        ":javax_annotation-j2cl",
+        "//thirdparty:javax_annotation-j2cl",
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
     ],
@@ -122,7 +117,7 @@ j2cl_library(
         ":elemental2_dom-j2cl",
         ":elemental2_promise-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
-        ":javax_annotation-j2cl",
+        "//thirdparty:javax_annotation-j2cl",
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
         ":react4j_core-j2cl",
@@ -140,7 +135,7 @@ j2cl_library(
         ":arez_core-j2cl",
         ":elemental2_dom-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
-        ":javax_annotation-j2cl",
+        "//thirdparty:javax_annotation-j2cl",
         ":jsinterop_annotations-j2cl",
         ":jsinterop_base-j2cl",
         ":react4j_core-j2cl",

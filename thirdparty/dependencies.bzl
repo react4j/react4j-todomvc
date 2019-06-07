@@ -35,6 +35,7 @@
 #    \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 def generate_workspace_rules():
     """
@@ -372,6 +373,16 @@ def generate_targets():
         jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_0//file"],
         srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_0__sources//file",
         tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.0"],
+        visibility = ["//visibility:private"],
+    )
+
+    native.alias(
+        name = "javax_annotation-j2cl",
+        actual = ":org_realityforge_javax_annotation__javax_annotation__1_0_0-j2cl",
+    )
+    j2cl_library(
+        name = "org_realityforge_javax_annotation__javax_annotation__1_0_0-j2cl",
+        srcs = ["@org_realityforge_javax_annotation__javax_annotation__1_0_0//file"],
         visibility = ["//visibility:private"],
     )
 
