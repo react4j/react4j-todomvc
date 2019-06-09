@@ -140,7 +140,7 @@ def generate_workspace_rules(
         omit_jetty_webapp = False,
         omit_jetty_xml = False,
         omit_apache_el = False,
-        omit_mortbay_apache_jsp = False,
+        omit_org_mortbay_jasper__apache_jsp = False,
         omit_asm = False,
         omit_asm_commons = False,
         omit_asm_tree = False,
@@ -810,7 +810,7 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/mortbay/jasper/apache-el/8.0.9.M3/apache-el-8.0.9.M3-sources.jar"],
         )
 
-    if not omit_mortbay_apache_jsp:
+    if not omit_org_mortbay_jasper__apache_jsp:
         http_file(
             name = "org_mortbay_jasper__apache_jsp__8_0_9_m3",
             downloaded_file_path = "org/mortbay/jasper/apache-jsp/8.0.9.M3/apache-jsp-8.0.9.M3.jar",
@@ -999,7 +999,7 @@ def generate_targets(
         omit_jetty_webapp = False,
         omit_jetty_xml = False,
         omit_apache_el = False,
-        omit_mortbay_apache_jsp = False,
+        omit_org_mortbay_jasper__apache_jsp = False,
         omit_asm = False,
         omit_asm_commons = False,
         omit_asm_tree = False,
@@ -1500,7 +1500,7 @@ def generate_targets(
                 ":jetty_schemas",
                 ":jetty_server",
                 ":jetty_util",
-                ":mortbay_apache_jsp",
+                ":org_mortbay_jasper__apache_jsp",
             ],
         )
 
@@ -1746,9 +1746,9 @@ def generate_targets(
             visibility = ["//visibility:private"],
         )
 
-    if not omit_mortbay_apache_jsp:
+    if not omit_org_mortbay_jasper__apache_jsp:
         native.alias(
-            name = "mortbay_apache_jsp",
+            name = "org_mortbay_jasper__apache_jsp",
             actual = ":org_mortbay_jasper__apache_jsp__8_0_9_m3",
         )
         native.java_import(

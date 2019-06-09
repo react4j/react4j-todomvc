@@ -8,4 +8,4 @@ artifacts:
   - coord: com.google.gwt:gwt-dev:2.8.2
     excludes: ['xerces:xercesImpl']
   - coord: org.mortbay.jasper:apache-jsp
-    alias: mortbay_apache_jsp
+    aliasStrategy: GroupIdAndArtifactId
