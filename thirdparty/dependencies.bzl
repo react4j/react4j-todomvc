@@ -362,8 +362,8 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.138"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base",
             ":javax_annotation",
-            ":jsinterop_base",
         ],
     )
 
@@ -417,9 +417,9 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-core:2.24"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base",
             ":elemental2_promise",
             ":jsinterop_annotations",
-            ":jsinterop_base",
         ],
     )
 
@@ -434,10 +434,10 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-dom:2.24"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base",
             ":elemental2_core",
             ":elemental2_promise",
             ":jsinterop_annotations",
-            ":jsinterop_base",
         ],
     )
 
@@ -453,13 +453,13 @@ def generate_targets():
         tags = ["maven_coordinates=org.realityforge.com.google.elemental2:elemental2-promise:2.24"],
         visibility = ["//visibility:private"],
         deps = [
+            ":base",
             ":jsinterop_annotations",
-            ":jsinterop_base",
         ],
     )
 
     native.alias(
-        name = "jsinterop_base",
+        name = "base",
         actual = ":org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f",
     )
     native.java_import(
