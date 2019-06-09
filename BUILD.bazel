@@ -5,10 +5,7 @@ load("@io_bazel_rules_closure//closure:defs.bzl", "closure_js_library")
 
 _SRCS = glob(["src/main/java/**/*.java"])
 
-_RESOURCES = glob(
-    ["src/main/java/**/*"],
-    exclude = ["**/*.java"],
-)
+_RESOURCES = glob(["src/main/java/**/*"], exclude = ["**/*.java"])
 
 j2cl_import(
     name = "jsinterop_annotations-j2cl",
