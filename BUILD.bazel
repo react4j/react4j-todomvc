@@ -17,10 +17,7 @@ _DEPS = [
 
 _SRCS = glob(["src/main/java/**/*.java"])
 
-_RESOURCES = glob(
-    ["src/main/java/**/*"],
-    exclude = ["**/*.java"],
-)
+_RESOURCES = glob(["src/main/java/**/*"], exclude = ["**/*.java"])
 
 gwt_application(
     name = "react4j_todomvc_dev",
