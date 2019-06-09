@@ -9,7 +9,7 @@ _DEPS = [
     "//thirdparty:gwt_user",
     "//thirdparty:javax_annotation",
     "//thirdparty:jsinterop_annotations",
-    "//thirdparty:jsinterop_base",
+    "//thirdparty:base",
     "//thirdparty:react4j_core",
     "//thirdparty:react4j_dom",
     "//thirdparty:react4j_processor",
