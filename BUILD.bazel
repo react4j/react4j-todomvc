@@ -87,17 +87,6 @@ j2cl_library(
     # TODO: This is required until braincheck upgrades to version that links against jsinterop-base to invoke Js.debugger()
     js_suppress = ["checkDebuggerStatement"],
 )
-#    native.alias(
-#        name = "braincheck-j2cl",
-#        actual = ":org_realityforge_braincheck__braincheck__1_16_0-j2cl",
-#    )
-#    j2cl_library(
-#        name = "org_realityforge_braincheck__braincheck__1_16_0-j2cl",
-#        srcs = ["@org_realityforge_braincheck__braincheck__1_16_0//file"],
-#        js_suppress = [checkDebuggerStatement],
-#        visibility = ["//visibility:private"],
-#        deps = ["//thirdparty:javax_annotation-j2cl"],
-
 
 j2cl_library(
     name = "react4j_core-j2cl",
