@@ -164,13 +164,6 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/ant/ant/1.6.5/ant-1.6.5.jar"],
         )
 
-        http_file(
-            name = "ant__ant__1_6_5__sources",
-            downloaded_file_path = "ant/ant/1.6.5/ant-1.6.5-sources.jar",
-            sha256 = "45369155a1ecca333ae193761094cba1fe279bdf537ed70d2bb968b7c7797ce2",
-            urls = ["https://repo.maven.apache.org/maven2/ant/ant/1.6.5/ant-1.6.5-sources.jar"],
-        )
-
     if not omit_avalon_framework:
         http_file(
             name = "avalon_framework__avalon_framework__4_1_5",
@@ -203,26 +196,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar"],
         )
 
-        http_file(
-            name = "com_google_code_gson__gson__2_6_2__sources",
-            downloaded_file_path = "com/google/code/gson/gson/2.6.2/gson-2.6.2-sources.jar",
-            sha256 = "76ed68f32bf7155b451362e52852d2267eaa3c0870296eb9998e5b964200597d",
-            urls = ["https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.6.2/gson-2.6.2-sources.jar"],
-        )
-
     if not omit_gwt_dev:
         http_file(
             name = "com_google_gwt__gwt_dev__2_8_2",
             downloaded_file_path = "com/google/gwt/gwt-dev/2.8.2/gwt-dev-2.8.2.jar",
             sha256 = "7545fe6320d9465221f29f0894e67c8805ac7006c3251e97c8cdcd65bc779c79",
             urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-dev/2.8.2/gwt-dev-2.8.2.jar"],
-        )
-
-        http_file(
-            name = "com_google_gwt__gwt_dev__2_8_2__sources",
-            downloaded_file_path = "com/google/gwt/gwt-dev/2.8.2/gwt-dev-2.8.2-sources.jar",
-            sha256 = "f2d96ff84da61b7fdc7e9fd00a23228d52655343ba23c9c4aed86d4f0e25ae1d",
-            urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-dev/2.8.2/gwt-dev-2.8.2-sources.jar"],
         )
 
     if not omit_icu4j:
@@ -233,26 +212,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1.jar"],
         )
 
-        http_file(
-            name = "com_ibm_icu__icu4j__50_1_1__sources",
-            downloaded_file_path = "com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1-sources.jar",
-            sha256 = "3fb83a65c0d6f56d7fb538441e042b8f4323aca26e81a264278d18d9665ce419",
-            urls = ["https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1-sources.jar"],
-        )
-
     if not omit_commons_codec:
         http_file(
             name = "commons_codec__commons_codec__1_10",
             downloaded_file_path = "commons-codec/commons-codec/1.10/commons-codec-1.10.jar",
             sha256 = "4241dfa94e711d435f29a4604a3e2de5c4aa3c165e23bd066be6fc1fc4309569",
             urls = ["https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"],
-        )
-
-        http_file(
-            name = "commons_codec__commons_codec__1_10__sources",
-            downloaded_file_path = "commons-codec/commons-codec/1.10/commons-codec-1.10-sources.jar",
-            sha256 = "dfae68268ce86f1a18fc45b99317c13d6c9d252f001d37961e79a51076808986",
-            urls = ["https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.10/commons-codec-1.10-sources.jar"],
         )
 
     if not omit_commons_collections:
@@ -263,26 +228,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"],
         )
 
-        http_file(
-            name = "commons_collections__commons_collections__3_2_2__sources",
-            downloaded_file_path = "commons-collections/commons-collections/3.2.2/commons-collections-3.2.2-sources.jar",
-            sha256 = "a5b5ee16a02edadf7fe637f250217c19878bc6134f15eb55635c48996f6fed1d",
-            urls = ["https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2-sources.jar"],
-        )
-
     if not omit_commons_io:
         http_file(
             name = "commons_io__commons_io__2_4",
             downloaded_file_path = "commons-io/commons-io/2.4/commons-io-2.4.jar",
             sha256 = "cc6a41dc3eaacc9e440a6bd0d2890b20d36b4ee408fe2d67122f328bb6e01581",
             urls = ["https://repo.maven.apache.org/maven2/commons-io/commons-io/2.4/commons-io-2.4.jar"],
-        )
-
-        http_file(
-            name = "commons_io__commons_io__2_4__sources",
-            downloaded_file_path = "commons-io/commons-io/2.4/commons-io-2.4-sources.jar",
-            sha256 = "d4635b348bbbf3f166d972b052bc4cac5b326c133beed7b8a1cab7ea22b61e01",
-            urls = ["https://repo.maven.apache.org/maven2/commons-io/commons-io/2.4/commons-io-2.4-sources.jar"],
         )
 
     if not omit_commons_logging:
@@ -293,26 +244,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"],
         )
 
-        http_file(
-            name = "commons_logging__commons_logging__1_2__sources",
-            downloaded_file_path = "commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar",
-            sha256 = "44347acfe5860461728e9cb33251e97345be36f8a0dfd5c5130c172559455f41",
-            urls = ["https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar"],
-        )
-
     if not omit_javax_annotation_api:
         http_file(
             name = "javax_annotation__javax_annotation_api__1_2",
             downloaded_file_path = "javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar",
             sha256 = "5909b396ca3a2be10d0eea32c74ef78d816e1b4ead21de1d78de1f890d033e04",
             urls = ["https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar"],
-        )
-
-        http_file(
-            name = "javax_annotation__javax_annotation_api__1_2__sources",
-            downloaded_file_path = "javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2-sources.jar",
-            sha256 = "8bd08333ac2c195e224cc4063a72f4aab3c980cf5e9fb694130fad41689689d0",
-            urls = ["https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2-sources.jar"],
         )
 
     if not omit_javax_servlet_api:
@@ -323,26 +260,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"],
         )
 
-        http_file(
-            name = "javax_servlet__javax_servlet_api__3_1_0__sources",
-            downloaded_file_path = "javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar",
-            sha256 = "5c6d640f01e8e7ffdba21b2b75c0f64f0c30fd1fc3372123750c034cb363012a",
-            urls = ["https://repo.maven.apache.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar"],
-        )
-
     if not omit_log4j:
         http_file(
             name = "log4j__log4j__1_2_17",
             downloaded_file_path = "log4j/log4j/1.2.17/log4j-1.2.17.jar",
             sha256 = "1d31696445697720527091754369082a6651bd49781b6005deb94e56753406f9",
             urls = ["https://repo.maven.apache.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.jar"],
-        )
-
-        http_file(
-            name = "log4j__log4j__1_2_17__sources",
-            downloaded_file_path = "log4j/log4j/1.2.17/log4j-1.2.17-sources.jar",
-            sha256 = "4d9ba787af1692aa88417c2a47a37a98125d645b91ab556252dbee0f45225493",
-            urls = ["https://repo.maven.apache.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar"],
         )
 
     if not omit_logkit:
@@ -353,26 +276,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/logkit/logkit/1.0.1/logkit-1.0.1.jar"],
         )
 
-        http_file(
-            name = "logkit__logkit__1_0_1__sources",
-            downloaded_file_path = "logkit/logkit/1.0.1/logkit-1.0.1-sources.jar",
-            sha256 = "7098879d9fa1e2bf86867c336645de3675000f2cbac85394f7f6a69c7424c92c",
-            urls = ["https://repo.maven.apache.org/maven2/logkit/logkit/1.0.1/logkit-1.0.1-sources.jar"],
-        )
-
     if not omit_cssparser:
         http_file(
             name = "net_sourceforge_cssparser__cssparser__0_9_18",
             downloaded_file_path = "net/sourceforge/cssparser/cssparser/0.9.18/cssparser-0.9.18.jar",
             sha256 = "a2ecbd27997d4a15a1eeed9aa13d861090e0cdbdf2d4543c772a34b7c1e32a8f",
             urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/cssparser/cssparser/0.9.18/cssparser-0.9.18.jar"],
-        )
-
-        http_file(
-            name = "net_sourceforge_cssparser__cssparser__0_9_18__sources",
-            downloaded_file_path = "net/sourceforge/cssparser/cssparser/0.9.18/cssparser-0.9.18-sources.jar",
-            sha256 = "41a5a7ff5cbf264634cad4f36eb3b7711f652271b66f858ad690fb5d457f8a08",
-            urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/cssparser/cssparser/0.9.18/cssparser-0.9.18-sources.jar"],
         )
 
     if not omit_htmlunit:
@@ -383,26 +292,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/htmlunit/htmlunit/2.19/htmlunit-2.19.jar"],
         )
 
-        http_file(
-            name = "net_sourceforge_htmlunit__htmlunit__2_19__sources",
-            downloaded_file_path = "net/sourceforge/htmlunit/htmlunit/2.19/htmlunit-2.19-sources.jar",
-            sha256 = "23c83729a23047311be67889f5fb34288f1d469143558733153d65dac00da007",
-            urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/htmlunit/htmlunit/2.19/htmlunit-2.19-sources.jar"],
-        )
-
     if not omit_htmlunit_core_js:
         http_file(
             name = "net_sourceforge_htmlunit__htmlunit_core_js__2_17",
             downloaded_file_path = "net/sourceforge/htmlunit/htmlunit-core-js/2.17/htmlunit-core-js-2.17.jar",
             sha256 = "32fd749af1599ab0daf22b60cbe97b6792cb9fe8b4220496a3adb667e58a5c3c",
             urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/htmlunit/htmlunit-core-js/2.17/htmlunit-core-js-2.17.jar"],
-        )
-
-        http_file(
-            name = "net_sourceforge_htmlunit__htmlunit_core_js__2_17__sources",
-            downloaded_file_path = "net/sourceforge/htmlunit/htmlunit-core-js/2.17/htmlunit-core-js-2.17-sources.jar",
-            sha256 = "7ebb201582f04dca6d15ddbb4ad16ffda2d15a74321bf8f75b8f235db093cfee",
-            urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/htmlunit/htmlunit-core-js/2.17/htmlunit-core-js-2.17-sources.jar"],
         )
 
     if not omit_nekohtml:
@@ -413,26 +308,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22.jar"],
         )
 
-        http_file(
-            name = "net_sourceforge_nekohtml__nekohtml__1_9_22__sources",
-            downloaded_file_path = "net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22-sources.jar",
-            sha256 = "001cbbe2b836993682b8c65d9e672fa5aacc7a3a6ff15ec22e88c0e39be834c3",
-            urls = ["https://repo.maven.apache.org/maven2/net/sourceforge/nekohtml/nekohtml/1.9.22/nekohtml-1.9.22-sources.jar"],
-        )
-
     if not omit_commons_lang3:
         http_file(
             name = "org_apache_commons__commons_lang3__3_4",
             downloaded_file_path = "org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar",
             sha256 = "734c8356420cc8e30c795d64fd1fcd5d44ea9d90342a2cc3262c5158fbc6d98b",
             urls = ["https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar"],
-        )
-
-        http_file(
-            name = "org_apache_commons__commons_lang3__3_4__sources",
-            downloaded_file_path = "org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-sources.jar",
-            sha256 = "4709f16a9e0f8fd83ae155083d63044e23045aac8f6f0183a2db09f492491b12",
-            urls = ["https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-sources.jar"],
         )
 
     if not omit_httpclient:
@@ -443,26 +324,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar"],
         )
 
-        http_file(
-            name = "org_apache_httpcomponents__httpclient__4_5_1__sources",
-            downloaded_file_path = "org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar",
-            sha256 = "c3ae983a60ff3063cdba2ee52d1e871a5a975c0cfb54320d5159a74e85f4df4a",
-            urls = ["https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1-sources.jar"],
-        )
-
     if not omit_httpcore:
         http_file(
             name = "org_apache_httpcomponents__httpcore__4_4_3",
             downloaded_file_path = "org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar",
             sha256 = "e4ce096fab656865f0d78d88887377111fb2f3bcd5004c1cddbc899987f32b5e",
             urls = ["https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar"],
-        )
-
-        http_file(
-            name = "org_apache_httpcomponents__httpcore__4_4_3__sources",
-            downloaded_file_path = "org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar",
-            sha256 = "54ca20f1231f468f93754f96504a6e21b94f051486ccb8918bd243a92b7715d2",
-            urls = ["https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3-sources.jar"],
         )
 
     if not omit_httpmime:
@@ -473,26 +340,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1.jar"],
         )
 
-        http_file(
-            name = "org_apache_httpcomponents__httpmime__4_5_1__sources",
-            downloaded_file_path = "org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1-sources.jar",
-            sha256 = "8e067da2a675a27f3d6da5c6bb99bd8e5b9c7a81df0980461b0e14d3ec62c390",
-            urls = ["https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1-sources.jar"],
-        )
-
     if not omit_tomcat_jasper:
         http_file(
             name = "org_apache_tomcat__tomcat_jasper__8_0_9",
             downloaded_file_path = "org/apache/tomcat/tomcat-jasper/8.0.9/tomcat-jasper-8.0.9.jar",
             sha256 = "046aee47a9231c40d7f89c9a9789a24e16eec0bcd41689b4b6bcf88e6b179760",
             urls = ["https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat-jasper/8.0.9/tomcat-jasper-8.0.9.jar"],
-        )
-
-        http_file(
-            name = "org_apache_tomcat__tomcat_jasper__8_0_9__sources",
-            downloaded_file_path = "org/apache/tomcat/tomcat-jasper/8.0.9/tomcat-jasper-8.0.9-sources.jar",
-            sha256 = "2b50be4373df600e5921b368ffb8890224d4379adc523589c2679bd8018da77a",
-            urls = ["https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat-jasper/8.0.9/tomcat-jasper-8.0.9-sources.jar"],
         )
 
     if not omit_tomcat_jasper_el:
@@ -503,26 +356,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat-jasper-el/8.0.9/tomcat-jasper-el-8.0.9.jar"],
         )
 
-        http_file(
-            name = "org_apache_tomcat__tomcat_jasper_el__8_0_9__sources",
-            downloaded_file_path = "org/apache/tomcat/tomcat-jasper-el/8.0.9/tomcat-jasper-el-8.0.9-sources.jar",
-            sha256 = "9569a4dff53f38a7bd45dc7f1c4a2138362b67cbe553f6bb7cf4014fa61e347f",
-            urls = ["https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat-jasper-el/8.0.9/tomcat-jasper-el-8.0.9-sources.jar"],
-        )
-
     if not omit_jetty_schemas:
         http_file(
             name = "org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0",
             downloaded_file_path = "org/eclipse/jetty/toolchain/jetty-schemas/3.1.M0/jetty-schemas-3.1.M0.jar",
             sha256 = "bb94452226bf103848614948c88f44d1057c2d9203d53affc1c9057a16223907",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/toolchain/jetty-schemas/3.1.M0/jetty-schemas-3.1.M0.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0__sources",
-            downloaded_file_path = "org/eclipse/jetty/toolchain/jetty-schemas/3.1.M0/jetty-schemas-3.1.M0-sources.jar",
-            sha256 = "4b9366995757dc87fe2d39c124b2936efa12ce56fd7f9521f05a9c1a6946e07f",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/toolchain/jetty-schemas/3.1.M0/jetty-schemas-3.1.M0-sources.jar"],
         )
 
     if not omit_websocket_api:
@@ -533,26 +372,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/websocket/websocket-api/9.2.13.v20150730/websocket-api-9.2.13.v20150730.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730__sources",
-            downloaded_file_path = "org/eclipse/jetty/websocket/websocket-api/9.2.13.v20150730/websocket-api-9.2.13.v20150730-sources.jar",
-            sha256 = "427903736d7a800f64943e103b6c7e730bd3cb38c10d0a27d913c427f129be28",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/websocket/websocket-api/9.2.13.v20150730/websocket-api-9.2.13.v20150730-sources.jar"],
-        )
-
     if not omit_websocket_client:
         http_file(
             name = "org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730",
             downloaded_file_path = "org/eclipse/jetty/websocket/websocket-client/9.2.13.v20150730/websocket-client-9.2.13.v20150730.jar",
             sha256 = "030c1582c768809078ffd604c687ec3dbf4ad207dfc292fd4a1062bd5a35f556",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/websocket/websocket-client/9.2.13.v20150730/websocket-client-9.2.13.v20150730.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730__sources",
-            downloaded_file_path = "org/eclipse/jetty/websocket/websocket-client/9.2.13.v20150730/websocket-client-9.2.13.v20150730-sources.jar",
-            sha256 = "3a017f446b32aa8957514f533e7a84dd8176e67e0b8b0625719cd6db83521203",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/websocket/websocket-client/9.2.13.v20150730/websocket-client-9.2.13.v20150730-sources.jar"],
         )
 
     if not omit_websocket_common:
@@ -563,26 +388,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/websocket/websocket-common/9.2.13.v20150730/websocket-common-9.2.13.v20150730.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730__sources",
-            downloaded_file_path = "org/eclipse/jetty/websocket/websocket-common/9.2.13.v20150730/websocket-common-9.2.13.v20150730-sources.jar",
-            sha256 = "5e7c10b1d566d8bb18179e4b0b187744c994e3b63f08668d552727fd5f7b1f0e",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/websocket/websocket-common/9.2.13.v20150730/websocket-common-9.2.13.v20150730-sources.jar"],
-        )
-
     if not omit_apache_jsp:
         http_file(
             name = "org_eclipse_jetty__apache_jsp__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/apache-jsp/9.2.14.v20151106/apache-jsp-9.2.14.v20151106.jar",
             sha256 = "a9634bc410be3b8d1f3849429d08a1c3ecaad79a023cbe90ae62f8b493d5f4e2",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/apache-jsp/9.2.14.v20151106/apache-jsp-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__apache_jsp__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/apache-jsp/9.2.14.v20151106/apache-jsp-9.2.14.v20151106-sources.jar",
-            sha256 = "36a59b84ca3a7606f7e63877d945ffe2952d01894e8b54359cabbdbd0c0a71f2",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/apache-jsp/9.2.14.v20151106/apache-jsp-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_annotations:
@@ -593,26 +404,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-annotations/9.2.14.v20151106/jetty-annotations-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_annotations__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-annotations/9.2.14.v20151106/jetty-annotations-9.2.14.v20151106-sources.jar",
-            sha256 = "2c95dc90172a8722371d6c4c0c5dac8b0139aa22691332349177b98f6c2b5df9",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-annotations/9.2.14.v20151106/jetty-annotations-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_continuation:
         http_file(
             name = "org_eclipse_jetty__jetty_continuation__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-continuation/9.2.14.v20151106/jetty-continuation-9.2.14.v20151106.jar",
             sha256 = "3e60ef633d4110f020a4d6207966a4884424a65067eea5a041d1eac1066bc453",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-continuation/9.2.14.v20151106/jetty-continuation-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_continuation__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-continuation/9.2.14.v20151106/jetty-continuation-9.2.14.v20151106-sources.jar",
-            sha256 = "a428dc00ec68439a6c38f8266b4689c2068a5412a829c1905115b1fd8c4aff0a",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-continuation/9.2.14.v20151106/jetty-continuation-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_http:
@@ -623,26 +420,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-http/9.2.14.v20151106/jetty-http-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_http__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-http/9.2.14.v20151106/jetty-http-9.2.14.v20151106-sources.jar",
-            sha256 = "d00a02254e68346a3ec1bc44165ada5f7a1d07db21d2ec512c72da8178af54f3",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-http/9.2.14.v20151106/jetty-http-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_io:
         http_file(
             name = "org_eclipse_jetty__jetty_io__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-io/9.2.14.v20151106/jetty-io-9.2.14.v20151106.jar",
             sha256 = "16f2d49f497e5e42c92d96618adee2626af5ba1ac927589529b6fd9a92266d3a",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-io/9.2.14.v20151106/jetty-io-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_io__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-io/9.2.14.v20151106/jetty-io-9.2.14.v20151106-sources.jar",
-            sha256 = "a5d0f87a105211808e43d0b000a640b19e9ec701acef8e114d8fceb4b082a019",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-io/9.2.14.v20151106/jetty-io-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_jmx:
@@ -653,26 +436,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-jmx/9.2.14.v20151106/jetty-jmx-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_jmx__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-jmx/9.2.14.v20151106/jetty-jmx-9.2.14.v20151106-sources.jar",
-            sha256 = "bcd270bb1734e200f057cc8a933b88745c5dd23dbe8aa7711154c447af5cc797",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-jmx/9.2.14.v20151106/jetty-jmx-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_jndi:
         http_file(
             name = "org_eclipse_jetty__jetty_jndi__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-jndi/9.2.14.v20151106/jetty-jndi-9.2.14.v20151106.jar",
             sha256 = "9181d263612c457437d6f7e8470588eed862cdf1f08eec808d6577503bec5653",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-jndi/9.2.14.v20151106/jetty-jndi-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_jndi__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-jndi/9.2.14.v20151106/jetty-jndi-9.2.14.v20151106-sources.jar",
-            sha256 = "f7be92c56367a8f117e10f2de2f0a2ebe3514fbbfd2a1648f06c13c9e7f94689",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-jndi/9.2.14.v20151106/jetty-jndi-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_plus:
@@ -683,26 +452,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-plus/9.2.14.v20151106/jetty-plus-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_plus__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-plus/9.2.14.v20151106/jetty-plus-9.2.14.v20151106-sources.jar",
-            sha256 = "914861e2dfbce0bbd67687a9efaad900bdac113d86543c150d9950dac37bc473",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-plus/9.2.14.v20151106/jetty-plus-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_security:
         http_file(
             name = "org_eclipse_jetty__jetty_security__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-security/9.2.14.v20151106/jetty-security-9.2.14.v20151106.jar",
             sha256 = "1810b2395f6f0717aef296c6c2d6f9504deb2076ef68b3312e1644c0b9cc3921",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-security/9.2.14.v20151106/jetty-security-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_security__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-security/9.2.14.v20151106/jetty-security-9.2.14.v20151106-sources.jar",
-            sha256 = "3f372fec6c9f284a1c220a60e9d174787ddf21787d29718309c612c65d2b5ef5",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-security/9.2.14.v20151106/jetty-security-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_server:
@@ -713,26 +468,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-server/9.2.14.v20151106/jetty-server-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_server__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-server/9.2.14.v20151106/jetty-server-9.2.14.v20151106-sources.jar",
-            sha256 = "5bff4df3f609567caab190a1fe5f0ec1df81bb8e07372dc479f6e87d0e67e07b",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-server/9.2.14.v20151106/jetty-server-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_servlet:
         http_file(
             name = "org_eclipse_jetty__jetty_servlet__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-servlet/9.2.14.v20151106/jetty-servlet-9.2.14.v20151106.jar",
             sha256 = "ac13cca38e1541647a2fbe726a871dc5c22a757c0d8900c08d77302e414a725f",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-servlet/9.2.14.v20151106/jetty-servlet-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_servlet__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-servlet/9.2.14.v20151106/jetty-servlet-9.2.14.v20151106-sources.jar",
-            sha256 = "b1060300aa330405d60deff25bea31e3098657204aab842baad35f8f645dd187",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-servlet/9.2.14.v20151106/jetty-servlet-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_servlets:
@@ -743,26 +484,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-servlets/9.2.14.v20151106/jetty-servlets-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_servlets__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-servlets/9.2.14.v20151106/jetty-servlets-9.2.14.v20151106-sources.jar",
-            sha256 = "5cd0b52921953461d003ad5cc9547095be6f7cab1a979e8d8a88f8a8e2e0443c",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-servlets/9.2.14.v20151106/jetty-servlets-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_util:
         http_file(
             name = "org_eclipse_jetty__jetty_util__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-util/9.2.14.v20151106/jetty-util-9.2.14.v20151106.jar",
             sha256 = "277a2cc734139f620bf5c88c09af2f0328b0114f6fad52776abfbcd8d37166ce",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-util/9.2.14.v20151106/jetty-util-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_util__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-util/9.2.14.v20151106/jetty-util-9.2.14.v20151106-sources.jar",
-            sha256 = "8f3f3fdf208a26d9720826b15f3eac76c72df58b26d04d39810e38501831bb9a",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-util/9.2.14.v20151106/jetty-util-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_jetty_webapp:
@@ -773,26 +500,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-webapp/9.2.14.v20151106/jetty-webapp-9.2.14.v20151106.jar"],
         )
 
-        http_file(
-            name = "org_eclipse_jetty__jetty_webapp__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-webapp/9.2.14.v20151106/jetty-webapp-9.2.14.v20151106-sources.jar",
-            sha256 = "22e8efa238a05eb30260f63f06fe2305b3cdc3b620cfc57601e17db0f4073a22",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-webapp/9.2.14.v20151106/jetty-webapp-9.2.14.v20151106-sources.jar"],
-        )
-
     if not omit_jetty_xml:
         http_file(
             name = "org_eclipse_jetty__jetty_xml__9_2_14_v20151106",
             downloaded_file_path = "org/eclipse/jetty/jetty-xml/9.2.14.v20151106/jetty-xml-9.2.14.v20151106.jar",
             sha256 = "3d13667a02e331c86b124d020338ec5cc901a7986ddf9fd99782578fe77a0459",
             urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-xml/9.2.14.v20151106/jetty-xml-9.2.14.v20151106.jar"],
-        )
-
-        http_file(
-            name = "org_eclipse_jetty__jetty_xml__9_2_14_v20151106__sources",
-            downloaded_file_path = "org/eclipse/jetty/jetty-xml/9.2.14.v20151106/jetty-xml-9.2.14.v20151106-sources.jar",
-            sha256 = "717ede22e14ca0d656acc0ee4491853dee29dbe4e8696a15bad98a7455a408a1",
-            urls = ["https://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-xml/9.2.14.v20151106/jetty-xml-9.2.14.v20151106-sources.jar"],
         )
 
     if not omit_apache_el:
@@ -803,26 +516,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/mortbay/jasper/apache-el/8.0.9.M3/apache-el-8.0.9.M3.jar"],
         )
 
-        http_file(
-            name = "org_mortbay_jasper__apache_el__8_0_9_m3__sources",
-            downloaded_file_path = "org/mortbay/jasper/apache-el/8.0.9.M3/apache-el-8.0.9.M3-sources.jar",
-            sha256 = "98770ecf589dd1ef036ddaa3abfdb716a0ce3dcab0bf673148072c97cb087f7e",
-            urls = ["https://repo.maven.apache.org/maven2/org/mortbay/jasper/apache-el/8.0.9.M3/apache-el-8.0.9.M3-sources.jar"],
-        )
-
     if not omit_org_mortbay_jasper__apache_jsp:
         http_file(
             name = "org_mortbay_jasper__apache_jsp__8_0_9_m3",
             downloaded_file_path = "org/mortbay/jasper/apache-jsp/8.0.9.M3/apache-jsp-8.0.9.M3.jar",
             sha256 = "0c154c190b7e75530e7b0b015a370343e9e5ae80550d7d1e8c12f33725df66ec",
             urls = ["https://repo.maven.apache.org/maven2/org/mortbay/jasper/apache-jsp/8.0.9.M3/apache-jsp-8.0.9.M3.jar"],
-        )
-
-        http_file(
-            name = "org_mortbay_jasper__apache_jsp__8_0_9_m3__sources",
-            downloaded_file_path = "org/mortbay/jasper/apache-jsp/8.0.9.M3/apache-jsp-8.0.9.M3-sources.jar",
-            sha256 = "5439b60eeed8f9d9728518d5c08d6917e49c9ccb541237c848a2aa7caf0ba616",
-            urls = ["https://repo.maven.apache.org/maven2/org/mortbay/jasper/apache-jsp/8.0.9.M3/apache-jsp-8.0.9.M3-sources.jar"],
         )
 
     if not omit_asm:
@@ -833,26 +532,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar"],
         )
 
-        http_file(
-            name = "org_ow2_asm__asm__5_0_3__sources",
-            downloaded_file_path = "org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar",
-            sha256 = "1e9ee309d909b3dbf33291fcfd36c76adba4ed1215b8156c3ac61a774cc86bf1",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar"],
-        )
-
     if not omit_asm_commons:
         http_file(
             name = "org_ow2_asm__asm_commons__5_0_3",
             downloaded_file_path = "org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar",
             sha256 = "18c1e092230233c9d29e46f21943d769bdb48130cc279e4b0e663f423948c2da",
             urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar"],
-        )
-
-        http_file(
-            name = "org_ow2_asm__asm_commons__5_0_3__sources",
-            downloaded_file_path = "org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3-sources.jar",
-            sha256 = "1e9ee309d909b3dbf33291fcfd36c76adba4ed1215b8156c3ac61a774cc86bf1",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3-sources.jar"],
         )
 
     if not omit_asm_tree:
@@ -863,13 +548,6 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar"],
         )
 
-        http_file(
-            name = "org_ow2_asm__asm_tree__5_0_3__sources",
-            downloaded_file_path = "org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar",
-            sha256 = "1e9ee309d909b3dbf33291fcfd36c76adba4ed1215b8156c3ac61a774cc86bf1",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar"],
-        )
-
     if not omit_asm_util:
         http_file(
             name = "org_ow2_asm__asm_util__5_0_3",
@@ -878,26 +556,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar"],
         )
 
-        http_file(
-            name = "org_ow2_asm__asm_util__5_0_3__sources",
-            downloaded_file_path = "org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3-sources.jar",
-            sha256 = "1e9ee309d909b3dbf33291fcfd36c76adba4ed1215b8156c3ac61a774cc86bf1",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3-sources.jar"],
-        )
-
     if not omit_sac:
         http_file(
             name = "org_w3c_css__sac__1_3",
             downloaded_file_path = "org/w3c/css/sac/1.3/sac-1.3.jar",
             sha256 = "003785669f921aafe4f137468dd20a01a36111e94fd7449f26c16e7924d82d23",
             urls = ["https://repo.maven.apache.org/maven2/org/w3c/css/sac/1.3/sac-1.3.jar"],
-        )
-
-        http_file(
-            name = "org_w3c_css__sac__1_3__sources",
-            downloaded_file_path = "org/w3c/css/sac/1.3/sac-1.3-sources.jar",
-            sha256 = "9ca0ff97617e9fe28fcdcf60f48c6cc1125cdce451e1a797dbce3bb5d3fcc398",
-            urls = ["https://repo.maven.apache.org/maven2/org/w3c/css/sac/1.3/sac-1.3-sources.jar"],
         )
 
     if not omit_tapestry:
@@ -916,13 +580,6 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/xalan/serializer/2.7.2/serializer-2.7.2.jar"],
         )
 
-        http_file(
-            name = "xalan__serializer__2_7_2__sources",
-            downloaded_file_path = "xalan/serializer/2.7.2/serializer-2.7.2-sources.jar",
-            sha256 = "15f88b71e32817c6b4d5977d54ad2fe1b18e82a8ab9a1d68ca568fb0aabb2ae6",
-            urls = ["https://repo.maven.apache.org/maven2/xalan/serializer/2.7.2/serializer-2.7.2-sources.jar"],
-        )
-
     if not omit_xalan:
         http_file(
             name = "xalan__xalan__2_7_2",
@@ -931,26 +588,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/xalan/xalan/2.7.2/xalan-2.7.2.jar"],
         )
 
-        http_file(
-            name = "xalan__xalan__2_7_2__sources",
-            downloaded_file_path = "xalan/xalan/2.7.2/xalan-2.7.2-sources.jar",
-            sha256 = "15f88b71e32817c6b4d5977d54ad2fe1b18e82a8ab9a1d68ca568fb0aabb2ae6",
-            urls = ["https://repo.maven.apache.org/maven2/xalan/xalan/2.7.2/xalan-2.7.2-sources.jar"],
-        )
-
     if not omit_xml_apis:
         http_file(
             name = "xml_apis__xml_apis__1_3_04",
             downloaded_file_path = "xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar",
             sha256 = "d404aa881eb9c5f7a4fb546e84ea11506cd417a72b5972e88eff17f43f9f8a64",
             urls = ["https://repo.maven.apache.org/maven2/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar"],
-        )
-
-        http_file(
-            name = "xml_apis__xml_apis__1_3_04__sources",
-            downloaded_file_path = "xml-apis/xml-apis/1.3.04/xml-apis-1.3.04-sources.jar",
-            sha256 = "d310219a5727d5424c4b7a85991b3c082188ea42133851cd2fac06f96d8337ca",
-            urls = ["https://repo.maven.apache.org/maven2/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04-sources.jar"],
         )
 
 def generate_targets(
@@ -1022,7 +665,6 @@ def generate_targets(
         native.java_import(
             name = "ant__ant__1_6_5",
             jars = ["@ant__ant__1_6_5//file"],
-            srcjar = "@ant__ant__1_6_5__sources//file",
             tags = ["maven_coordinates=ant:ant:1.6.5"],
             visibility = ["//visibility:private"],
             deps = [":xml_apis"],
@@ -1076,7 +718,6 @@ def generate_targets(
         native.java_import(
             name = "com_google_code_gson__gson__2_6_2",
             jars = ["@com_google_code_gson__gson__2_6_2//file"],
-            srcjar = "@com_google_code_gson__gson__2_6_2__sources//file",
             tags = ["maven_coordinates=com.google.code.gson:gson:2.6.2"],
             visibility = ["//visibility:private"],
         )
@@ -1089,7 +730,6 @@ def generate_targets(
         native.java_import(
             name = "com_google_gwt__gwt_dev__2_8_2",
             jars = ["@com_google_gwt__gwt_dev__2_8_2//file"],
-            srcjar = "@com_google_gwt__gwt_dev__2_8_2__sources//file",
             tags = ["maven_coordinates=com.google.gwt:gwt-dev:2.8.2"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1139,7 +779,6 @@ def generate_targets(
         native.java_import(
             name = "com_ibm_icu__icu4j__50_1_1",
             jars = ["@com_ibm_icu__icu4j__50_1_1//file"],
-            srcjar = "@com_ibm_icu__icu4j__50_1_1__sources//file",
             tags = ["maven_coordinates=com.ibm.icu:icu4j:50.1.1"],
             visibility = ["//visibility:private"],
         )
@@ -1153,7 +792,6 @@ def generate_targets(
         native.java_import(
             name = "commons_codec__commons_codec__1_10",
             jars = ["@commons_codec__commons_codec__1_10//file"],
-            srcjar = "@commons_codec__commons_codec__1_10__sources//file",
             tags = ["maven_coordinates=commons-codec:commons-codec:1.10"],
             visibility = ["//visibility:private"],
         )
@@ -1167,7 +805,6 @@ def generate_targets(
         native.java_import(
             name = "commons_collections__commons_collections__3_2_2",
             jars = ["@commons_collections__commons_collections__3_2_2//file"],
-            srcjar = "@commons_collections__commons_collections__3_2_2__sources//file",
             tags = ["maven_coordinates=commons-collections:commons-collections:3.2.2"],
             visibility = ["//visibility:private"],
         )
@@ -1181,7 +818,6 @@ def generate_targets(
         native.java_import(
             name = "commons_io__commons_io__2_4",
             jars = ["@commons_io__commons_io__2_4//file"],
-            srcjar = "@commons_io__commons_io__2_4__sources//file",
             tags = ["maven_coordinates=commons-io:commons-io:2.4"],
             visibility = ["//visibility:private"],
         )
@@ -1195,7 +831,6 @@ def generate_targets(
         native.java_import(
             name = "commons_logging__commons_logging__1_2",
             jars = ["@commons_logging__commons_logging__1_2//file"],
-            srcjar = "@commons_logging__commons_logging__1_2__sources//file",
             tags = ["maven_coordinates=commons-logging:commons-logging:1.2"],
             visibility = ["//visibility:private"],
         )
@@ -1209,7 +844,6 @@ def generate_targets(
         native.java_import(
             name = "javax_annotation__javax_annotation_api__1_2",
             jars = ["@javax_annotation__javax_annotation_api__1_2//file"],
-            srcjar = "@javax_annotation__javax_annotation_api__1_2__sources//file",
             tags = ["maven_coordinates=javax.annotation:javax.annotation-api:1.2"],
             visibility = ["//visibility:private"],
         )
@@ -1223,7 +857,6 @@ def generate_targets(
         native.java_import(
             name = "javax_servlet__javax_servlet_api__3_1_0",
             jars = ["@javax_servlet__javax_servlet_api__3_1_0//file"],
-            srcjar = "@javax_servlet__javax_servlet_api__3_1_0__sources//file",
             tags = ["maven_coordinates=javax.servlet:javax.servlet-api:3.1.0"],
             visibility = ["//visibility:private"],
         )
@@ -1237,7 +870,6 @@ def generate_targets(
         native.java_import(
             name = "log4j__log4j__1_2_17",
             jars = ["@log4j__log4j__1_2_17//file"],
-            srcjar = "@log4j__log4j__1_2_17__sources//file",
             tags = ["maven_coordinates=log4j:log4j:1.2.17"],
             visibility = ["//visibility:private"],
         )
@@ -1251,7 +883,6 @@ def generate_targets(
         native.java_import(
             name = "logkit__logkit__1_0_1",
             jars = ["@logkit__logkit__1_0_1//file"],
-            srcjar = "@logkit__logkit__1_0_1__sources//file",
             tags = ["maven_coordinates=logkit:logkit:1.0.1"],
             visibility = ["//visibility:private"],
         )
@@ -1265,7 +896,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_cssparser__cssparser__0_9_18",
             jars = ["@net_sourceforge_cssparser__cssparser__0_9_18//file"],
-            srcjar = "@net_sourceforge_cssparser__cssparser__0_9_18__sources//file",
             tags = ["maven_coordinates=net.sourceforge.cssparser:cssparser:0.9.18"],
             visibility = ["//visibility:private"],
             deps = [":sac"],
@@ -1280,7 +910,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_htmlunit__htmlunit__2_19",
             jars = ["@net_sourceforge_htmlunit__htmlunit__2_19//file"],
-            srcjar = "@net_sourceforge_htmlunit__htmlunit__2_19__sources//file",
             tags = ["maven_coordinates=net.sourceforge.htmlunit:htmlunit:2.19"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1308,7 +937,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_htmlunit__htmlunit_core_js__2_17",
             jars = ["@net_sourceforge_htmlunit__htmlunit_core_js__2_17//file"],
-            srcjar = "@net_sourceforge_htmlunit__htmlunit_core_js__2_17__sources//file",
             tags = ["maven_coordinates=net.sourceforge.htmlunit:htmlunit-core-js:2.17"],
             visibility = ["//visibility:private"],
         )
@@ -1322,7 +950,6 @@ def generate_targets(
         native.java_import(
             name = "net_sourceforge_nekohtml__nekohtml__1_9_22",
             jars = ["@net_sourceforge_nekohtml__nekohtml__1_9_22//file"],
-            srcjar = "@net_sourceforge_nekohtml__nekohtml__1_9_22__sources//file",
             tags = ["maven_coordinates=net.sourceforge.nekohtml:nekohtml:1.9.22"],
             visibility = ["//visibility:private"],
         )
@@ -1336,7 +963,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_commons__commons_lang3__3_4",
             jars = ["@org_apache_commons__commons_lang3__3_4//file"],
-            srcjar = "@org_apache_commons__commons_lang3__3_4__sources//file",
             tags = ["maven_coordinates=org.apache.commons:commons-lang3:3.4"],
             visibility = ["//visibility:private"],
         )
@@ -1350,7 +976,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_httpcomponents__httpclient__4_5_1",
             jars = ["@org_apache_httpcomponents__httpclient__4_5_1//file"],
-            srcjar = "@org_apache_httpcomponents__httpclient__4_5_1__sources//file",
             tags = ["maven_coordinates=org.apache.httpcomponents:httpclient:4.5.1"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1369,7 +994,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_httpcomponents__httpcore__4_4_3",
             jars = ["@org_apache_httpcomponents__httpcore__4_4_3//file"],
-            srcjar = "@org_apache_httpcomponents__httpcore__4_4_3__sources//file",
             tags = ["maven_coordinates=org.apache.httpcomponents:httpcore:4.4.3"],
             visibility = ["//visibility:private"],
         )
@@ -1383,7 +1007,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_httpcomponents__httpmime__4_5_1",
             jars = ["@org_apache_httpcomponents__httpmime__4_5_1//file"],
-            srcjar = "@org_apache_httpcomponents__httpmime__4_5_1__sources//file",
             tags = ["maven_coordinates=org.apache.httpcomponents:httpmime:4.5.1"],
             visibility = ["//visibility:private"],
             deps = [":httpclient"],
@@ -1398,7 +1021,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_tomcat__tomcat_jasper__8_0_9",
             jars = ["@org_apache_tomcat__tomcat_jasper__8_0_9//file"],
-            srcjar = "@org_apache_tomcat__tomcat_jasper__8_0_9__sources//file",
             tags = ["maven_coordinates=org.apache.tomcat:tomcat-jasper:8.0.9"],
             visibility = ["//visibility:private"],
         )
@@ -1412,7 +1034,6 @@ def generate_targets(
         native.java_import(
             name = "org_apache_tomcat__tomcat_jasper_el__8_0_9",
             jars = ["@org_apache_tomcat__tomcat_jasper_el__8_0_9//file"],
-            srcjar = "@org_apache_tomcat__tomcat_jasper_el__8_0_9__sources//file",
             tags = ["maven_coordinates=org.apache.tomcat:tomcat-jasper-el:8.0.9"],
             visibility = ["//visibility:private"],
         )
@@ -1426,7 +1047,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0",
             jars = ["@org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0//file"],
-            srcjar = "@org_eclipse_jetty_toolchain__jetty_schemas__3_1_m0__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.toolchain:jetty-schemas:3.1.M0"],
             visibility = ["//visibility:private"],
         )
@@ -1440,7 +1060,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730",
             jars = ["@org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730//file"],
-            srcjar = "@org_eclipse_jetty_websocket__websocket_api__9_2_13_v20150730__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.websocket:websocket-api:9.2.13.v20150730"],
             visibility = ["//visibility:private"],
         )
@@ -1454,7 +1073,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730",
             jars = ["@org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730//file"],
-            srcjar = "@org_eclipse_jetty_websocket__websocket_client__9_2_13_v20150730__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.websocket:websocket-client:9.2.13.v20150730"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1473,7 +1091,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730",
             jars = ["@org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730//file"],
-            srcjar = "@org_eclipse_jetty_websocket__websocket_common__9_2_13_v20150730__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty.websocket:websocket-common:9.2.13.v20150730"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1492,7 +1109,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__apache_jsp__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__apache_jsp__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__apache_jsp__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:apache-jsp:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1513,7 +1129,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_annotations__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_annotations__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_annotations__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-annotations:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1534,7 +1149,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_continuation__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_continuation__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_continuation__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-continuation:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
         )
@@ -1548,7 +1162,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_http__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_http__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_http__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-http:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [":jetty_util"],
@@ -1563,7 +1176,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_io__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_io__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_io__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-io:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [":jetty_util"],
@@ -1578,7 +1190,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_jmx__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_jmx__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_jmx__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-jmx:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
         )
@@ -1592,7 +1203,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_jndi__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_jndi__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_jndi__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-jndi:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [":jetty_util"],
@@ -1607,7 +1217,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_plus__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_plus__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_plus__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-plus:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1625,7 +1234,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_security__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_security__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_security__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-security:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [":jetty_server"],
@@ -1640,7 +1248,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_server__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_server__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_server__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-server:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1659,7 +1266,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_servlet__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_servlet__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_servlet__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-servlet:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [":jetty_security"],
@@ -1674,7 +1280,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_servlets__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_servlets__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_servlets__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-servlets:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1694,7 +1299,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_util__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_util__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_util__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-util:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
         )
@@ -1708,7 +1312,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_webapp__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_webapp__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_webapp__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-webapp:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1726,7 +1329,6 @@ def generate_targets(
         native.java_import(
             name = "org_eclipse_jetty__jetty_xml__9_2_14_v20151106",
             jars = ["@org_eclipse_jetty__jetty_xml__9_2_14_v20151106//file"],
-            srcjar = "@org_eclipse_jetty__jetty_xml__9_2_14_v20151106__sources//file",
             tags = ["maven_coordinates=org.eclipse.jetty:jetty-xml:9.2.14.v20151106"],
             visibility = ["//visibility:private"],
             deps = [":jetty_util"],
@@ -1741,7 +1343,6 @@ def generate_targets(
         native.java_import(
             name = "org_mortbay_jasper__apache_el__8_0_9_m3",
             jars = ["@org_mortbay_jasper__apache_el__8_0_9_m3//file"],
-            srcjar = "@org_mortbay_jasper__apache_el__8_0_9_m3__sources//file",
             tags = ["maven_coordinates=org.mortbay.jasper:apache-el:8.0.9.M3"],
             visibility = ["//visibility:private"],
         )
@@ -1754,7 +1355,6 @@ def generate_targets(
         native.java_import(
             name = "org_mortbay_jasper__apache_jsp__8_0_9_m3",
             jars = ["@org_mortbay_jasper__apache_jsp__8_0_9_m3//file"],
-            srcjar = "@org_mortbay_jasper__apache_jsp__8_0_9_m3__sources//file",
             tags = ["maven_coordinates=org.mortbay.jasper:apache-jsp:8.0.9.M3"],
             visibility = ["//visibility:private"],
             deps = [
@@ -1776,7 +1376,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm__5_0_3",
             jars = ["@org_ow2_asm__asm__5_0_3//file"],
-            srcjar = "@org_ow2_asm__asm__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm:5.0.3"],
             visibility = ["//visibility:private"],
         )
@@ -1790,7 +1389,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm_commons__5_0_3",
             jars = ["@org_ow2_asm__asm_commons__5_0_3//file"],
-            srcjar = "@org_ow2_asm__asm_commons__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm-commons:5.0.3"],
             visibility = ["//visibility:private"],
             deps = [":asm_tree"],
@@ -1805,7 +1403,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm_tree__5_0_3",
             jars = ["@org_ow2_asm__asm_tree__5_0_3//file"],
-            srcjar = "@org_ow2_asm__asm_tree__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm-tree:5.0.3"],
             visibility = ["//visibility:private"],
             deps = [":asm"],
@@ -1820,7 +1417,6 @@ def generate_targets(
         native.java_import(
             name = "org_ow2_asm__asm_util__5_0_3",
             jars = ["@org_ow2_asm__asm_util__5_0_3//file"],
-            srcjar = "@org_ow2_asm__asm_util__5_0_3__sources//file",
             tags = ["maven_coordinates=org.ow2.asm:asm-util:5.0.3"],
             visibility = ["//visibility:private"],
             deps = [":asm_tree"],
@@ -1835,7 +1431,6 @@ def generate_targets(
         native.java_import(
             name = "org_w3c_css__sac__1_3",
             jars = ["@org_w3c_css__sac__1_3//file"],
-            srcjar = "@org_w3c_css__sac__1_3__sources//file",
             tags = ["maven_coordinates=org.w3c.css:sac:1.3"],
             visibility = ["//visibility:private"],
         )
@@ -1862,7 +1457,6 @@ def generate_targets(
         native.java_import(
             name = "xalan__serializer__2_7_2",
             jars = ["@xalan__serializer__2_7_2//file"],
-            srcjar = "@xalan__serializer__2_7_2__sources//file",
             tags = ["maven_coordinates=xalan:serializer:2.7.2"],
             visibility = ["//visibility:private"],
             deps = [":xml_apis"],
@@ -1877,7 +1471,6 @@ def generate_targets(
         native.java_import(
             name = "xalan__xalan__2_7_2",
             jars = ["@xalan__xalan__2_7_2//file"],
-            srcjar = "@xalan__xalan__2_7_2__sources//file",
             tags = ["maven_coordinates=xalan:xalan:2.7.2"],
             visibility = ["//visibility:private"],
             deps = [":serializer"],
@@ -1892,7 +1485,6 @@ def generate_targets(
         native.java_import(
             name = "xml_apis__xml_apis__1_3_04",
             jars = ["@xml_apis__xml_apis__1_3_04//file"],
-            srcjar = "@xml_apis__xml_apis__1_3_04__sources//file",
             tags = ["maven_coordinates=xml-apis:xml-apis:1.3.04"],
             visibility = ["//visibility:private"],
         )

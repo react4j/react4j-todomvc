@@ -4,6 +4,7 @@ options:
   workspaceDirectory: ..
   extensionFile: build_defs/dependencies.bzl
   exportDeps: true
+  includeSource: false
 artifacts:
   - coord: com.google.gwt:gwt-dev:2.8.2
     excludes: ['xerces:xercesImpl']
