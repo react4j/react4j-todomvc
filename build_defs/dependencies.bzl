@@ -1,7 +1,7 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yaml by https://github.com/realityforge/bazel-depgen
+# DO NOT EDIT: File is auto-generated from dependencies.yaml by https://github.com/realityforge/bazel-depgen version X
 
 """
-    Macro rules to load dependencies defined in 'dependencies.yaml'.
+    Macro rules to load dependencies.
 
     Invoke 'generate_workspace_rules' from a WORKSPACE file.
     Invoke 'generate_targets' from a BUILD.bazel file.
@@ -151,7 +151,7 @@ def generate_workspace_rules(
         omit_xalan = False,
         omit_xml_apis = False):
     """
-        Repository rules macro to load dependencies specified by 'dependencies.yaml'.
+        Repository rules macro to load dependencies.
 
         Must be run from a WORKSPACE file.
     """
@@ -653,7 +653,7 @@ def generate_targets(
         omit_xalan = False,
         omit_xml_apis = False):
     """
-        Macro to define targets for dependencies specified by 'dependencies.yaml'.
+        Macro to define targets for dependencies.
     """
 
     if not omit_ant:
