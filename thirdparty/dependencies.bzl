@@ -1,7 +1,7 @@
 # DO NOT EDIT: File is auto-generated from dependencies.yaml by https://github.com/realityforge/bazel-depgen version X
 
 """
-    Macro rules to load dependencies defined in 'dependencies.yaml'.
+    Macro rules to load dependencies.
 
     Invoke 'generate_workspace_rules' from a WORKSPACE file.
     Invoke 'generate_targets' from a BUILD.bazel file.
@@ -43,7 +43,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 def generate_workspace_rules():
     """
-        Repository rules macro to load dependencies defined in 'dependencies.yaml'.
+        Repository rules macro to load dependencies.
 
         Must be run from a WORKSPACE file.
     """
@@ -292,7 +292,7 @@ def generate_workspace_rules():
 
 def generate_targets():
     """
-        Macro to define targets for dependencies defined in 'dependencies.yaml'.
+        Macro to define targets for dependencies.
     """
 
     native.alias(
