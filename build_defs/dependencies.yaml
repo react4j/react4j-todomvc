@@ -2,8 +2,6 @@ options:
   aliasStrategy: ArtifactId
   supportDependencyOmit: true
   verifyConfigSha256: false
-  workspaceDirectory: ..
-  extensionFile: build_defs/dependencies.bzl
   exportDeps: true
   includeSource: false
 artifacts:
