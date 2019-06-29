@@ -1,4 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yaml by https://github.com/realityforge/bazel-depgen version 0.01
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.01
 
 """
     Macro rules to load dependencies.
@@ -291,12 +291,12 @@ def generate_targets():
         name = "verify_config_sha256",
         srcs = [
             ":bazel_depgen",
-            "//thirdparty:dependencies.yaml",
+            "//thirdparty:dependencies.yml",
             "@bazel_tools//tools/jdk:current_java_runtime",
         ],
         toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
         outs = ["command-output.txt"],
-        cmd = "$(JAVA) -jar $(location :bazel_depgen) --config-file $(location //thirdparty:dependencies.yaml) --quiet hash --verify-sha256 %s > \"$@\"" % (_CONFIG_SHA256),
+        cmd = "$(JAVA) -jar $(location :bazel_depgen) --config-file $(location //thirdparty:dependencies.yml) --quiet hash --verify-sha256 %s > \"$@\"" % (_CONFIG_SHA256),
         visibility = ["//visibility:private"],
     )
 
@@ -304,12 +304,12 @@ def generate_targets():
         name = "regenerate_depgen_extension_script",
         srcs = [
             ":bazel_depgen",
-            "//thirdparty:dependencies.yaml",
+            "//thirdparty:dependencies.yml",
             "@bazel_tools//tools/jdk:current_java_runtime",
         ],
         toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
         outs = ["regenerate_depgen_extension_script.sh"],
-        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yaml) --quiet generate \" > \"$@\"",
+        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) --quiet generate \" > \"$@\"",
         visibility = ["//visibility:private"],
     )
 
@@ -325,7 +325,7 @@ def generate_targets():
         ],
         data = [
             ":bazel_depgen",
-            "//thirdparty:dependencies.yaml",
+            "//thirdparty:dependencies.yml",
             "@bazel_tools//tools/jdk:current_java_runtime",
         ],
         visibility = ["//visibility:private"],
