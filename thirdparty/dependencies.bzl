@@ -42,7 +42,7 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "CC981103382EFC2135A3E28680D4CEC0A0D5FA64F78D5388BEF3A85382B2FE48"
+_CONFIG_SHA256 = "3C8483861E7CB955BE4947A121F9C9F62C7959C7434021E13D71E0184FA98135"
 
 def generate_workspace_rules():
     """
