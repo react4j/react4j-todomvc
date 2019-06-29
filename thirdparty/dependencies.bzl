@@ -174,60 +174,42 @@ def generate_workspace_rules():
         name = "org_realityforge_react4j__react4j_core__0_129",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar",
         sha256 = "6c6d7361b5f73c55a41e13ad648a9d0fb21b65297b88ed729872fbc62fcd4bbe",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_core__0_129__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar",
         sha256 = "c7e1a22d4d9bc00d6689bc21a6afd5d263051d0e478cb5119a3a06f8022c6800",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.129/react4j-core-0.129-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_dom__0_129",
         downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar",
         sha256 = "88bfc5c508477b7d28b519af689894056a618013ba58d27bc96d9f93f8011a85",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_dom__0_129__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar",
         sha256 = "09239606867ffba61ec027933badbcc9da13305a11811f97c0a4f7556d18099a",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.129/react4j-dom-0.129-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_processor__0_129",
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar",
         sha256 = "186d9f82244271405f4dcb9687016f9307cbcef4e2c8fe6f1a8c32126cd7e389",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_processor__0_129__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar",
         sha256 = "0f8cc901578cf43a11b6f8eb238fcfca84790381c477363da76456b7c721d019",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.129/react4j-processor-0.129-sources.jar"],
     )
 
 def generate_targets():
