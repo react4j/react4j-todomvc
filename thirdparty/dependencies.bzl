@@ -37,6 +37,9 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
+# SHA256 of the configuration content that generated this file
+_CONFIG_SHA256 = "93768925A2AB9189496E0F1E19B41059F78E42F708B6A7DDF788783AEF9BFA3C"
+
 def generate_workspace_rules():
     """
         Repository rules macro to load dependencies.
@@ -84,6 +87,20 @@ def generate_workspace_rules():
         downloaded_file_path = "org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar",
         sha256 = "6d3984310480425dfa48df7b3010dd2eb82e5362b5b9164c7ded222b49e5fd2b",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar"],
+    )
+
+    http_file(
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_02",
+        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar",
+        sha256 = "ab71c9ab256e0184c96dda0aaaf09f8e348e1c023020e132d8ad243e65a30f25",
+        urls = ["file:///Users/peter/.m2/repository/org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar"],
+    )
+
+    http_file(
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_02__sources",
+        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-sources.jar",
+        sha256 = "42b76782bf51b45a5ac2beaaefaa97ae0ad41ceb93934d47549a57141e70825b",
+        urls = ["file:///Users/peter/.m2/repository/org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-sources.jar"],
     )
 
     http_file(
@@ -217,6 +234,50 @@ def generate_targets():
         Macro to define targets for dependencies.
     """
 
+    native.genrule(
+        name = "verify_config_sha256",
+        srcs = [
+            ":bazel_depgen",
+            "//thirdparty:dependencies.yml",
+            "@bazel_tools//tools/jdk:current_java_runtime",
+        ],
+        toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
+        outs = ["command-output.txt"],
+        cmd = "$(JAVA) -jar $(location :bazel_depgen) --config-file $(location //thirdparty:dependencies.yml) --quiet hash --verify-sha256 %s > \"$@\"" % (_CONFIG_SHA256),
+        visibility = ["//visibility:private"],
+    )
+
+    native.genrule(
+        name = "regenerate_depgen_extension_script",
+        srcs = [
+            ":bazel_depgen",
+            "//thirdparty:dependencies.yml",
+            "@bazel_tools//tools/jdk:current_java_runtime",
+        ],
+        toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
+        outs = ["regenerate_depgen_extension_script.sh"],
+        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) --quiet generate \" > \"$@\"",
+        visibility = ["//visibility:private"],
+    )
+
+    native.sh_binary(
+        name = "regenerate_depgen_extension",
+        srcs = ["regenerate_depgen_extension_script"],
+        tags = [
+            "local",
+            "manual",
+            "no-cache",
+            "no-remote",
+            "no-sandbox",
+        ],
+        data = [
+            ":bazel_depgen",
+            "//thirdparty:dependencies.yml",
+            "@bazel_tools//tools/jdk:current_java_runtime",
+        ],
+        visibility = ["//visibility:private"],
+    )
+
     native.alias(
         name = "jsinterop_annotations",
         actual = ":com_google_jsinterop__jsinterop_annotations__1_0_2",
@@ -227,6 +288,7 @@ def generate_targets():
         srcjar = "@com_google_jsinterop__jsinterop_annotations__1_0_2__sources//file",
         tags = ["maven_coordinates=com.google.jsinterop:jsinterop-annotations:1.0.2"],
         visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
     )
 
     native.alias(
@@ -255,6 +317,7 @@ def generate_targets():
         srcjar = "@org_realityforge_arez__arez_processor__0_138__sources//file",
         tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.138"],
         visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
     )
     native.java_plugin(
         name = "org_realityforge_arez__arez_processor__0_138__arez_processor_arezprocessor__plugin",
@@ -266,6 +329,18 @@ def generate_targets():
     native.java_library(
         name = "org_realityforge_arez__arez_processor__0_138",
         exported_plugins = ["org_realityforge_arez__arez_processor__0_138__arez_processor_arezprocessor__plugin"],
+        visibility = ["//visibility:private"],
+    )
+
+    native.alias(
+        name = "bazel_depgen",
+        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_02",
+    )
+    native.java_import(
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_02",
+        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_02//file"],
+        srcjar = "@org_realityforge_bazel_depgen__bazel_depgen__0_02__sources//file",
+        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.02"],
         visibility = ["//visibility:private"],
     )
 
@@ -356,15 +431,24 @@ def generate_targets():
         srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_0__sources//file",
         tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.0"],
         visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
     )
 
     native.alias(
         name = "javax_annotation-j2cl",
         actual = ":org_realityforge_javax_annotation__javax_annotation__1_0_0-j2cl",
     )
+    native.java_import(
+        name = "org_realityforge_javax_annotation__javax_annotation__1_0_0__j2cl_library",
+        jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_0//file"],
+        srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_0__sources//file",
+        tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.0"],
+        visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
+    )
     j2cl_library(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_0-j2cl",
-        srcs = ["@org_realityforge_javax_annotation__javax_annotation__1_0_0//file"],
+        srcs = ["org_realityforge_javax_annotation__javax_annotation__1_0_0__j2cl_library"],
         visibility = ["//visibility:private"],
     )
 
@@ -412,6 +496,7 @@ def generate_targets():
         srcjar = "@org_realityforge_react4j__react4j_processor__0_129__sources//file",
         tags = ["maven_coordinates=org.realityforge.react4j:react4j-processor:0.129"],
         visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
     )
     native.java_plugin(
         name = "org_realityforge_react4j__react4j_processor__0_129__react4j_processor_reactprocessor__plugin",
