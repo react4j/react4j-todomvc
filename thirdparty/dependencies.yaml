@@ -5,7 +5,6 @@ repositories:
     url: https://stocksoftware.jfrog.io/stocksoftware/staging
 options:
   aliasStrategy: ArtifactId
-  verifyConfigSha256: false
 artifacts:
   - coord: com.google.gwt:gwt-user:2.8.2
   - coord: org.realityforge.arez:arez-core:0.138
