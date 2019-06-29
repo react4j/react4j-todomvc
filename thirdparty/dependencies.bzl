@@ -1,7 +1,7 @@
-# DO NOT EDIT: File is auto-generated from ../dependencies.yaml by https://github.com/realityforge/bazel-depgen
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.02
 
 """
-    Macro rules to load dependencies defined in '../dependencies.yaml'.
+    Macro rules to load dependencies.
 
     Invoke 'generate_workspace_rules' from a WORKSPACE file.
     Invoke 'generate_targets' from a BUILD.bazel file.
@@ -39,7 +39,7 @@ load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 def generate_workspace_rules():
     """
-        Repository rules macro to load dependencies specified by '../dependencies.yaml'.
+        Repository rules macro to load dependencies.
 
         Must be run from a WORKSPACE file.
     """
@@ -214,7 +214,7 @@ def generate_workspace_rules():
 
 def generate_targets():
     """
-        Macro to define targets for dependencies specified by '../dependencies.yaml'.
+        Macro to define targets for dependencies.
     """
 
     native.alias(
