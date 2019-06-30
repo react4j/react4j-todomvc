@@ -1,4 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.02
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.03
 
 """
     Macro rules to load dependencies.
@@ -39,7 +39,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "EE2842CA9FD9C285FD506CBE3A81CACC50342D788110C6A63B8E6C3570675EDB"
+_CONFIG_SHA256 = "B2153D4F54778F2BCD2A8413CAEBF2D64438B6DA5FE904AFDCF3D468D9EBAD60"
 
 def generate_workspace_rules():
     """
@@ -77,10 +77,10 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_02",
-        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar",
-        sha256 = "ab71c9ab256e0184c96dda0aaaf09f8e348e1c023020e132d8ad243e65a30f25",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar"],
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_03",
+        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.03/bazel-depgen-0.03-all.jar",
+        sha256 = "8dcf71091ffc9aa4e362634d739c900d09f4f4c2b43b07d151a9b88159892c58",
+        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/bazel/depgen/bazel-depgen/0.03/bazel-depgen-0.03-all.jar"],
     )
 
     http_file(
@@ -236,7 +236,7 @@ def generate_targets():
         ],
         toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
         outs = ["regenerate_depgen_extension_script.sh"],
-        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) --quiet generate \" > \"$@\"",
+        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) \$$@ generate \" > \"$@\"",
         visibility = ["//visibility:private"],
     )
 
@@ -316,12 +316,12 @@ def generate_targets():
 
     native.alias(
         name = "bazel_depgen",
-        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_02",
+        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_03",
     )
     native.java_import(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_02",
-        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_02//file"],
-        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.02"],
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_03",
+        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_03//file"],
+        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.03"],
         visibility = ["//visibility:private"],
     )
 
