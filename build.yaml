@@ -31,7 +31,7 @@ artifacts:
   arez_processor: org.realityforge.arez:arez-processor:jar:0.138
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.56
 
-  braincheck: org.realityforge.braincheck:braincheck:jar:1.16.0
+  braincheck: org.realityforge.braincheck:braincheck:jar:1.17.0
 
   dagger_core: com.google.dagger:dagger:jar:2.19
   dagger_spi: com.google.dagger:dagger-spi:jar:2.19
