@@ -20,18 +20,6 @@ j2cl_import(
 )
 
 j2cl_library(
-    name = "arez_core-j2cl",
-    srcs = ["//thirdparty:arez_core"],
-    deps = [
-        "//thirdparty:javax_annotation-j2cl",
-        ":jsinterop_base-j2cl",
-        ":jsinterop_annotations-j2cl",
-    ],
-    # TODO: This is required until braincheck upgrades to version that links against jsinterop-base to invoke Js.debugger()
-    js_suppress = ["checkDebuggerStatement"],
-)
-
-j2cl_library(
     name = "jsinterop_base-j2cl",
     srcs = ["//thirdparty:base_j2cl"],
     # TODO: The glob should be removed and the source be part of binary artifact
@@ -83,7 +71,7 @@ j2cl_library(
     # TODO: The glob should be removed and the source be part of binary artifact
     native_srcs = glob(["src/main/java/react4j/*.js"]),
     deps = [
-        ":arez_core-j2cl",
+        "//thirdparty:arez_core-j2cl",
         "//thirdparty:braincheck-j2cl",
         ":elemental2_core-j2cl",
         ":elemental2_promise-j2cl",
@@ -118,7 +106,7 @@ j2cl_library(
         "//thirdparty:react4j_processor",
     ],
     deps = [
-        ":arez_core-j2cl",
+        "//thirdparty:arez_core-j2cl",
         ":elemental2_dom-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
         "//thirdparty:javax_annotation-j2cl",

@@ -7,17 +7,17 @@
     Invoke 'generate_targets' from a BUILD.bazel file.
 """
 # Dependency Graph Generated from the input data
-# +- org.realityforge.arez:arez-core:jar:0.138 [compile]
+# +- org.realityforge.arez:arez-core:jar:0.139 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
-# |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
-# +- org.realityforge.arez:arez-processor:jar:0.138 [compile]
+# |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
+# +- org.realityforge.arez:arez-processor:jar:0.139 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
 # |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # |  +- org.realityforge.braincheck:braincheck:jar:1.16.0 [compile] (conflicts with 1.18.0)
-# |  \- org.realityforge.arez:arez-core:jar:0.137 [compile] (conflicts with 0.138)
+# |  \- org.realityforge.arez:arez-core:jar:0.137 [compile] (conflicts with 0.139)
 # +- org.realityforge.react4j:react4j-dom:jar:0.129 [compile]
 # |  +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.24 [compile]
@@ -39,7 +39,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "E7F155214FA94A232395C41D6EDC4995AF00E9740CD37BBC46FCE7489F8D8286"
+_CONFIG_SHA256 = "EE2842CA9FD9C285FD506CBE3A81CACC50342D788110C6A63B8E6C3570675EDB"
 
 def generate_workspace_rules():
     """
@@ -49,31 +49,31 @@ def generate_workspace_rules():
     """
 
     http_file(
-        name = "org_realityforge_arez__arez_core__0_138",
-        downloaded_file_path = "org/realityforge/arez/arez-core/0.138/arez-core-0.138.jar",
-        sha256 = "6c7aa63c1309902c9a1455ae33637e3d968930f2115d552d427d2d9b458e4847",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.138/arez-core-0.138.jar"],
+        name = "org_realityforge_arez__arez_core__0_139",
+        downloaded_file_path = "org/realityforge/arez/arez-core/0.139/arez-core-0.139.jar",
+        sha256 = "7d51dac487a7a31ee3f7cdf5f350ecd038f4ae74af6a1c845f7755c4ea008a08",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.139/arez-core-0.139.jar"],
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_core__0_138__sources",
-        downloaded_file_path = "org/realityforge/arez/arez-core/0.138/arez-core-0.138-sources.jar",
-        sha256 = "e4db680c7b15a4099b6fbdb7acf1427a268b19cfb751aa404bd6ca2d112e73ac",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.138/arez-core-0.138-sources.jar"],
+        name = "org_realityforge_arez__arez_core__0_139__sources",
+        downloaded_file_path = "org/realityforge/arez/arez-core/0.139/arez-core-0.139-sources.jar",
+        sha256 = "788e58dd5285e6461c094530079bb1ae26ae2b2ecd9c6cc88672bee9f3f6bde2",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.139/arez-core-0.139-sources.jar"],
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_processor__0_138",
-        downloaded_file_path = "org/realityforge/arez/arez-processor/0.138/arez-processor-0.138.jar",
-        sha256 = "6fc189cc3126744dedf92d97b308f9d81835fddd2b1b3838ad4f1edf33931224",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138.jar"],
+        name = "org_realityforge_arez__arez_processor__0_139",
+        downloaded_file_path = "org/realityforge/arez/arez-processor/0.139/arez-processor-0.139.jar",
+        sha256 = "2f2dcb9b51583f2076eda9c3fb957fa887bd71930bdfde417c8ff334aded8eb4",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.139/arez-processor-0.139.jar"],
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_processor__0_138__sources",
-        downloaded_file_path = "org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar",
-        sha256 = "6d3984310480425dfa48df7b3010dd2eb82e5362b5b9164c7ded222b49e5fd2b",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.138/arez-processor-0.138-sources.jar"],
+        name = "org_realityforge_arez__arez_processor__0_139__sources",
+        downloaded_file_path = "org/realityforge/arez/arez-processor/0.139/arez-processor-0.139-sources.jar",
+        sha256 = "33e6831ca75732930437fee28be54fd7ed3f4f1cd62495c137fdc0a87c759d42",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.139/arez-processor-0.139-sources.jar"],
     )
 
     http_file(
@@ -87,14 +87,14 @@ def generate_workspace_rules():
         name = "org_realityforge_braincheck__braincheck__1_18_0",
         downloaded_file_path = "org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0.jar",
         sha256 = "7b410e6b831e599ef7ed4d37027f54d2b18432af558d14569fbcb6a168ca5a9b",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0.jar"],
     )
 
     http_file(
         name = "org_realityforge_braincheck__braincheck__1_18_0__sources",
         downloaded_file_path = "org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0-sources.jar",
         sha256 = "cfb15935cd166d4c226fc5bdfce72fcc8509151f6c7f1b8595582e1bd4e8455b",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0-sources.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0-sources.jar"],
     )
 
     http_file(
@@ -260,42 +260,57 @@ def generate_targets():
 
     native.alias(
         name = "arez_core",
-        actual = ":org_realityforge_arez__arez_core__0_138",
+        actual = ":org_realityforge_arez__arez_core__0_139",
     )
     native.java_import(
-        name = "org_realityforge_arez__arez_core__0_138",
-        jars = ["@org_realityforge_arez__arez_core__0_138//file"],
-        srcjar = "@org_realityforge_arez__arez_core__0_138__sources//file",
-        tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.138"],
+        name = "org_realityforge_arez__arez_core__0_139",
+        jars = ["@org_realityforge_arez__arez_core__0_139//file"],
+        srcjar = "@org_realityforge_arez__arez_core__0_139__sources//file",
+        tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.139"],
         visibility = ["//visibility:private"],
         deps = [
-            ":base_j2cl",
             ":javax_annotation",
+            ":jsinterop_annotations",
+        ],
+    )
+
+    native.alias(
+        name = "arez_core-j2cl",
+        actual = ":org_realityforge_arez__arez_core__0_139-j2cl",
+    )
+    j2cl_library(
+        name = "org_realityforge_arez__arez_core__0_139-j2cl",
+        srcs = ["@org_realityforge_arez__arez_core__0_139__sources//file"],
+        js_suppress = ["checkDebuggerStatement"],
+        visibility = ["//visibility:private"],
+        deps = [
+            ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
         ],
     )
 
     native.alias(
         name = "arez_processor",
-        actual = ":org_realityforge_arez__arez_processor__0_138",
+        actual = ":org_realityforge_arez__arez_processor__0_139",
     )
     native.java_import(
-        name = "org_realityforge_arez__arez_processor__0_138__plugin_library",
-        jars = ["@org_realityforge_arez__arez_processor__0_138//file"],
-        srcjar = "@org_realityforge_arez__arez_processor__0_138__sources//file",
-        tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.138"],
+        name = "org_realityforge_arez__arez_processor__0_139__plugin_library",
+        jars = ["@org_realityforge_arez__arez_processor__0_139//file"],
+        srcjar = "@org_realityforge_arez__arez_processor__0_139__sources//file",
+        tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.139"],
         visibility = ["//visibility:private"],
         data = [":verify_config_sha256"],
     )
     native.java_plugin(
-        name = "org_realityforge_arez__arez_processor__0_138__arez_processor_arezprocessor__plugin",
+        name = "org_realityforge_arez__arez_processor__0_139__arez_processor_arezprocessor__plugin",
         processor_class = "arez.processor.ArezProcessor",
         generates_api = True,
         visibility = ["//visibility:private"],
-        deps = [":org_realityforge_arez__arez_processor__0_138__plugin_library"],
+        deps = [":org_realityforge_arez__arez_processor__0_139__plugin_library"],
     )
     native.java_library(
-        name = "org_realityforge_arez__arez_processor__0_138",
-        exported_plugins = ["org_realityforge_arez__arez_processor__0_138__arez_processor_arezprocessor__plugin"],
+        name = "org_realityforge_arez__arez_processor__0_139",
+        exported_plugins = ["org_realityforge_arez__arez_processor__0_139__arez_processor_arezprocessor__plugin"],
         visibility = ["//visibility:private"],
     )
 
