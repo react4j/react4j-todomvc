@@ -38,7 +38,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "93768925A2AB9189496E0F1E19B41059F78E42F708B6A7DDF788783AEF9BFA3C"
+_CONFIG_SHA256 = "790EA4C18384BB8A90DBDA87F6E02CF8D622DF2A82519DF57BAFB97BB99B482A"
 
 def generate_workspace_rules():
     """
@@ -93,14 +93,7 @@ def generate_workspace_rules():
         name = "org_realityforge_bazel_depgen__bazel_depgen__0_02",
         downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar",
         sha256 = "ab71c9ab256e0184c96dda0aaaf09f8e348e1c023020e132d8ad243e65a30f25",
-        urls = ["file:///Users/peter/.m2/repository/org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar"],
-    )
-
-    http_file(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_02__sources",
-        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-sources.jar",
-        sha256 = "42b76782bf51b45a5ac2beaaefaa97ae0ad41ceb93934d47549a57141e70825b",
-        urls = ["file:///Users/peter/.m2/repository/org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-sources.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.02/bazel-depgen-0.02-all.jar"],
     )
 
     http_file(
@@ -339,7 +332,6 @@ def generate_targets():
     native.java_import(
         name = "org_realityforge_bazel_depgen__bazel_depgen__0_02",
         jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_02//file"],
-        srcjar = "@org_realityforge_bazel_depgen__bazel_depgen__0_02__sources//file",
         tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.02"],
         visibility = ["//visibility:private"],
     )
