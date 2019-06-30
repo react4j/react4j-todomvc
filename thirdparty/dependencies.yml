@@ -6,6 +6,9 @@ repositories:
     cacheLookups: false
 options:
   aliasStrategy: ArtifactId
+
+# TODO: Many of these artifacts have dual natures. We should remove the Java nature after we have converted
+#       all the libraries to use J2cl and then change the default nature to J2cl.
 artifacts:
   - coord: org.realityforge.arez:arez-core:0.138
   - coord: org.realityforge.arez:arez-processor:0.138
