@@ -2,6 +2,12 @@ workspace(name = "org_realityforge_react4j_todomvc")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+# Uncomment this to use a local j2cl
+#local_repository(
+#    name = "com_google_j2cl",
+#    path = "/Users/peter/Code/realityforge/j2cl",
+#)
+
 http_archive(
     name = "com_google_j2cl",
     strip_prefix = "j2cl-master",
