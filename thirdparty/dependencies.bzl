@@ -14,31 +14,32 @@
 # +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
-# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
 # |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
-# |  +- org.realityforge.braincheck:braincheck:jar:1.16.0 [compile]
-# |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
-# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile, optional] REPLACED BY base_j2cl (Java)
+# |  +- org.realityforge.braincheck:braincheck:jar:1.16.0 [compile] (conflicts with 1.18.0)
 # |  \- org.realityforge.arez:arez-core:jar:0.137 [compile] (conflicts with 0.138)
 # +- org.realityforge.react4j:react4j-dom:jar:0.129 [compile]
 # |  +- org.realityforge.react4j:react4j-core:jar:0.129 [compile]
 # |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.24 [compile]
-# |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
 # |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # |     +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.24 [compile]
-# |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
 # |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
 # |     |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # |     \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # +- org.realityforge.react4j:react4j-processor:jar:0.129 [compile]
-# \- org.realityforge.com.google.jsinterop:base-j2cl:jar:1.0.0-b2-e6d791f [compile]
-#    \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# +- org.realityforge.com.google.jsinterop:base-j2cl:jar:1.0.0-b2-e6d791f [compile]
+# |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
+# \- org.realityforge.braincheck:braincheck:jar:1.18.0 [compile]
+#    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
+#    \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "790EA4C18384BB8A90DBDA87F6E02CF8D622DF2A82519DF57BAFB97BB99B482A"
+_CONFIG_SHA256 = "E7F155214FA94A232395C41D6EDC4995AF00E9740CD37BBC46FCE7489F8D8286"
 
 def generate_workspace_rules():
     """
@@ -46,20 +47,6 @@ def generate_workspace_rules():
 
         Must be run from a WORKSPACE file.
     """
-
-    http_file(
-        name = "com_google_jsinterop__jsinterop_annotations__1_0_2",
-        downloaded_file_path = "com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2.jar",
-        sha256 = "fcaf44731f5b6a606fa428a6d1a9ede11dc628c6f7d0f91c235aa71e337bf014",
-        urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2.jar"],
-    )
-
-    http_file(
-        name = "com_google_jsinterop__jsinterop_annotations__1_0_2__sources",
-        downloaded_file_path = "com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2-sources.jar",
-        sha256 = "9091354e2fccf3585fd0de6c5aac78418d84b15d59e5401cfb3c70ebf4950459",
-        urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/jsinterop-annotations/1.0.2/jsinterop-annotations-1.0.2-sources.jar"],
-    )
 
     http_file(
         name = "org_realityforge_arez__arez_core__0_138",
@@ -97,17 +84,17 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_braincheck__braincheck__1_16_0",
-        downloaded_file_path = "org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0.jar",
-        sha256 = "9370edd88e26d5442ca2a083c77fd71e6ea212bb1848c2a56ad1d921cae61dfc",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0.jar"],
+        name = "org_realityforge_braincheck__braincheck__1_18_0",
+        downloaded_file_path = "org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0.jar",
+        sha256 = "7b410e6b831e599ef7ed4d37027f54d2b18432af558d14569fbcb6a168ca5a9b",
+        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0.jar"],
     )
 
     http_file(
-        name = "org_realityforge_braincheck__braincheck__1_16_0__sources",
-        downloaded_file_path = "org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0-sources.jar",
-        sha256 = "21884be11869f91f353c365896ddb1e265d3d792a364cb8753cd3b587a45ad39",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck/1.16.0/braincheck-1.16.0-sources.jar"],
+        name = "org_realityforge_braincheck__braincheck__1_18_0__sources",
+        downloaded_file_path = "org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0-sources.jar",
+        sha256 = "cfb15935cd166d4c226fc5bdfce72fcc8509151f6c7f1b8595582e1bd4e8455b",
+        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/braincheck/braincheck/1.18.0/braincheck-1.18.0-sources.jar"],
     )
 
     http_file(
@@ -272,19 +259,6 @@ def generate_targets():
     )
 
     native.alias(
-        name = "jsinterop_annotations",
-        actual = ":com_google_jsinterop__jsinterop_annotations__1_0_2",
-    )
-    native.java_import(
-        name = "com_google_jsinterop__jsinterop_annotations__1_0_2",
-        jars = ["@com_google_jsinterop__jsinterop_annotations__1_0_2//file"],
-        srcjar = "@com_google_jsinterop__jsinterop_annotations__1_0_2__sources//file",
-        tags = ["maven_coordinates=com.google.jsinterop:jsinterop-annotations:1.0.2"],
-        visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
-    )
-
-    native.alias(
         name = "arez_core",
         actual = ":org_realityforge_arez__arez_core__0_138",
     )
@@ -338,15 +312,33 @@ def generate_targets():
 
     native.alias(
         name = "braincheck",
-        actual = ":org_realityforge_braincheck__braincheck__1_16_0",
+        actual = ":org_realityforge_braincheck__braincheck__1_18_0",
     )
     native.java_import(
-        name = "org_realityforge_braincheck__braincheck__1_16_0",
-        jars = ["@org_realityforge_braincheck__braincheck__1_16_0//file"],
-        srcjar = "@org_realityforge_braincheck__braincheck__1_16_0__sources//file",
-        tags = ["maven_coordinates=org.realityforge.braincheck:braincheck:1.16.0"],
+        name = "org_realityforge_braincheck__braincheck__1_18_0",
+        jars = ["@org_realityforge_braincheck__braincheck__1_18_0//file"],
+        srcjar = "@org_realityforge_braincheck__braincheck__1_18_0__sources//file",
+        tags = ["maven_coordinates=org.realityforge.braincheck:braincheck:1.18.0"],
         visibility = ["//visibility:private"],
-        deps = [":javax_annotation"],
+        deps = [
+            ":javax_annotation",
+            ":jsinterop_annotations",
+        ],
+    )
+
+    native.alias(
+        name = "braincheck-j2cl",
+        actual = ":org_realityforge_braincheck__braincheck__1_18_0-j2cl",
+    )
+    j2cl_library(
+        name = "org_realityforge_braincheck__braincheck__1_18_0-j2cl",
+        srcs = ["@org_realityforge_braincheck__braincheck__1_18_0__sources//file"],
+        js_suppress = ["checkDebuggerStatement"],
+        visibility = ["//visibility:private"],
+        deps = [
+            ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
+        ],
     )
 
     native.alias(
