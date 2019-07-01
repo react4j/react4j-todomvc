@@ -106,6 +106,7 @@ j2cl_library(
         "//thirdparty:react4j_processor",
     ],
     deps = [
+        "//thirdparty:braincheck-j2cl",
         "//thirdparty:arez_core-j2cl",
         ":elemental2_dom-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
