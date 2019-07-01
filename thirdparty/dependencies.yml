@@ -16,9 +16,9 @@ artifacts:
   - coord: org.realityforge.arez:arez-core:0.140
     natures: [Java, J2cl]
   - coord: org.realityforge.arez:arez-processor:0.140
-  - coord: org.realityforge.react4j:react4j-core:0.129
-  - coord: org.realityforge.react4j:react4j-dom:0.129
-  - coord: org.realityforge.react4j:react4j-processor:0.129
+  - coord: org.realityforge.react4j:react4j-core:0.130
+  - coord: org.realityforge.react4j:react4j-dom:0.130
+  - coord: org.realityforge.react4j:react4j-processor:0.130
 
   # The next dep is needed so we can switch out GWT version with J2CL version
   - coord: org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f
