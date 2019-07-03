@@ -3,15 +3,3 @@ package(default_visibility = ["//visibility:public"])
 load("//thirdparty:dependencies.bzl", "generate_targets")
 
 generate_targets()
-
-# TODO: Once Bazel-depgen correct handles arbitrary labels in replacements this should be removed
-alias(
-    name = "jsinterop_annotations",
-    actual = "@com_google_jsinterop_annotations_head//jar",
-)
-
-# TODO: Once Bazel-depgen correct handles arbitrary labels in replacements this should be removed
-alias(
-    name = "jsinterop_annotations-j2cl",
-    actual = "//:jsinterop_annotations-j2cl",
-)

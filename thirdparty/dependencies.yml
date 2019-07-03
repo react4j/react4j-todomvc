@@ -41,9 +41,9 @@ artifacts:
 replacements:
   - coord: org.realityforge.com.google.jsinterop:base
     targets:
-      - target: base_j2cl
+      - target: :base_j2cl
   - coord: com.google.jsinterop:jsinterop-annotations
     targets:
-      - target: jsinterop_annotations
-      - target: jsinterop_annotations-j2cl
+      - target: "@com_google_jsinterop_annotations_head//jar"
+      - target: //:jsinterop_annotations-j2cl
         nature: J2cl

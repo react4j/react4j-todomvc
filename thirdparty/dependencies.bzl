@@ -11,29 +11,29 @@
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  +- org.realityforge.braincheck:braincheck:jar:1.19.0 [compile]
 # |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
-# |  |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
-# |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
+# |  |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY @com_google_jsinterop_annotations_head//jar (Java), //:jsinterop_annotations-j2cl (J2cl)
+# |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY @com_google_jsinterop_annotations_head//jar (Java), //:jsinterop_annotations-j2cl (J2cl)
 # +- org.realityforge.arez:arez-processor:jar:0.140 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.130 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.0 [compile]
 # |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
-# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
-# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
+# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY @com_google_jsinterop_annotations_head//jar (Java), //:jsinterop_annotations-j2cl (J2cl)
+# |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY :base_j2cl (Java)
 # |  +- org.realityforge.braincheck:braincheck:jar:1.19.0 [compile]
 # |  \- org.realityforge.arez:arez-core:jar:0.140 [compile]
 # +- org.realityforge.react4j:react4j-dom:jar:0.130 [compile]
 # |  +- org.realityforge.react4j:react4j-core:jar:0.130 [compile]
 # |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.24 [compile]
-# |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
-# |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
+# |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY @com_google_jsinterop_annotations_head//jar (Java), //:jsinterop_annotations-j2cl (J2cl)
+# |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY :base_j2cl (Java)
 # |     +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.24 [compile]
-# |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
-# |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY base_j2cl (Java)
+# |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY @com_google_jsinterop_annotations_head//jar (Java), //:jsinterop_annotations-j2cl (J2cl)
+# |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile] REPLACED BY :base_j2cl (Java)
 # |     |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # |     \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.24 [compile]
 # +- org.realityforge.react4j:react4j-processor:jar:0.130 [compile]
 # \- org.realityforge.com.google.jsinterop:base-j2cl:jar:1.0.0-b2-e6d791f [compile]
-#    \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY jsinterop_annotations (Java), jsinterop_annotations-j2cl (J2cl)
+#    \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] REPLACED BY @com_google_jsinterop_annotations_head//jar (Java), //:jsinterop_annotations-j2cl (J2cl)
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
@@ -271,7 +271,7 @@ def generate_targets():
         deps = [
             ":braincheck",
             ":javax_annotation",
-            ":jsinterop_annotations",
+            "@com_google_jsinterop_annotations_head//jar",
         ],
     )
 
@@ -284,9 +284,9 @@ def generate_targets():
         srcs = ["@org_realityforge_arez__arez_core__0_140__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
+            "//:jsinterop_annotations-j2cl",
             ":braincheck-j2cl",
             ":javax_annotation-j2cl",
-            ":jsinterop_annotations-j2cl",
         ],
     )
 
@@ -338,7 +338,7 @@ def generate_targets():
         visibility = ["//visibility:private"],
         deps = [
             ":javax_annotation",
-            ":jsinterop_annotations",
+            "@com_google_jsinterop_annotations_head//jar",
         ],
     )
 
@@ -352,8 +352,8 @@ def generate_targets():
         js_suppress = ["checkDebuggerStatement"],
         visibility = ["//visibility:private"],
         deps = [
+            "//:jsinterop_annotations-j2cl",
             ":javax_annotation-j2cl",
-            ":jsinterop_annotations-j2cl",
         ],
     )
 
@@ -370,7 +370,7 @@ def generate_targets():
         deps = [
             ":base_j2cl",
             ":elemental2_promise",
-            ":jsinterop_annotations",
+            "@com_google_jsinterop_annotations_head//jar",
         ],
     )
 
@@ -388,7 +388,7 @@ def generate_targets():
             ":base_j2cl",
             ":elemental2_core",
             ":elemental2_promise",
-            ":jsinterop_annotations",
+            "@com_google_jsinterop_annotations_head//jar",
         ],
     )
 
@@ -404,7 +404,7 @@ def generate_targets():
         visibility = ["//visibility:private"],
         deps = [
             ":base_j2cl",
-            ":jsinterop_annotations",
+            "@com_google_jsinterop_annotations_head//jar",
         ],
     )
 
@@ -418,7 +418,7 @@ def generate_targets():
         srcjar = "@org_realityforge_com_google_jsinterop__base_j2cl__1_0_0_b2_e6d791f__sources//file",
         tags = ["maven_coordinates=org.realityforge.com.google.jsinterop:base-j2cl:1.0.0-b2-e6d791f"],
         visibility = ["//visibility:private"],
-        deps = [":jsinterop_annotations"],
+        deps = ["@com_google_jsinterop_annotations_head//jar"],
     )
 
     native.alias(
