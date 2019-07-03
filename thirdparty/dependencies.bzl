@@ -51,35 +51,35 @@ def generate_workspace_rules():
     http_file(
         name = "org_realityforge_arez__arez_core__0_140",
         downloaded_file_path = "org/realityforge/arez/arez-core/0.140/arez-core-0.140.jar",
-        sha256 = "bc00bedcf06f2d227677dfdaa042af1243fa0868cc6dada06cf3edd064dd81ed",
+        sha256 = "d1461a0085a74aa24af36f3e44fa76d89d23bacd1dd821c6a862337f7d1e2f60",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.140/arez-core-0.140.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_core__0_140__sources",
         downloaded_file_path = "org/realityforge/arez/arez-core/0.140/arez-core-0.140-sources.jar",
-        sha256 = "1e625b782a785ea3a309443d56cd0a52da0e4a5de88afb74707b0dcd80963b57",
+        sha256 = "242ed3a847bbd58e0c9d5e12b572ef272ce5dc700deaca0a4dafd6aa86d44192",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.140/arez-core-0.140-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_processor__0_140",
         downloaded_file_path = "org/realityforge/arez/arez-processor/0.140/arez-processor-0.140.jar",
-        sha256 = "28a0ef24fa8ace4b1eb368b92992190b5d3dabfb374bc54cf59088ca2db2e343",
+        sha256 = "08422e251d1bcba3940970de097656bdeec263205eba3d8834459613f976089c",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.140/arez-processor-0.140.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_processor__0_140__sources",
         downloaded_file_path = "org/realityforge/arez/arez-processor/0.140/arez-processor-0.140-sources.jar",
-        sha256 = "bb6d3c22e88f7f4b114204071c53214807ec6840f0d1fc1bb409b44e765b4c6c",
+        sha256 = "0671f7e420d907b15e2aafa052365e3b2271ee55aefc737532488a243f39601d",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.140/arez-processor-0.140-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_bazel_depgen__bazel_depgen__0_04",
         downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.04/bazel-depgen-0.04-all.jar",
-        sha256 = "1ec2492dda75d3c2baf840a3093a756d99cd879a592987aaa3cdfa4fe49a06c2",
+        sha256 = "864aaca270c3ea9d44fab5405b7234ca8a9abfa9b5c98aecec8eb3457d15901b",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.04/bazel-depgen-0.04-all.jar"],
     )
 
