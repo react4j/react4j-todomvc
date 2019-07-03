@@ -35,7 +35,7 @@ artifacts:
     j2cl:
       suppress: [checkDebuggerStatement]
   # Depgen artifact
-#  - coord: org.realityforge.bazel.depgen:bazel-depgen:jar:all:0.03
+#  - coord: org.realityforge.bazel.depgen:bazel-depgen:jar:all:0.04
 #    repositories: [local]
 
 replacements:
