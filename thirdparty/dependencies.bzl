@@ -1,4 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.04
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.05
 
 """
     Macro rules to load dependencies.
@@ -39,7 +39,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "1DF387350EB57FD368BBF68EB397334B6241B5BBA816B67CF10BC69BEC541F07"
+_CONFIG_SHA256 = "56C736A15525D6A593ECB4C7D00449B109B877F1E59CBE9D760129053E315995"
 
 def generate_workspace_rules():
     """
@@ -77,10 +77,10 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_04",
-        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.04/bazel-depgen-0.04-all.jar",
-        sha256 = "864aaca270c3ea9d44fab5405b7234ca8a9abfa9b5c98aecec8eb3457d15901b",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.04/bazel-depgen-0.04-all.jar"],
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_05",
+        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.05/bazel-depgen-0.05-all.jar",
+        sha256 = "4a9156ffee0ad8ed2533aa06e8c674c15cd199d79117b810a8563cc365706f29",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.05/bazel-depgen-0.05-all.jar"],
     )
 
     http_file(
@@ -317,12 +317,12 @@ def generate_targets():
 
     native.alias(
         name = "bazel_depgen",
-        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_04",
+        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_05",
     )
     native.java_import(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_04",
-        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_04//file"],
-        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.04"],
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_05",
+        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_05//file"],
+        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.05"],
         visibility = ["//visibility:private"],
     )
 
