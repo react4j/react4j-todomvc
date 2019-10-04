@@ -61,15 +61,6 @@ public abstract class ViewService
     return CollectionsUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
   }
 
-  @Observe( mutation = true )
-  void updateTodoBeingEdited()
-  {
-    if ( Disposable.isDisposed( getTodoBeingEdited() ) )
-    {
-      setTodoBeingEdited( null );
-    }
-  }
-
   @Observe( mutation = true, nestedActionsAllowed = true )
   void cleanLocation()
   {
