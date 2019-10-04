@@ -2,6 +2,8 @@ package react4j.todomvc.model;
 
 import arez.Disposable;
 import arez.annotations.ArezComponent;
+import arez.annotations.CascadeDispose;
+import arez.annotations.ComponentDependency;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
@@ -11,6 +13,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+@SuppressWarnings( "Arez:UnmanagedComponentReference" )
 @ArezComponent( nameIncludesId = false )
 public abstract class ViewService
 {
@@ -27,6 +30,7 @@ public abstract class ViewService
 
   @Observable
   @Nullable
+  @ComponentDependency( action = ComponentDependency.Action.SET_NULL )
   public abstract Todo getTodoBeingEdited();
 
   public abstract void setTodoBeingEdited( @Nullable Todo todoBeingEdited );
