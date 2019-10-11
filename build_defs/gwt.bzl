@@ -3,6 +3,10 @@
 Starlark rules for building [GWT](http://www.gwtproject.org/) applications using Bazel.
 """
 
+load("//build_defs:dependencies.bzl", _gwt_generate_workspace_rules = "generate_workspace_rules")
+
+gwt_generate_workspace_rules = _gwt_generate_workspace_rules
+
 _GWT_COMPILER = "com.google.gwt.dev.Compiler"
 
 _GWT_COMPILER_JVM_FLAGS = ["-Xmx1G"]
