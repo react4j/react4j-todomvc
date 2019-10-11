@@ -3,6 +3,7 @@
 Starlark rules for building [GWT](http://www.gwtproject.org/) applications using Bazel.
 """
 
+load("@rules_java//java:defs.bzl", "java_binary")
 load("//build_defs:dependencies.bzl", _gwt_generate_workspace_rules = "generate_workspace_rules")
 
 gwt_generate_workspace_rules = _gwt_generate_workspace_rules
@@ -222,7 +223,7 @@ def gwt_binary(
     # which will break in some environments that have many deps
     deps_artifact = name + "-deps"
     if len(srcs) > 0:
-        native.java_binary(
+        java_binary(
             name = deps_artifact,
             main_class = name,
             resources = resources,
@@ -232,7 +233,7 @@ def gwt_binary(
             visibility = ["//visibility:private"],
         )
     else:
-        native.java_binary(
+        java_binary(
             name = deps_artifact,
             main_class = name,
             resources = resources,
@@ -273,7 +274,7 @@ def gwt_application(
     gwt_binary(name, srcs, resources, modules, pubs, deps, visibility, output_root, gwt_dev_deps, compiler_flags, compiler_jvm_flags)
 
     dev_server_deps_artifact = name + "-dev_server_deps"
-    native.java_binary(
+    java_binary(
         name = dev_server_deps_artifact,
         main_class = name,
         resources = resources,
