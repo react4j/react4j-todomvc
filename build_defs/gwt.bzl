@@ -166,7 +166,7 @@ def _gwt_dev_server_impl(ctx):
     cmd += "  fi\n"
     cmd += "done\n"
     cmd += "if [ -z $srcClasspath ]; then\n"
-    cmd += '  echo "No Java sources detected in java roots: %s"\n' % ' '.join(ctx.attr.java_roots)
+    cmd += '  echo "No Java sources detected in java roots: %s"\n' % " ".join(ctx.attr.java_roots)
     cmd += "  exit 1\n"
     cmd += "fi\n"
 
