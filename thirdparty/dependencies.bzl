@@ -1,5 +1,7 @@
 # DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.01
 
+load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
+
 """
     Macro rules to load dependencies.
 
@@ -335,7 +337,7 @@ def generate_targets():
         name = "gwt_user",
         actual = ":com_google_gwt__gwt_user__2_8_2",
     )
-    native.java_import(
+    java_import(
         name = "com_google_gwt__gwt_user__2_8_2",
         jars = ["@com_google_gwt__gwt_user__2_8_2//file"],
         srcjar = "@com_google_gwt__gwt_user__2_8_2__sources//file",
@@ -353,7 +355,7 @@ def generate_targets():
         name = "jsinterop_annotations",
         actual = ":com_google_jsinterop__jsinterop_annotations__1_0_2",
     )
-    native.java_import(
+    java_import(
         name = "com_google_jsinterop__jsinterop_annotations__1_0_2",
         jars = ["@com_google_jsinterop__jsinterop_annotations__1_0_2//file"],
         srcjar = "@com_google_jsinterop__jsinterop_annotations__1_0_2__sources//file",
@@ -367,7 +369,7 @@ def generate_targets():
         actual = ":javax_servlet__javax_servlet_api__3_1_0",
         visibility = ["//visibility:private"],
     )
-    native.java_import(
+    java_import(
         name = "javax_servlet__javax_servlet_api__3_1_0",
         jars = ["@javax_servlet__javax_servlet_api__3_1_0//file"],
         srcjar = "@javax_servlet__javax_servlet_api__3_1_0__sources//file",
@@ -381,7 +383,7 @@ def generate_targets():
         actual = ":javax_validation__validation_api__1_0_0_ga",
         visibility = ["//visibility:private"],
     )
-    native.java_import(
+    java_import(
         name = "javax_validation__validation_api__1_0_0_ga",
         jars = ["@javax_validation__validation_api__1_0_0_ga//file"],
         srcjar = "@javax_validation__validation_api__1_0_0_ga__sources//file",
@@ -394,7 +396,7 @@ def generate_targets():
         name = "arez_core",
         actual = ":org_realityforge_arez__arez_core__0_138",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_arez__arez_core__0_138",
         jars = ["@org_realityforge_arez__arez_core__0_138//file"],
         srcjar = "@org_realityforge_arez__arez_core__0_138__sources//file",
@@ -410,7 +412,7 @@ def generate_targets():
         name = "arez_processor",
         actual = ":org_realityforge_arez__arez_processor__0_138",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_arez__arez_processor__0_138__plugin_library",
         jars = ["@org_realityforge_arez__arez_processor__0_138//file"],
         srcjar = "@org_realityforge_arez__arez_processor__0_138__sources//file",
@@ -418,14 +420,14 @@ def generate_targets():
         visibility = ["//visibility:private"],
         data = [":verify_config_sha256"],
     )
-    native.java_plugin(
+    java_plugin(
         name = "org_realityforge_arez__arez_processor__0_138__arez_processor_arezprocessor__plugin",
         processor_class = "arez.processor.ArezProcessor",
         generates_api = True,
         visibility = ["//visibility:private"],
         deps = [":org_realityforge_arez__arez_processor__0_138__plugin_library"],
     )
-    native.java_library(
+    java_library(
         name = "org_realityforge_arez__arez_processor__0_138",
         exported_plugins = ["org_realityforge_arez__arez_processor__0_138__arez_processor_arezprocessor__plugin"],
         visibility = ["//visibility:private"],
@@ -435,7 +437,7 @@ def generate_targets():
         name = "bazel_depgen",
         actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_01",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_bazel_depgen__bazel_depgen__0_01",
         jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_01//file"],
         tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.01"],
@@ -447,7 +449,7 @@ def generate_targets():
         actual = ":org_realityforge_braincheck__braincheck__1_16_0",
         visibility = ["//visibility:private"],
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_braincheck__braincheck__1_16_0",
         jars = ["@org_realityforge_braincheck__braincheck__1_16_0//file"],
         srcjar = "@org_realityforge_braincheck__braincheck__1_16_0__sources//file",
@@ -461,7 +463,7 @@ def generate_targets():
         actual = ":org_realityforge_com_google_elemental2__elemental2_core__2_24",
         visibility = ["//visibility:private"],
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_com_google_elemental2__elemental2_core__2_24",
         jars = ["@org_realityforge_com_google_elemental2__elemental2_core__2_24//file"],
         srcjar = "@org_realityforge_com_google_elemental2__elemental2_core__2_24__sources//file",
@@ -478,7 +480,7 @@ def generate_targets():
         name = "elemental2_dom",
         actual = ":org_realityforge_com_google_elemental2__elemental2_dom__2_24",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_com_google_elemental2__elemental2_dom__2_24",
         jars = ["@org_realityforge_com_google_elemental2__elemental2_dom__2_24//file"],
         srcjar = "@org_realityforge_com_google_elemental2__elemental2_dom__2_24__sources//file",
@@ -497,7 +499,7 @@ def generate_targets():
         actual = ":org_realityforge_com_google_elemental2__elemental2_promise__2_24",
         visibility = ["//visibility:private"],
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_com_google_elemental2__elemental2_promise__2_24",
         jars = ["@org_realityforge_com_google_elemental2__elemental2_promise__2_24//file"],
         srcjar = "@org_realityforge_com_google_elemental2__elemental2_promise__2_24__sources//file",
@@ -513,7 +515,7 @@ def generate_targets():
         name = "base",
         actual = ":org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f",
         jars = ["@org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f//file"],
         srcjar = "@org_realityforge_com_google_jsinterop__base__1_0_0_b2_e6d791f__sources//file",
@@ -526,7 +528,7 @@ def generate_targets():
         name = "javax_annotation",
         actual = ":org_realityforge_javax_annotation__javax_annotation__1_0_0",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_0",
         jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_0//file"],
         srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_0__sources//file",
@@ -539,7 +541,7 @@ def generate_targets():
         name = "react4j_core",
         actual = ":org_realityforge_react4j__react4j_core__0_129",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_react4j__react4j_core__0_129",
         jars = ["@org_realityforge_react4j__react4j_core__0_129//file"],
         srcjar = "@org_realityforge_react4j__react4j_core__0_129__sources//file",
@@ -557,7 +559,7 @@ def generate_targets():
         name = "react4j_dom",
         actual = ":org_realityforge_react4j__react4j_dom__0_129",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_react4j__react4j_dom__0_129",
         jars = ["@org_realityforge_react4j__react4j_dom__0_129//file"],
         srcjar = "@org_realityforge_react4j__react4j_dom__0_129__sources//file",
@@ -573,7 +575,7 @@ def generate_targets():
         name = "react4j_processor",
         actual = ":org_realityforge_react4j__react4j_processor__0_129",
     )
-    native.java_import(
+    java_import(
         name = "org_realityforge_react4j__react4j_processor__0_129__plugin_library",
         jars = ["@org_realityforge_react4j__react4j_processor__0_129//file"],
         srcjar = "@org_realityforge_react4j__react4j_processor__0_129__sources//file",
@@ -581,14 +583,14 @@ def generate_targets():
         visibility = ["//visibility:private"],
         data = [":verify_config_sha256"],
     )
-    native.java_plugin(
+    java_plugin(
         name = "org_realityforge_react4j__react4j_processor__0_129__react4j_processor_reactprocessor__plugin",
         processor_class = "react4j.processor.ReactProcessor",
         generates_api = True,
         visibility = ["//visibility:private"],
         deps = [":org_realityforge_react4j__react4j_processor__0_129__plugin_library"],
     )
-    native.java_library(
+    java_library(
         name = "org_realityforge_react4j__react4j_processor__0_129",
         exported_plugins = ["org_realityforge_react4j__react4j_processor__0_129__react4j_processor_reactprocessor__plugin"],
         visibility = ["//visibility:private"],
@@ -599,7 +601,7 @@ def generate_targets():
         actual = ":org_w3c_css__sac__1_3",
         visibility = ["//visibility:private"],
     )
-    native.java_import(
+    java_import(
         name = "org_w3c_css__sac__1_3",
         jars = ["@org_w3c_css__sac__1_3//file"],
         srcjar = "@org_w3c_css__sac__1_3__sources//file",
