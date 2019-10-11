@@ -106,7 +106,7 @@ def _gwt_binary_impl(ctx):
     cmd += "cd $root\n"
 
     # Execute the command
-    ctx.action(
+    ctx.actions.run_shell(
         inputs = ctx.files.pubs + list(all_deps.to_list()) + ctx.files._jdk + ctx.files._zip,
         tools = ctx.files._zip,
         outputs = [output_archive, extras_archive],
@@ -129,7 +129,7 @@ _gwt_binary = rule(
             default = Label("@bazel_tools//tools/zip:zipper"),
             executable = True,
             cfg = "host",
-            single_file = True,
+            allow_single_file = True,
         ),
     },
     outputs = {
