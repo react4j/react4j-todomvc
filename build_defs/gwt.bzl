@@ -296,5 +296,3 @@ def gwt_application(
         dev_flags = dev_flags,
         jvm_flags = dev_jvm_flags,
     )
-
-load("//build_defs:dependencies.bzl", gwt_generate_workspace_rules = "generate_workspace_rules")
