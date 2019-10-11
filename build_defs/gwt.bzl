@@ -56,7 +56,7 @@ def _gwt_binary_impl(ctx):
     cmd += "%s %s -Dgwt.normalizeTimestamps=true -cp %s %s -war %s -deploy %s -extra %s %s %s\n" % (
         ctx.attr._jdk[java_common.JavaRuntimeInfo].java_executable_exec_path,
         " ".join(ctx.attr.jvm_flags),
-        ":".join([dep.path for dep in all_deps]),
+        ":".join([dep.path for dep in all_deps.to_list()]),
         _GWT_COMPILER,
         output_dir + "/" + ctx.attr.output_root,
         output_dir + "/WEB-INF/deploy/" + ctx.attr.output_root,
@@ -106,7 +106,7 @@ def _gwt_binary_impl(ctx):
 
     # Execute the command
     ctx.action(
-        inputs = ctx.files.pubs + list(all_deps) + ctx.files._jdk + ctx.files._zip,
+        inputs = ctx.files.pubs + list(all_deps.to_list()) + ctx.files._jdk + ctx.files._zip,
         tools = ctx.files._zip,
         outputs = [output_archive, extras_archive],
         mnemonic = "GwtCompile",
@@ -140,7 +140,7 @@ _gwt_binary = rule(
 def _gwt_dev_server_impl(ctx):
     # Find all transitive dependencies that need to go on the classpath
     all_deps = _get_dep_jars(ctx)
-    dep_paths = [dep.short_path for dep in all_deps]
+    dep_paths = [dep.short_path for dep in all_deps.to_list()]
     cmd = "#!/bin/bash\n\n"
 
     cmd += "rm -rf archive\n"
@@ -187,7 +187,7 @@ def _gwt_dev_server_impl(ctx):
     )
     return struct(
         executable = ctx.outputs.executable,
-        runfiles = ctx.runfiles(files = list(all_deps) + ctx.files.pubs + ctx.files._jdk),
+        runfiles = ctx.runfiles(files = list(all_deps.to_list()) + ctx.files.pubs + ctx.files._jdk),
     )
 
 _gwt_dev_server = rule(
