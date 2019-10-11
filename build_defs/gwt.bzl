@@ -75,7 +75,7 @@ def _gwt_binary_impl(ctx):
     # Don't include the unit cache in the output
     cmd += "rm -rf %s/gwt-unitCache\n" % output_dir
 
-    cmd += "find %s -name compilation-mappings.txt -exec rm -f {} \;\n" % output_dir
+    cmd += "find %s -name compilation-mappings.txt -exec rm -f {} \\;\n" % output_dir
 
     # Discover all of the generated files and write their paths to a file. Run the
     # paths through sed to trim out everything before the package root so that the
@@ -159,7 +159,7 @@ def _gwt_dev_server_impl(ctx):
     cmd += 'javaRoots=("%s")\n' % '" "'.join(ctx.attr.java_roots)
     cmd += "srcClasspath=''\n"
     cmd += "for root in ${javaRoots[@]}; do\n"
-    cmd += "  rootDir=$(pwd | sed -e 's:\(.*\)%s.*:\\1:')../../../$root\n" % (ctx.attr.package_name)
+    cmd += "  rootDir=$(pwd | sed -e 's:\\(.*\\)%s.*:\\1:')../../../$root\n" % (ctx.attr.package_name)
     cmd += "  if [ -d $rootDir ]; then\n"
     cmd += "    srcClasspath+=:$rootDir\n"
     cmd += '    echo "Using Java sources rooted at $rootDir"\n'
