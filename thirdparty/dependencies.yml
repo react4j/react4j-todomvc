@@ -7,14 +7,15 @@ options:
   aliasStrategy: ArtifactId
 artifacts:
   - coord: com.google.gwt:gwt-user:2.8.2
-  - coord: org.realityforge.arez:arez-core:0.138
-  - coord: org.realityforge.arez:arez-processor:0.138
-  - coord: org.realityforge.react4j:react4j-core:0.129
-  - coord: org.realityforge.react4j:react4j-dom:0.129
-  - coord: org.realityforge.react4j:react4j-processor:0.129
+  - coord: org.realityforge.arez:arez-core:0.147
+  - coord: org.realityforge.arez:arez-processor:0.147
+  - coord: org.realityforge.react4j:react4j-core:0.133
+  - coord: org.realityforge.react4j:react4j-dom:0.133
+  - coord: org.realityforge.react4j:react4j-processor:0.133
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
   - coord: com.google.jsinterop:jsinterop-annotations
   - coord: org.realityforge.com.google.jsinterop:base
   - coord: org.realityforge.com.google.elemental2:elemental2-dom
+  - coord: org.realityforge.braincheck:braincheck:1.25.0
