@@ -2,7 +2,8 @@ options:
   aliasStrategy: ArtifactId
   supportDependencyOmit: true
   verifyConfigSha256: false
-  exportDeps: true
+  java:
+    exportDeps: true
   includeSource: false
 artifacts:
   - coord: com.google.gwt:gwt-dev:2.8.2

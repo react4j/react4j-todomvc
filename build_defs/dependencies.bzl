@@ -1,6 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.01
-
-load("@rules_java//java:defs.bzl", "java_import")
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.10
 
 """
     Macro rules to load dependencies.
@@ -95,6 +93,7 @@ load("@rules_java//java:defs.bzl", "java_import")
 #          \- org.apache.tomcat:tomcat-jasper:jar:8.0.9 [compile, optional]
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@rules_java//java:defs.bzl", "java_import")
 
 def generate_workspace_rules(
         omit_ant = False,

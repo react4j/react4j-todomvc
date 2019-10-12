@@ -1,6 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.01
-
-load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.10
 
 """
     Macro rules to load dependencies.
@@ -42,9 +40,10 @@ load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 # \- org.realityforge.react4j:react4j-processor:jar:0.129 [compile]
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "3C8483861E7CB955BE4947A121F9C9F62C7959C7434021E13D71E0184FA98135"
+_CONFIG_SHA256 = "1C5AA7AEF3F868A3618190C5EBC073E83C9C0965FD4F05522A5D5010A96C1F95"
 
 def generate_workspace_rules():
     """
@@ -138,10 +137,13 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_01",
-        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.01/bazel-depgen-0.01-all.jar",
-        sha256 = "dca94a1562cbcce49c0f5fd9e510792f022340b2d83b7c56899121149e2d6d5a",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.01/bazel-depgen-0.01-all.jar"],
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_10",
+        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.10/bazel-depgen-0.10-all.jar",
+        sha256 = "dd2745c2c47ee2934ebf8549f33841180a0f2fbb8594938e8c7ad9b8282928e2",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.10/bazel-depgen-0.10-all.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/bazel/depgen/bazel-depgen/0.10/bazel-depgen-0.10-all.jar",
+        ],
     )
 
     http_file(
@@ -311,7 +313,7 @@ def generate_targets():
         ],
         toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
         outs = ["regenerate_depgen_extension_script.sh"],
-        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) --quiet generate \" > \"$@\"",
+        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) \$$@ generate \" > \"$@\"",
         visibility = ["//visibility:private"],
     )
 
@@ -435,12 +437,12 @@ def generate_targets():
 
     native.alias(
         name = "bazel_depgen",
-        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_01",
+        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_10",
     )
     java_import(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_01",
-        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_01//file"],
-        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.01"],
+        name = "org_realityforge_bazel_depgen__bazel_depgen__0_10",
+        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_10//file"],
+        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.10"],
         visibility = ["//visibility:private"],
     )
 
