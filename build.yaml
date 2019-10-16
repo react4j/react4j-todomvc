@@ -33,6 +33,6 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.24.0
 
-  grim_annotations: org.realityforge.grim:grim-annotations:jar:0.02
+  grim_annotations: org.realityforge.grim:grim-annotations:jar:0.03
 
   spritz_core: org.realityforge.spritz:spritz-core:jar:0.09
