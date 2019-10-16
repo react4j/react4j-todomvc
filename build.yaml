@@ -33,7 +33,7 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.24.0
 
-  grim_annotations: org.realityforge.grim:grim-annotations:jar:0.01
+  grim_annotations: org.realityforge.grim:grim-annotations:jar:0.02
 
   dagger_core: com.google.dagger:dagger:jar:2.19
   dagger_spi: com.google.dagger:dagger-spi:jar:2.19
