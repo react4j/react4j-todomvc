@@ -7,3 +7,6 @@
 /target
 /tmp
 /generated
+/bazel-*
+/.ijwb/.blaze
+/.ijwb/.idea
