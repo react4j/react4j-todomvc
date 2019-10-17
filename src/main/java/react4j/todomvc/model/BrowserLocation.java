@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
  * @link https://github.com/arez/arez-browserlocation
  */
 @ArezComponent( nameIncludesId = false )
-public abstract class BrowserLocation
+abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
   /**
@@ -77,7 +77,7 @@ public abstract class BrowserLocation
    * Revert the browsers location to the application location.
    */
   @Action
-  public void resetBrowserLocation()
+  void resetBrowserLocation()
   {
     changeLocation( getLocation() );
   }
@@ -90,7 +90,7 @@ public abstract class BrowserLocation
    */
   @Observable
   @Nonnull
-  public String getLocation()
+  String getLocation()
   {
     return _location;
   }
@@ -103,7 +103,7 @@ public abstract class BrowserLocation
 
   @Memoize( depType = DepType.AREZ_OR_EXTERNAL )
   @Nonnull
-  public String getBrowserLocation()
+  String getBrowserLocation()
   {
     return getHash();
   }
