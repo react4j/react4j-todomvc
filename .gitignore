@@ -3,8 +3,8 @@
 /*.iws
 /Gemfile.lock
 /_buildr.rb
+/target
 /tmp
 /bazel-*
 /.ijwb/.blaze
 /.ijwb/.idea
-/target
