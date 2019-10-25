@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import arez.annotations.PreDispose;
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
