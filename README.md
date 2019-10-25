@@ -13,8 +13,6 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 * add processing of `WORKSPACE` to arez/react4j/spritz for dependency upgrades during releases
 
-* Consider helping maintain https://github.com/bazelbuild/rules_gwt
-
 * Add documentation and examples from
 
   https://github.com/tadeoj/nalu-bazel-example
