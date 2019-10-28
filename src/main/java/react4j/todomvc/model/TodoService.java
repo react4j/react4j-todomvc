@@ -31,7 +31,7 @@ public abstract class TodoService
   }
 
   @Action
-  public void save( final Todo todo, final String newTitle )
+  public void save( @Nonnull final Todo todo, @Nonnull final String newTitle )
   {
     todo.setTitle( newTitle );
   }

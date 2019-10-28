@@ -68,19 +68,11 @@
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
       <version>${gwt.version}</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-dev</artifactId>
       <version>${gwt.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <!-- TODO: Remove this after next release of react4j or arez -->
-    <dependency>
-      <groupId>org.realityforge.com.google.elemental2</groupId>
-      <artifactId>elemental2-dom</artifactId>
-      <version>2.24</version>
     </dependency>
   </dependencies>
 
@@ -156,4 +148,32 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.ltgt.gwt.maven</groupId>
+            <artifactId>gwt-maven-plugin</artifactId>
+            <configuration>
+              <moduleName>react4j.todomvc.TodomvcDev</moduleName>
+              <optimize>9</optimize>
+              <style>PRETTY</style>
+              <compilerArgs>
+                <compilerArg>-checkAssertions</compilerArg>
+                <compilerArg>-XmethodNameDisplayMode</compilerArg>
+                <compilerArg>FULL</compilerArg>
+                <compilerArg>-noincremental</compilerArg>
+              </compilerArgs>
+              <skipModule>true</skipModule>
+              <startupUrls>
+                <url>/todomvc_dev/</url>
+              </startupUrls>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
