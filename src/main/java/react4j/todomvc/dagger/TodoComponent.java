@@ -1,6 +1,7 @@
 package react4j.todomvc.dagger;
 
 import dagger.Component;
+import javax.annotation.Nonnull;
 import javax.inject.Singleton;
 import react4j.todomvc.FooterDaggerComponentExtension;
 import react4j.todomvc.FooterTodoCountDaggerComponentExtension;
@@ -24,6 +25,7 @@ public interface TodoComponent
           TodoEntryDaggerComponentExtension,
           FooterTodoCountDaggerComponentExtension
 {
+  @Nonnull
   static TodoComponent create()
   {
     final TodoComponent todoComponent = DaggerTodoComponent.create();
