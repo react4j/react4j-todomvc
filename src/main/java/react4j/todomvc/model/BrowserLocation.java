@@ -19,11 +19,10 @@ import javax.annotation.Nonnull;
  * This is a simple abstraction over browser location as a hash.
  * It should be noted that this is a stripped down version extracted from the <code>arez-browserlocation</code> library.
  *
- * @link https://arez.github.io/browserlocation/
  * @link https://github.com/arez/arez-browserlocation
  */
 @ArezComponent( nameIncludesId = false )
-public abstract class BrowserLocation
+abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
   /**
@@ -78,7 +77,7 @@ public abstract class BrowserLocation
    * Revert the browsers location to the application location.
    */
   @Action
-  public void resetBrowserLocation()
+  void resetBrowserLocation()
   {
     changeLocation( getLocation() );
   }
@@ -91,7 +90,7 @@ public abstract class BrowserLocation
    */
   @Observable
   @Nonnull
-  public String getLocation()
+  String getLocation()
   {
     return _location;
   }
@@ -104,7 +103,7 @@ public abstract class BrowserLocation
 
   @Memoize( depType = DepType.AREZ_OR_EXTERNAL )
   @Nonnull
-  public String getBrowserLocation()
+  String getBrowserLocation()
   {
     return getHash();
   }

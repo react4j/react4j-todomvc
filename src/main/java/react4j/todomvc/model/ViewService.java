@@ -1,8 +1,6 @@
 package react4j.todomvc.model;
 
-import arez.Disposable;
 import arez.annotations.ArezComponent;
-import arez.annotations.CascadeDispose;
 import arez.annotations.ComponentDependency;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
