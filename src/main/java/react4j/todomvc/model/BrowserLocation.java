@@ -24,7 +24,7 @@ import javax.inject.Singleton;
  */
 @Singleton
 @ArezComponent( nameIncludesId = false )
-abstract class BrowserLocation
+public abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
   /**
