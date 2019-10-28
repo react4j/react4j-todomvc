@@ -131,4 +131,32 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>net.ltgt.gwt.maven</groupId>
+            <artifactId>gwt-maven-plugin</artifactId>
+            <configuration>
+              <moduleName>react4j.todomvc.TodomvcDev</moduleName>
+              <optimize>9</optimize>
+              <style>PRETTY</style>
+              <compilerArgs>
+                <compilerArg>-checkAssertions</compilerArg>
+                <compilerArg>-XmethodNameDisplayMode</compilerArg>
+                <compilerArg>FULL</compilerArg>
+                <compilerArg>-noincremental</compilerArg>
+              </compilerArgs>
+              <skipModule>true</skipModule>
+              <startupUrls>
+                <url>/todomvc_dev/</url>
+              </startupUrls>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
