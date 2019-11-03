@@ -6,6 +6,7 @@
   <groupId>org.realityforge.react4j.todomvc</groupId>
   <artifactId>react4j-todomvc</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
   <name>react4j-todomvc</name>
   <description>React4j TodoMVC implementation</description>
 
