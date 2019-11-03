@@ -111,6 +111,24 @@
       <artifactId>base</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </dependency>
+
+    <!--
+      The following two annotation processor dependencies are required as
+      j2cl-maven-plugin does not use the maven compiler plugin and thus does not
+      pick up the annotation processor configuration.
+    -->
+    <dependency>
+      <groupId>org.realityforge.react4j</groupId>
+      <artifactId>react4j-processor</artifactId>
+      <version>${react4j.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.realityforge.arez</groupId>
+      <artifactId>arez-processor</artifactId>
+      <version>${arez.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
