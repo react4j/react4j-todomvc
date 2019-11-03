@@ -54,6 +54,16 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>google-sonatype-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
   </repositories>
   <pluginRepositories>
     <pluginRepository>
