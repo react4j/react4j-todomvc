@@ -3,6 +3,7 @@ package react4j.todomvc;
 import javax.annotation.Nullable;
 import react4j.Component;
 import react4j.ReactNode;
+import react4j.annotations.PostMount;
 import react4j.annotations.ReactComponent;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
@@ -18,6 +19,12 @@ abstract class Footer
   private void handleClearCompleted()
   {
     AppData.service.clearCompleted();
+  }
+
+  @PostMount
+  final void postMount()
+  {
+    AppData.viewService.subscribe( this::scheduleRender );
   }
 
   @Nullable
