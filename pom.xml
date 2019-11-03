@@ -138,155 +138,32 @@
       </plugin>
       <!-- Compiles the app to JavaScript -->
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>gwt-maven-plugin</artifactId>
-        <version>2.8.2</version>
+        <groupId>com.vertispan.j2cl</groupId>
+        <artifactId>j2cl-maven-plugin</artifactId>
+        <version>0.10-SNAPSHOT</version>
         <executions>
           <execution>
-            <id>compile-js-gwt</id>
-            <phase>prepare-package</phase>
+            <phase>process-sources</phase>
             <goals>
-              <goal>compile</goal>
+              <goal>build</goal>
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <!-- ship a classes jar too -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
+        <configuration>
+          <entrypoint>react4j.todomvc.App</entrypoint>
+          <classpathScope>runtime</classpathScope>
+          <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
+          <compilationLevel>ADVANCED</compilationLevel>
+          <defines>
+            <jre.checkedMode>DISABLED</jre.checkedMode>
+            <jre.checks.checkLevel>MINIMAL</jre.checks.checkLevel>
+            <jsinterop.checks>DISABLED</jsinterop.checks>
+            <jre.classMetadata>STRIPPED</jre.classMetadata>
+            <goog.DEBUG>false</goog.DEBUG>
+          </defines>
+        </configuration>
       </plugin>
     </plugins>
   </build>
 
-  <profiles>
-    <profile>
-      <id>devmode</id>
-      <build>
-        <defaultGoal>process-classes</defaultGoal>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>3.0.2</version>
-            <executions>
-              <execution>
-                <id>build-java-classpath</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>build-classpath</goal>
-                </goals>
-                <configuration>
-                  <includeTypes>jar</includeTypes>
-                  <outputProperty>java-classpath</outputProperty>
-                </configuration>
-              </execution>
-              <execution>
-                <id>copy-bootstrap</id>
-                <goals>
-                  <goal>copy</goal>
-                </goals>
-                <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>jre</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <classifier>jszip</classifier>
-                      <type>zip</type>
-                      <destFileName>jre.js.zip</destFileName>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>jre</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <destFileName>jre.jar</destFileName>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>gwt-internal-annotations</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <destFileName>gwt-internal-annotations.jar</destFileName>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>bootstrap</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <classifier>jszip</classifier>
-                      <type>zip</type>
-                      <destFileName>bootstrap.js.zip</destFileName>
-                    </artifactItem>
-                  </artifactItems>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.6.0</version>
-            <executions>
-              <execution>
-                <id>run-devmode</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>java</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <includePluginDependencies>true</includePluginDependencies>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <mainClass>com.vertispan.j2cl.DevMode</mainClass>
-              <arguments>
-                <argument>-classpath</argument>
-                <argument>
-                  ${java-classpath}:${project.build.directory}/dependency/jre.jar:${project.build.directory}/dependency/gwt-internal-annotations.jar
-                </argument>
-                <argument>-jsClasspath</argument>
-                <argument>
-                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
-                </argument>
-                <argument>--compilation_level=ADVANCED</argument>
-                <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
-                <argument>--define=jre.classMetadata=STRIPPED</argument>
-                <argument>--define=goog.DEBUG=false</argument>
-                <argument>-out</argument>
-                <argument>out</argument>
-                <argument>-src</argument>
-                <argument>src/main/java</argument>
-                <argument>-src</argument>
-                <argument>target/generated-sources</argument>
-                <argument>-jsZipCache</argument>
-                <argument>jsZipCache</argument>
-                <argument>-entrypoint</argument>
-                <argument>jsinterop</argument>
-                <argument>-entrypoint</argument>
-                <argument>react4j.todomvc.App</argument>
-              </arguments>
-            </configuration>
-            <dependencies>
-              <dependency>
-                <groupId>org.realityforge.j2cl</groupId>
-                <artifactId>build-tools</artifactId>
-                <version>0.1-SNAPSHOT</version>
-                <type>jar</type>
-              </dependency>
-            </dependencies>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
