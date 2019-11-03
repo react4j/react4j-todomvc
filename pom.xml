@@ -93,9 +93,7 @@
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
       <artifactId>base</artifactId>
-      <version>1.0.0-20181005.191514-8</version>
-      <!-- Google made an incompatible change so we locked down version until next release -->
-      <!--<version>1.0.0-SNAPSHOT</version>-->
+      <version>1.0.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
