@@ -20,6 +20,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.136</react4j.version>
     <arez.version>0.151</arez.version>
+    <arez-spytools.version>0.77</arez-spytools.version>
   </properties>
 
   <repositories>
@@ -105,6 +106,11 @@
           <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.realityforge.arez.spytools</groupId>
+      <artifactId>arez-spytools</artifactId>
+      <version>${arez-spytools.version}</version>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
