@@ -40,6 +40,11 @@ define 'react4j-todomvc' do
               })
 
   iml.excluded_directories << project._('tmp')
+  # Also ignore bazel directories for when we switch branches
+  iml.excluded_directories << project._('bazel-bin')
+  iml.excluded_directories << project._('bazel-out')
+  iml.excluded_directories << project._('bazel-react4j-todomvc')
+  iml.excluded_directories << project._('bazel-testlogs')
 
   ipr.add_component_from_artifact(:idea_codestyle)
 
