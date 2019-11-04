@@ -4,12 +4,6 @@
 /Gemfile.lock
 /_buildr.rb
 /reports
-/out/app.js
-/out/app.map
-/out/manifest.txt
-/out/sources
-/out/react4j
-/jsZipCache
 /target
 /tmp
 /generated
