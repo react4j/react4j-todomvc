@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 
+@SuppressWarnings( "Arez:UnmanagedComponentReference" )
 @ArezComponent( nameIncludesId = false )
 public abstract class TodoService
 {
@@ -29,7 +30,7 @@ public abstract class TodoService
   }
 
   @Action
-  public void save( final Todo todo, final String newTitle )
+  public void save( @Nonnull final Todo todo, @Nonnull final String newTitle )
   {
     todo.setTitle( newTitle );
   }
