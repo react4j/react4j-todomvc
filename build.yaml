@@ -31,7 +31,7 @@ artifacts:
   arez_processor: org.realityforge.arez:arez-processor:jar:0.151
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.77
 
-  braincheck: org.realityforge.braincheck:braincheck:jar:1.24.0
+  braincheck: org.realityforge.braincheck:braincheck:jar:1.25.0
 
   grim_annotations: org.realityforge.grim:grim-annotations:jar:0.03
 
