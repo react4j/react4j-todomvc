@@ -6,6 +6,7 @@ _DEPS = [
     "//thirdparty:braincheck",
     "//thirdparty:arez_core",
     "//thirdparty:arez_processor",
+    "//thirdparty:arez_spytools",
     "//thirdparty:elemental2_dom",
     "//thirdparty:gwt_user",
     "//thirdparty:javax_annotation",

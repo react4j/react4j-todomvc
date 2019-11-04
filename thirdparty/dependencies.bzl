@@ -14,41 +14,46 @@
 # |  +- javax.validation:validation-api:jar:sources:1.0.0.GA [compile]
 # |  +- javax.servlet:javax.servlet-api:jar:3.1.0 [compile]
 # |  \- org.w3c.css:sac:jar:1.3 [compile]
-# +- org.realityforge.arez:arez-core:jar:0.147 [compile]
+# +- org.realityforge.arez:arez-core:jar:0.152 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
+# |  +- org.realityforge.grim:grim-annotations:jar:0.03 [compile]
 # |  +- org.realityforge.braincheck:braincheck:jar:1.25.0 [compile]
+# |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
+# |  |  +- org.glassfish:javax.json:jar:1.1 [compile, optional]
+# |  |  +- org.testng:testng:jar:6.11 [compile, optional]
+# |  |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.2.0 [compile]
 # |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# +- org.realityforge.arez:arez-processor:jar:0.147 [compile]
+# +- org.realityforge.arez:arez-processor:jar:0.152 [compile]
+# +- org.realityforge.arez.spytools:arez-spytools:jar:0.78 [compile]
+# |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.2.0 [compile]
+# |  +- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.25 [compile]
+# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |  |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
+# |  |  |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |  |  +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.25 [compile]
+# |  |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# |  |  |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
+# |  |  |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.25 [compile]
+# |  |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.25 [compile]
+# |  \- org.realityforge.arez:arez-core:jar:0.152 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.133 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 # |  +- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.25 [compile]
 # |  |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 # |  |  \- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
-# |  |     \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
 # |  +- org.realityforge.braincheck:braincheck:jar:1.25.0 [compile]
-# |  \- org.realityforge.arez:arez-core:jar:0.146 [compile] (conflicts with 0.147)
+# |  \- org.realityforge.arez:arez-core:jar:0.146 [compile] (conflicts with 0.152)
 # +- org.realityforge.react4j:react4j-dom:jar:0.133 [compile]
 # |  +- org.realityforge.react4j:react4j-core:jar:0.133 [compile]
 # |  \- org.realityforge.com.google.elemental2:elemental2-dom:jar:2.25 [compile]
-# |     +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# |     +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
-# |     +- org.realityforge.com.google.elemental2:elemental2-core:jar:2.25 [compile]
-# |     |  +- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
-# |     |  +- org.realityforge.com.google.jsinterop:base:jar:1.0.0-b2-e6d791f [compile]
-# |     |  \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.25 [compile]
-# |     \- org.realityforge.com.google.elemental2:elemental2-promise:jar:2.25 [compile]
-# +- org.realityforge.react4j:react4j-processor:jar:0.133 [compile]
-# \- org.realityforge.braincheck:braincheck:jar:1.25.0 [compile]
-#    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-#    +- org.glassfish:javax.json:jar:1.1 [compile, optional]
-#    +- org.testng:testng:jar:6.11 [compile, optional]
-#    \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile]
+# \- org.realityforge.react4j:react4j-processor:jar:0.133 [compile]
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "F424A80BE101BA2F4E05664E5404532F2E2DF536F352AD52024AFF26877C18C7"
+_CONFIG_SHA256 = "FE43F2B31AA40A141E31A90E804B2529BFE58E2E4FA32B3DC255A3B6E9207441"
 
 def generate_workspace_rules():
     """
@@ -128,42 +133,62 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_core__0_147",
-        downloaded_file_path = "org/realityforge/arez/arez-core/0.147/arez-core-0.147.jar",
-        sha256 = "afce27fb1c2c75eb7187243a9b4d8d2ee762ec259efab9a77cb1508c929c4676",
+        name = "org_realityforge_arez_spytools__arez_spytools__0_78",
+        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.78/arez-spytools-0.78.jar",
+        sha256 = "93438e3b0699379a7f76c490ee74c64e76855231d44f99067fa6931cd4249c34",
         urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.147/arez-core-0.147.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.147/arez-core-0.147.jar",
+            "https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.78/arez-spytools-0.78.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/spytools/arez-spytools/0.78/arez-spytools-0.78.jar",
         ],
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_core__0_147__sources",
-        downloaded_file_path = "org/realityforge/arez/arez-core/0.147/arez-core-0.147-sources.jar",
-        sha256 = "a67f3b8854e43d6dcb75fc9584e8e2c3eae10514268d17fb20224b4395a0e838",
+        name = "org_realityforge_arez_spytools__arez_spytools__0_78__sources",
+        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.78/arez-spytools-0.78-sources.jar",
+        sha256 = "2dabe4746ecc61d46611c93e06854101f2cd7d6b61a43e561cecd0d49f5440e1",
         urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.147/arez-core-0.147-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.147/arez-core-0.147-sources.jar",
+            "https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.78/arez-spytools-0.78-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/spytools/arez-spytools/0.78/arez-spytools-0.78-sources.jar",
         ],
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_processor__0_147",
-        downloaded_file_path = "org/realityforge/arez/arez-processor/0.147/arez-processor-0.147.jar",
-        sha256 = "2e8efc7ee8ed509320992aeb89dc1ad35310f18b7bde63f78f30d7934d4975b1",
+        name = "org_realityforge_arez__arez_core__0_152",
+        downloaded_file_path = "org/realityforge/arez/arez-core/0.152/arez-core-0.152.jar",
+        sha256 = "424914dca153ec5cb3d2a722cf03c6ea178b19be45c288fd03a8e026a45e7480",
         urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.147/arez-processor-0.147.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.147/arez-processor-0.147.jar",
+            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.152/arez-core-0.152.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.152/arez-core-0.152.jar",
         ],
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_processor__0_147__sources",
-        downloaded_file_path = "org/realityforge/arez/arez-processor/0.147/arez-processor-0.147-sources.jar",
-        sha256 = "64d47df12d54af82f65b74d51d11b68231425003849d8ed477d4e721f1a6e0f9",
+        name = "org_realityforge_arez__arez_core__0_152__sources",
+        downloaded_file_path = "org/realityforge/arez/arez-core/0.152/arez-core-0.152-sources.jar",
+        sha256 = "2484f395f8839e8e74852c6880dcd5d3e8b4895b205ace2a02d6121be2c317a8",
         urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.147/arez-processor-0.147-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.147/arez-processor-0.147-sources.jar",
+            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.152/arez-core-0.152-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.152/arez-core-0.152-sources.jar",
+        ],
+    )
+
+    http_file(
+        name = "org_realityforge_arez__arez_processor__0_152",
+        downloaded_file_path = "org/realityforge/arez/arez-processor/0.152/arez-processor-0.152.jar",
+        sha256 = "1549629e0c7e902a07a913c001b64e74c769e352fd31c5a49ef5c709ce993028",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.152/arez-processor-0.152.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.152/arez-processor-0.152.jar",
+        ],
+    )
+
+    http_file(
+        name = "org_realityforge_arez__arez_processor__0_152__sources",
+        downloaded_file_path = "org/realityforge/arez/arez-processor/0.152/arez-processor-0.152-sources.jar",
+        sha256 = "8a895fad39090db2074cbc522233dff4ece5cbaf1835d5bda64e598ca99adb88",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.152/arez-processor-0.152-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.152/arez-processor-0.152-sources.jar",
         ],
     )
 
@@ -254,6 +279,26 @@ def generate_workspace_rules():
     )
 
     http_file(
+        name = "org_realityforge_grim__grim_annotations__0_03",
+        downloaded_file_path = "org/realityforge/grim/grim-annotations/0.03/grim-annotations-0.03.jar",
+        sha256 = "a3bcd69cfdb14e03f77dc1e64eb5ccdcb02b9bbd4be8c50353e3752613fa02dc",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/grim/grim-annotations/0.03/grim-annotations-0.03.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/grim/grim-annotations/0.03/grim-annotations-0.03.jar",
+        ],
+    )
+
+    http_file(
+        name = "org_realityforge_grim__grim_annotations__0_03__sources",
+        downloaded_file_path = "org/realityforge/grim/grim-annotations/0.03/grim-annotations-0.03-sources.jar",
+        sha256 = "2c207c47ad01125582eb489d8c57021e9ba5505c7211a64201152465c08ea2b7",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/grim/grim-annotations/0.03/grim-annotations-0.03-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/grim/grim-annotations/0.03/grim-annotations-0.03-sources.jar",
+        ],
+    )
+
+    http_file(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_1",
         downloaded_file_path = "org/realityforge/javax/annotation/javax.annotation/1.0.1/javax.annotation-1.0.1.jar",
         sha256 = "6adb7bcd07bdfc2e28d815dc7e0ce594181fe8a5a74d336cbf7cd7cfb283bb8d",
@@ -274,63 +319,65 @@ def generate_workspace_rules():
     )
 
     http_file(
+        name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_2_0",
+        downloaded_file_path = "org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.2.0/org.jetbrains.annotations-1.2.0.jar",
+        sha256 = "7c826c2c5f5e1fd0130c570e9e85fffffa7651c82b29b5b7d00aa5466a58449e",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.2.0/org.jetbrains.annotations-1.2.0.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.2.0/org.jetbrains.annotations-1.2.0.jar",
+        ],
+    )
+
+    http_file(
+        name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_2_0__sources",
+        downloaded_file_path = "org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.2.0/org.jetbrains.annotations-1.2.0-sources.jar",
+        sha256 = "2c6e1bec69ef997a177c95468e6b92f6c5de6b2a6df5634add571a3f9dea0b85",
+        urls = [
+            "https://repo.maven.apache.org/maven2/org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.2.0/org.jetbrains.annotations-1.2.0-sources.jar",
+            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.2.0/org.jetbrains.annotations-1.2.0-sources.jar",
+        ],
+    )
+
+    http_file(
         name = "org_realityforge_react4j__react4j_core__0_133",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133.jar",
         sha256 = "84ea4ae2838857cd458790620005bac9eb84fbcbb4781c0bf20c915fe87e67b5",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_core__0_133__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133-sources.jar",
         sha256 = "58a81f6675dec14241232a6d9cbee54dc9e8e6abe4e89948ec171402021538eb",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.133/react4j-core-0.133-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_dom__0_133",
         downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133.jar",
         sha256 = "105e96e14cb7a094a6cabd3740185cc816c929855d0b10a2c9aad59e74299864",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_dom__0_133__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133-sources.jar",
         sha256 = "00284a028fc3b174c6604004112fb948ed83173fa118f3a63e339dc5b07f456b",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.133/react4j-dom-0.133-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_processor__0_133",
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133.jar",
         sha256 = "98b6c81ee2ac95a90647b94374ce3ab703e6490ef1b1fb57644059fd182ccd6f",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_processor__0_133__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133-sources.jar",
         sha256 = "b58220cd98950354f2eee4bf1b226d9b3c4ce5873ef55e93ab3e20f4cc8250b6",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.133/react4j-processor-0.133-sources.jar"],
     )
 
     http_file(
@@ -484,44 +531,63 @@ def generate_targets():
     )
 
     native.alias(
-        name = "arez_core",
-        actual = ":org_realityforge_arez__arez_core__0_147",
+        name = "arez_spytools",
+        actual = ":org_realityforge_arez_spytools__arez_spytools__0_78",
     )
     java_import(
-        name = "org_realityforge_arez__arez_core__0_147",
-        jars = ["@org_realityforge_arez__arez_core__0_147//file"],
-        srcjar = "@org_realityforge_arez__arez_core__0_147__sources//file",
-        tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.147"],
+        name = "org_realityforge_arez_spytools__arez_spytools__0_78",
+        jars = ["@org_realityforge_arez_spytools__arez_spytools__0_78//file"],
+        srcjar = "@org_realityforge_arez_spytools__arez_spytools__0_78__sources//file",
+        tags = ["maven_coordinates=org.realityforge.arez.spytools:arez-spytools:0.78"],
+        visibility = ["//visibility:private"],
+        deps = [
+            ":arez_core",
+            ":elemental2_dom",
+            ":org_jetbrains_annotations",
+        ],
+    )
+
+    native.alias(
+        name = "arez_core",
+        actual = ":org_realityforge_arez__arez_core__0_152",
+    )
+    java_import(
+        name = "org_realityforge_arez__arez_core__0_152",
+        jars = ["@org_realityforge_arez__arez_core__0_152//file"],
+        srcjar = "@org_realityforge_arez__arez_core__0_152__sources//file",
+        tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.152"],
         visibility = ["//visibility:private"],
         deps = [
             ":braincheck",
+            ":grim_annotations",
             ":javax_annotation",
             ":jsinterop_annotations",
+            ":org_jetbrains_annotations",
         ],
     )
 
     native.alias(
         name = "arez_processor",
-        actual = ":org_realityforge_arez__arez_processor__0_147",
+        actual = ":org_realityforge_arez__arez_processor__0_152",
     )
     java_import(
-        name = "org_realityforge_arez__arez_processor__0_147__plugin_library",
-        jars = ["@org_realityforge_arez__arez_processor__0_147//file"],
-        srcjar = "@org_realityforge_arez__arez_processor__0_147__sources//file",
-        tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.147"],
+        name = "org_realityforge_arez__arez_processor__0_152__plugin_library",
+        jars = ["@org_realityforge_arez__arez_processor__0_152//file"],
+        srcjar = "@org_realityforge_arez__arez_processor__0_152__sources//file",
+        tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.152"],
         visibility = ["//visibility:private"],
         data = [":verify_config_sha256"],
     )
     java_plugin(
-        name = "org_realityforge_arez__arez_processor__0_147__arez_processor_arezprocessor__plugin",
+        name = "org_realityforge_arez__arez_processor__0_152__arez_processor_arezprocessor__plugin",
         processor_class = "arez.processor.ArezProcessor",
         generates_api = True,
         visibility = ["//visibility:private"],
-        deps = [":org_realityforge_arez__arez_processor__0_147__plugin_library"],
+        deps = [":org_realityforge_arez__arez_processor__0_152__plugin_library"],
     )
     java_library(
-        name = "org_realityforge_arez__arez_processor__0_147",
-        exported_plugins = ["org_realityforge_arez__arez_processor__0_147__arez_processor_arezprocessor__plugin"],
+        name = "org_realityforge_arez__arez_processor__0_152",
+        exported_plugins = ["org_realityforge_arez__arez_processor__0_152__arez_processor_arezprocessor__plugin"],
         visibility = ["//visibility:private"],
     )
 
@@ -619,6 +685,20 @@ def generate_targets():
     )
 
     native.alias(
+        name = "grim_annotations",
+        actual = ":org_realityforge_grim__grim_annotations__0_03",
+        visibility = ["//visibility:private"],
+    )
+    java_import(
+        name = "org_realityforge_grim__grim_annotations__0_03",
+        jars = ["@org_realityforge_grim__grim_annotations__0_03//file"],
+        srcjar = "@org_realityforge_grim__grim_annotations__0_03__sources//file",
+        tags = ["maven_coordinates=org.realityforge.grim:grim-annotations:0.03"],
+        visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
+    )
+
+    native.alias(
         name = "javax_annotation",
         actual = ":org_realityforge_javax_annotation__javax_annotation__1_0_1",
     )
@@ -627,6 +707,20 @@ def generate_targets():
         jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_1//file"],
         srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_1__sources//file",
         tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.1"],
+        visibility = ["//visibility:private"],
+        data = [":verify_config_sha256"],
+    )
+
+    native.alias(
+        name = "org_jetbrains_annotations",
+        actual = ":org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_2_0",
+        visibility = ["//visibility:private"],
+    )
+    java_import(
+        name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_2_0",
+        jars = ["@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_2_0//file"],
+        srcjar = "@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_2_0__sources//file",
+        tags = ["maven_coordinates=org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:1.2.0"],
         visibility = ["//visibility:private"],
         data = [":verify_config_sha256"],
     )
