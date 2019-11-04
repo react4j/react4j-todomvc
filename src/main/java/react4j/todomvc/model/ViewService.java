@@ -1,7 +1,7 @@
 package react4j.todomvc.model;
 
-import arez.Disposable;
 import arez.annotations.ArezComponent;
+import arez.annotations.ComponentDependency;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
@@ -29,6 +29,7 @@ public abstract class ViewService
 
   @Observable
   @Nullable
+  @ComponentDependency( action = ComponentDependency.Action.SET_NULL )
   public abstract Todo getTodoBeingEdited();
 
   public abstract void setTodoBeingEdited( @Nullable Todo todoBeingEdited );
@@ -57,15 +58,6 @@ public abstract class ViewService
   {
     final FilterMode filterMode = getFilterMode();
     return CollectionsUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
-  }
-
-  @Observe( mutation = true )
-  void updateTodoBeingEdited()
-  {
-    if ( Disposable.isDisposed( getTodoBeingEdited() ) )
-    {
-      setTodoBeingEdited( null );
-    }
   }
 
   @Observe( mutation = true, nestedActionsAllowed = true )

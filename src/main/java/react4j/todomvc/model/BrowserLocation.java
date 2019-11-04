@@ -20,7 +20,6 @@ import javax.inject.Singleton;
  * This is a simple abstraction over browser location as a hash.
  * It should be noted that this is a stripped down version extracted from the <code>arez-browserlocation</code> library.
  *
- * @link https://arez.github.io/browserlocation/
  * @link https://github.com/arez/arez-browserlocation
  */
 @Singleton
@@ -80,7 +79,7 @@ public abstract class BrowserLocation
    * Revert the browsers location to the application location.
    */
   @Action
-  public void resetBrowserLocation()
+  void resetBrowserLocation()
   {
     changeLocation( getLocation() );
   }
@@ -93,7 +92,7 @@ public abstract class BrowserLocation
    */
   @Observable
   @Nonnull
-  public String getLocation()
+  String getLocation()
   {
     return _location;
   }
@@ -106,7 +105,7 @@ public abstract class BrowserLocation
 
   @Memoize( depType = DepType.AREZ_OR_EXTERNAL )
   @Nonnull
-  public String getBrowserLocation()
+  String getBrowserLocation()
   {
     return getHash();
   }
@@ -146,7 +145,7 @@ public abstract class BrowserLocation
   @Nonnull
   private String getHash()
   {
-    final String hash = DomGlobal.window.location.getHash();
+    final String hash = DomGlobal.window.location.hash;
     return null == hash ? "" : hash.substring( 1 );
   }
 
@@ -158,12 +157,12 @@ public abstract class BrowserLocation
        * This code is needed to remove the stray #.
        * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
        */
-      final String url = DomGlobal.window.location.getPathname() + DomGlobal.window.location.getSearch();
+      final String url = DomGlobal.window.location.pathname + DomGlobal.window.location.search;
       DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
     }
     else
     {
-      DomGlobal.window.location.setHash( hash );
+      DomGlobal.window.location.hash = hash;
     }
   }
 }

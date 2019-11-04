@@ -6,6 +6,7 @@
   <groupId>org.realityforge.react4j.todomvc</groupId>
   <artifactId>react4j-todomvc</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
   <name>react4j-todomvc</name>
   <description>React4j TodoMVC implementation</description>
 
@@ -17,9 +18,9 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <react4j.version>0.122</react4j.version>
-    <arez.version>0.133</arez.version>
-    <arez-spytools.version>0.56</arez-spytools.version>
+    <react4j.version>0.136</react4j.version>
+    <arez.version>0.151</arez.version>
+    <arez-spytools.version>0.77</arez-spytools.version>
     <dagger.version>2.19</dagger.version>
   </properties>
 
@@ -55,6 +56,16 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>google-sonatype-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
   </repositories>
   <pluginRepositories>
     <pluginRepository>
@@ -78,7 +89,7 @@
       <exclusions>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
-          <artifactId>base</artifactId>
+          <artifactId>*</artifactId>
         </exclusion>
         <exclusion>
           <groupId>org.realityforge.arez</groupId>
@@ -90,6 +101,12 @@
       <groupId>org.realityforge.arez</groupId>
       <artifactId>arez-core</artifactId>
       <version>${arez.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.jsinterop</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.realityforge.arez.spytools</groupId>
@@ -118,23 +135,35 @@
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
       <artifactId>base</artifactId>
-      <version>1.0.0-20181005.191514-8</version>
-      <!-- Google made an incompatible change so we locked down version until next release -->
-      <!--<version>1.0.0-SNAPSHOT</version>-->
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+
+    <!--
+      The following three annotation processor dependencies are required as
+      j2cl-maven-plugin does not use the maven compiler plugin and thus does not
+      pick up the annotation processor configuration.
+    -->
+    <dependency>
+      <groupId>org.realityforge.react4j</groupId>
+      <artifactId>react4j-processor</artifactId>
+      <version>${react4j.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.realityforge.arez</groupId>
+      <artifactId>arez-processor</artifactId>
+      <version>${arez.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.dagger</groupId>
+      <artifactId>dagger-compiler</artifactId>
+      <version>${dagger.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.html</include>
-          <include>**/*.css</include>
-          <include>**/*.xml</include>
-        </includes>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -164,157 +193,35 @@
       </plugin>
       <!-- Compiles the app to JavaScript -->
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>gwt-maven-plugin</artifactId>
-        <version>2.8.2</version>
+        <groupId>com.vertispan.j2cl</groupId>
+        <artifactId>j2cl-maven-plugin</artifactId>
+        <version>0.10-SNAPSHOT</version>
         <executions>
           <execution>
-            <id>compile-js-gwt</id>
-            <phase>prepare-package</phase>
+            <phase>process-sources</phase>
             <goals>
-              <goal>compile</goal>
+              <goal>build</goal>
             </goals>
           </execution>
         </executions>
-      </plugin>
-
-      <!-- ship a classes jar too -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
+        <configuration>
+          <entrypoint>react4j.todomvc.App</entrypoint>
+          <classpathScope>runtime</classpathScope>
+          <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
+          <compilationLevel>ADVANCED</compilationLevel>
+          <defines>
+            <jre.checkedMode>DISABLED</jre.checkedMode>
+            <jre.checks.checkLevel>MINIMAL</jre.checks.checkLevel>
+            <jsinterop.checks>DISABLED</jsinterop.checks>
+            <jre.classMetadata>STRIPPED</jre.classMetadata>
+            <goog.DEBUG>false</goog.DEBUG>
+            <compiler.stackMode>strip</compiler.stackMode>
+            <arez.enable_observer_error_handlers>false</arez.enable_observer_error_handlers>
+            <arez.purge_tasks_when_runaway_detected>false</arez.purge_tasks_when_runaway_detected>
+            <arez.logger>none</arez.logger>
+          </defines>
+        </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <profiles>
-    <profile>
-      <id>devmode</id>
-      <build>
-        <defaultGoal>process-classes</defaultGoal>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>3.0.2</version>
-            <executions>
-              <execution>
-                <id>build-java-classpath</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>build-classpath</goal>
-                </goals>
-                <configuration>
-                  <includeTypes>jar</includeTypes>
-                  <outputProperty>java-classpath</outputProperty>
-                </configuration>
-              </execution>
-              <execution>
-                <id>copy-bootstrap</id>
-                <goals>
-                  <goal>copy</goal>
-                </goals>
-                <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>jre</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <classifier>jszip</classifier>
-                      <type>zip</type>
-                      <destFileName>jre.js.zip</destFileName>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>jre</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <destFileName>jre.jar</destFileName>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>gwt-internal-annotations</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <destFileName>gwt-internal-annotations.jar</destFileName>
-                    </artifactItem>
-                    <artifactItem>
-                      <groupId>com.vertispan.j2cl</groupId>
-                      <artifactId>bootstrap</artifactId>
-                      <version>0.1-SNAPSHOT</version>
-                      <classifier>jszip</classifier>
-                      <type>zip</type>
-                      <destFileName>bootstrap.js.zip</destFileName>
-                    </artifactItem>
-                  </artifactItems>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.6.0</version>
-            <executions>
-              <execution>
-                <id>run-devmode</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>java</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <includePluginDependencies>true</includePluginDependencies>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <mainClass>com.vertispan.j2cl.DevMode</mainClass>
-              <arguments>
-                <argument>-classpath</argument>
-                <argument>
-                  ${java-classpath}:${project.build.directory}/dependency/jre.jar:${project.build.directory}/dependency/gwt-internal-annotations.jar
-                </argument>
-                <argument>-jsClasspath</argument>
-                <argument>
-                  ${project.build.directory}/dependency/bootstrap.js.zip:${project.build.directory}/dependency/jre.js.zip
-                </argument>
-                <argument>--compilation_level=ADVANCED</argument>
-                <argument>--define=jre.checks.checkLevel=MINIMAL</argument>
-                <argument>--define=jre.classMetadata=STRIPPED</argument>
-                <argument>--define=goog.DEBUG=false</argument>
-                <argument>--define=arez.purge_tasks_when_runaway_detected=false</argument>
-                <argument>--define=arez.enable_observer_error_handlers=false</argument>
-                <argument>-out</argument>
-                <argument>out</argument>
-                <argument>-src</argument>
-                <argument>src/main/java</argument>
-                <argument>-src</argument>
-                <argument>target/generated-sources</argument>
-                <argument>-jsZipCache</argument>
-                <argument>jsZipCache</argument>
-                <argument>-entrypoint</argument>
-                <argument>jsinterop</argument>
-                <argument>-entrypoint</argument>
-                <argument>react4j.todomvc.App</argument>
-              </arguments>
-            </configuration>
-            <dependencies>
-              <dependency>
-                <groupId>org.realityforge.j2cl</groupId>
-                <artifactId>build-tools</artifactId>
-                <version>0.1-SNAPSHOT</version>
-                <type>jar</type>
-              </dependency>
-            </dependencies>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
