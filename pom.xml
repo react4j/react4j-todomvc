@@ -111,6 +111,20 @@
       <groupId>org.realityforge.arez.spytools</groupId>
       <artifactId>arez-spytools</artifactId>
       <version>${arez-spytools.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.jsinterop</groupId>
+          <artifactId>base</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.elemental2</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.com.google.elemental2</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
