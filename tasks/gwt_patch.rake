@@ -1,6 +1,5 @@
 require 'buildr/gwt'
 
-Buildr::GWT.version = '2.8.2-v20191108'
 module Buildr
   module GWT
     class << self
@@ -166,6 +165,22 @@ module Buildr
         else
           raise "Unknown GWT version #{v}"
         end
+      end
+    end
+
+    module ProjectExtension
+      protected
+     def gwt_detect_version(dependencies)
+        version = nil
+        dependencies.each do |dep|
+          if dep.respond_to?(:to_spec_hash)
+            hash = dep.to_spec_hash
+            if %w(org.realityforge.com.google.gwt com.google.gwt).include?(hash[:group]) && 'gwt-user' == hash[:id] && :jar == hash[:type]
+              version = hash[:version]
+            end
+          end
+        end
+        version
       end
     end
   end
