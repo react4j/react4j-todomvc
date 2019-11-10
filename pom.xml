@@ -198,7 +198,6 @@
             <jsinterop.checks>DISABLED</jsinterop.checks>
             <jre.classMetadata>STRIPPED</jre.classMetadata>
             <goog.DEBUG>false</goog.DEBUG>
-            <compiler.stackMode>strip</compiler.stackMode>
             <arez.enable_observer_error_handlers>false</arez.enable_observer_error_handlers>
             <arez.purge_tasks_when_runaway_detected>false</arez.purge_tasks_when_runaway_detected>
             <arez.logger>none</arez.logger>
