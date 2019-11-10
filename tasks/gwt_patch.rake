@@ -127,8 +127,8 @@ module Buildr
           ) + validation_deps
         elsif v == '2.8.2-v20191108'
           %w(
-              com.google.jsinterop:jsinterop-annotations:jar:2.0.0
-              com.google.jsinterop:jsinterop-annotations:jar:sources:2.0.0
+              org.realityforge.com.google.jsinterop:jsinterop-annotations:jar:2.8.2-v20191108
+              org.realityforge.com.google.jsinterop:jsinterop-annotations:jar:sources:2.8.2-v20191108
               org.w3c.css:sac:jar:1.3
               org.realityforge.com.google.gwt:gwt-dev:jar:2.8.2-v20191108
               org.realityforge.com.google.gwt:gwt-user:jar:2.8.2-v20191108
