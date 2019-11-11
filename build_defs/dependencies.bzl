@@ -7,21 +7,26 @@
     Invoke 'generate_targets' from a BUILD.bazel file.
 """
 # Dependency Graph Generated from the input data
-# \- com.google.gwt:gwt-dev:jar:2.8.2 [compile]
+# \- org.realityforge.com.google.gwt:gwt-dev:jar:2.8.2-v20191108 [compile]
 #    +- com.google.code.findbugs:jsr305:jar:1.3.9 [compile]
 #    +- com.google.code.gson:gson:jar:2.6.2 [compile]
-#    +- org.ow2.asm:asm:jar:5.0.3 [compile]
-#    +- org.ow2.asm:asm-util:jar:5.0.3 [compile]
-#    |  \- org.ow2.asm:asm-tree:jar:5.0.3 [compile]
-#    |     \- org.ow2.asm:asm:jar:5.0.3 [compile]
-#    +- org.ow2.asm:asm-commons:jar:5.0.3 [compile]
-#    |  \- org.ow2.asm:asm-tree:jar:5.0.3 [compile]
+#    +- org.ow2.asm:asm:jar:7.1 [compile]
+#    +- org.ow2.asm:asm-util:jar:7.1 [compile]
+#    |  +- org.ow2.asm:asm:jar:7.1 [compile]
+#    |  +- org.ow2.asm:asm-tree:jar:7.1 [compile]
+#    |  |  \- org.ow2.asm:asm:jar:7.1 [compile]
+#    |  \- org.ow2.asm:asm-analysis:jar:7.1 [compile]
+#    |     \- org.ow2.asm:asm-tree:jar:7.1 [compile]
+#    +- org.ow2.asm:asm-commons:jar:7.1 [compile]
+#    |  +- org.ow2.asm:asm:jar:7.1 [compile]
+#    |  +- org.ow2.asm:asm-tree:jar:7.1 [compile]
+#    |  \- org.ow2.asm:asm-analysis:jar:7.1 [compile]
 #    +- colt:colt:jar:1.2.0 [compile]
 #    +- ant:ant:jar:1.6.5 [compile]
 #    |  \- xml-apis:xml-apis:jar:1.3.04 [compile]
 #    +- commons-collections:commons-collections:jar:3.2.2 [compile]
 #    +- commons-io:commons-io:jar:2.4 [compile]
-#    +- com.ibm.icu:icu4j:jar:50.1.1 [compile]
+#    +- com.ibm.icu:icu4j:jar:63.1 [compile]
 #    +- tapestry:tapestry:jar:4.0.2 [compile]
 #    +- net.sourceforge.htmlunit:htmlunit:jar:2.19 [compile]
 #    |  +- xalan:xalan:jar:2.7.2 [compile]
@@ -74,8 +79,8 @@
 #    |  |     \- org.eclipse.jetty:jetty-util:jar:9.2.14.v20151106 [compile]
 #    |  +- org.eclipse.jetty:jetty-webapp:jar:9.2.14.v20151106 [compile]
 #    |  +- javax.annotation:javax.annotation-api:jar:1.2 [compile]
-#    |  +- org.ow2.asm:asm:jar:5.0.1 [compile] (conflicts with 5.0.3)
-#    |  \- org.ow2.asm:asm-commons:jar:5.0.1 [compile] (conflicts with 5.0.3)
+#    |  +- org.ow2.asm:asm:jar:5.0.1 [compile] (conflicts with 7.1)
+#    |  \- org.ow2.asm:asm-commons:jar:5.0.1 [compile] (conflicts with 7.1)
 #    \- org.eclipse.jetty:apache-jsp:jar:9.2.14.v20151106 [compile]
 #       +- org.eclipse.jetty:jetty-util:jar:9.2.14.v20151106 [compile]
 #       +- org.eclipse.jetty:jetty-server:jar:9.2.14.v20151106 [compile]
@@ -101,7 +106,6 @@ def generate_workspace_rules(
         omit_colt = False,
         omit_jsr305 = False,
         omit_gson = False,
-        omit_gwt_dev = False,
         omit_icu4j = False,
         omit_commons_codec = False,
         omit_commons_collections = False,
@@ -143,9 +147,11 @@ def generate_workspace_rules(
         omit_apache_el = False,
         omit_org_mortbay_jasper__apache_jsp = False,
         omit_asm = False,
+        omit_asm_analysis = False,
         omit_asm_commons = False,
         omit_asm_tree = False,
         omit_asm_util = False,
+        omit_gwt_dev = False,
         omit_sac = False,
         omit_tapestry = False,
         omit_serializer = False,
@@ -197,20 +203,12 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar"],
         )
 
-    if not omit_gwt_dev:
-        http_file(
-            name = "com_google_gwt__gwt_dev__2_8_2",
-            downloaded_file_path = "com/google/gwt/gwt-dev/2.8.2/gwt-dev-2.8.2.jar",
-            sha256 = "7545fe6320d9465221f29f0894e67c8805ac7006c3251e97c8cdcd65bc779c79",
-            urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-dev/2.8.2/gwt-dev-2.8.2.jar"],
-        )
-
     if not omit_icu4j:
         http_file(
-            name = "com_ibm_icu__icu4j__50_1_1",
-            downloaded_file_path = "com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1.jar",
-            sha256 = "e579e154f63ca51c8108f88c3a109d5ebc4d84f165d12335fb1ae2734a8aa5f0",
-            urls = ["https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1.jar"],
+            name = "com_ibm_icu__icu4j__63_1",
+            downloaded_file_path = "com/ibm/icu/icu4j/63.1/icu4j-63.1.jar",
+            sha256 = "0940c61d12667413a58206a010ab5ca0758cc44ad9e9957ea98e0f871ab5eda0",
+            urls = ["https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/63.1/icu4j-63.1.jar"],
         )
 
     if not omit_commons_codec:
@@ -527,34 +525,50 @@ def generate_workspace_rules(
 
     if not omit_asm:
         http_file(
-            name = "org_ow2_asm__asm__5_0_3",
-            downloaded_file_path = "org/ow2/asm/asm/5.0.3/asm-5.0.3.jar",
-            sha256 = "71c4f78e437b8fdcd9cc0dfd2abea8c089eb677005a6a5cff320206cc52b46cc",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar"],
+            name = "org_ow2_asm__asm__7_1",
+            downloaded_file_path = "org/ow2/asm/asm/7.1/asm-7.1.jar",
+            sha256 = "4ab2fa2b6d2cc9ccb1eaa05ea329c407b47b13ed2915f62f8c4b8cc96258d4de",
+            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm/7.1/asm-7.1.jar"],
+        )
+
+    if not omit_asm_analysis:
+        http_file(
+            name = "org_ow2_asm__asm_analysis__7_1",
+            downloaded_file_path = "org/ow2/asm/asm-analysis/7.1/asm-analysis-7.1.jar",
+            sha256 = "4612c0511a63db2a2570f07ad1959e19ed8eb703e4114da945cb85682519a55c",
+            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/7.1/asm-analysis-7.1.jar"],
         )
 
     if not omit_asm_commons:
         http_file(
-            name = "org_ow2_asm__asm_commons__5_0_3",
-            downloaded_file_path = "org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar",
-            sha256 = "18c1e092230233c9d29e46f21943d769bdb48130cc279e4b0e663f423948c2da",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar"],
+            name = "org_ow2_asm__asm_commons__7_1",
+            downloaded_file_path = "org/ow2/asm/asm-commons/7.1/asm-commons-7.1.jar",
+            sha256 = "e5590489d8f1984d85bfeabd3b17374c59c28ae09d48ec4a0ebbd01959ecd358",
+            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/7.1/asm-commons-7.1.jar"],
         )
 
     if not omit_asm_tree:
         http_file(
-            name = "org_ow2_asm__asm_tree__5_0_3",
-            downloaded_file_path = "org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar",
-            sha256 = "347a7a9400f9964e87c91d3980e48eebdc8d024bc3b36f7f22189c662853a51c",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar"],
+            name = "org_ow2_asm__asm_tree__7_1",
+            downloaded_file_path = "org/ow2/asm/asm-tree/7.1/asm-tree-7.1.jar",
+            sha256 = "c0e82b220b0a52c71c7ca2a58c99a2530696c7b58b173052b9d48fe3efb10073",
+            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/7.1/asm-tree-7.1.jar"],
         )
 
     if not omit_asm_util:
         http_file(
-            name = "org_ow2_asm__asm_util__5_0_3",
-            downloaded_file_path = "org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar",
-            sha256 = "2768edbfa2681b5077f08151de586a6d66b916703cda3ab297e58b41ae8f2362",
-            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar"],
+            name = "org_ow2_asm__asm_util__7_1",
+            downloaded_file_path = "org/ow2/asm/asm-util/7.1/asm-util-7.1.jar",
+            sha256 = "a24485517596ae1003dcf2329c044a2a861e5c25d4476a695ccaacf560c74d1a",
+            urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.1/asm-util-7.1.jar"],
+        )
+
+    if not omit_gwt_dev:
+        http_file(
+            name = "org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108",
+            downloaded_file_path = "org/realityforge/com/google/gwt/gwt-dev/2.8.2-v20191108/gwt-dev-2.8.2-v20191108.jar",
+            sha256 = "880ee711e4189c9516e3203280fd7966fbd6f2a66790132311cad0e2489a5f37",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/gwt/gwt-dev/2.8.2-v20191108/gwt-dev-2.8.2-v20191108.jar"],
         )
 
     if not omit_sac:
@@ -603,7 +617,6 @@ def generate_targets(
         omit_colt = False,
         omit_jsr305 = False,
         omit_gson = False,
-        omit_gwt_dev = False,
         omit_icu4j = False,
         omit_commons_codec = False,
         omit_commons_collections = False,
@@ -645,9 +658,11 @@ def generate_targets(
         omit_apache_el = False,
         omit_org_mortbay_jasper__apache_jsp = False,
         omit_asm = False,
+        omit_asm_analysis = False,
         omit_asm_commons = False,
         omit_asm_tree = False,
         omit_asm_util = False,
+        omit_gwt_dev = False,
         omit_sac = False,
         omit_tapestry = False,
         omit_serializer = False,
@@ -723,64 +738,16 @@ def generate_targets(
             visibility = ["//visibility:private"],
         )
 
-    if not omit_gwt_dev:
-        native.alias(
-            name = "gwt_dev",
-            actual = ":com_google_gwt__gwt_dev__2_8_2",
-        )
-        java_import(
-            name = "com_google_gwt__gwt_dev__2_8_2",
-            jars = ["@com_google_gwt__gwt_dev__2_8_2//file"],
-            tags = ["maven_coordinates=com.google.gwt:gwt-dev:2.8.2"],
-            visibility = ["//visibility:private"],
-            deps = [
-                ":ant",
-                ":apache_jsp",
-                ":asm",
-                ":asm_commons",
-                ":asm_util",
-                ":colt",
-                ":commons_collections",
-                ":commons_io",
-                ":gson",
-                ":htmlunit",
-                ":icu4j",
-                ":jetty_annotations",
-                ":jetty_servlets",
-                ":jetty_webapp",
-                ":jsr305",
-                ":tapestry",
-            ],
-            exports = [
-                ":ant",
-                ":apache_jsp",
-                ":asm",
-                ":asm_commons",
-                ":asm_util",
-                ":colt",
-                ":commons_collections",
-                ":commons_io",
-                ":gson",
-                ":htmlunit",
-                ":icu4j",
-                ":jetty_annotations",
-                ":jetty_servlets",
-                ":jetty_webapp",
-                ":jsr305",
-                ":tapestry",
-            ],
-        )
-
     if not omit_icu4j:
         native.alias(
             name = "icu4j",
-            actual = ":com_ibm_icu__icu4j__50_1_1",
+            actual = ":com_ibm_icu__icu4j__63_1",
             visibility = ["//visibility:private"],
         )
         java_import(
-            name = "com_ibm_icu__icu4j__50_1_1",
-            jars = ["@com_ibm_icu__icu4j__50_1_1//file"],
-            tags = ["maven_coordinates=com.ibm.icu:icu4j:50.1.1"],
+            name = "com_ibm_icu__icu4j__63_1",
+            jars = ["@com_ibm_icu__icu4j__63_1//file"],
+            tags = ["maven_coordinates=com.ibm.icu:icu4j:63.1"],
             visibility = ["//visibility:private"],
         )
 
@@ -1371,40 +1338,58 @@ def generate_targets(
     if not omit_asm:
         native.alias(
             name = "asm",
-            actual = ":org_ow2_asm__asm__5_0_3",
+            actual = ":org_ow2_asm__asm__7_1",
             visibility = ["//visibility:private"],
         )
         java_import(
-            name = "org_ow2_asm__asm__5_0_3",
-            jars = ["@org_ow2_asm__asm__5_0_3//file"],
-            tags = ["maven_coordinates=org.ow2.asm:asm:5.0.3"],
+            name = "org_ow2_asm__asm__7_1",
+            jars = ["@org_ow2_asm__asm__7_1//file"],
+            tags = ["maven_coordinates=org.ow2.asm:asm:7.1"],
             visibility = ["//visibility:private"],
+        )
+
+    if not omit_asm_analysis:
+        native.alias(
+            name = "asm_analysis",
+            actual = ":org_ow2_asm__asm_analysis__7_1",
+            visibility = ["//visibility:private"],
+        )
+        java_import(
+            name = "org_ow2_asm__asm_analysis__7_1",
+            jars = ["@org_ow2_asm__asm_analysis__7_1//file"],
+            tags = ["maven_coordinates=org.ow2.asm:asm-analysis:7.1"],
+            visibility = ["//visibility:private"],
+            deps = [":asm_tree"],
         )
 
     if not omit_asm_commons:
         native.alias(
             name = "asm_commons",
-            actual = ":org_ow2_asm__asm_commons__5_0_3",
+            actual = ":org_ow2_asm__asm_commons__7_1",
             visibility = ["//visibility:private"],
         )
         java_import(
-            name = "org_ow2_asm__asm_commons__5_0_3",
-            jars = ["@org_ow2_asm__asm_commons__5_0_3//file"],
-            tags = ["maven_coordinates=org.ow2.asm:asm-commons:5.0.3"],
+            name = "org_ow2_asm__asm_commons__7_1",
+            jars = ["@org_ow2_asm__asm_commons__7_1//file"],
+            tags = ["maven_coordinates=org.ow2.asm:asm-commons:7.1"],
             visibility = ["//visibility:private"],
-            deps = [":asm_tree"],
+            deps = [
+                ":asm",
+                ":asm_analysis",
+                ":asm_tree",
+            ],
         )
 
     if not omit_asm_tree:
         native.alias(
             name = "asm_tree",
-            actual = ":org_ow2_asm__asm_tree__5_0_3",
+            actual = ":org_ow2_asm__asm_tree__7_1",
             visibility = ["//visibility:private"],
         )
         java_import(
-            name = "org_ow2_asm__asm_tree__5_0_3",
-            jars = ["@org_ow2_asm__asm_tree__5_0_3//file"],
-            tags = ["maven_coordinates=org.ow2.asm:asm-tree:5.0.3"],
+            name = "org_ow2_asm__asm_tree__7_1",
+            jars = ["@org_ow2_asm__asm_tree__7_1//file"],
+            tags = ["maven_coordinates=org.ow2.asm:asm-tree:7.1"],
             visibility = ["//visibility:private"],
             deps = [":asm"],
         )
@@ -1412,15 +1397,67 @@ def generate_targets(
     if not omit_asm_util:
         native.alias(
             name = "asm_util",
-            actual = ":org_ow2_asm__asm_util__5_0_3",
+            actual = ":org_ow2_asm__asm_util__7_1",
             visibility = ["//visibility:private"],
         )
         java_import(
-            name = "org_ow2_asm__asm_util__5_0_3",
-            jars = ["@org_ow2_asm__asm_util__5_0_3//file"],
-            tags = ["maven_coordinates=org.ow2.asm:asm-util:5.0.3"],
+            name = "org_ow2_asm__asm_util__7_1",
+            jars = ["@org_ow2_asm__asm_util__7_1//file"],
+            tags = ["maven_coordinates=org.ow2.asm:asm-util:7.1"],
             visibility = ["//visibility:private"],
-            deps = [":asm_tree"],
+            deps = [
+                ":asm",
+                ":asm_analysis",
+                ":asm_tree",
+            ],
+        )
+
+    if not omit_gwt_dev:
+        native.alias(
+            name = "gwt_dev",
+            actual = ":org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108",
+        )
+        java_import(
+            name = "org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108",
+            jars = ["@org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108//file"],
+            tags = ["maven_coordinates=org.realityforge.com.google.gwt:gwt-dev:2.8.2-v20191108"],
+            visibility = ["//visibility:private"],
+            deps = [
+                ":ant",
+                ":apache_jsp",
+                ":asm",
+                ":asm_commons",
+                ":asm_util",
+                ":colt",
+                ":commons_collections",
+                ":commons_io",
+                ":gson",
+                ":htmlunit",
+                ":icu4j",
+                ":jetty_annotations",
+                ":jetty_servlets",
+                ":jetty_webapp",
+                ":jsr305",
+                ":tapestry",
+            ],
+            exports = [
+                ":ant",
+                ":apache_jsp",
+                ":asm",
+                ":asm_commons",
+                ":asm_util",
+                ":colt",
+                ":commons_collections",
+                ":commons_io",
+                ":gson",
+                ":htmlunit",
+                ":icu4j",
+                ":jetty_annotations",
+                ":jetty_servlets",
+                ":jetty_webapp",
+                ":jsr305",
+                ":tapestry",
+            ],
         )
 
     if not omit_sac:
