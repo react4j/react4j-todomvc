@@ -3,6 +3,7 @@
   <inherits name='react4j.ReactDev'/>
   <inherits name='react4j.dom.DomDev'/>
   <inherits name='spritz.SpritzDev'/>
+  <inherits name='arez.ArezDebug'/>
 
   <source path='ignore'/>
   <public path='public/dev'/>

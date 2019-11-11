@@ -41,6 +41,11 @@ define 'react4j-todomvc' do
               })
 
   iml.excluded_directories << project._('tmp')
+  # Also ignore bazel directories for when we switch branches
+  iml.excluded_directories << project._('bazel-bin')
+  iml.excluded_directories << project._('bazel-out')
+  iml.excluded_directories << project._('bazel-react4j-todomvc')
+  iml.excluded_directories << project._('bazel-testlogs')
 
   ipr.add_component_from_artifact(:idea_codestyle)
 
@@ -49,6 +54,6 @@ define 'react4j-todomvc' do
                             :start_javascript_debugger => false,
                             :open_in_browser => false,
                             :vm_parameters => '-Xmx2G',
-                            :shell_parameters => "-style PRETTY -XmethodNameDisplayMode FULL -noincremental -port 8888 -codeServerPort 8889 -bindAddress 0.0.0.0 -war #{_(:generated, 'gwt-export')}/",
-                            :launch_page => "http://127.0.0.1:8888/todomvc_dev/")
+                            :shell_parameters => "-strict -style PRETTY -XmethodNameDisplayMode FULL -nostartServer -incremental -codeServerPort 8889 -bindAddress 0.0.0.0 -deploy #{_(:generated, :gwt, 'deploy')} -extra #{_(:generated, :gwt, 'extra')} -war #{_(:generated, :gwt, 'war')}",
+                            :launch_page => 'http://127.0.0.1:8889/todomvc_dev/index.html')
 end
