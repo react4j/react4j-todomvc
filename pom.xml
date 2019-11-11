@@ -71,16 +71,6 @@
   </dependencies>
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.html</include>
-          <include>**/*.css</include>
-          <include>**/*.xml</include>
-        </includes>
-      </resource>
-    </resources>
     <pluginManagement>
       <plugins>
         <plugin>
