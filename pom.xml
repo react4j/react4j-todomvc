@@ -18,9 +18,9 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <react4j.version>0.140</react4j.version>
+    <react4j.version>0.141</react4j.version>
     <arez.version>0.154</arez.version>
-    <arez-spytools.version>0.77</arez-spytools.version>
+    <arez-spytools.version>0.81</arez-spytools.version>
     <dagger.version>2.19</dagger.version>
   </properties>
 
@@ -77,16 +77,6 @@
   </dependencies>
 
   <build>
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.html</include>
-          <include>**/*.css</include>
-          <include>**/*.xml</include>
-        </includes>
-      </resource>
-    </resources>
     <pluginManagement>
       <plugins>
         <plugin>
