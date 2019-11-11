@@ -7,6 +7,13 @@
     Invoke 'generate_targets' from a BUILD.bazel file.
 """
 # Dependency Graph Generated from the input data
+# +- org.realityforge.com.google.gwt:gwt-user:jar:2.8.2-v20191108 [compile]
+# |  +- org.realityforge.com.google.jsinterop:jsinterop-annotations:jar:2.8.2-v20191108 [compile]
+# |  +- org.realityforge.com.google.jsinterop:jsinterop-annotations:jar:sources:2.8.2-v20191108 [compile]
+# |  +- javax.validation:validation-api:jar:1.0.0.GA [compile]
+# |  +- javax.validation:validation-api:jar:sources:1.0.0.GA [compile]
+# |  +- javax.servlet:javax.servlet-api:jar:3.1.0 [compile]
+# |  \- org.w3c.css:sac:jar:1.3 [compile]
 # \- org.realityforge.com.google.gwt:gwt-dev:jar:2.8.2-v20191108 [compile]
 #    +- com.google.code.findbugs:jsr305:jar:1.3.9 [compile]
 #    +- com.google.code.gson:gson:jar:2.6.2 [compile]
@@ -113,6 +120,7 @@ def generate_workspace_rules(
         omit_commons_logging = False,
         omit_javax_annotation_api = False,
         omit_javax_servlet_api = False,
+        omit_validation_api = False,
         omit_log4j = False,
         omit_logkit = False,
         omit_cssparser = False,
@@ -152,6 +160,8 @@ def generate_workspace_rules(
         omit_asm_tree = False,
         omit_asm_util = False,
         omit_gwt_dev = False,
+        omit_gwt_user = False,
+        omit_jsinterop_annotations = False,
         omit_sac = False,
         omit_tapestry = False,
         omit_serializer = False,
@@ -257,6 +267,14 @@ def generate_workspace_rules(
             downloaded_file_path = "javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar",
             sha256 = "af456b2dd41c4e82cf54f3e743bc678973d9fe35bd4d3071fa05c7e5333b8482",
             urls = ["https://repo.maven.apache.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"],
+        )
+
+    if not omit_validation_api:
+        http_file(
+            name = "javax_validation__validation_api__1_0_0_ga",
+            downloaded_file_path = "javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar",
+            sha256 = "e459f313ebc6db2483f8ceaad39af07086361b474fa92e40f442e8de5d9895dc",
+            urls = ["https://repo.maven.apache.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar"],
         )
 
     if not omit_log4j:
@@ -571,6 +589,22 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/gwt/gwt-dev/2.8.2-v20191108/gwt-dev-2.8.2-v20191108.jar"],
         )
 
+    if not omit_gwt_user:
+        http_file(
+            name = "org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108",
+            downloaded_file_path = "org/realityforge/com/google/gwt/gwt-user/2.8.2-v20191108/gwt-user-2.8.2-v20191108.jar",
+            sha256 = "6044d171d256f4a804845180bab2797019b304deee45f9b1f720dbe0416ff294",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/gwt/gwt-user/2.8.2-v20191108/gwt-user-2.8.2-v20191108.jar"],
+        )
+
+    if not omit_jsinterop_annotations:
+        http_file(
+            name = "org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108",
+            downloaded_file_path = "org/realityforge/com/google/jsinterop/jsinterop-annotations/2.8.2-v20191108/jsinterop-annotations-2.8.2-v20191108.jar",
+            sha256 = "2e90ea0a2a124cf140badc70e9d3069f4a6d77af9b866deb68879d4c5a720821",
+            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/jsinterop/jsinterop-annotations/2.8.2-v20191108/jsinterop-annotations-2.8.2-v20191108.jar"],
+        )
+
     if not omit_sac:
         http_file(
             name = "org_w3c_css__sac__1_3",
@@ -624,6 +658,7 @@ def generate_targets(
         omit_commons_logging = False,
         omit_javax_annotation_api = False,
         omit_javax_servlet_api = False,
+        omit_validation_api = False,
         omit_log4j = False,
         omit_logkit = False,
         omit_cssparser = False,
@@ -663,6 +698,8 @@ def generate_targets(
         omit_asm_tree = False,
         omit_asm_util = False,
         omit_gwt_dev = False,
+        omit_gwt_user = False,
+        omit_jsinterop_annotations = False,
         omit_sac = False,
         omit_tapestry = False,
         omit_serializer = False,
@@ -826,6 +863,19 @@ def generate_targets(
             name = "javax_servlet__javax_servlet_api__3_1_0",
             jars = ["@javax_servlet__javax_servlet_api__3_1_0//file"],
             tags = ["maven_coordinates=javax.servlet:javax.servlet-api:3.1.0"],
+            visibility = ["//visibility:private"],
+        )
+
+    if not omit_validation_api:
+        native.alias(
+            name = "validation_api",
+            actual = ":javax_validation__validation_api__1_0_0_ga",
+            visibility = ["//visibility:private"],
+        )
+        java_import(
+            name = "javax_validation__validation_api__1_0_0_ga",
+            jars = ["@javax_validation__validation_api__1_0_0_ga//file"],
+            tags = ["maven_coordinates=javax.validation:validation-api:1.0.0.GA"],
             visibility = ["//visibility:private"],
         )
 
@@ -1458,6 +1508,43 @@ def generate_targets(
                 ":jsr305",
                 ":tapestry",
             ],
+        )
+
+    if not omit_gwt_user:
+        native.alias(
+            name = "gwt_user",
+            actual = ":org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108",
+        )
+        java_import(
+            name = "org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108",
+            jars = ["@org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108//file"],
+            tags = ["maven_coordinates=org.realityforge.com.google.gwt:gwt-user:2.8.2-v20191108"],
+            visibility = ["//visibility:private"],
+            deps = [
+                ":javax_servlet_api",
+                ":jsinterop_annotations",
+                ":sac",
+                ":validation_api",
+            ],
+            exports = [
+                ":javax_servlet_api",
+                ":jsinterop_annotations",
+                ":sac",
+                ":validation_api",
+            ],
+        )
+
+    if not omit_jsinterop_annotations:
+        native.alias(
+            name = "jsinterop_annotations",
+            actual = ":org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108",
+            visibility = ["//visibility:private"],
+        )
+        java_import(
+            name = "org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108",
+            jars = ["@org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108//file"],
+            tags = ["maven_coordinates=org.realityforge.com.google.jsinterop:jsinterop-annotations:2.8.2-v20191108"],
+            visibility = ["//visibility:private"],
         )
 
     if not omit_sac:

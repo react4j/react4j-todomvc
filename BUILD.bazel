@@ -8,7 +8,7 @@ _DEPS = [
     "//thirdparty:arez_processor",
     "//thirdparty:arez_spytools",
     "//thirdparty:elemental2_dom",
-    "//thirdparty:gwt_user",
+    "//build_defs:gwt_user",
     "//thirdparty:javax_annotation",
     "//thirdparty:jsinterop_annotations",
     "//thirdparty:base",
