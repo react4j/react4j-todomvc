@@ -19,7 +19,7 @@
     <react4j.version>0.141</react4j.version>
     <arez.version>0.154</arez.version>
     <arez-spytools.version>0.81</arez-spytools.version>
-    <dagger.version>2.19</dagger.version>
+    <dagger.version>2.25.2</dagger.version>
   </properties>
 
   <repositories>
