@@ -85,60 +85,42 @@ def generate_workspace_rules():
         name = "org_realityforge_arez_spytools__arez_spytools__0_81",
         downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81.jar",
         sha256 = "38975eaa114951a84c230baa2214a34f8a151a496b162196e08715bf15f9c9d9",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez_spytools__arez_spytools__0_81__sources",
         downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81-sources.jar",
         sha256 = "9aa4511fea43b024f9d9dea5987ce72c4bf17b775a2a0812d1fb87ce8103a92f",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.81/arez-spytools-0.81-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_core__0_154",
         downloaded_file_path = "org/realityforge/arez/arez-core/0.154/arez-core-0.154.jar",
         sha256 = "bd9da70c20b832615b3aaeb32538ec1aec0e69db4f6c62dbbce353b400205481",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.154/arez-core-0.154.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.154/arez-core-0.154.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.154/arez-core-0.154.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_core__0_154__sources",
         downloaded_file_path = "org/realityforge/arez/arez-core/0.154/arez-core-0.154-sources.jar",
         sha256 = "7447ed825467e151bd10accf55934723f121aeb63224c92161b174bdc935c92d",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.154/arez-core-0.154-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-core/0.154/arez-core-0.154-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.154/arez-core-0.154-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_processor__0_154",
         downloaded_file_path = "org/realityforge/arez/arez-processor/0.154/arez-processor-0.154.jar",
         sha256 = "00308bc0a33ebc0336795356c2a3c14e8545da34046ee0a8e25a5b6afdfdb3f2",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.154/arez-processor-0.154.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.154/arez-processor-0.154.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.154/arez-processor-0.154.jar"],
     )
 
     http_file(
         name = "org_realityforge_arez__arez_processor__0_154__sources",
         downloaded_file_path = "org/realityforge/arez/arez-processor/0.154/arez-processor-0.154-sources.jar",
         sha256 = "92c12f8f39c512df0c10d06eba29456ec07fe290553477a9870c0704bcf4a355",
-        urls = [
-            "https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.154/arez-processor-0.154-sources.jar",
-            "https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/arez/arez-processor/0.154/arez-processor-0.154-sources.jar",
-        ],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-processor/0.154/arez-processor-0.154-sources.jar"],
     )
 
     http_file(
@@ -264,42 +246,42 @@ def generate_workspace_rules():
         name = "org_realityforge_react4j__react4j_core__0_141",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.141/react4j-core-0.141.jar",
         sha256 = "1d6956f0d2624c547cc2ba57bf2682ea46bb044103d3027a51a42fecd3c8cbd7",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.141/react4j-core-0.141.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.141/react4j-core-0.141.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_core__0_141__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.141/react4j-core-0.141-sources.jar",
         sha256 = "0bf2602d1eb978e73d3760ae92ef101ef888544305809cb221e290a3bdb5b850",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-core/0.141/react4j-core-0.141-sources.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.141/react4j-core-0.141-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_dom__0_141",
         downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.141/react4j-dom-0.141.jar",
         sha256 = "8efdc7aeff051fd2d72dfbdf07f36b3c9e6bdc781cad1bc16d35b471e94190ce",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.141/react4j-dom-0.141.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.141/react4j-dom-0.141.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_dom__0_141__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.141/react4j-dom-0.141-sources.jar",
         sha256 = "5930a9668f5c1c1ad7314f4d969af8a819df6287d6ecab894e24ea6b4721a321",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-dom/0.141/react4j-dom-0.141-sources.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.141/react4j-dom-0.141-sources.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_processor__0_141",
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.141/react4j-processor-0.141.jar",
         sha256 = "c713888d2a3f26719f016b60a5c39f98231b431a7e3c84f250fea2c997708d60",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.141/react4j-processor-0.141.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.141/react4j-processor-0.141.jar"],
     )
 
     http_file(
         name = "org_realityforge_react4j__react4j_processor__0_141__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.141/react4j-processor-0.141-sources.jar",
         sha256 = "3d33f3a0f3f12352481df6901ca63975efc7a3e695f40094983352648b903a5a",
-        urls = ["https://stocksoftware.jfrog.io/stocksoftware/staging/org/realityforge/react4j/react4j-processor/0.141/react4j-processor-0.141-sources.jar"],
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.141/react4j-processor-0.141-sources.jar"],
     )
 
     http_file(
