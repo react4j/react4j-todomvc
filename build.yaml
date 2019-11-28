@@ -31,9 +31,9 @@ artifacts:
   arez_processor: org.realityforge.arez:arez-processor:jar:0.157
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.81
 
-  react4j_core: org.realityforge.react4j:react4j-core:jar:0.142
-  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.142
-  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.142
+  react4j_core: org.realityforge.react4j:react4j-core:jar:0.143
+  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.143
+  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.143
 
   dagger_core: com.google.dagger:dagger:jar:2.25.2
   dagger_producers: com.google.dagger:dagger-producers:jar:2.25.2
