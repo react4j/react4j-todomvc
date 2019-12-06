@@ -23,7 +23,7 @@ import javax.inject.Singleton;
  * @link https://github.com/arez/arez-browserlocation
  */
 @Singleton
-@ArezComponent( nameIncludesId = false )
+@ArezComponent
 public abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
