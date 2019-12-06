@@ -21,7 +21,7 @@ import javax.annotation.Nonnull;
  *
  * @link https://github.com/arez/arez-browserlocation
  */
-@ArezComponent( nameIncludesId = false )
+@ArezComponent
 abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
