@@ -12,7 +12,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 @SuppressWarnings( "Arez:UnmanagedComponentReference" )
-@ArezComponent( nameIncludesId = false )
+@ArezComponent
 public abstract class ViewService
 {
   @Nonnull
