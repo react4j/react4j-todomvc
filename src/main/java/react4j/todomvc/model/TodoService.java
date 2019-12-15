@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings( "Arez:UnmanagedComponentReference" )
-@ArezComponent( nameIncludesId = false )
+@ArezComponent
 public abstract class TodoService
 {
   @Nonnull
