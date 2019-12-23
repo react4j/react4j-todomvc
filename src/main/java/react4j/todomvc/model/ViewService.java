@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 
 public final class ViewService
 {
-  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
+  private final List<SafeProcedure> _subscribers = new ArrayList<>();
   @Nonnull
   private final TodoRepository _todoRepository;
   @Nullable
