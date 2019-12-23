@@ -2,14 +2,15 @@ package react4j.todomvc.model;
 
 import arez.SafeProcedure;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.annotation.Nonnull;
 
 public final class TodoRepository
 {
-  private final ArrayList<Todo> _entities = new ArrayList<>();
-  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
+  private final List<Todo> _entities = new ArrayList<>();
+  private final List<SafeProcedure> _subscribers = new ArrayList<>();
 
   private boolean isEmpty()
   {
