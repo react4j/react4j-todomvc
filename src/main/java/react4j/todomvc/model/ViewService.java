@@ -54,6 +54,7 @@ public abstract class ViewService
   }
 
   @Memoize
+  @Nonnull
   public List<Todo> filteredTodos()
   {
     final FilterMode filterMode = getFilterMode();
