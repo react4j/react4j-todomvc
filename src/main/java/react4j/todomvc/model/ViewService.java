@@ -5,9 +5,9 @@ import arez.annotations.ComponentDependency;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
-import arez.component.CollectionsUtil;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.inject.Singleton;
@@ -57,7 +57,9 @@ public abstract class ViewService
   public List<Todo> filteredTodos()
   {
     final FilterMode filterMode = getFilterMode();
-    return CollectionsUtil.asList( _todoRepository.entities().filter( todo -> todo.shouldShowTodo( filterMode ) ) );
+    return _todoRepository.entities()
+      .filter( todo -> todo.shouldShowTodo( filterMode ) )
+      .collect( Collectors.toList() );
   }
 
   @Observe( mutation = true, nestedActionsAllowed = true )
