@@ -1,7 +1,8 @@
 package react4j.todomvc.model;
 
-import arez.component.CollectionsUtil;
+import arez.Arez;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -28,7 +29,9 @@ public final class TodoRepository
     update$
       .startWith( Function.identity() )
       .<List<Todo>>scan( Function::apply, new ArrayList<>() )
-      .map( todos -> CollectionsUtil.wrap( new ArrayList<>( todos ) ) )
+      .map( todos -> Arez.areCollectionsPropertiesUnmodifiable() ?
+                     Collections.unmodifiableList( todos ) :
+                     new ArrayList<>( todos ) )
       .publishReplayWithMaxSize( 1 )
       .refCount();
   private final Stream<Integer> totalCount$ = todo$.map( List::size );
