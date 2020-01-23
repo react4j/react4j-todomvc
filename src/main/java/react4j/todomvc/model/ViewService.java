@@ -12,7 +12,8 @@ import javax.annotation.Nullable;
 
 public final class ViewService
 {
-  private final ArrayList<SafeProcedure> _subscribers = new ArrayList<>();
+  @Nonnull
+  private final List<SafeProcedure> _subscribers = new ArrayList<>();
   @Nonnull
   private final TodoRepository _todoRepository;
   @Nullable
@@ -55,6 +56,7 @@ public final class ViewService
     }
   }
 
+  @Nonnull
   public List<Todo> filteredTodos()
   {
     final FilterMode filterMode = getFilterMode();

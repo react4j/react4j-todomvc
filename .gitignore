@@ -4,6 +4,7 @@
 /Gemfile.lock
 /_buildr.rb
 /tmp
+/generated
 /bazel-*
 /.ijwb/.blaze
 /.ijwb/.idea

@@ -31,7 +31,7 @@ public final class Todo
   }
 
   @Nonnull
-  public final String getId()
+  public String getId()
   {
     return _id;
   }
