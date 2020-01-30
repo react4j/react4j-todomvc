@@ -2,8 +2,7 @@ repositories:
   remote:
    - https://stocksoftware.jfrog.io/stocksoftware/staging
    - https://repo.maven.apache.org/maven2
-   - https://stocksoftware.jfrog.io/stocksoftware/public
-   - https://stocksoftware.jfrog.io/stocksoftware/oss
+   - https://stocksoftware.jfrog.io/stocksoftware/maven2
 
 artifacts:
   idea_codestyle: au.com.stocksoftware.idea.codestyle:idea-codestyle:xml:1.14
