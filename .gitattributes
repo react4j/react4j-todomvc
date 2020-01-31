@@ -6,8 +6,8 @@
 *.java text
 *.md text
 *.xml text
-*.yaml text
 *.yml text
+.bazelrc text
 .bazelversion text
 .gitattributes text
 .gitignore text
