@@ -6,7 +6,6 @@
 *.java text
 *.js text
 *.md text
-*.yaml text
 *.yml text
 .bazelrc text
 .bazelversion text
