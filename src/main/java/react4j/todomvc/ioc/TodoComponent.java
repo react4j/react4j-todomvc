@@ -1,4 +1,4 @@
-package react4j.todomvc.dagger;
+package react4j.todomvc.ioc;
 
 import dagger.Component;
 import javax.annotation.Nonnull;
