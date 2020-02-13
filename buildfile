@@ -1,24 +1,6 @@
 require 'buildr/git_auto_version'
 require 'buildr/gwt'
 
-DAGGER_RUNTIME_DEPS = [:javax_inject, :javax_inject_sources, :dagger_gwt]
-DAGGER_PROCESSOR_DEPS =
-  [
-    :javax_inject,
-    :dagger_core,
-    :dagger_producers,
-    :dagger_spi,
-    :dagger_compiler,
-    :guava_failureaccess,
-    :kotlinx_metadata_jvm,
-    :kotlin_stdlib,
-    :kotlin_stdlib_common,
-    :googlejavaformat,
-    :errorprone,
-    :javapoet,
-    :guava
-  ]
-
 desc 'React4j TodoMVC implementation'
 define 'react4j-todomvc' do
   project.group = 'org.realityforge.react4j.todomvc'
@@ -30,7 +12,7 @@ define 'react4j-todomvc' do
 
   project.processorpath << :react4j_processor
   project.processorpath << :arez_processor
-  project.processorpath << DAGGER_PROCESSOR_DEPS
+  project.processorpath << :sting_processor
 
   compile.with :javax_annotation,
                :jetbrains_annotations,
@@ -45,7 +27,7 @@ define 'react4j-todomvc' do
                :react4j_dom,
                :arez_core,
                :arez_spytools,
-               DAGGER_RUNTIME_DEPS,
+               :sting_core,
                :gwt_user
 
   # Exclude the Dev module if EXCLUDE_GWT_DEV_MODULE is true
