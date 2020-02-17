@@ -41,6 +41,7 @@ abstract class BrowserLocation
    *
    * @return the BrowserLocation instance.
    */
+  @Nonnull
   static BrowserLocation create()
   {
     return new Arez_BrowserLocation();
