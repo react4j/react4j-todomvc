@@ -38,16 +38,6 @@ public abstract class BrowserLocation
   @Nonnull
   private String _targetLocation;
 
-  /**
-   * Create the model object.
-   *
-   * @return the BrowserLocation instance.
-   */
-  static BrowserLocation create()
-  {
-    return new Arez_BrowserLocation();
-  }
-
   BrowserLocation()
   {
     _targetLocation = _location = getHash();
@@ -123,7 +113,7 @@ public abstract class BrowserLocation
   }
 
   @ComputableValueRef
-  abstract ComputableValue getBrowserLocationComputableValue();
+  abstract ComputableValue<?> getBrowserLocationComputableValue();
 
   @Action
   void updateBrowserLocation()

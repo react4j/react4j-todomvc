@@ -21,10 +21,10 @@ public abstract class ViewService
   @Nonnull
   private final BrowserLocation _browserLocation;
 
-  ViewService( @Nonnull final TodoRepository todoRepository )
+  ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    _browserLocation = BrowserLocation.create();
+    _browserLocation = Objects.requireNonNull( browserLocation );
   }
 
   @Observable
