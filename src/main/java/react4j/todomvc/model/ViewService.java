@@ -2,6 +2,7 @@ package react4j.todomvc.model;
 
 import arez.annotations.ArezComponent;
 import arez.annotations.ComponentDependency;
+import arez.annotations.Feature;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
@@ -10,10 +11,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Singleton;
 
-@Singleton
-@ArezComponent
+@ArezComponent( service = Feature.ENABLE )
 public abstract class ViewService
 {
   @Nonnull

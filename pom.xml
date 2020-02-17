@@ -21,7 +21,7 @@
     <react4j.version>0.151</react4j.version>
     <arez.version>0.168</arez.version>
     <arez-spytools.version>0.81</arez-spytools.version>
-    <dagger.version>2.25.2</dagger.version>
+    <sting.version>0.03</sting.version>
   </properties>
 
   <repositories>
@@ -60,9 +60,9 @@
       <version>${arez-spytools.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.realityforge.dagger</groupId>
-      <artifactId>dagger-gwt-lite</artifactId>
-      <version>2.19-rf1</version>
+      <groupId>org.realityforge.sting</groupId>
+      <artifactId>sting-core</artifactId>
+      <version>${sting.version}</version>
     </dependency>
     <dependency>
       <groupId>org.realityforge.com.google.gwt</groupId>
@@ -129,9 +129,9 @@
               <version>${arez.version}</version>
             </path>
             <path>
-              <groupId>com.google.dagger</groupId>
-              <artifactId>dagger-compiler</artifactId>
-              <version>${dagger.version}</version>
+              <groupId>org.realityforge.sting</groupId>
+              <artifactId>sting-processor</artifactId>
+              <version>${sting.version}</version>
             </path>
           </annotationProcessorPaths>
         </configuration>
