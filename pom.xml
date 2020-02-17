@@ -95,6 +95,7 @@
           <moduleName>react4j.todomvc.TodomvcProd</moduleName>
           <optimize>9</optimize>
           <style>OBFUSCATED</style>
+          <sourceLevel>${java.version}</sourceLevel>
           <compilerArgs>
             <compilerArg>-XdisableClassMetadata</compilerArg>
             <compilerArg>-XdisableCastChecking</compilerArg>
@@ -115,8 +116,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
               <groupId>org.realityforge.react4j</groupId>
