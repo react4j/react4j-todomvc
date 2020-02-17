@@ -36,17 +36,6 @@ abstract class BrowserLocation
   @Nonnull
   private String _targetLocation;
 
-  /**
-   * Create the model object.
-   *
-   * @return the BrowserLocation instance.
-   */
-  @Nonnull
-  static BrowserLocation create()
-  {
-    return new Arez_BrowserLocation();
-  }
-
   BrowserLocation()
   {
     _targetLocation = _location = getHash();

@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-@SuppressWarnings( "Arez:UnmanagedComponentReference" )
 @ArezComponent
 public abstract class ViewService
 {
@@ -20,10 +19,10 @@ public abstract class ViewService
   @Nonnull
   private final BrowserLocation _browserLocation;
 
-  ViewService( @Nonnull final TodoRepository todoRepository )
+  ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    _browserLocation = BrowserLocation.create();
+    _browserLocation = Objects.requireNonNull( browserLocation );
   }
 
   @Observable

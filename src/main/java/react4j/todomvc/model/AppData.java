@@ -9,7 +9,9 @@ public final class AppData
   @Nonnull
   public static final TodoService service = new Arez_TodoService( model );
   @Nonnull
-  public static final ViewService viewService = new Arez_ViewService( model );
+  private  static final BrowserLocation browserLocation = new Arez_BrowserLocation();
+  @Nonnull
+  public static final ViewService viewService = new Arez_ViewService( model, browserLocation );
 
   private AppData()
   {
