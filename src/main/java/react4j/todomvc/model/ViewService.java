@@ -2,6 +2,7 @@ package react4j.todomvc.model;
 
 import arez.annotations.ArezComponent;
 import arez.annotations.ComponentDependency;
+import arez.annotations.Feature;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.Observe;
@@ -10,10 +11,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Singleton;
 
-@Singleton
-@ArezComponent
+@ArezComponent( service = Feature.ENABLE )
 public abstract class ViewService
 {
   @Nonnull
@@ -21,10 +20,10 @@ public abstract class ViewService
   @Nonnull
   private final BrowserLocation _browserLocation;
 
-  ViewService( @Nonnull final TodoRepository todoRepository )
+  ViewService( @Nonnull final TodoRepository todoRepository, @Nonnull final BrowserLocation browserLocation )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    _browserLocation = BrowserLocation.create();
+    _browserLocation = Objects.requireNonNull( browserLocation );
   }
 
   @Observable

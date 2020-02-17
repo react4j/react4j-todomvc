@@ -14,7 +14,6 @@ import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import java.util.Objects;
 import javax.annotation.Nonnull;
-import javax.inject.Singleton;
 
 /**
  * This is a simple abstraction over browser location as a hash.
@@ -22,9 +21,8 @@ import javax.inject.Singleton;
  *
  * @link https://github.com/arez/arez-browserlocation
  */
-@Singleton
 @ArezComponent
-public abstract class BrowserLocation
+abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
   /**
