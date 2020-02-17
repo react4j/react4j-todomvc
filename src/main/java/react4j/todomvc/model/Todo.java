@@ -8,7 +8,7 @@ import arez.annotations.Repository;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
-@Repository( extensions = { TodoRepositoryExtension.class } )
+@Repository( extensions = TodoRepositoryExtension.class )
 @ArezComponent
 public abstract class Todo
 {
