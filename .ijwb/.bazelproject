@@ -1,0 +1,9 @@
+directories:
+  .
+
+targets:
+  //...:all
+
+additional_languages:
+  javascript
+  java

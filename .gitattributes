@@ -1,16 +1,18 @@
 # DO NOT EDIT: File is auto-generated
 * -text
+*.bzl text
 *.css text
 *.html text
 *.java text
 *.md text
-*.rake text
 *.xml text
-*.yaml text
 *.yml text
+.bazelrc text
+.bazelversion text
 .gitattributes text
 .gitignore text
 .ruby-version text
+BUILD.bazel text allow_empty
 Gemfile text
 LICENSE text
-buildfile text
+WORKSPACE text
