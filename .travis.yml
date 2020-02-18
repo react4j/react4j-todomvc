@@ -3,6 +3,6 @@ dist: trusty
 language: ruby
 jdk:
 - oraclejdk8
-script: mvn clean package
+script: ./mvnw clean package
 git:
   depth: false
