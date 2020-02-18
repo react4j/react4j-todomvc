@@ -19,7 +19,7 @@
     <react4j.version>0.151</react4j.version>
     <arez.version>0.169</arez.version>
     <arez-spytools.version>0.81</arez-spytools.version>
-    <dagger.version>2.25.2</dagger.version>
+    <sting.version>0.03</sting.version>
   </properties>
 
   <repositories>
@@ -126,9 +126,9 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.realityforge.dagger</groupId>
-      <artifactId>dagger-gwt-lite</artifactId>
-      <version>2.19-rf1</version>
+      <groupId>org.realityforge.sting</groupId>
+      <artifactId>sting-core</artifactId>
+      <version>${sting.version}</version>
     </dependency>
     <dependency>
       <groupId>com.vertispan.jsinterop</groupId>
@@ -154,9 +154,9 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.google.dagger</groupId>
-      <artifactId>dagger-compiler</artifactId>
-      <version>${dagger.version}</version>
+      <groupId>org.realityforge.sting</groupId>
+      <artifactId>sting-processor</artifactId>
+      <version>${sting.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
@@ -166,10 +166,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.8.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
               <groupId>org.realityforge.react4j</groupId>
@@ -182,9 +182,9 @@
               <version>${arez.version}</version>
             </path>
             <path>
-              <groupId>com.google.dagger</groupId>
-              <artifactId>dagger-compiler</artifactId>
-              <version>${dagger.version}</version>
+              <groupId>org.realityforge.sting</groupId>
+              <artifactId>sting-processor</artifactId>
+              <version>${sting.version}</version>
             </path>
           </annotationProcessorPaths>
         </configuration>

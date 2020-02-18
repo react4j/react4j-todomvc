@@ -2,13 +2,12 @@ package react4j.todomvc.model;
 
 import arez.annotations.Action;
 import arez.annotations.ArezComponent;
+import arez.annotations.Feature;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
-import javax.inject.Singleton;
 
-@Singleton
-@ArezComponent
+@ArezComponent( service = Feature.ENABLE )
 public abstract class TodoService
 {
   @Nonnull

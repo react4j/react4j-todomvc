@@ -5,6 +5,7 @@ import arez.annotations.Action;
 import arez.annotations.ArezComponent;
 import arez.annotations.ComputableValueRef;
 import arez.annotations.DepType;
+import arez.annotations.Feature;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.OnActivate;
@@ -14,7 +15,6 @@ import elemental2.dom.Event;
 import elemental2.dom.EventListener;
 import java.util.Objects;
 import javax.annotation.Nonnull;
-import javax.inject.Singleton;
 
 /**
  * This is a simple abstraction over browser location as a hash.
@@ -22,9 +22,8 @@ import javax.inject.Singleton;
  *
  * @link https://github.com/arez/arez-browserlocation
  */
-@Singleton
-@ArezComponent
-public abstract class BrowserLocation
+@ArezComponent( service = Feature.ENABLE )
+abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
   /**
@@ -37,16 +36,6 @@ public abstract class BrowserLocation
    */
   @Nonnull
   private String _targetLocation;
-
-  /**
-   * Create the model object.
-   *
-   * @return the BrowserLocation instance.
-   */
-  static BrowserLocation create()
-  {
-    return new Arez_BrowserLocation();
-  }
 
   BrowserLocation()
   {
@@ -123,7 +112,7 @@ public abstract class BrowserLocation
   }
 
   @ComputableValueRef
-  abstract ComputableValue getBrowserLocationComputableValue();
+  abstract ComputableValue<?> getBrowserLocationComputableValue();
 
   @Action
   void updateBrowserLocation()
