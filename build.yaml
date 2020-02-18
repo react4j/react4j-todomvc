@@ -34,5 +34,5 @@ artifacts:
   react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.151
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.151
 
-  sting_core: org.realityforge.sting:sting-core:jar:0.02
-  sting_processor: org.realityforge.sting:sting-processor:jar:0.02
+  sting_core: org.realityforge.sting:sting-core:jar:0.03
+  sting_processor: org.realityforge.sting:sting-processor:jar:0.03
