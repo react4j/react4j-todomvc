@@ -1,7 +1,7 @@
 require 'buildr/git_auto_version'
 require 'buildr/gwt'
 
-DAGGER_RUNTIME_DEPS = [:javax_inject, :javax_inject_sources, :dagger_gwt]
+DAGGER_RUNTIME_DEPS = [:javax_inject, :javax_inject_sources, :dagger_core, :dagger_core_sources, :dagger_gwt]
 DAGGER_PROCESSOR_DEPS =
   [
     :javax_inject,
