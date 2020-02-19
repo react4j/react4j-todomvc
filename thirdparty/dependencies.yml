@@ -3,6 +3,10 @@ repositories:
     url: https://repo.maven.apache.org/maven2
 options:
   aliasStrategy: ArtifactId
+excludes:
+  # Need to exclude this as we are bringing in a customized version by upgrading GWT
+  # In the future once braincheck and arez are updated we should be able to remove this exclude
+  - coord: com.google.jsinterop:jsinterop-annotations
 artifacts:
   - coord: org.realityforge.arez:arez-core:0.166
   - coord: org.realityforge.arez:arez-processor:0.166
