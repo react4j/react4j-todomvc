@@ -15,6 +15,8 @@ _DEPS = [
     "//thirdparty:react4j_core",
     "//thirdparty:react4j_dom",
     "//thirdparty:react4j_processor",
+    "//thirdparty:sting_core",
+    "//thirdparty:sting_processor",
 ]
 
 _SRCS = glob(["src/main/java/**/*.java"])

@@ -14,6 +14,8 @@ artifacts:
   - coord: org.realityforge.react4j:react4j-core:0.148
   - coord: org.realityforge.react4j:react4j-dom:0.148
   - coord: org.realityforge.react4j:react4j-processor:0.148
+  - coord: org.realityforge.sting:sting-core:0.03
+  - coord: org.realityforge.sting:sting-processor:0.03
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
