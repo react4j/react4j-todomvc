@@ -8,12 +8,12 @@ excludes:
   # In the future once braincheck and arez are updated we should be able to remove this exclude
   - coord: com.google.jsinterop:jsinterop-annotations
 artifacts:
-  - coord: org.realityforge.arez:arez-core:0.166
-  - coord: org.realityforge.arez:arez-processor:0.166
-  - coord: org.realityforge.arez.spytools:arez-spytools:0.92
-  - coord: org.realityforge.react4j:react4j-core:0.148
-  - coord: org.realityforge.react4j:react4j-dom:0.148
-  - coord: org.realityforge.react4j:react4j-processor:0.148
+  - coord: org.realityforge.arez:arez-core:0.169
+  - coord: org.realityforge.arez:arez-processor:0.169
+  - coord: org.realityforge.arez.spytools:arez-spytools:0.96
+  - coord: org.realityforge.react4j:react4j-core:0.151
+  - coord: org.realityforge.react4j:react4j-dom:0.151
+  - coord: org.realityforge.react4j:react4j-processor:0.151
   - coord: org.realityforge.sting:sting-core:0.03
   - coord: org.realityforge.sting:sting-processor:0.03
 
