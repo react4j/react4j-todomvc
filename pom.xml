@@ -207,6 +207,12 @@
           <classpathScope>runtime</classpathScope>
           <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
           <compilationLevel>ADVANCED</compilationLevel>
+          <dependencyReplacements>
+            <dependencyReplacement>
+              <original>org.realityforge.braincheck:braincheck</original>
+              <replacement>org.realityforge.braincheck:braincheck-j2cl:1.27.0</replacement>
+            </dependencyReplacement>
+          </dependencyReplacements>
           <defines>
             <jre.checkedMode>DISABLED</jre.checkedMode>
             <jre.checks.checkLevel>MINIMAL</jre.checks.checkLevel>
