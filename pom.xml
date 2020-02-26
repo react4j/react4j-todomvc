@@ -126,6 +126,11 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>org.realityforge.braincheck</groupId>
+      <artifactId>braincheck-j2cl</artifactId>
+      <version>1.27.0</version>
+    </dependency>
+    <dependency>
       <groupId>org.realityforge.sting</groupId>
       <artifactId>sting-core</artifactId>
       <version>${sting.version}</version>
