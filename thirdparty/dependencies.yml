@@ -1,12 +1,6 @@
 repositories:
   - name: central
     url: https://repo.maven.apache.org/maven2
-  - name: stock
-    url: https://stocksoftware.jfrog.io/stocksoftware/staging
-    cacheLookups: false
-#  - name: local
-#    url: file:///Users/peter/.m2/repository
-#    searchByDefault: false
 options:
   aliasStrategy: ArtifactId
 
@@ -34,9 +28,6 @@ artifacts:
     natures: [Java, J2cl]
     j2cl:
       suppress: [checkDebuggerStatement]
-  # Depgen artifact
-#  - coord: org.realityforge.bazel.depgen:bazel-depgen:jar:all:0.05
-#    repositories: [local]
 
 replacements:
   - coord: org.realityforge.com.google.jsinterop:base
