@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
  * @link https://github.com/arez/arez-browserlocation
  */
 @ArezComponent( service = Feature.ENABLE )
-abstract class BrowserLocation
+public abstract class BrowserLocation
 {
   private final EventListener _listener = this::onHashChangeEvent;
   /**
