@@ -6,7 +6,7 @@ import react4j.todomvc.FooterTodoCountFactory;
 import react4j.todomvc.TodoEntryFactory;
 import react4j.todomvc.TodoItemFactory;
 import react4j.todomvc.TodoListFactory;
-import react4j.todomvc.model.BrowserLocationFragment;
+import react4j.todomvc.model.BrowserLocation;
 import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
@@ -18,7 +18,7 @@ import sting.Injector;
                         TodoListFactory.class,
                         TodoEntryFactory.class,
                         TodoRepository.class,
-                        BrowserLocationFragment.class,
+                        BrowserLocation.class,
                         TodoService.class,
                         ViewService.class } )
 public interface TodoInjector
