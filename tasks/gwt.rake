@@ -15,8 +15,11 @@ def gwt_enhance(project, options = {})
     a.is_a?(String) ? file(a) : a
   end
 
-  dependencies =
-    project.compile.dependencies + [project.compile.target] + extra_deps + [Buildr.artifact(:gwt_user)]
+  if project.enable_annotation_processor?
+    extra_deps += [project.file(project._(:generated, 'processors/main/java'))]
+  end
+
+  dependencies = project.compile.dependencies + extra_deps + [Buildr.artifact(:gwt_user)]
 
   gwt_modules = options[:gwt_modules] || []
   source_paths = project.compile.sources + project.iml.main_generated_resource_directories.flatten.compact + project.iml.main_generated_source_directories.flatten.compact
@@ -41,6 +44,7 @@ def gwt_enhance(project, options = {})
 <module>
   <inherits name="#{gwt_module}"/>
   <inherits name="com.google.gwt.user.User"/>
+  <source path='ignored'/>
   <collapse-all-properties/>
 </module>
 CONTENT
@@ -50,6 +54,9 @@ CONTENT
     dependencies += [dir]
   end
 
+  # Duplicate the assets as the following gwt task will add compile output to asset path
+  # which we typically do NOT want to include in jar
+  assets = project.assets.paths.dup
   if ENV['GWT'].nil? || ENV['GWT'] == project.name
     modules = modules_complete ? gwt_modules : gwt_modules.collect {|gwt_module| "#{gwt_module}Test"}
     modules.each do |m|
@@ -58,6 +65,7 @@ CONTENT
       project.gwt([m], { :java_args => %w(-Xms512M -Xmx1024M -Dgwt.watchFileChanges=false),
                          :dependencies => dependencies,
                          :gwtc_args => gwtc_args,
+                         :skip_merge_gwt_dependencies => true,
                          :compile_report_dir => compile_report_dir.nil? ? nil : "#{compile_report_dir}/#{output_key}",
                          :output_key => output_key })
     end
@@ -65,9 +73,11 @@ CONTENT
 
   project.package(:jar).tap do |j|
     extra_deps.each do |dep|
-      j.include("#{dep}/*")
+      j.enhance([dep])
+      j.include("#{dep}/react4j")
     end
-    project.assets.paths.each do |path|
+    j.include(project._(:generated, 'processors/main/java/react4j')) if project.enable_annotation_processor?
+    assets.each do |path|
       j.include("#{path}/*")
     end
     j.include("#{project._(:source, :main, :java)}/*")
