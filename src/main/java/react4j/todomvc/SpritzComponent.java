@@ -12,6 +12,7 @@ import spritz.Subscription;
 abstract class SpritzComponent
   extends Component
 {
+  @Nonnull
   private final List<Subscription> _subscriptions = new ArrayList<>();
   private boolean _mounted;
 
