@@ -66,7 +66,7 @@ abstract class TodoItem
   }
 
   @PostConstruct
-  final void postConstruct()
+  void postConstruct()
   {
     resetEditText( getTodo() );
   }
