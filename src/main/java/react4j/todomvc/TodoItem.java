@@ -51,7 +51,7 @@ abstract class TodoItem
   }
 
   @PostConstruct
-  final void postConstruct()
+  void postConstruct()
   {
     _editText = getTodo().getTitle();
     getTodo().subscribe( this::scheduleRender );
@@ -115,7 +115,7 @@ abstract class TodoItem
   }
 
   @PostUpdate
-  final void postUpdate()
+  void postUpdate()
   {
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )

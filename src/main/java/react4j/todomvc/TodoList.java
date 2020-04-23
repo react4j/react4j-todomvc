@@ -42,7 +42,7 @@ abstract class TodoList
   }
 
   @PostMount
-  final void postMount()
+  void postMount()
   {
     AppData.service.subscribe( this::scheduleRender );
     AppData.viewService.subscribe( this::scheduleRender );

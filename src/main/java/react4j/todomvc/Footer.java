@@ -22,7 +22,7 @@ abstract class Footer
   }
 
   @PostMount
-  final void postMount()
+  void postMount()
   {
     AppData.viewService.subscribe( this::scheduleRender );
   }
