@@ -64,7 +64,7 @@ abstract class TodoItem
   }
 
   @PostConstruct
-  final void postConstruct()
+  void postConstruct()
   {
     _editText = getTodo().getTitle();
     _handleChange.stream().filter( e -> getTodo().isEditing() ).forEach( event -> {
@@ -102,7 +102,7 @@ abstract class TodoItem
   }
 
   @PostUpdate
-  final void postUpdate()
+  void postUpdate()
   {
     final boolean todoBeingEdited = getTodo().isEditing();
     if ( !_isEditing && todoBeingEdited )
