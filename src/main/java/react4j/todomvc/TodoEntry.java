@@ -28,7 +28,7 @@ abstract class TodoEntry
   private String _todoText = "";
 
   @PostConstruct
-  final void postConstruct()
+  void postConstruct()
   {
     _handleNewTodoKeyDown.stream().filter( e -> KeyCodes.ENTER_KEY == e.getKeyCode() ).forEach( event -> {
       event.preventDefault();
