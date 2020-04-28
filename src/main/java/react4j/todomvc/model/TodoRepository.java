@@ -11,12 +11,6 @@ import javax.annotation.Nonnull;
 public abstract class TodoRepository
   extends AbstractRepository<Integer, Todo, TodoRepository>
 {
-  @Nonnull
-  static TodoRepository newRepository()
-  {
-    return new Arez_TodoRepository();
-  }
-
   @Action
   @Nonnull
   Todo create( @Nonnull final String title, final boolean completed )
