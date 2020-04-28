@@ -2,12 +2,13 @@ package react4j.todomvc.model;
 
 import arez.annotations.Action;
 import arez.annotations.ArezComponent;
+import arez.annotations.Feature;
 import arez.annotations.ComponentIdRef;
 import arez.annotations.Observable;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
-@ArezComponent
+@ArezComponent( requireId = Feature.ENABLE, requireEquals = Feature.ENABLE, observable = Feature.ENABLE )
 public abstract class Todo
 {
   @Nonnull
