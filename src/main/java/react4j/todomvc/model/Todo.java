@@ -4,11 +4,9 @@ import arez.annotations.Action;
 import arez.annotations.ArezComponent;
 import arez.annotations.ComponentIdRef;
 import arez.annotations.Observable;
-import arez.annotations.Repository;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
-@Repository( extensions = TodoRepositoryExtension.class )
 @ArezComponent
 public abstract class Todo
 {
