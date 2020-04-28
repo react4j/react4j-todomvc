@@ -3,7 +3,6 @@ package react4j.todomvc.model;
 import arez.annotations.Action;
 import arez.annotations.ArezComponent;
 import arez.annotations.Feature;
-import arez.annotations.ComponentIdRef;
 import arez.annotations.Observable;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -20,9 +19,6 @@ public abstract class Todo
     _title = Objects.requireNonNull( title );
     _completed = completed;
   }
-
-  @ComponentIdRef
-  public abstract int getId();
 
   @Observable
   @Nonnull
