@@ -6,7 +6,7 @@ import elemental2.dom.DomGlobal;
 import react4j.ReactElement;
 import react4j.dom.ReactDOM;
 
-public class App
+public final class App
   implements EntryPoint
 {
   @Override
