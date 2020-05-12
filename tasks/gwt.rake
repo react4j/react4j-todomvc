@@ -19,7 +19,9 @@ def gwt_enhance(project, options = {})
     extra_deps += [project.file(project._(:generated, 'processors/main/java'))]
   end
 
-  dependencies = project.compile.dependencies + extra_deps + [Buildr.artifact(:gwt_user)]
+  project.compile.dependencies += Buildr::GWT.dependencies(project.gwt_detect_version(Buildr.artifacts(:gwt_user)))
+
+  dependencies = project.compile.dependencies + extra_deps
 
   gwt_modules = options[:gwt_modules] || []
   source_paths = project.compile.sources + project.iml.main_generated_resource_directories.flatten.compact + project.iml.main_generated_source_directories.flatten.compact
