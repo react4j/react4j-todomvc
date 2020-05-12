@@ -8,7 +8,7 @@ import react4j.dom.ReactDOM;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.ViewService;
 
-public class App
+public final class App
   implements EntryPoint
 {
   @Override
