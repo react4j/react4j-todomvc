@@ -1,6 +1,6 @@
 # React4j Arez+Sting TodoMVC variant using Maven and J2CL
 
-[![Build Status](https://api.travis-ci.com/react4j/react4j-todomvc.svg?branch=sting_maven_j2cl)](http://travis-ci.org/react4j/react4j-todomvc)
+[![Build Status](https://api.travis-ci.com/react4j/react4j-todomvc.svg?branch=sting_maven_j2cl)](http://travis-ci.com/react4j/react4j-todomvc)
 
 This [TodoMVC](http://todomvc.com/) implementation is written using:
 
