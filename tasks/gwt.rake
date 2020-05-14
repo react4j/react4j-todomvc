@@ -19,7 +19,7 @@ def gwt_enhance(project, options = {})
     extra_deps += [project.file(project._(:generated, 'processors/main/java'))]
   end
 
-  project.compile.dependencies += Buildr::GWT.dependencies(project.gwt_detect_version(Buildr.artifacts(:gwt_user)))
+  project.compile.with Buildr::GWT.dependencies(project.gwt_detect_version(Buildr.artifacts(:gwt_user)))
 
   dependencies = project.compile.dependencies + extra_deps
 
