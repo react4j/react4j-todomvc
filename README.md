@@ -1,6 +1,6 @@
 # React4j Arez+Sting TodoMVC variant using Bazel
 
-[![Build Status](https://api.travis-ci.com/react4j/react4j-todomvc.png?branch=sting_bazel)](http://travis-ci.org/react4j/react4j-todomvc)
+[![Build Status](https://api.travis-ci.com/react4j/react4j-todomvc.png?branch=sting_bazel)](http://travis-ci.com/react4j/react4j-todomvc)
 
 This [TodoMVC](http://todomvc.com/) implementation is written using:
 
