@@ -99,13 +99,13 @@ abstract class BrowserLocation
   }
 
   @OnActivate
-  final void onBrowserLocationActivate()
+  void onBrowserLocationActivate()
   {
     DomGlobal.window.addEventListener( "hashchange", _listener, false );
   }
 
   @OnDeactivate
-  final void onBrowserLocationDeactivate()
+  void onBrowserLocationDeactivate()
   {
     DomGlobal.window.removeEventListener( "hashchange", _listener, false );
   }
