@@ -25,6 +25,7 @@ import javax.annotation.Nonnull;
 @ArezComponent( disposeNotifier = Feature.DISABLE )
 abstract class BrowserLocation
 {
+  @Nonnull
   private final EventListener _listener = this::onHashChangeEvent;
   /**
    * The location according to the application.
