@@ -2,12 +2,13 @@ package react4j.todomvc.model;
 
 import arez.annotations.Action;
 import arez.annotations.ArezComponent;
+import arez.annotations.Feature;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 
 @SuppressWarnings( "Arez:UnmanagedComponentReference" )
-@ArezComponent
+@ArezComponent( requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class TodoService
 {
   @Nonnull

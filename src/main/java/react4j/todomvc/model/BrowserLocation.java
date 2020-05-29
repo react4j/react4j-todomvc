@@ -22,7 +22,7 @@ import javax.annotation.Nonnull;
  *
  * @link https://github.com/arez/arez-browserlocation
  */
-@ArezComponent( disposeNotifier = Feature.DISABLE )
+@ArezComponent( requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 abstract class BrowserLocation
 {
   @Nonnull
