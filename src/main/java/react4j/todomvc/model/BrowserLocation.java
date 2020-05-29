@@ -5,6 +5,7 @@ import arez.annotations.Action;
 import arez.annotations.ArezComponent;
 import arez.annotations.ComputableValueRef;
 import arez.annotations.DepType;
+import arez.annotations.Feature;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.OnActivate;
@@ -23,9 +24,10 @@ import javax.inject.Singleton;
  * @link https://github.com/arez/arez-browserlocation
  */
 @Singleton
-@ArezComponent
+@ArezComponent( requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class BrowserLocation
 {
+  @Nonnull
   private final EventListener _listener = this::onHashChangeEvent;
   /**
    * The location according to the application.
