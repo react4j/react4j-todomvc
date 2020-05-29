@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 
-@ArezComponent( service = Feature.ENABLE )
+@ArezComponent( service = Feature.ENABLE, requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class TodoService
 {
   @Nonnull
