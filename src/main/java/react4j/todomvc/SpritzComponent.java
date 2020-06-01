@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import react4j.Component;
 import react4j.annotations.PostMount;
+import react4j.annotations.ScheduleRender;
 import spritz.Subscription;
 
 abstract class SpritzComponent
@@ -15,6 +16,9 @@ abstract class SpritzComponent
   @Nonnull
   private final List<Subscription> _subscriptions = new ArrayList<>();
   private boolean _mounted;
+
+  @ScheduleRender
+  abstract void scheduleRender();
 
   void maybeScheduleRender()
   {

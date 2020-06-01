@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
 import react4j.dom.events.KeyboardEvent;
@@ -26,6 +27,9 @@ abstract class TodoEntry
   final CallbackAdapter<FormEvent, FormEventHandler> _handleChange = CallbackAdapter.form();
   @Nonnull
   private String _todoText = "";
+
+  @ScheduleRender
+  abstract void scheduleRender();
 
   @PostConstruct
   void postConstruct()
@@ -48,7 +52,7 @@ abstract class TodoEntry
   private void setTodoText( @Nonnull final String todoText )
   {
     _todoText = todoText;
-    scheduleRender( true );
+    scheduleRender();
   }
 
   @Nullable

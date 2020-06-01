@@ -10,6 +10,7 @@ import react4j.ReactNode;
 import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FocusEvent;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
@@ -51,6 +52,9 @@ abstract class TodoItem
   @Prop( immutable = true )
   @Nonnull
   abstract Todo getTodo();
+
+  @ScheduleRender
+  abstract void scheduleRender();
 
   private void setEditText( @Nonnull final String editText )
   {
