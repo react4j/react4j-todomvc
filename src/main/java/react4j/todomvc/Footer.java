@@ -5,6 +5,7 @@ import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.PostMount;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.ScheduleRender;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -20,6 +21,9 @@ abstract class Footer
   {
     AppData.service.clearCompleted();
   }
+
+  @ScheduleRender
+  abstract void scheduleRender();
 
   @PostMount
   void postMount()

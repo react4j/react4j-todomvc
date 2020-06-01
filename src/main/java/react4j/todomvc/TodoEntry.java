@@ -7,6 +7,7 @@ import jsinterop.base.Js;
 import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.KeyboardEvent;
 import react4j.dom.proptypes.html.InputProps;
@@ -20,10 +21,13 @@ abstract class TodoEntry
   @Nonnull
   private String _todoText = "";
 
+  @ScheduleRender
+  abstract void scheduleRender();
+
   private void setTodoText( @Nonnull final String todoText )
   {
     _todoText = todoText;
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
