@@ -1,10 +1,10 @@
 package react4j.todomvc;
 
-import javax.annotation.Nullable;
-import react4j.Component;
+import javax.annotation.Nonnull;
 import react4j.ReactNode;
 import react4j.annotations.PostMount;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.annotations.ScheduleRender;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
@@ -15,7 +15,6 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class Footer
-  extends Component
 {
   private void handleClearCompleted()
   {
@@ -31,9 +30,9 @@ abstract class Footer
     AppData.viewService.subscribe( this::scheduleRender );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     final FilterMode filterMode = AppData.viewService.getFilterMode();
     return

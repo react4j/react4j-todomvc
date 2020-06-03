@@ -2,11 +2,10 @@ package react4j.todomvc;
 
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.KeyboardEvent;
@@ -16,7 +15,6 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class TodoEntry
-  extends Component
 {
   @Nonnull
   private String _todoText = "";
@@ -50,9 +48,9 @@ abstract class TodoEntry
     setTodoText( input.value );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     return input( new InputProps()
                     .className( "new-todo" )

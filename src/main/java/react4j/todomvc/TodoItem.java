@@ -5,11 +5,11 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.KeyboardEvent;
@@ -24,7 +24,6 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class TodoItem
-  extends Component
 {
   @Nullable
   private HTMLInputElement _editField;
@@ -136,9 +135,9 @@ abstract class TodoItem
     }
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();

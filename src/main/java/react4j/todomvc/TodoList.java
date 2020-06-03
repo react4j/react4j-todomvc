@@ -4,10 +4,10 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.PostMount;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FormEvent;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -18,7 +18,6 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent
 abstract class TodoList
-  extends Component
 {
   @ScheduleRender
   abstract void scheduleRender();
@@ -29,9 +28,9 @@ abstract class TodoList
     AppData.service.toggleAll( input.checked );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     return
       div(
