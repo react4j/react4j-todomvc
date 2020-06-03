@@ -5,8 +5,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.ReactNode;
-import react4j.annotations.ReactComponent;
 import react4j.annotations.Render;
+import react4j.annotations.View;
 import react4j.dom.events.FormEvent;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
@@ -14,7 +14,7 @@ import react4j.dom.proptypes.html.attributeTypes.InputType;
 import react4j.todomvc.model.AppData;
 import static react4j.dom.DOM.*;
 
-@ReactComponent( type = ReactComponent.Type.TRACKING )
+@View( type = View.Type.TRACKING )
 abstract class TodoList
 {
   private void handleToggleAll( @Nonnull final FormEvent event )
