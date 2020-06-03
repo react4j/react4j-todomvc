@@ -16,11 +16,8 @@ abstract class FooterTodoCount
   ReactNode render()
   {
     final int count = AppData.service.totalCount();
-    final String activeTodoWord = "item" + ( count == 1 ? "" : "s" );
-    return
-      span( new HtmlProps().className( "todo-count" ),
-            strong( count ),
-            text( " " + activeTodoWord + " left" )
-      );
+    return span( new HtmlProps().className( "todo-count" ),
+                 strong( count ),
+                 text( " item" + ( count == 1 ? "" : "s" ) + " left" ) );
   }
 }
