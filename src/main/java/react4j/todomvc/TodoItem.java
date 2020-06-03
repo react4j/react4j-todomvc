@@ -9,9 +9,9 @@ import jsinterop.base.Js;
 import react4j.ReactNode;
 import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
-import react4j.annotations.ReactComponent;
 import react4j.annotations.Render;
 import react4j.annotations.ScheduleRender;
+import react4j.annotations.View;
 import react4j.dom.events.FocusEvent;
 import react4j.dom.events.FocusEventHandler;
 import react4j.dom.events.FormEvent;
@@ -29,7 +29,7 @@ import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
 import static react4j.dom.DOM.*;
 
-@ReactComponent
+@View
 abstract class TodoItem
   extends SpritzComponent
 {

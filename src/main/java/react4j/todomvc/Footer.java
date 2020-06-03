@@ -4,8 +4,8 @@ import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import javax.annotation.Nonnull;
 import react4j.ReactNode;
-import react4j.annotations.ReactComponent;
 import react4j.annotations.Render;
+import react4j.annotations.View;
 import react4j.dom.events.MouseEvent;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
@@ -15,7 +15,7 @@ import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.FilterMode;
 import static react4j.dom.DOM.*;
 
-@ReactComponent
+@View
 abstract class Footer
   extends SpritzComponent
 {
