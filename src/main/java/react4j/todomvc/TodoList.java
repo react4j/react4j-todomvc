@@ -4,9 +4,10 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
+import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FormEvent;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
@@ -16,17 +17,19 @@ import static react4j.dom.DOM.*;
 
 @ReactComponent( type = ReactComponent.Type.TRACKING )
 abstract class TodoList
-  extends Component
 {
+  @ScheduleRender
+  abstract void scheduleRender();
+
   private void handleToggleAll( @Nonnull final FormEvent event )
   {
     final HTMLInputElement input = Js.cast( event.getTarget() );
     AppData.service.toggleAll( input.checked );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     return
       div(
