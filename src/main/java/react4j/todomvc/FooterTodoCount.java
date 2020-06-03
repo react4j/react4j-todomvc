@@ -1,9 +1,10 @@
 package react4j.todomvc;
 
 import arez.annotations.PostConstruct;
-import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.todomvc.model.AppData;
 import static react4j.dom.DOM.*;
@@ -23,15 +24,12 @@ abstract class FooterTodoCount
     } ) );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
-    final String activeTodoWord = "item" + ( _totalCount == 1 ? "" : "s" );
-    return
-      span( new HtmlProps().className( "todo-count" ),
-            strong( _totalCount ),
-            text( " " + activeTodoWord + " left" )
-      );
+    return span( new HtmlProps().className( "todo-count" ),
+                 strong( _totalCount ),
+                 text( " item" + ( _totalCount == 1 ? "" : "s" ) + " left" ) );
   }
 }

@@ -5,13 +5,11 @@ import arez.annotations.PreDispose;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
-import react4j.Component;
 import react4j.annotations.PostMount;
 import react4j.annotations.ScheduleRender;
 import spritz.Subscription;
 
 abstract class SpritzComponent
-  extends Component
 {
   @Nonnull
   private final List<Subscription> _subscriptions = new ArrayList<>();

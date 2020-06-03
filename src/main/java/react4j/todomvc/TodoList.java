@@ -4,10 +4,12 @@ import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import elemental2.dom.HTMLInputElement;
 import java.util.List;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.FormEventHandler;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -38,9 +40,9 @@ abstract class TodoList
     } );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     return
       div(

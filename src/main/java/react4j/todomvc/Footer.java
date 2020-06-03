@@ -2,9 +2,10 @@ package react4j.todomvc;
 
 import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
-import javax.annotation.Nullable;
+import javax.annotation.Nonnull;
 import react4j.ReactNode;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.dom.events.MouseEvent;
 import react4j.dom.events.MouseEventHandler;
 import react4j.dom.proptypes.html.AnchorProps;
@@ -37,9 +38,9 @@ abstract class Footer
     _handleClearCompleted.stream().forEach( e -> AppData.service.clearCompleted() );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     return
       footer( new HtmlProps().className( "footer" ),

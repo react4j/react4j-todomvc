@@ -10,6 +10,7 @@ import react4j.ReactNode;
 import react4j.annotations.PostUpdate;
 import react4j.annotations.Prop;
 import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
 import react4j.annotations.ScheduleRender;
 import react4j.dom.events.FocusEvent;
 import react4j.dom.events.FocusEventHandler;
@@ -123,9 +124,9 @@ abstract class TodoItem
     }
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Nonnull
+  @Render
+  ReactNode render()
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
