@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
 import react4j.ReactNode;
+import react4j.annotations.Input;
 import react4j.annotations.PostUpdate;
-import react4j.annotations.Prop;
 import react4j.annotations.Render;
 import react4j.annotations.View;
 import react4j.dom.events.FormEvent;
@@ -31,7 +31,7 @@ abstract class TodoItem
   private HTMLInputElement _editField;
   private boolean _isEditing;
 
-  @Prop( immutable = true )
+  @Input( immutable = true )
   @Nonnull
   abstract Todo getTodo();
 
