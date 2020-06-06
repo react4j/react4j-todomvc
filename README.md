@@ -21,3 +21,14 @@ This [TodoMVC](http://todomvc.com/) implementation is written using:
 
 * Introduce `gwt_dev_server` macro that wraps the rule and generates the required -deps artifact
   and update `gwt_application` to use macros.
+
+* Fix error when unable to resolve to include dependency trace. i.e. We can get an trace like:
+
+```
+INFO: Build completed successfully, 1 total action
+Downloading: https://repo.maven.apache.org/maven2/colt/colt/1.2.0/colt-1.2.0-sources.jar
+Downloading: https://repo.maven.apache.org/maven2/tapestry/tapestry/4.0.2/tapestry-4.0.2-sources.jar
+Unable to locate source for artifact 'colt:colt:jar:1.2.0'. Specify the 'includeSource' configuration property as 'false' in the artifacts configuration.
+```
+
+Where it is unclear why colt is included. Maybe emitting the dependency graph or at least the path to root dependency would give a better explanation.
