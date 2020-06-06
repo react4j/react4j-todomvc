@@ -7,14 +7,13 @@
     Invoke 'generate_targets' from a BUILD.bazel file.
 """
 # Dependency Graph Generated from the input data
-# +- org.realityforge.com.google.gwt:gwt-user:jar:2.8.2-v20191108 [compile]
-# |  +- org.realityforge.com.google.jsinterop:jsinterop-annotations:jar:2.8.2-v20191108 [compile]
-# |  +- org.realityforge.com.google.jsinterop:jsinterop-annotations:jar:sources:2.8.2-v20191108 [compile]
+# +- com.google.gwt:gwt-user:jar:2.9.0 [compile]
+# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile]
 # |  +- javax.validation:validation-api:jar:1.0.0.GA [compile]
 # |  +- javax.validation:validation-api:jar:sources:1.0.0.GA [compile]
 # |  +- javax.servlet:javax.servlet-api:jar:3.1.0 [compile]
 # |  \- org.w3c.css:sac:jar:1.3 [compile]
-# \- org.realityforge.com.google.gwt:gwt-dev:jar:2.8.2-v20191108 [compile]
+# \- com.google.gwt:gwt-dev:jar:2.9.0 [compile]
 #    +- com.google.code.findbugs:jsr305:jar:1.3.9 [compile]
 #    +- com.google.code.gson:gson:jar:2.6.2 [compile]
 #    +- org.ow2.asm:asm:jar:7.1 [compile]
@@ -113,6 +112,9 @@ def generate_workspace_rules(
         omit_colt = False,
         omit_jsr305 = False,
         omit_gson = False,
+        omit_gwt_dev = False,
+        omit_gwt_user = False,
+        omit_jsinterop_annotations = False,
         omit_icu4j = False,
         omit_commons_codec = False,
         omit_commons_collections = False,
@@ -159,9 +161,6 @@ def generate_workspace_rules(
         omit_asm_commons = False,
         omit_asm_tree = False,
         omit_asm_util = False,
-        omit_gwt_dev = False,
-        omit_gwt_user = False,
-        omit_jsinterop_annotations = False,
         omit_sac = False,
         omit_tapestry = False,
         omit_serializer = False,
@@ -211,6 +210,30 @@ def generate_workspace_rules(
             downloaded_file_path = "com/google/code/gson/gson/2.6.2/gson-2.6.2.jar",
             sha256 = "b8545ba775f641f8bba86027f06307152279fee89a46a4006df1bf2f874d4d9d",
             urls = ["https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar"],
+        )
+
+    if not omit_gwt_dev:
+        http_file(
+            name = "com_google_gwt__gwt_dev__2_9_0",
+            downloaded_file_path = "com/google/gwt/gwt-dev/2.9.0/gwt-dev-2.9.0.jar",
+            sha256 = "55f9b79b4f66aad63301f7b99166db827fa5f677a7d8673138bad078eb1bd706",
+            urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-dev/2.9.0/gwt-dev-2.9.0.jar"],
+        )
+
+    if not omit_gwt_user:
+        http_file(
+            name = "com_google_gwt__gwt_user__2_9_0",
+            downloaded_file_path = "com/google/gwt/gwt-user/2.9.0/gwt-user-2.9.0.jar",
+            sha256 = "80420ddfb3b7e2aedc29222328d34a8ebd9f8abab63a82ddf9d837d06a68f7fe",
+            urls = ["https://repo.maven.apache.org/maven2/com/google/gwt/gwt-user/2.9.0/gwt-user-2.9.0.jar"],
+        )
+
+    if not omit_jsinterop_annotations:
+        http_file(
+            name = "com_google_jsinterop__jsinterop_annotations__2_0_0",
+            downloaded_file_path = "com/google/jsinterop/jsinterop-annotations/2.0.0/jsinterop-annotations-2.0.0.jar",
+            sha256 = "ce01f48439240e46521b99cc4c889dcb6793f7a0b0a3e238a38359093f457b49",
+            urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/jsinterop-annotations/2.0.0/jsinterop-annotations-2.0.0.jar"],
         )
 
     if not omit_icu4j:
@@ -581,30 +604,6 @@ def generate_workspace_rules(
             urls = ["https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/7.1/asm-util-7.1.jar"],
         )
 
-    if not omit_gwt_dev:
-        http_file(
-            name = "org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108",
-            downloaded_file_path = "org/realityforge/com/google/gwt/gwt-dev/2.8.2-v20191108/gwt-dev-2.8.2-v20191108.jar",
-            sha256 = "880ee711e4189c9516e3203280fd7966fbd6f2a66790132311cad0e2489a5f37",
-            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/gwt/gwt-dev/2.8.2-v20191108/gwt-dev-2.8.2-v20191108.jar"],
-        )
-
-    if not omit_gwt_user:
-        http_file(
-            name = "org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108",
-            downloaded_file_path = "org/realityforge/com/google/gwt/gwt-user/2.8.2-v20191108/gwt-user-2.8.2-v20191108.jar",
-            sha256 = "6044d171d256f4a804845180bab2797019b304deee45f9b1f720dbe0416ff294",
-            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/gwt/gwt-user/2.8.2-v20191108/gwt-user-2.8.2-v20191108.jar"],
-        )
-
-    if not omit_jsinterop_annotations:
-        http_file(
-            name = "org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108",
-            downloaded_file_path = "org/realityforge/com/google/jsinterop/jsinterop-annotations/2.8.2-v20191108/jsinterop-annotations-2.8.2-v20191108.jar",
-            sha256 = "2e90ea0a2a124cf140badc70e9d3069f4a6d77af9b866deb68879d4c5a720821",
-            urls = ["https://repo.maven.apache.org/maven2/org/realityforge/com/google/jsinterop/jsinterop-annotations/2.8.2-v20191108/jsinterop-annotations-2.8.2-v20191108.jar"],
-        )
-
     if not omit_sac:
         http_file(
             name = "org_w3c_css__sac__1_3",
@@ -651,6 +650,9 @@ def generate_targets(
         omit_colt = False,
         omit_jsr305 = False,
         omit_gson = False,
+        omit_gwt_dev = False,
+        omit_gwt_user = False,
+        omit_jsinterop_annotations = False,
         omit_icu4j = False,
         omit_commons_codec = False,
         omit_commons_collections = False,
@@ -697,9 +699,6 @@ def generate_targets(
         omit_asm_commons = False,
         omit_asm_tree = False,
         omit_asm_util = False,
-        omit_gwt_dev = False,
-        omit_gwt_user = False,
-        omit_jsinterop_annotations = False,
         omit_sac = False,
         omit_tapestry = False,
         omit_serializer = False,
@@ -772,6 +771,91 @@ def generate_targets(
             name = "com_google_code_gson__gson__2_6_2",
             jars = ["@com_google_code_gson__gson__2_6_2//file"],
             tags = ["maven_coordinates=com.google.code.gson:gson:2.6.2"],
+            visibility = ["//visibility:private"],
+        )
+
+    if not omit_gwt_dev:
+        native.alias(
+            name = "gwt_dev",
+            actual = ":com_google_gwt__gwt_dev__2_9_0",
+        )
+        java_import(
+            name = "com_google_gwt__gwt_dev__2_9_0",
+            jars = ["@com_google_gwt__gwt_dev__2_9_0//file"],
+            tags = ["maven_coordinates=com.google.gwt:gwt-dev:2.9.0"],
+            visibility = ["//visibility:private"],
+            deps = [
+                ":ant",
+                ":apache_jsp",
+                ":asm",
+                ":asm_commons",
+                ":asm_util",
+                ":colt",
+                ":commons_collections",
+                ":commons_io",
+                ":gson",
+                ":htmlunit",
+                ":icu4j",
+                ":jetty_annotations",
+                ":jetty_servlets",
+                ":jetty_webapp",
+                ":jsr305",
+                ":tapestry",
+            ],
+            exports = [
+                ":ant",
+                ":apache_jsp",
+                ":asm",
+                ":asm_commons",
+                ":asm_util",
+                ":colt",
+                ":commons_collections",
+                ":commons_io",
+                ":gson",
+                ":htmlunit",
+                ":icu4j",
+                ":jetty_annotations",
+                ":jetty_servlets",
+                ":jetty_webapp",
+                ":jsr305",
+                ":tapestry",
+            ],
+        )
+
+    if not omit_gwt_user:
+        native.alias(
+            name = "gwt_user",
+            actual = ":com_google_gwt__gwt_user__2_9_0",
+        )
+        java_import(
+            name = "com_google_gwt__gwt_user__2_9_0",
+            jars = ["@com_google_gwt__gwt_user__2_9_0//file"],
+            tags = ["maven_coordinates=com.google.gwt:gwt-user:2.9.0"],
+            visibility = ["//visibility:private"],
+            deps = [
+                ":javax_servlet_api",
+                ":jsinterop_annotations",
+                ":sac",
+                ":validation_api",
+            ],
+            exports = [
+                ":javax_servlet_api",
+                ":jsinterop_annotations",
+                ":sac",
+                ":validation_api",
+            ],
+        )
+
+    if not omit_jsinterop_annotations:
+        native.alias(
+            name = "jsinterop_annotations",
+            actual = ":com_google_jsinterop__jsinterop_annotations__2_0_0",
+            visibility = ["//visibility:private"],
+        )
+        java_import(
+            name = "com_google_jsinterop__jsinterop_annotations__2_0_0",
+            jars = ["@com_google_jsinterop__jsinterop_annotations__2_0_0//file"],
+            tags = ["maven_coordinates=com.google.jsinterop:jsinterop-annotations:2.0.0"],
             visibility = ["//visibility:private"],
         )
 
@@ -1460,91 +1544,6 @@ def generate_targets(
                 ":asm_analysis",
                 ":asm_tree",
             ],
-        )
-
-    if not omit_gwt_dev:
-        native.alias(
-            name = "gwt_dev",
-            actual = ":org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108",
-        )
-        java_import(
-            name = "org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108",
-            jars = ["@org_realityforge_com_google_gwt__gwt_dev__2_8_2_v20191108//file"],
-            tags = ["maven_coordinates=org.realityforge.com.google.gwt:gwt-dev:2.8.2-v20191108"],
-            visibility = ["//visibility:private"],
-            deps = [
-                ":ant",
-                ":apache_jsp",
-                ":asm",
-                ":asm_commons",
-                ":asm_util",
-                ":colt",
-                ":commons_collections",
-                ":commons_io",
-                ":gson",
-                ":htmlunit",
-                ":icu4j",
-                ":jetty_annotations",
-                ":jetty_servlets",
-                ":jetty_webapp",
-                ":jsr305",
-                ":tapestry",
-            ],
-            exports = [
-                ":ant",
-                ":apache_jsp",
-                ":asm",
-                ":asm_commons",
-                ":asm_util",
-                ":colt",
-                ":commons_collections",
-                ":commons_io",
-                ":gson",
-                ":htmlunit",
-                ":icu4j",
-                ":jetty_annotations",
-                ":jetty_servlets",
-                ":jetty_webapp",
-                ":jsr305",
-                ":tapestry",
-            ],
-        )
-
-    if not omit_gwt_user:
-        native.alias(
-            name = "gwt_user",
-            actual = ":org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108",
-        )
-        java_import(
-            name = "org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108",
-            jars = ["@org_realityforge_com_google_gwt__gwt_user__2_8_2_v20191108//file"],
-            tags = ["maven_coordinates=org.realityforge.com.google.gwt:gwt-user:2.8.2-v20191108"],
-            visibility = ["//visibility:private"],
-            deps = [
-                ":javax_servlet_api",
-                ":jsinterop_annotations",
-                ":sac",
-                ":validation_api",
-            ],
-            exports = [
-                ":javax_servlet_api",
-                ":jsinterop_annotations",
-                ":sac",
-                ":validation_api",
-            ],
-        )
-
-    if not omit_jsinterop_annotations:
-        native.alias(
-            name = "jsinterop_annotations",
-            actual = ":org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108",
-            visibility = ["//visibility:private"],
-        )
-        java_import(
-            name = "org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108",
-            jars = ["@org_realityforge_com_google_jsinterop__jsinterop_annotations__2_8_2_v20191108//file"],
-            tags = ["maven_coordinates=org.realityforge.com.google.jsinterop:jsinterop-annotations:2.8.2-v20191108"],
-            visibility = ["//visibility:private"],
         )
 
     if not omit_sac:
