@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-@ArezComponent( service = Feature.ENABLE )
+@ArezComponent( service = Feature.ENABLE, requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class ViewService
 {
   @Nonnull

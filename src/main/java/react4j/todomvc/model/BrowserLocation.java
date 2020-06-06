@@ -22,9 +22,10 @@ import javax.annotation.Nonnull;
  *
  * @link https://github.com/arez/arez-browserlocation
  */
-@ArezComponent( service = Feature.ENABLE )
+@ArezComponent( service = Feature.ENABLE, requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class BrowserLocation
 {
+  @Nonnull
   private final EventListener _listener = this::onHashChangeEvent;
   /**
    * The location according to the application.
@@ -100,13 +101,13 @@ public abstract class BrowserLocation
   }
 
   @OnActivate
-  final void onBrowserLocationActivate()
+  void onBrowserLocationActivate()
   {
     DomGlobal.window.addEventListener( "hashchange", _listener, false );
   }
 
   @OnDeactivate
-  final void onBrowserLocationDeactivate()
+  void onBrowserLocationDeactivate()
   {
     DomGlobal.window.removeEventListener( "hashchange", _listener, false );
   }
