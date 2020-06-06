@@ -4,22 +4,24 @@ repositories:
 options:
   aliasStrategy: ArtifactId
 excludes:
-  # Need to exclude this as we are bringing in a customized version by upgrading GWT
-  # In the future once braincheck and arez are updated we should be able to remove this exclude
-  - coord: com.google.jsinterop:jsinterop-annotations
+  # Need to exclude this as we are bringing in a customized version when
+  # using customized elemental2. We should move to released elemental2
+  - coord: org.realityforge.com.google.jsinterop:jsinterop-annotations
 artifacts:
-  - coord: org.realityforge.arez:arez-core:0.173
-  - coord: org.realityforge.arez:arez-processor:0.173
-  - coord: org.realityforge.arez.spytools:arez-spytools:0.100
-  - coord: org.realityforge.react4j:react4j-core:0.154
-  - coord: org.realityforge.react4j:react4j-dom:0.154
-  - coord: org.realityforge.react4j:react4j-processor:0.154
+  - coord: org.realityforge.arez:arez-core:0.181
+  - coord: org.realityforge.arez:arez-processor:0.181
+  - coord: org.realityforge.arez.spytools:arez-spytools:0.108
+  - coord: org.realityforge.react4j:react4j-core:0.161
+  - coord: org.realityforge.react4j:react4j-dom:0.161
+  - coord: org.realityforge.react4j:react4j-processor:0.161
   - coord: org.realityforge.sting:sting-core:0.15
   - coord: org.realityforge.sting:sting-processor:0.15
+  # This is will not be necessary once all upstream libraries are updated
+  - coord: org.realityforge.braincheck:braincheck:1.29.0
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
-  - coord: org.realityforge.com.google.jsinterop:jsinterop-annotations
+  - coord: com.google.jsinterop:jsinterop-annotations
   - coord: com.google.jsinterop:base
+  - coord: org.realityforge.com.google.elemental2:elemental2-core
   - coord: org.realityforge.com.google.elemental2:elemental2-dom
-  - coord: org.realityforge.braincheck:braincheck
