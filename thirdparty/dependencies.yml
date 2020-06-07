@@ -14,8 +14,8 @@ artifacts:
   - coord: org.realityforge.react4j:react4j-core:0.161
   - coord: org.realityforge.react4j:react4j-dom:0.161
   - coord: org.realityforge.react4j:react4j-processor:0.161
-  - coord: org.realityforge.sting:sting-core:0.15
-  - coord: org.realityforge.sting:sting-processor:0.15
+  - coord: org.realityforge.sting:sting-core:0.16
+  - coord: org.realityforge.sting:sting-processor:0.16
   # This is will not be necessary once all upstream libraries are updated
   - coord: org.realityforge.braincheck:braincheck:1.29.0
 
