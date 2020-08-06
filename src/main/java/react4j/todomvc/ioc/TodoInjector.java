@@ -23,6 +23,7 @@ import sting.Injector;
                         ViewService.class } )
 public interface TodoInjector
 {
+  @SuppressWarnings("UnusedReturnValue")
   @Nonnull
   static TodoInjector create()
   {
