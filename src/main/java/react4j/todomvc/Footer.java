@@ -3,10 +3,9 @@ package react4j.todomvc;
 import arez.annotations.Memoize;
 import java.util.Objects;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import react4j.Component;
 import react4j.ReactNode;
-import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
+import react4j.annotations.View;
 import react4j.dom.proptypes.html.AnchorProps;
 import react4j.dom.proptypes.html.BtnProps;
 import react4j.dom.proptypes.html.HtmlProps;
@@ -16,9 +15,8 @@ import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
 
-@ReactComponent( type = ReactComponent.Type.TRACKING )
+@View( type = View.Type.TRACKING )
 abstract class Footer
-  extends Component
 {
   @Nonnull
   private final TodoRepository _todoRepository;
@@ -36,9 +34,8 @@ abstract class Footer
     _viewService = Objects.requireNonNull( viewService );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Render
+  ReactNode render()
   {
     final FilterMode filterMode = _viewService.getFilterMode();
     return

@@ -8,12 +8,12 @@ excludes:
   # using customized elemental2. We should move to released elemental2
   - coord: org.realityforge.com.google.jsinterop:jsinterop-annotations
 artifacts:
-  - coord: org.realityforge.arez:arez-core:0.181
-  - coord: org.realityforge.arez:arez-processor:0.181
-  - coord: org.realityforge.arez.spytools:arez-spytools:0.108
-  - coord: org.realityforge.react4j:react4j-core:0.161
-  - coord: org.realityforge.react4j:react4j-dom:0.161
-  - coord: org.realityforge.react4j:react4j-processor:0.161
+  - coord: org.realityforge.arez:arez-core:0.189
+  - coord: org.realityforge.arez:arez-processor:0.189
+  - coord: org.realityforge.arez.spytools:arez-spytools:0.110
+  - coord: org.realityforge.react4j:react4j-core:0.174
+  - coord: org.realityforge.react4j:react4j-dom:0.174
+  - coord: org.realityforge.react4j:react4j-processor:0.174
   - coord: org.realityforge.sting:sting-core:0.16
   - coord: org.realityforge.sting:sting-processor:0.16
   # This is will not be necessary once all upstream libraries are updated
