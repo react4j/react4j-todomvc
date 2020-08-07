@@ -57,8 +57,8 @@ abstract class TodoEntry
     setTodoText( input.value );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return input( new InputProps()

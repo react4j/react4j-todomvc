@@ -15,8 +15,8 @@ import static react4j.dom.DOM.*;
 @View( type = View.Type.TRACKING )
 abstract class Footer
 {
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     final FilterMode filterMode = AppData.viewService.getFilterMode();
