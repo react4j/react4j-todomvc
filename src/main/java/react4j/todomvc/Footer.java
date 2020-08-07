@@ -35,6 +35,7 @@ abstract class Footer
   }
 
   @Render
+  @Nonnull
   ReactNode render()
   {
     final FilterMode filterMode = _viewService.getFilterMode();
