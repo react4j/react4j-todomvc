@@ -28,8 +28,8 @@ abstract class TodoList
     AppData.service.toggleAll( input.checked );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return

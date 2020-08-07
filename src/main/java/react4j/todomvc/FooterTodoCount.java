@@ -11,8 +11,8 @@ import static react4j.dom.DOM.*;
 @View
 abstract class FooterTodoCount
 {
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     final int count = AppData.service.totalCount();
