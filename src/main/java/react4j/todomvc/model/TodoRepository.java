@@ -6,7 +6,9 @@ import arez.annotations.Feature;
 import arez.annotations.Memoize;
 import arez.component.internal.AbstractRepository;
 import javax.annotation.Nonnull;
+import javax.inject.Singleton;
 
+@Singleton
 @ArezComponent( service = Feature.ENABLE, requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class TodoRepository
   extends AbstractRepository<Integer, Todo, TodoRepository>

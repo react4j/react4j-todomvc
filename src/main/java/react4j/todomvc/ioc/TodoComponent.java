@@ -2,6 +2,7 @@ package react4j.todomvc.ioc;
 
 import dagger.Component;
 import javax.annotation.Nonnull;
+import javax.inject.Singleton;
 import react4j.todomvc.FooterFactory;
 import react4j.todomvc.FooterTodoCountFactory;
 import react4j.todomvc.TodoEntryFactory;
@@ -12,6 +13,7 @@ import react4j.todomvc.model.TodoRepositoryDaggerModule;
 import react4j.todomvc.model.TodoServiceDaggerModule;
 import react4j.todomvc.model.ViewServiceDaggerModule;
 
+@Singleton
 @SuppressWarnings( "UnusedReturnValue" )
 @Component( modules = { TodoRepositoryDaggerModule.class,
                         BrowserLocationDaggerModule.class,
