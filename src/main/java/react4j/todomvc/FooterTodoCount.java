@@ -21,6 +21,7 @@ abstract class FooterTodoCount
   }
 
   @Render
+  @Nonnull
   ReactNode render()
   {
     final int count = _todoRepository.totalCount();

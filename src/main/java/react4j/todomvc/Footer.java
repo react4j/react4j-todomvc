@@ -34,8 +34,8 @@ abstract class Footer
     _viewService = Objects.requireNonNull( viewService );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     final FilterMode filterMode = _viewService.getFilterMode();
