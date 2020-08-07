@@ -11,10 +11,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import javax.inject.Singleton;
 
-@Singleton
-@ArezComponent( requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
+@ArezComponent( service = Feature.ENABLE, requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 public abstract class ViewService
 {
   @Nonnull
