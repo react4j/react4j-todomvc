@@ -30,8 +30,8 @@ abstract class Footer
     AppData.viewService.subscribe( this::scheduleRender );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     final FilterMode filterMode = AppData.viewService.getFilterMode();
