@@ -75,7 +75,7 @@ abstract class TodoEntry
                     .value( getTodoText() )
                     .onKeyDown( this::handleNewTodoKeyDown )
                     .onChange( this::handleChange )
-                    .autoFocus( true )
+                    .autoFocus()
     );
   }
 }
