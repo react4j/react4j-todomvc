@@ -147,8 +147,8 @@ abstract class TodoItem
     }
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     final Todo todo = getTodo();
