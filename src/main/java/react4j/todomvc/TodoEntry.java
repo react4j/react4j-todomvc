@@ -65,8 +65,8 @@ abstract class TodoEntry
     setTodoText( input.value );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return input( new InputProps()
@@ -75,7 +75,7 @@ abstract class TodoEntry
                     .value( getTodoText() )
                     .onKeyDown( this::handleNewTodoKeyDown )
                     .onChange( this::handleChange )
-                    .autoFocus( true )
+                    .autoFocus()
     );
   }
 }
