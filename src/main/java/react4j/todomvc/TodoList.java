@@ -42,8 +42,8 @@ abstract class TodoList
     _todoService.toggleAll( input.checked );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return
