@@ -35,3 +35,5 @@ artifacts:
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.178
 
   spritz_core: org.realityforge.spritz:spritz-core:jar:0.10-41-gd689564
+
+  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:X

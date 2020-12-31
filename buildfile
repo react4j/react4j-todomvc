@@ -16,6 +16,7 @@ define 'react4j-todomvc' do
   project.processorpath << :arez_processor
 
   compile.with :javax_annotation,
+               :zemeckis,
                :jetbrains_annotations,
                :jsinterop_base,
                :jsinterop_annotations,
