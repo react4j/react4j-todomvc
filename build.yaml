@@ -36,4 +36,4 @@ artifacts:
 
   spritz_core: org.realityforge.spritz:spritz-core:jar:0.13
 
-  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.06
+  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.07
