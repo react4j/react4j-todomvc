@@ -6,12 +6,16 @@ jdk:
 rvm:
 - 2.7.2
 before_install:
+- rvm install ruby-2.7.2
+- rvm use 2.7.2
 - openssl aes-256-cbc -K $encrypted_47150f95ffd7_key -iv $encrypted_47150f95ffd7_iv
   -in etc/secrets -out ../secrets.tar -d
 - "(cd ../ && tar xvf secrets.tar)"
 - chmod 600 ../deploy
 - eval `ssh-agent -s` && ssh-add ../deploy
 install:
+- rvm install ruby-2.7.2
+- rvm use 2.7.2
 - gem install bundler
 - bundle install
 script: buildr package site:deploy_if_candidate_branch
