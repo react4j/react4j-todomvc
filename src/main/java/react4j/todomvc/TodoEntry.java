@@ -2,28 +2,30 @@ package react4j.todomvc;
 
 import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
-import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
+import react4j.annotations.ScheduleRender;
+import react4j.annotations.View;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.KeyboardEvent;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.todomvc.model.AppData;
 import static react4j.dom.DOM.*;
 
-@ReactComponent
+@View
 abstract class TodoEntry
-  extends Component
 {
   @Nonnull
   private String _todoText = "";
 
+  @ScheduleRender
+  abstract void scheduleRender();
+
   private void setTodoText( @Nonnull final String todoText )
   {
     _todoText = todoText;
-    scheduleRender( true );
+    scheduleRender();
   }
 
   private void handleNewTodoKeyDown( @Nonnull final KeyboardEvent event )
@@ -46,9 +48,9 @@ abstract class TodoEntry
     setTodoText( input.value );
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Render
+  @Nonnull
+  ReactNode render()
   {
     return input( new InputProps()
                     .className( "new-todo" )
@@ -56,7 +58,7 @@ abstract class TodoEntry
                     .value( _todoText )
                     .onKeyDown( this::handleNewTodoKeyDown )
                     .onChange( this::handleChange )
-                    .autoFocus( true )
+                    .autoFocus()
     );
   }
 }

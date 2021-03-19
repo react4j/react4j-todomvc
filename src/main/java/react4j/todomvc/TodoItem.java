@@ -5,11 +5,12 @@ import elemental2.dom.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
-import react4j.Component;
 import react4j.ReactNode;
+import react4j.annotations.Input;
 import react4j.annotations.PostUpdate;
-import react4j.annotations.Prop;
-import react4j.annotations.ReactComponent;
+import react4j.annotations.Render;
+import react4j.annotations.ScheduleRender;
+import react4j.annotations.View;
 import react4j.dom.events.FormEvent;
 import react4j.dom.events.KeyboardEvent;
 import react4j.dom.proptypes.html.BtnProps;
@@ -21,18 +22,20 @@ import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
 import static react4j.dom.DOM.*;
 
-@ReactComponent
+@View
 abstract class TodoItem
-  extends Component
 {
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
   private String _editText;
 
-  @Prop( immutable = true )
+  @Input( immutable = true )
   @Nonnull
   abstract Todo getTodo();
+
+  @ScheduleRender
+  abstract void scheduleRender();
 
   private void setEditText( @Nonnull final String editText )
   {
@@ -51,7 +54,7 @@ abstract class TodoItem
   }
 
   @PostConstruct
-  final void postConstruct()
+  void postConstruct()
   {
     _editText = getTodo().getTitle();
     getTodo().subscribe( this::scheduleRender );
@@ -115,7 +118,7 @@ abstract class TodoItem
   }
 
   @PostUpdate
-  final void postUpdate()
+  void postUpdate()
   {
     final boolean todoBeingEdited = isTodoBeingEdited();
     if ( !_isEditing && todoBeingEdited )
@@ -132,9 +135,9 @@ abstract class TodoItem
     }
   }
 
-  @Nullable
-  @Override
-  protected ReactNode render()
+  @Render
+  @Nonnull
+  ReactNode render()
   {
     final Todo todo = getTodo();
     final boolean completed = todo.isCompleted();
