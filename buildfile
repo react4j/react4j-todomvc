@@ -12,10 +12,6 @@ define 'react4j-todomvc' do
 
   project.version = ENV['PRODUCT_VERSION'] if ENV['PRODUCT_VERSION']
 
-  project.processorpath << :react4j_processor
-  project.processorpath << :arez_processor
-  project.processorpath << :sting_processor
-
   compile.with :javax_annotation,
                :jetbrains_annotations,
                :jsinterop_base,
@@ -32,6 +28,8 @@ define 'react4j-todomvc' do
                :arez_spytools,
                :sting_core,
                :gwt_user
+
+  compile.options[:processor_path] << [:arez_processor, :react4j_processor, :sting_processor]
 
   # Exclude the Dev module if EXCLUDE_GWT_DEV_MODULE is true
   GWT_MODULES = %w(react4j.todomvc.TodomvcProd) + (ENV['EXCLUDE_GWT_DEV_MODULE'] == 'true' ? [] : %w(react4j.todomvc.TodomvcDev))
@@ -51,8 +49,6 @@ define 'react4j-todomvc' do
   iml.excluded_directories << project._('bazel-react4j-todomvc')
   iml.excluded_directories << project._('bazel-testlogs')
 
-  ipr.add_component_from_artifact(:idea_codestyle)
-
   ipr.add_gwt_configuration(project,
                             :gwt_module => 'react4j.todomvc.TodomvcDev',
                             :start_javascript_debugger => false,
@@ -60,4 +56,9 @@ define 'react4j-todomvc' do
                             :vm_parameters => '-Xmx2G',
                             :shell_parameters => "-strict -style PRETTY -XmethodNameDisplayMode FULL -nostartServer -incremental -codeServerPort 8889 -bindAddress 0.0.0.0 -deploy #{_(:generated, :gwt, 'deploy')} -extra #{_(:generated, :gwt, 'extra')} -war #{_(:generated, :gwt, 'war')}",
                             :launch_page => 'http://127.0.0.1:8889/todomvc_dev/index.html')
+
+  ipr.add_component_from_artifact(:idea_codestyle)
+  ipr.add_code_insight_settings
+  ipr.add_nullable_manager
+  ipr.add_javac_settings('-Xlint:all,-processing,-serial -Werror -Xmaxerrs 10000 -Xmaxwarns 10000')
 end
