@@ -40,8 +40,8 @@ abstract class TodoList
     } );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return

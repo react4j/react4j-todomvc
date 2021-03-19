@@ -38,8 +38,8 @@ abstract class Footer
     _handleClearCompleted.stream().forEach( e -> AppData.service.clearCompleted() );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return

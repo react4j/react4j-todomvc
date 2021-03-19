@@ -24,8 +24,8 @@ abstract class FooterTodoCount
     } ) );
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return span( new HtmlProps().className( "todo-count" ),

@@ -55,8 +55,8 @@ abstract class TodoEntry
     scheduleRender();
   }
 
-  @Nonnull
   @Render
+  @Nonnull
   ReactNode render()
   {
     return input( new InputProps()
@@ -65,7 +65,7 @@ abstract class TodoEntry
                     .value( _todoText )
                     .onKeyDown( _handleNewTodoKeyDown.callback() )
                     .onChange( _handleChange.callback() )
-                    .autoFocus( true )
+                    .autoFocus()
     );
   }
 }

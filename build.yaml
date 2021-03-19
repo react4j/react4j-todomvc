@@ -1,8 +1,8 @@
 repositories:
   remote:
+   - https://repo.maven.apache.org/maven2
    - https://stocksoftware.jfrog.io/stocksoftware/staging
    - https://stocksoftware.jfrog.io/stocksoftware/maven2
-   - https://repo.maven.apache.org/maven2
 
 artifacts:
   idea_codestyle: au.com.stocksoftware.idea.codestyle:idea-codestyle:xml:1.17
@@ -26,6 +26,8 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.29.0
 
+  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.08
+
   arez_core: org.realityforge.arez:arez-core:jar:0.192
   arez_processor: org.realityforge.arez:arez-processor:jar:0.192
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.110
@@ -35,5 +37,3 @@ artifacts:
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.180
 
   spritz_core: org.realityforge.spritz:spritz-core:jar:0.13
-
-  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.08
