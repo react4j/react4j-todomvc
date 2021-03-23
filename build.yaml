@@ -18,23 +18,21 @@ artifacts:
 
   jsinterop_base: com.google.jsinterop:base:jar:1.0.0
 
-  elemental2_core: org.realityforge.com.google.elemental2:elemental2-core:jar:2.27
-  elemental2_dom: org.realityforge.com.google.elemental2:elemental2-dom:jar:2.27
-  elemental2_promise: org.realityforge.com.google.elemental2:elemental2-promise:jar:2.27
+  akasha: org.realityforge.akasha:akasha-java:jar:0.03
 
   grim_annotations: org.realityforge.grim:grim-annotations:jar:0.05
 
   braincheck: org.realityforge.braincheck:braincheck:jar:1.29.0
 
-  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.08
+  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.09
 
   arez_core: org.realityforge.arez:arez-core:jar:0.192
   arez_processor: org.realityforge.arez:arez-processor:jar:0.192
-  arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.110
+  arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.121
 
-  react4j_core: org.realityforge.react4j:react4j-core:jar:0.180
-  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.180
-  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.180
+  react4j_core: org.realityforge.react4j:react4j-core:jar:0.181
+  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.181
+  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.181
 
   sting_core: org.realityforge.sting:sting-core:jar:0.16
   sting_processor: org.realityforge.sting:sting-processor:jar:0.16
