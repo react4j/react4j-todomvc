@@ -1,6 +1,6 @@
 package react4j.todomvc;
 
-import elemental2.dom.HTMLInputElement;
+import akasha.HTMLInputElement;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
