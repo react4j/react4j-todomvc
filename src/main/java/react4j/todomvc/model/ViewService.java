@@ -1,7 +1,8 @@
 package react4j.todomvc.model;
 
-import elemental2.dom.DomGlobal;
-import elemental2.dom.Event;
+import akasha.Event;
+import akasha.Global;
+import akasha.Location;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -15,7 +16,7 @@ public final class ViewService
 
   ViewService( @Nonnull final TodoRepository todoRepository )
   {
-    DomGlobal.window.addEventListener( "hashchange", this::onHashChangeEvent, false );
+    Global.addHashchangeListener(  this::onHashChangeEvent, false );
 
     filterMode$ = Stream.subject( "filterMode" );
     computeFilterMode();
@@ -46,27 +47,23 @@ public final class ViewService
 
   private void computeFilterMode()
   {
-    final String hash = DomGlobal.window.location.hash;
-    final String location = null == hash ? "" : hash.substring( 1 );
-    if ( "active".equals( location ) )
+    final Location location = Global.location();
+    final String place = location.hash.substring( 1 );
+    if ( "active".equals( place ) )
     {
       filterMode$.next( FilterMode.ACTIVE );
     }
-    else if ( "completed".equals( location ) )
+    else if ( "completed".equals( place ) )
     {
       filterMode$.next( FilterMode.COMPLETED );
     }
     else
     {
-      if ( null != hash )
-      {
-        /*
-         * This code is needed to remove the stray #.
-         * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
-         */
-        final String url = DomGlobal.window.location.pathname + DomGlobal.window.location.search;
-        DomGlobal.window.history.pushState( "", DomGlobal.document.title, url );
-      }
+      /*
+       * This code is needed to remove the stray #.
+       * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
+       */
+      Global.history().pushState( "", Global.document().title, location.pathname + location.search );
       filterMode$.next( FilterMode.ALL );
     }
   }

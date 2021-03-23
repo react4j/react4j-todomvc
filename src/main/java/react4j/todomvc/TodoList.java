@@ -1,8 +1,8 @@
 package react4j.todomvc;
 
+import akasha.HTMLInputElement;
 import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
-import elemental2.dom.HTMLInputElement;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
