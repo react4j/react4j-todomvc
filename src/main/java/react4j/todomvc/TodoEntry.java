@@ -2,7 +2,7 @@ package react4j.todomvc;
 
 import arez.annotations.Action;
 import arez.annotations.Observable;
-import elemental2.dom.HTMLInputElement;
+import akasha.HTMLInputElement;
 import javax.annotation.Nonnull;
 import jsinterop.base.Js;
 import react4j.ReactNode;
