@@ -21,7 +21,7 @@
     <react4j.version>0.181</react4j.version>
     <arez.version>0.192</arez.version>
     <arez-spytools.version>0.121</arez-spytools.version>
-    <sting.version>0.16</sting.version>
+    <sting.version>0.17</sting.version>
   </properties>
 
   <repositories>
