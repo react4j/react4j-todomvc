@@ -26,8 +26,8 @@ artifacts:
 
   zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.09
 
-  arez_core: org.realityforge.arez:arez-core:jar:0.193
-  arez_processor: org.realityforge.arez:arez-processor:jar:0.193
+  arez_core: org.realityforge.arez:arez-core:jar:0.194
+  arez_processor: org.realityforge.arez:arez-processor:jar:0.194
   arez_spytools: org.realityforge.arez.spytools:arez-spytools:jar:0.121
 
   react4j_core: org.realityforge.react4j:react4j-core:jar:0.181
