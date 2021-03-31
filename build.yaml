@@ -34,4 +34,4 @@ artifacts:
   react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.181
   react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.181
 
-  spritz_core: org.realityforge.spritz:spritz-core:jar:0.15
+  spritz_core: org.realityforge.spritz:spritz-core:jar:0.16
