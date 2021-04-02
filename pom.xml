@@ -128,7 +128,7 @@
     <dependency>
       <groupId>org.realityforge.braincheck</groupId>
       <artifactId>braincheck-j2cl</artifactId>
-      <version>1.27.0</version>
+      <version>1.29.0</version>
     </dependency>
     <dependency>
       <groupId>org.realityforge.sting</groupId>
