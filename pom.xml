@@ -207,7 +207,7 @@
           <dependencyReplacements>
             <dependencyReplacement>
               <original>org.realityforge.braincheck:braincheck</original>
-              <replacement>org.realityforge.braincheck:braincheck-j2cl:1.27.0</replacement>
+              <replacement>org.realityforge.braincheck:braincheck-j2cl:1.29.0</replacement>
             </dependencyReplacement>
           </dependencyReplacements>
           <defines>
