@@ -181,6 +181,7 @@
           <classpathScope>runtime</classpathScope>
           <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
           <compilationLevel>ADVANCED</compilationLevel>
+          <env>CUSTOM</env>
           <dependencyReplacements>
             <dependencyReplacement>
               <original>org.realityforge.braincheck:braincheck</original>
