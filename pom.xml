@@ -113,7 +113,7 @@
       <exclusions>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
-          <artifactId>*</artifactId>
+          <artifactId>base</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
