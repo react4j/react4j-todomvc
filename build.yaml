@@ -24,7 +24,7 @@ artifacts:
 
   braincheck: org.realityforge.braincheck:braincheck-core:jar:1.30.0
 
-  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.09
+  zemeckis: org.realityforge.zemeckis:zemeckis-core:jar:0.10
 
   arez_core: org.realityforge.arez:arez-core:jar:0.195
   arez_processor: org.realityforge.arez:arez-processor:jar:0.195
