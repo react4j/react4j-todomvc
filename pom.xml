@@ -178,7 +178,7 @@
         </executions>
         <configuration>
           <entrypoint>react4j.todomvc.App</entrypoint>
-          <classpathScope>runtime</classpathScope>
+          <classpathScope>compile</classpathScope>
           <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
           <compilationLevel>ADVANCED</compilationLevel>
           <env>CUSTOM</env>
