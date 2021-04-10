@@ -81,10 +81,33 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.realityforge.akasha</groupId>
+      <artifactId>akasha-java</artifactId>
+      <version>0.06</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.jsinterop</groupId>
+          <artifactId>base</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
       <groupId>org.realityforge.react4j</groupId>
       <artifactId>react4j-dom</artifactId>
       <version>${react4j.version}</version>
       <exclusions>
+        <exclusion>
+          <groupId>org.realityforge.akasha</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.braincheck</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.zemeckis</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
           <artifactId>*</artifactId>
@@ -96,10 +119,57 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>org.realityforge.react4j</groupId>
+      <artifactId>react4j-core</artifactId>
+      <version>${react4j.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.realityforge.akasha</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.braincheck</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.zemeckis</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.jsinterop</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.arez</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.realityforge.zemeckis</groupId>
+      <artifactId>zemeckis-core</artifactId>
+      <version>0.10</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.jsinterop</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.akasha</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+
+      </exclusions>
+    </dependency>
+    <dependency>
       <groupId>org.realityforge.arez</groupId>
       <artifactId>arez-core</artifactId>
       <version>${arez.version}</version>
       <exclusions>
+        <exclusion>
+          <groupId>org.realityforge.akasha</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
           <artifactId>*</artifactId>
@@ -111,6 +181,14 @@
       <artifactId>arez-spytools</artifactId>
       <version>${arez-spytools.version}</version>
       <exclusions>
+        <exclusion>
+          <groupId>org.realityforge.arez</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.realityforge.akasha</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
           <artifactId>base</artifactId>
@@ -177,7 +255,7 @@
           </execution>
         </executions>
         <configuration>
-          <entrypoint>react4j.todomvc.App</entrypoint>
+          <!--<entrypoint>react4j.todomvc.App</entrypoint>-->
           <classpathScope>compile</classpathScope>
           <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
           <compilationLevel>ADVANCED</compilationLevel>
