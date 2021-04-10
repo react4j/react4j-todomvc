@@ -3,12 +3,12 @@ package(default_visibility = ["//visibility:private"])
 load("//build_defs:gwt.bzl", "GWT_OPTIMIZED_COMPILER_FLAGS", "gwt_application")
 
 _DEPS = [
-    "//thirdparty:braincheck",
+    "//thirdparty:braincheck_core",
+    "//thirdparty:braincheck_jre",
     "//thirdparty:arez_core",
     "//thirdparty:arez_processor",
     "//thirdparty:arez_spytools",
-    "//thirdparty:elemental2_core",
-    "//thirdparty:elemental2_dom",
+    "//thirdparty:akasha_java",
     "//build_defs:gwt_user",
     "//thirdparty:javax_annotation",
     "//thirdparty:jsinterop_annotations",
