@@ -59,7 +59,7 @@ j2cl_library(
     native_srcs = glob(["src/main/java/react4j/*.js"]),
     deps = [
         "//thirdparty:arez_core-j2cl",
-        "//thirdparty:braincheck-j2cl",
+        "//thirdparty:braincheck_core-j2cl",
         ":elemental2_core-j2cl",
         ":elemental2_promise-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
@@ -73,7 +73,7 @@ j2cl_library(
     name = "react4j_dom-j2cl",
     srcs = ["//thirdparty:react4j_dom"],
     deps = [
-        "//thirdparty:braincheck-j2cl",
+        "//thirdparty:braincheck_core-j2cl",
         ":elemental2_core-j2cl",
         ":elemental2_dom-j2cl",
         ":elemental2_promise-j2cl",
@@ -93,7 +93,7 @@ j2cl_library(
         "//thirdparty:react4j_processor",
     ],
     deps = [
-        "//thirdparty:braincheck-j2cl",
+        "//thirdparty:braincheck_core-j2cl",
         "//thirdparty:arez_core-j2cl",
         ":elemental2_dom-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
