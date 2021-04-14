@@ -8,28 +8,15 @@ _SRCS = glob(["src/main/java/**/*.java"])
 _RESOURCES = glob(["src/main/java/**/*"], exclude = ["**/*.java"])
 
 j2cl_import(
-    name = "jsinterop_annotations-j2cl",
-    jar = "@com_google_jsinterop_annotations_head//jar",
-    # This visibility is needed to support replacements by depgen
-    visibility = ["//thirdparty:__pkg__"],
-)
-
-j2cl_import(
     name = "gwt-javaemul-internal-annotations-j2cl",
     jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
 )
 
-j2cl_library(
-    name = "jsinterop_base-j2cl",
-    srcs = ["//thirdparty:base_j2cl"],
-    # TODO: The glob should be removed and the source be part of binary artifact
-    native_srcs = glob(["src/main/java/jsinterop/base/*.js"]),
-    deps = [
-        ":gwt-javaemul-internal-annotations-j2cl",
-        ":jsinterop_annotations-j2cl",
-    ],
-)
+alias( name = "jsinterop_annotations-j2cl", actual = "@com_google_j2cl//:jsinterop-annotations-j2cl", visibility = ["//visibility:public"],)
+alias( name = "jsinterop_annotations", actual = "@com_google_j2cl//:jsinterop-annotations", visibility = ["//visibility:public"], )
 
+alias( name = "jsinterop_base-j2cl", actual = "@com_google_jsinterop_base//:jsinterop-base-j2cl", )
+alias( name = "jsinterop_base", actual = "@com_google_jsinterop_base//:jsinterop-base", )
 j2cl_library(
     name = "elemental2_promise-j2cl",
     srcs = ["//thirdparty:elemental2_promise"],
