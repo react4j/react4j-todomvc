@@ -12,79 +12,6 @@ j2cl_import(
     jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
 )
 
-alias( name = "jsinterop_annotations-j2cl", actual = "@com_google_j2cl//:jsinterop-annotations-j2cl", visibility = ["//visibility:public"],)
-alias( name = "jsinterop_annotations", actual = "@com_google_j2cl//:jsinterop-annotations", visibility = ["//visibility:public"], )
-
-alias( name = "jsinterop_base-j2cl", actual = "@com_google_jsinterop_base//:jsinterop-base-j2cl", )
-alias( name = "jsinterop_base", actual = "@com_google_jsinterop_base//:jsinterop-base", )
-j2cl_library(
-    name = "elemental2_promise-j2cl",
-    srcs = ["//thirdparty:elemental2_promise"],
-    deps = [
-        ":gwt-javaemul-internal-annotations-j2cl",
-        ":jsinterop_annotations-j2cl",
-        ":jsinterop_base-j2cl",
-    ],
-)
-
-j2cl_library(
-    name = "elemental2_core-j2cl",
-    srcs = ["//thirdparty:elemental2_core"],
-    deps = [
-        ":elemental2_promise-j2cl",
-        ":gwt-javaemul-internal-annotations-j2cl",
-        ":jsinterop_annotations-j2cl",
-        ":jsinterop_base-j2cl",
-    ],
-)
-
-j2cl_library(
-    name = "elemental2_dom-j2cl",
-    srcs = ["//thirdparty:elemental2_dom"],
-    deps = [
-        ":elemental2_core-j2cl",
-        ":elemental2_promise-j2cl",
-        ":gwt-javaemul-internal-annotations-j2cl",
-        ":jsinterop_annotations-j2cl",
-        ":jsinterop_base-j2cl",
-    ],
-    # TODO: Suppression required until we can figure out how to compile against specific version of closure compiler that aligns with the externs we use
-    js_suppress = ["checkTypes"],
-)
-
-j2cl_library(
-    name = "react4j_core-j2cl",
-    srcs = ["//thirdparty:react4j_core"],
-    # TODO: The glob should be removed and the source be part of binary artifact
-    native_srcs = glob(["src/main/java/react4j/*.js"]),
-    deps = [
-        "//thirdparty:arez_core-j2cl",
-        "//thirdparty:braincheck_core-j2cl",
-        ":elemental2_core-j2cl",
-        ":elemental2_promise-j2cl",
-        ":gwt-javaemul-internal-annotations-j2cl",
-        "//thirdparty:javax_annotation-j2cl",
-        ":jsinterop_annotations-j2cl",
-        ":jsinterop_base-j2cl",
-    ],
-)
-
-j2cl_library(
-    name = "react4j_dom-j2cl",
-    srcs = ["//thirdparty:react4j_dom"],
-    deps = [
-        "//thirdparty:braincheck_core-j2cl",
-        ":elemental2_core-j2cl",
-        ":elemental2_dom-j2cl",
-        ":elemental2_promise-j2cl",
-        ":gwt-javaemul-internal-annotations-j2cl",
-        "//thirdparty:javax_annotation-j2cl",
-        ":jsinterop_annotations-j2cl",
-        ":jsinterop_base-j2cl",
-        ":react4j_core-j2cl",
-    ],
-)
-
 j2cl_library(
     name = "react4j-todomvc-j2cl",
     srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]),
@@ -95,13 +22,13 @@ j2cl_library(
     deps = [
         "//thirdparty:braincheck_core-j2cl",
         "//thirdparty:arez_core-j2cl",
-        ":elemental2_dom-j2cl",
+        "//thirdparty:akasha_java-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
         "//thirdparty:javax_annotation-j2cl",
-        ":jsinterop_annotations-j2cl",
-        ":jsinterop_base-j2cl",
-        ":react4j_core-j2cl",
-        ":react4j_dom-j2cl",
+        "//thirdparty:jsinterop_annotations-j2cl",
+        "//thirdparty:jsinterop_base-j2cl",
+        "//thirdparty:react4j_core-j2cl",
+        "//thirdparty:react4j_dom-j2cl",
     ],
 )
 
