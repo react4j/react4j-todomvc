@@ -9,7 +9,7 @@
 # Dependency Graph Generated from the input data
 # +- org.realityforge.arez:arez-core:jar:0.196 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY //:jsinterop_annotations (Java), //:jsinterop_annotations-j2cl (J2cl)
+# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.30.0 [compile] (conflicts with 1.31.0)
 # |  \- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
@@ -20,14 +20,13 @@
 # |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile]
 # |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 # |  |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
-# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY //:jsinterop_annotations (Java), //:jsinterop_annotations-j2cl (J2cl)
-# |  |  \- com.google.jsinterop:base:jar:1.0.0 [compile]
+# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
+# |  |  \- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 # |  \- org.realityforge.arez:arez-core:jar:0.196 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.181 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY //:jsinterop_annotations (Java), //:jsinterop_annotations-j2cl (J2cl)
-# |  +- com.google.jsinterop:base:jar:1.0.0 [compile]
-# |  |  \- com.google.jsinterop:jsinterop-annotations:jar:1.0.2 [compile] (conflicts with 2.0.0) REPLACED BY //:jsinterop_annotations (Java), //:jsinterop_annotations-j2cl (J2cl)
+# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
+# |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
 # |  +- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # |  +- org.realityforge.zemeckis:zemeckis-core:jar:0.09 [compile] (conflicts with 0.10)
@@ -41,22 +40,22 @@
 # +- org.realityforge.sting:sting-processor:jar:0.18 [compile]
 # +- org.realityforge.zemeckis:zemeckis-core:jar:0.10 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY //:jsinterop_annotations (Java), //:jsinterop_annotations-j2cl (J2cl)
-# |  +- com.google.jsinterop:base:jar:1.0.0 [compile]
+# |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
+# |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
 # |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile]
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.30.0 [compile] (conflicts with 1.31.0)
 # |  \- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # \- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 #    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-#    \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY //:jsinterop_annotations (Java), //:jsinterop_annotations-j2cl (J2cl)
+#    \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "EF8266FF72141DD2B8D25AB6FBA6F7D6592FCEA1DAF1DC8A67DB82F4B642186D"
+_CONFIG_SHA256 = "F445506843035D8F783895E9762A7FA9245FA5B5579EC3FFACDE2131787AD6DA"
 
 def generate_workspace_rules():
     """
@@ -64,20 +63,6 @@ def generate_workspace_rules():
 
         Must be run from a WORKSPACE file.
     """
-
-    http_file(
-        name = "com_google_jsinterop__base__1_0_0",
-        downloaded_file_path = "com/google/jsinterop/base/1.0.0/base-1.0.0.jar",
-        sha256 = "603635c26a384f601b19fa79c04208bd2f52da7af54650a3abced5b813ca4412",
-        urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/base/1.0.0/base-1.0.0.jar"],
-    )
-
-    http_file(
-        name = "com_google_jsinterop__base__1_0_0__sources",
-        downloaded_file_path = "com/google/jsinterop/base/1.0.0/base-1.0.0-sources.jar",
-        sha256 = "733f02f18b225ffb24e927f23ca12ea91fec7b560665a8720a62ab95013cf5ea",
-        urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/base/1.0.0/base-1.0.0-sources.jar"],
-    )
 
     http_file(
         name = "org_realityforge_akasha__akasha_java__0_06",
@@ -332,69 +317,33 @@ def generate_targets():
     )
 
     native.alias(
-        name = "base",
-        actual = ":com_google_jsinterop__base__1_0_0",
+        name = "akasha_java-j2cl",
+        actual = ":org_realityforge_akasha__akasha_java__0_06-j2cl",
     )
-    java_import(
-        name = "com_google_jsinterop__base__1_0_0",
-        jars = ["@com_google_jsinterop__base__1_0_0//file"],
-        srcjar = "@com_google_jsinterop__base__1_0_0__sources//file",
-        tags = ["maven_coordinates=com.google.jsinterop:base:1.0.0"],
-        visibility = ["//visibility:private"],
-        deps = ["//:jsinterop_annotations"],
-    )
-
-    native.alias(
-        name = "akasha_java",
-        actual = ":org_realityforge_akasha__akasha_java__0_06",
-    )
-    java_import(
-        name = "org_realityforge_akasha__akasha_java__0_06",
-        jars = ["@org_realityforge_akasha__akasha_java__0_06//file"],
-        srcjar = "@org_realityforge_akasha__akasha_java__0_06__sources//file",
-        tags = ["maven_coordinates=org.realityforge.akasha:akasha-java:0.06"],
+    j2cl_library(
+        name = "org_realityforge_akasha__akasha_java__0_06-j2cl",
+        srcs = ["@org_realityforge_akasha__akasha_java__0_06__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            "//:jsinterop_annotations",
-            ":base",
-            ":javax_annotation",
-            ":org_jetbrains_annotations",
+            ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
+            ":jsinterop_base-j2cl",
+            ":org_jetbrains_annotations-j2cl",
         ],
     )
 
     native.alias(
-        name = "arez_spytools",
-        actual = ":org_realityforge_arez_spytools__arez_spytools__0_126",
+        name = "arez_spytools-j2cl",
+        actual = ":org_realityforge_arez_spytools__arez_spytools__0_126-j2cl",
     )
-    java_import(
-        name = "org_realityforge_arez_spytools__arez_spytools__0_126",
-        jars = ["@org_realityforge_arez_spytools__arez_spytools__0_126//file"],
-        srcjar = "@org_realityforge_arez_spytools__arez_spytools__0_126__sources//file",
-        tags = ["maven_coordinates=org.realityforge.arez.spytools:arez-spytools:0.126"],
+    j2cl_library(
+        name = "org_realityforge_arez_spytools__arez_spytools__0_126-j2cl",
+        srcs = ["@org_realityforge_arez_spytools__arez_spytools__0_126__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            ":akasha_java",
-            ":arez_core",
-            ":org_jetbrains_annotations",
-        ],
-    )
-
-    native.alias(
-        name = "arez_core",
-        actual = ":org_realityforge_arez__arez_core__0_196",
-    )
-    java_import(
-        name = "org_realityforge_arez__arez_core__0_196",
-        jars = ["@org_realityforge_arez__arez_core__0_196//file"],
-        srcjar = "@org_realityforge_arez__arez_core__0_196__sources//file",
-        tags = ["maven_coordinates=org.realityforge.arez:arez-core:0.196"],
-        visibility = ["//visibility:private"],
-        deps = [
-            "//:jsinterop_annotations",
-            ":braincheck_core",
-            ":grim_annotations",
-            ":javax_annotation",
-            ":org_jetbrains_annotations",
+            ":akasha_java-j2cl",
+            ":arez_core-j2cl",
+            ":org_jetbrains_annotations-j2cl",
         ],
     )
 
@@ -407,10 +356,10 @@ def generate_targets():
         srcs = ["@org_realityforge_arez__arez_core__0_196__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            "//:jsinterop_annotations-j2cl",
             ":braincheck_core-j2cl",
             ":grim_annotations-j2cl",
             ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
             ":org_jetbrains_annotations-j2cl",
         ],
     )
@@ -452,22 +401,6 @@ def generate_targets():
     )
 
     native.alias(
-        name = "braincheck_core",
-        actual = ":org_realityforge_braincheck__braincheck_core__1_31_0",
-    )
-    java_import(
-        name = "org_realityforge_braincheck__braincheck_core__1_31_0",
-        jars = ["@org_realityforge_braincheck__braincheck_core__1_31_0//file"],
-        srcjar = "@org_realityforge_braincheck__braincheck_core__1_31_0__sources//file",
-        tags = ["maven_coordinates=org.realityforge.braincheck:braincheck-core:1.31.0"],
-        visibility = ["//visibility:private"],
-        deps = [
-            "//:jsinterop_annotations",
-            ":javax_annotation",
-        ],
-    )
-
-    native.alias(
         name = "braincheck_core-j2cl",
         actual = ":org_realityforge_braincheck__braincheck_core__1_31_0-j2cl",
     )
@@ -476,8 +409,8 @@ def generate_targets():
         srcs = ["@org_realityforge_braincheck__braincheck_core__1_31_0__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            "//:jsinterop_annotations-j2cl",
             ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
         ],
     )
 
@@ -491,33 +424,6 @@ def generate_targets():
         srcs = ["@org_realityforge_grim__grim_annotations__0_05__sources//file"],
         visibility = ["//visibility:private"],
         deps = [":javax_annotation-j2cl"],
-    )
-
-    native.alias(
-        name = "grim_annotations",
-        actual = ":org_realityforge_grim__grim_annotations__0_05",
-        visibility = ["//visibility:private"],
-    )
-    java_import(
-        name = "org_realityforge_grim__grim_annotations__0_05",
-        jars = ["@org_realityforge_grim__grim_annotations__0_05//file"],
-        srcjar = "@org_realityforge_grim__grim_annotations__0_05__sources//file",
-        tags = ["maven_coordinates=org.realityforge.grim:grim-annotations:0.05"],
-        visibility = ["//visibility:private"],
-        deps = [":javax_annotation"],
-    )
-
-    native.alias(
-        name = "javax_annotation",
-        actual = ":org_realityforge_javax_annotation__javax_annotation__1_0_1",
-    )
-    java_import(
-        name = "org_realityforge_javax_annotation__javax_annotation__1_0_1",
-        jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_1//file"],
-        srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_1__sources//file",
-        tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.1"],
-        visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
     )
 
     native.alias(
@@ -558,52 +464,34 @@ def generate_targets():
     )
 
     native.alias(
-        name = "org_jetbrains_annotations",
-        actual = ":org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0",
-        visibility = ["//visibility:private"],
+        name = "react4j_core-j2cl",
+        actual = ":org_realityforge_react4j__react4j_core__0_181-j2cl",
     )
-    java_import(
-        name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0",
-        jars = ["@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0//file"],
-        srcjar = "@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0__sources//file",
-        tags = ["maven_coordinates=org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:1.7.0"],
-        visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
-    )
-
-    native.alias(
-        name = "react4j_core",
-        actual = ":org_realityforge_react4j__react4j_core__0_181",
-    )
-    java_import(
-        name = "org_realityforge_react4j__react4j_core__0_181",
-        jars = ["@org_realityforge_react4j__react4j_core__0_181//file"],
-        srcjar = "@org_realityforge_react4j__react4j_core__0_181__sources//file",
-        tags = ["maven_coordinates=org.realityforge.react4j:react4j-core:0.181"],
+    j2cl_library(
+        name = "org_realityforge_react4j__react4j_core__0_181-j2cl",
+        srcs = ["@org_realityforge_react4j__react4j_core__0_181__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            "//:jsinterop_annotations",
-            ":akasha_java",
-            ":arez_core",
-            ":base",
-            ":grim_annotations",
-            ":javax_annotation",
-            ":org_jetbrains_annotations",
-            ":zemeckis_core",
+            ":akasha_java-j2cl",
+            ":arez_core-j2cl",
+            ":grim_annotations-j2cl",
+            ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
+            ":jsinterop_base-j2cl",
+            ":org_jetbrains_annotations-j2cl",
+            ":zemeckis_core-j2cl",
         ],
     )
 
     native.alias(
-        name = "react4j_dom",
-        actual = ":org_realityforge_react4j__react4j_dom__0_181",
+        name = "react4j_dom-j2cl",
+        actual = ":org_realityforge_react4j__react4j_dom__0_181-j2cl",
     )
-    java_import(
-        name = "org_realityforge_react4j__react4j_dom__0_181",
-        jars = ["@org_realityforge_react4j__react4j_dom__0_181//file"],
-        srcjar = "@org_realityforge_react4j__react4j_dom__0_181__sources//file",
-        tags = ["maven_coordinates=org.realityforge.react4j:react4j-dom:0.181"],
+    j2cl_library(
+        name = "org_realityforge_react4j__react4j_dom__0_181-j2cl",
+        srcs = ["@org_realityforge_react4j__react4j_dom__0_181__sources//file"],
         visibility = ["//visibility:private"],
-        deps = [":react4j_core"],
+        deps = [":react4j_core-j2cl"],
     )
 
     native.alias(
@@ -632,16 +520,14 @@ def generate_targets():
     )
 
     native.alias(
-        name = "sting_core",
-        actual = ":org_realityforge_sting__sting_core__0_18",
+        name = "sting_core-j2cl",
+        actual = ":org_realityforge_sting__sting_core__0_18-j2cl",
     )
-    java_import(
-        name = "org_realityforge_sting__sting_core__0_18",
-        jars = ["@org_realityforge_sting__sting_core__0_18//file"],
-        srcjar = "@org_realityforge_sting__sting_core__0_18__sources//file",
-        tags = ["maven_coordinates=org.realityforge.sting:sting-core:0.18"],
+    j2cl_library(
+        name = "org_realityforge_sting__sting_core__0_18-j2cl",
+        srcs = ["@org_realityforge_sting__sting_core__0_18__sources//file"],
         visibility = ["//visibility:private"],
-        deps = [":javax_annotation"],
+        deps = [":javax_annotation-j2cl"],
     )
 
     native.alias(
@@ -670,22 +556,20 @@ def generate_targets():
     )
 
     native.alias(
-        name = "zemeckis_core",
-        actual = ":org_realityforge_zemeckis__zemeckis_core__0_10",
+        name = "zemeckis_core-j2cl",
+        actual = ":org_realityforge_zemeckis__zemeckis_core__0_10-j2cl",
     )
-    java_import(
-        name = "org_realityforge_zemeckis__zemeckis_core__0_10",
-        jars = ["@org_realityforge_zemeckis__zemeckis_core__0_10//file"],
-        srcjar = "@org_realityforge_zemeckis__zemeckis_core__0_10__sources//file",
-        tags = ["maven_coordinates=org.realityforge.zemeckis:zemeckis-core:0.10"],
+    j2cl_library(
+        name = "org_realityforge_zemeckis__zemeckis_core__0_10-j2cl",
+        srcs = ["@org_realityforge_zemeckis__zemeckis_core__0_10__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            "//:jsinterop_annotations",
-            ":akasha_java",
-            ":base",
-            ":braincheck_core",
-            ":grim_annotations",
-            ":javax_annotation",
-            ":org_jetbrains_annotations",
+            ":akasha_java-j2cl",
+            ":braincheck_core-j2cl",
+            ":grim_annotations-j2cl",
+            ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
+            ":jsinterop_base-j2cl",
+            ":org_jetbrains_annotations-j2cl",
         ],
     )

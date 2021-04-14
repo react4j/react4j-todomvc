@@ -8,28 +8,38 @@ excludes:
   - coord: org.realityforge.braincheck:braincheck
 artifacts:
   - coord: org.realityforge.arez:arez-core:0.196
-    natures: [Java, J2cl]
+    natures: [J2cl]
   - coord: org.realityforge.arez:arez-processor:0.196
   - coord: org.realityforge.arez.spytools:arez-spytools:0.126
+    natures: [J2cl]
   - coord: org.realityforge.react4j:react4j-core:0.181
+    natures: [J2cl]
   - coord: org.realityforge.react4j:react4j-dom:0.181
+    natures: [J2cl]
   - coord: org.realityforge.react4j:react4j-processor:0.181
   - coord: org.realityforge.sting:sting-core:0.18
+    natures: [J2cl]
   - coord: org.realityforge.sting:sting-processor:0.18
   - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.10
+    natures: [J2cl]
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
-    natures: [Java, J2cl]
+    natures: [J2cl]
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
-    natures: [Java, J2cl]
+    natures: [J2cl]
   - coord: com.google.jsinterop:jsinterop-annotations
+    natures: [J2cl]
   - coord: com.google.jsinterop:base
   - coord: org.realityforge.akasha:akasha-java
+    natures: [J2cl]
 
 replacements:
+  - coord: com.google.jsinterop:base
+    targets:
+      - target: ":jsinterop_base-j2cl"
+        nature: J2cl
   - coord: com.google.jsinterop:jsinterop-annotations
     targets:
-      - target: "//:jsinterop_annotations"
-      - target: "//:jsinterop_annotations-j2cl"
+      - target: ":jsinterop_annotations-j2cl"
         nature: J2cl
