@@ -7,3 +7,5 @@ build --spawn_strategy=local
 build --strategy=J2cl=worker
 build --strategy=Closure=worker
 build --experimental_persistent_javac
+build --incompatible_strict_action_env
+build --strict_system_includes
