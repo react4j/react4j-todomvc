@@ -25,3 +25,11 @@ setup_j2cl_workspace()
 load("//thirdparty:dependencies.bzl", "generate_workspace_rules")
 
 generate_workspace_rules()
+
+# Required for jsinterop-base dependencies
+_JSINTEROP_BASE_VERSION = "a2b98ca84a4daa04d69d90dce49bc74108ad733c"
+http_archive(
+    name = "com_google_jsinterop_base",
+    strip_prefix = "jsinterop-base-%s" % _JSINTEROP_BASE_VERSION,
+    url = "https://github.com/google/jsinterop-base/archive/%s.zip" % _JSINTEROP_BASE_VERSION,
+)
