@@ -1,5 +1,11 @@
 package(default_visibility = ["//visibility:public"])
 
+alias( name = "jsinterop_annotations-j2cl", actual = "@com_google_j2cl//:jsinterop-annotations-j2cl", visibility = ["//visibility:public"],)
+alias( name = "jsinterop_annotations", actual = "@com_google_j2cl//:jsinterop-annotations", visibility = ["//visibility:public"], )
+
+alias( name = "jsinterop_base-j2cl", actual = "@com_google_jsinterop_base//:jsinterop-base-j2cl", )
+alias( name = "jsinterop_base", actual = "@com_google_jsinterop_base//:jsinterop-base", )
+
 load("//thirdparty:dependencies.bzl", "generate_targets")
 
 generate_targets()
