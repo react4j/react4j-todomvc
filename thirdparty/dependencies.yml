@@ -3,36 +3,30 @@ repositories:
     url: https://repo.maven.apache.org/maven2
 options:
   aliasStrategy: ArtifactId
+  defaultNature: J2cl
 excludes:
   # Replaced by braincheck-java
   - coord: org.realityforge.braincheck:braincheck
 artifacts:
   - coord: org.realityforge.arez:arez-core:0.196
-    natures: [J2cl]
   - coord: org.realityforge.arez:arez-processor:0.196
+    natures: [Plugin]
   - coord: org.realityforge.arez.spytools:arez-spytools:0.126
-    natures: [J2cl]
   - coord: org.realityforge.react4j:react4j-core:0.181
-    natures: [J2cl]
   - coord: org.realityforge.react4j:react4j-dom:0.181
-    natures: [J2cl]
   - coord: org.realityforge.react4j:react4j-processor:0.181
+    natures: [Plugin]
   - coord: org.realityforge.sting:sting-core:0.18
-    natures: [J2cl]
   - coord: org.realityforge.sting:sting-processor:0.18
+    natures: [Plugin]
   - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.10
-    natures: [J2cl]
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
-    natures: [J2cl]
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
-    natures: [J2cl]
   - coord: com.google.jsinterop:jsinterop-annotations
-    natures: [J2cl]
   - coord: com.google.jsinterop:base
   - coord: org.realityforge.akasha:akasha-java
-    natures: [J2cl]
 
 replacements:
   - coord: com.google.jsinterop:base
