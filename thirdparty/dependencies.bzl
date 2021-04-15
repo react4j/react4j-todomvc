@@ -498,7 +498,19 @@ def generate_targets():
         name = "org_realityforge_react4j__react4j_dom__0_181-j2cl",
         srcs = ["@org_realityforge_react4j__react4j_dom__0_181__sources//file"],
         visibility = ["//visibility:private"],
-        deps = [":react4j_core-j2cl"],
+        deps = [
+            ":gwt-javaemul-internal-annotations-j2cl",
+            ":akasha_java-j2cl",
+            ":braincheck_core-j2cl",
+            ":arez_core-j2cl",
+            ":grim_annotations-j2cl",
+            ":javax_annotation-j2cl",
+            ":jsinterop_annotations-j2cl",
+            ":jsinterop_base-j2cl",
+            ":org_jetbrains_annotations-j2cl",
+            ":zemeckis_core-j2cl",
+            ":react4j_core-j2cl"
+        ],
     )
 
     native.alias(
