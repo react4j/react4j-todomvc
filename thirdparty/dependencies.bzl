@@ -344,6 +344,9 @@ def generate_targets():
         deps = [
             ":akasha_java-j2cl",
             ":arez_core-j2cl",
+            ":jsinterop_base-j2cl",
+            ":braincheck_core-j2cl",
+            ":javax_annotation-j2cl",
             ":org_jetbrains_annotations-j2cl",
         ],
     )
