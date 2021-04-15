@@ -7,11 +7,6 @@ _SRCS = glob(["src/main/java/**/*.java"])
 
 _RESOURCES = glob(["src/main/java/**/*"], exclude = ["**/*.java"])
 
-j2cl_import(
-    name = "gwt-javaemul-internal-annotations-j2cl",
-    jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
-)
-
 j2cl_library(
     name = "react4j-todomvc-j2cl",
     srcs = glob(["src/main/java/react4j/todomvc/**/*.java"]),
@@ -24,7 +19,7 @@ j2cl_library(
         "//thirdparty:arez_core-j2cl",
         "//thirdparty:arez_spytools-j2cl",
         "//thirdparty:akasha_java-j2cl",
-        ":gwt-javaemul-internal-annotations-j2cl",
+        "//thirdparty:gwt-javaemul-internal-annotations-j2cl",
         "//thirdparty:javax_annotation-j2cl",
         "//thirdparty:jsinterop_annotations-j2cl",
         "//thirdparty:jsinterop_base-j2cl",

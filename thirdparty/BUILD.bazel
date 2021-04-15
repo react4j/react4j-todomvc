@@ -6,6 +6,12 @@ alias( name = "jsinterop_annotations", actual = "@com_google_j2cl//:jsinterop-an
 alias( name = "jsinterop_base-j2cl", actual = "@com_google_jsinterop_base//:jsinterop-base-j2cl", )
 alias( name = "jsinterop_base", actual = "@com_google_jsinterop_base//:jsinterop-base", )
 
+j2cl_import(
+    name = "gwt-javaemul-internal-annotations-j2cl",
+    jar = "@org_gwtproject_gwt//user:gwt-javaemul-internal-annotations",
+    visibility = ["//visibility:public"],
+)
+
 load("//thirdparty:dependencies.bzl", "generate_targets")
 
 generate_targets()
