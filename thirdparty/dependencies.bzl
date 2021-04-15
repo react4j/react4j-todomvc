@@ -325,6 +325,7 @@ def generate_targets():
         srcs = ["@org_realityforge_akasha__akasha_java__0_06__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
+            ":gwt-javaemul-internal-annotations-j2cl",
             ":javax_annotation-j2cl",
             ":jsinterop_annotations-j2cl",
             ":jsinterop_base-j2cl",
