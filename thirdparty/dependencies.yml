@@ -24,6 +24,11 @@ artifacts:
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
+    j2cl:
+      # This package has a class that is already present in jre emulation
+      # later so we add a suppression to ignore problem
+      suppress: [CR_REDECLARED_PROVIDES]
+  - coord: org.realityforge.javax.annotation:javax.annotation
   - coord: com.google.jsinterop:jsinterop-annotations
   - coord: com.google.jsinterop:base
   - coord: org.realityforge.akasha:akasha-java
