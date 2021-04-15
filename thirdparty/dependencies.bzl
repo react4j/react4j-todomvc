@@ -477,6 +477,8 @@ def generate_targets():
         srcs = ["@org_realityforge_react4j__react4j_core__0_181__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
+            ":braincheck_core-j2cl",
+            ":gwt-javaemul-internal-annotations-j2cl",
             ":akasha_java-j2cl",
             ":arez_core-j2cl",
             ":grim_annotations-j2cl",
