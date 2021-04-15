@@ -22,6 +22,7 @@ j2cl_library(
     deps = [
         "//thirdparty:braincheck_core-j2cl",
         "//thirdparty:arez_core-j2cl",
+        "//thirdparty:arez_spytools-j2cl",
         "//thirdparty:akasha_java-j2cl",
         ":gwt-javaemul-internal-annotations-j2cl",
         "//thirdparty:javax_annotation-j2cl",
