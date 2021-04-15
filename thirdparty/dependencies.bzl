@@ -448,8 +448,8 @@ def generate_targets():
     j2cl_library(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_1-j2cl",
         srcs = ["org_realityforge_javax_annotation__javax_annotation__1_0_1__j2cl_library"],
-        visibility = ["//visibility:private"],
         js_suppress = ["CR_REDECLARED_PROVIDES"],
+        visibility = ["//visibility:private"],
     )
 
     native.alias(
