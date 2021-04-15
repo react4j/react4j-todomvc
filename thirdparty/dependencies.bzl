@@ -15,8 +15,11 @@
 # |  \- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # |     \- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 # +- org.realityforge.arez:arez-processor:jar:0.196 [compile]
-# +- org.realityforge.arez.spytools:arez-spytools:jar:0.126 [compile]
+# +- org.realityforge.arez.spytools:arez-spytools:jar:0.127 [compile]
+# |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
+# |  +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
+# |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 # |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile]
 # |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 # |  |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
@@ -55,7 +58,7 @@ load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "F445506843035D8F783895E9762A7FA9245FA5B5579EC3FFACDE2131787AD6DA"
+_CONFIG_SHA256 = "952D0857B4BA9A55E531913004B6F58F5A35004E183E2117BF123E4FA24A8531"
 
 def generate_workspace_rules():
     """
@@ -79,17 +82,17 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_arez_spytools__arez_spytools__0_126",
-        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.126/arez-spytools-0.126.jar",
-        sha256 = "67190068f8594472a1e499a6847e6ed543f7522f0ac4be989e32b534cf8b33b1",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.126/arez-spytools-0.126.jar"],
+        name = "org_realityforge_arez_spytools__arez_spytools__0_127",
+        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.127/arez-spytools-0.127.jar",
+        sha256 = "422d5ce5e2a7c9a626c3f10c9820a8cea980e3552ec64ac6712473fa42b81fce",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.127/arez-spytools-0.127.jar"],
     )
 
     http_file(
-        name = "org_realityforge_arez_spytools__arez_spytools__0_126__sources",
-        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.126/arez-spytools-0.126-sources.jar",
-        sha256 = "8d53775a941abe0ad735a6abd202238ed5a871fcf88d3a8819d469a18f84307f",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.126/arez-spytools-0.126-sources.jar"],
+        name = "org_realityforge_arez_spytools__arez_spytools__0_127__sources",
+        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.127/arez-spytools-0.127-sources.jar",
+        sha256 = "ab281220db17247a25a8cde40f8013c4a539967afbaf983c0130fc33c25d0bbb",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.127/arez-spytools-0.127-sources.jar"],
     )
 
     http_file(
@@ -335,18 +338,18 @@ def generate_targets():
 
     native.alias(
         name = "arez_spytools-j2cl",
-        actual = ":org_realityforge_arez_spytools__arez_spytools__0_126-j2cl",
+        actual = ":org_realityforge_arez_spytools__arez_spytools__0_127-j2cl",
     )
     j2cl_library(
-        name = "org_realityforge_arez_spytools__arez_spytools__0_126-j2cl",
-        srcs = ["@org_realityforge_arez_spytools__arez_spytools__0_126__sources//file"],
+        name = "org_realityforge_arez_spytools__arez_spytools__0_127-j2cl",
+        srcs = ["@org_realityforge_arez_spytools__arez_spytools__0_127__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
             ":akasha_java-j2cl",
             ":arez_core-j2cl",
-            ":jsinterop_base-j2cl",
             ":braincheck_core-j2cl",
             ":javax_annotation-j2cl",
+            ":jsinterop_base-j2cl",
             ":org_jetbrains_annotations-j2cl",
         ],
     )

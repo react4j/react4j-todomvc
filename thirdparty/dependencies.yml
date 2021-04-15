@@ -11,7 +11,7 @@ artifacts:
   - coord: org.realityforge.arez:arez-core:0.196
   - coord: org.realityforge.arez:arez-processor:0.196
     natures: [Plugin]
-  - coord: org.realityforge.arez.spytools:arez-spytools:0.126
+  - coord: org.realityforge.arez.spytools:arez-spytools:0.127
   - coord: org.realityforge.react4j:react4j-core:0.181
   - coord: org.realityforge.react4j:react4j-dom:0.181
   - coord: org.realityforge.react4j:react4j-processor:0.181
