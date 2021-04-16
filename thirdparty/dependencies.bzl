@@ -107,7 +107,6 @@ filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
     srcs = [
-        "arez/ArezConfig.native.js",
         "arez/arez.js",
     ],
 )
@@ -144,7 +143,6 @@ filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
     srcs = [
-        "org/realityforge/braincheck/BrainCheckConfig.native.js",
         "org/realityforge/braincheck/braincheck.js",
     ],
 )
@@ -188,7 +186,6 @@ filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
     srcs = [
-        "react4j/ReactConfig.native.js",
         "react4j/react.externs.js",
         "react4j/react4j.js",
     ],
@@ -254,7 +251,6 @@ filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
     srcs = [
-        "zemeckis/ZemeckisConfig.native.js",
         "zemeckis/zemeckis.js",
     ],
 )
