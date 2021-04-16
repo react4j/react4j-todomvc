@@ -1,4 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.11
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.12
 
 """
     Macro rules to load dependencies.
@@ -106,9 +106,7 @@ filegroup(
 filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
-    srcs = [
-        "arez/arez.js",
-    ],
+    srcs = ["arez/arez.js"],
 )
 """,
     )
@@ -142,9 +140,7 @@ filegroup(
 filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
-    srcs = [
-        "org/realityforge/braincheck/braincheck.js",
-    ],
+    srcs = ["org/realityforge/braincheck/braincheck.js"],
 )
 """,
     )
@@ -250,9 +246,7 @@ filegroup(
 filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
-    srcs = [
-        "zemeckis/zemeckis.js",
-    ],
+    srcs = ["zemeckis/zemeckis.js"],
 )
 """,
     )
