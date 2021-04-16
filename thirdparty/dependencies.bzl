@@ -1,4 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.10
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.11
 
 """
     Macro rules to load dependencies.
@@ -53,12 +53,9 @@
 #    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 #    \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file", "http_archive")
 load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 load("@com_google_j2cl//build_defs:rules.bzl", "j2cl_library")
-
-# SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "952D0857B4BA9A55E531913004B6F58F5A35004E183E2117BF123E4FA24A8531"
 
 def generate_workspace_rules():
     """
@@ -68,24 +65,23 @@ def generate_workspace_rules():
     """
 
     http_file(
-        name = "org_realityforge_akasha__akasha_java__0_06",
-        downloaded_file_path = "org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06.jar",
-        sha256 = "6aea8ec9da4308dcbd64b7d8344f9d867dc68608d9f28d362af802d9ed05ae35",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_akasha__akasha_java__0_06__sources",
         downloaded_file_path = "org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06-sources.jar",
         sha256 = "7bcbfadbb33fd848969e86650fc9ea3eb8a59a44db9cd3fe432cae5aedeba45d",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06-sources.jar"],
     )
 
-    http_file(
-        name = "org_realityforge_arez_spytools__arez_spytools__0_127",
-        downloaded_file_path = "org/realityforge/arez/spytools/arez-spytools/0.127/arez-spytools-0.127.jar",
-        sha256 = "422d5ce5e2a7c9a626c3f10c9820a8cea980e3552ec64ac6712473fa42b81fce",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/spytools/arez-spytools/0.127/arez-spytools-0.127.jar"],
+    http_archive(
+        name = "org_realityforge_akasha__akasha_java__0_06__js_sources",
+        sha256 = "7bcbfadbb33fd848969e86650fc9ea3eb8a59a44db9cd3fe432cae5aedeba45d",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06-sources.jar"],
+        build_file_content = """
+filegroup(
+    name = "srcs",
+    visibility = ["//visibility:public"],
+    srcs = ["akasha/Akasha.externs.js"],
+)
+""",
     )
 
     http_file(
@@ -96,17 +92,26 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_arez__arez_core__0_196",
-        downloaded_file_path = "org/realityforge/arez/arez-core/0.196/arez-core-0.196.jar",
-        sha256 = "f05086dbc933cd99a02584baf3f4aaf2a7e5eb26f9d042b7f394669379b89c83",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.196/arez-core-0.196.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_arez__arez_core__0_196__sources",
         downloaded_file_path = "org/realityforge/arez/arez-core/0.196/arez-core-0.196-sources.jar",
         sha256 = "ee25ea13862d146537fe2fe7590333930add1958bf9c54d0ad9746404d39eef1",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.196/arez-core-0.196-sources.jar"],
+    )
+
+    http_archive(
+        name = "org_realityforge_arez__arez_core__0_196__js_sources",
+        sha256 = "ee25ea13862d146537fe2fe7590333930add1958bf9c54d0ad9746404d39eef1",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/arez/arez-core/0.196/arez-core-0.196-sources.jar"],
+        build_file_content = """
+filegroup(
+    name = "srcs",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "arez/ArezConfig.native.js",
+        "arez/arez.js",
+    ],
+)
+""",
     )
 
     http_file(
@@ -124,31 +129,26 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_10",
-        downloaded_file_path = "org/realityforge/bazel/depgen/bazel-depgen/0.10/bazel-depgen-0.10-all.jar",
-        sha256 = "dd2745c2c47ee2934ebf8549f33841180a0f2fbb8594938e8c7ad9b8282928e2",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/bazel/depgen/bazel-depgen/0.10/bazel-depgen-0.10-all.jar"],
-    )
-
-    http_file(
-        name = "org_realityforge_braincheck__braincheck_core__1_31_0",
-        downloaded_file_path = "org/realityforge/braincheck/braincheck-core/1.31.0/braincheck-core-1.31.0.jar",
-        sha256 = "15971ffd219296dd0cf8dcebb3969600811b10d97886a1c30c2a4b757ee5b017",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck-core/1.31.0/braincheck-core-1.31.0.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_braincheck__braincheck_core__1_31_0__sources",
         downloaded_file_path = "org/realityforge/braincheck/braincheck-core/1.31.0/braincheck-core-1.31.0-sources.jar",
         sha256 = "98749b7cb2d31de6eee7317406374a68a34b633d463a4ae5b6a5ca579a97ce6b",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck-core/1.31.0/braincheck-core-1.31.0-sources.jar"],
     )
 
-    http_file(
-        name = "org_realityforge_grim__grim_annotations__0_05",
-        downloaded_file_path = "org/realityforge/grim/grim-annotations/0.05/grim-annotations-0.05.jar",
-        sha256 = "04e20e1d8bbe56e7d1b6912da5588263dd24202477541c0e343d9baf6e444f38",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/grim/grim-annotations/0.05/grim-annotations-0.05.jar"],
+    http_archive(
+        name = "org_realityforge_braincheck__braincheck_core__1_31_0__js_sources",
+        sha256 = "98749b7cb2d31de6eee7317406374a68a34b633d463a4ae5b6a5ca579a97ce6b",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/braincheck/braincheck-core/1.31.0/braincheck-core-1.31.0-sources.jar"],
+        build_file_content = """
+filegroup(
+    name = "srcs",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "org/realityforge/braincheck/BrainCheckConfig.native.js",
+        "org/realityforge/braincheck/braincheck.js",
+    ],
+)
+""",
     )
 
     http_file(
@@ -159,24 +159,10 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_javax_annotation__javax_annotation__1_0_1",
-        downloaded_file_path = "org/realityforge/javax/annotation/javax.annotation/1.0.1/javax.annotation-1.0.1.jar",
-        sha256 = "6adb7bcd07bdfc2e28d815dc7e0ce594181fe8a5a74d336cbf7cd7cfb283bb8d",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/javax/annotation/javax.annotation/1.0.1/javax.annotation-1.0.1.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_1__sources",
         downloaded_file_path = "org/realityforge/javax/annotation/javax.annotation/1.0.1/javax.annotation-1.0.1-sources.jar",
         sha256 = "049e2910100b7d27af24a821883f5ce94006955c7b08b9fb60cf57b67cd06061",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/javax/annotation/javax.annotation/1.0.1/javax.annotation-1.0.1-sources.jar"],
-    )
-
-    http_file(
-        name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0",
-        downloaded_file_path = "org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.7.0/org.jetbrains.annotations-1.7.0.jar",
-        sha256 = "b08893fbc83611432a8b5e692be6d513a7cad94d83d328d9deec5265917a7f81",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/org/jetbrains/annotations/org.jetbrains.annotations/1.7.0/org.jetbrains.annotations-1.7.0.jar"],
     )
 
     http_file(
@@ -187,24 +173,27 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_react4j__react4j_core__0_181",
-        downloaded_file_path = "org/realityforge/react4j/react4j-core/0.181/react4j-core-0.181.jar",
-        sha256 = "41fd730af38b5f4d0758e3f94860cd98a75111a67386034edee09432426250ca",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.181/react4j-core-0.181.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_react4j__react4j_core__0_181__sources",
         downloaded_file_path = "org/realityforge/react4j/react4j-core/0.181/react4j-core-0.181-sources.jar",
         sha256 = "6dea2cb9eb6e4b607c2b3e7e64cf190813992b209f012c93299356b1ca569e19",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.181/react4j-core-0.181-sources.jar"],
     )
 
-    http_file(
-        name = "org_realityforge_react4j__react4j_dom__0_181",
-        downloaded_file_path = "org/realityforge/react4j/react4j-dom/0.181/react4j-dom-0.181.jar",
-        sha256 = "1bc66c247faa892ed49a319bf38dad4a6c5b10f90d192b6eac1356b759a97835",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-dom/0.181/react4j-dom-0.181.jar"],
+    http_archive(
+        name = "org_realityforge_react4j__react4j_core__0_181__js_sources",
+        sha256 = "6dea2cb9eb6e4b607c2b3e7e64cf190813992b209f012c93299356b1ca569e19",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-core/0.181/react4j-core-0.181-sources.jar"],
+        build_file_content = """
+filegroup(
+    name = "srcs",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "react4j/ReactConfig.native.js",
+        "react4j/react.externs.js",
+        "react4j/react4j.js",
+    ],
+)
+""",
     )
 
     http_file(
@@ -229,13 +218,6 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_sting__sting_core__0_18",
-        downloaded_file_path = "org/realityforge/sting/sting-core/0.18/sting-core-0.18.jar",
-        sha256 = "131f5b22fb29e6bf0842c0e9c1d4cab8ba7d3f4e3fa641d8560faa58d56ceda2",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/sting/sting-core/0.18/sting-core-0.18.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_sting__sting_core__0_18__sources",
         downloaded_file_path = "org/realityforge/sting/sting-core/0.18/sting-core-0.18-sources.jar",
         sha256 = "601bd9936d0e3e280888babb94bd6a2c33bb92d2107e9770bec2e6d77749dff1",
@@ -257,17 +239,26 @@ def generate_workspace_rules():
     )
 
     http_file(
-        name = "org_realityforge_zemeckis__zemeckis_core__0_10",
-        downloaded_file_path = "org/realityforge/zemeckis/zemeckis-core/0.10/zemeckis-core-0.10.jar",
-        sha256 = "aaa21f41427a9256e38bb80e10ec1951afe3847d6d810f372afea5938a948584",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/zemeckis/zemeckis-core/0.10/zemeckis-core-0.10.jar"],
-    )
-
-    http_file(
         name = "org_realityforge_zemeckis__zemeckis_core__0_10__sources",
         downloaded_file_path = "org/realityforge/zemeckis/zemeckis-core/0.10/zemeckis-core-0.10-sources.jar",
         sha256 = "98dd0a1e9af48e33f345499a37ce1067839286e9655e1674b60bb1ab4cb6af00",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/zemeckis/zemeckis-core/0.10/zemeckis-core-0.10-sources.jar"],
+    )
+
+    http_archive(
+        name = "org_realityforge_zemeckis__zemeckis_core__0_10__js_sources",
+        sha256 = "98dd0a1e9af48e33f345499a37ce1067839286e9655e1674b60bb1ab4cb6af00",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/zemeckis/zemeckis-core/0.10/zemeckis-core-0.10-sources.jar"],
+        build_file_content = """
+filegroup(
+    name = "srcs",
+    visibility = ["//visibility:public"],
+    srcs = [
+        "zemeckis/ZemeckisConfig.native.js",
+        "zemeckis/zemeckis.js",
+    ],
+)
+""",
     )
 
 def generate_targets():
@@ -275,57 +266,16 @@ def generate_targets():
         Macro to define targets for dependencies.
     """
 
-    native.genrule(
-        name = "verify_config_sha256",
-        srcs = [
-            ":bazel_depgen",
-            "//thirdparty:dependencies.yml",
-            "@bazel_tools//tools/jdk:current_java_runtime",
-        ],
-        toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
-        outs = ["command-output.txt"],
-        cmd = "$(JAVA) -jar $(location :bazel_depgen) --config-file $(location //thirdparty:dependencies.yml) --quiet hash --verify-sha256 %s > \"$@\"" % (_CONFIG_SHA256),
-        visibility = ["//visibility:private"],
-    )
-
-    native.genrule(
-        name = "regenerate_depgen_extension_script",
-        srcs = [
-            ":bazel_depgen",
-            "//thirdparty:dependencies.yml",
-            "@bazel_tools//tools/jdk:current_java_runtime",
-        ],
-        toolchains = ["@bazel_tools//tools/jdk:current_java_runtime"],
-        outs = ["regenerate_depgen_extension_script.sh"],
-        cmd = "echo \"$(JAVA) -jar $(location :bazel_depgen) --directory \\$$BUILD_WORKSPACE_DIRECTORY --config-file $(location //thirdparty:dependencies.yml) \$$@ generate \" > \"$@\"",
-        visibility = ["//visibility:private"],
-    )
-
-    native.sh_binary(
-        name = "regenerate_depgen_extension",
-        srcs = ["regenerate_depgen_extension_script"],
-        tags = [
-            "local",
-            "manual",
-            "no-cache",
-            "no-remote",
-            "no-sandbox",
-        ],
-        data = [
-            ":bazel_depgen",
-            "//thirdparty:dependencies.yml",
-            "@bazel_tools//tools/jdk:current_java_runtime",
-        ],
-        visibility = ["//visibility:private"],
-    )
-
     native.alias(
         name = "akasha_java-j2cl",
         actual = ":org_realityforge_akasha__akasha_java__0_06-j2cl",
     )
     j2cl_library(
         name = "org_realityforge_akasha__akasha_java__0_06-j2cl",
-        srcs = ["@org_realityforge_akasha__akasha_java__0_06__sources//file"],
+        srcs = [
+            "@org_realityforge_akasha__akasha_java__0_06__sources//file",
+            "@org_realityforge_akasha__akasha_java__0_06__js_sources//:srcs",
+        ],
         visibility = ["//visibility:private"],
         deps = [
             ":gwt-javaemul-internal-annotations-j2cl",
@@ -360,7 +310,10 @@ def generate_targets():
     )
     j2cl_library(
         name = "org_realityforge_arez__arez_core__0_196-j2cl",
-        srcs = ["@org_realityforge_arez__arez_core__0_196__sources//file"],
+        srcs = [
+            "@org_realityforge_arez__arez_core__0_196__sources//file",
+            "@org_realityforge_arez__arez_core__0_196__js_sources//:srcs",
+        ],
         visibility = ["//visibility:private"],
         deps = [
             ":braincheck_core-j2cl",
@@ -381,7 +334,6 @@ def generate_targets():
         srcjar = "@org_realityforge_arez__arez_processor__0_196__sources//file",
         tags = ["maven_coordinates=org.realityforge.arez:arez-processor:0.196"],
         visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
     )
     java_plugin(
         name = "org_realityforge_arez__arez_processor__0_196__arez_processor_arezprocessor__plugin",
@@ -397,23 +349,15 @@ def generate_targets():
     )
 
     native.alias(
-        name = "bazel_depgen",
-        actual = ":org_realityforge_bazel_depgen__bazel_depgen__0_10",
-    )
-    java_import(
-        name = "org_realityforge_bazel_depgen__bazel_depgen__0_10",
-        jars = ["@org_realityforge_bazel_depgen__bazel_depgen__0_10//file"],
-        tags = ["maven_coordinates=org.realityforge.bazel.depgen:bazel-depgen:0.10"],
-        visibility = ["//visibility:private"],
-    )
-
-    native.alias(
         name = "braincheck_core-j2cl",
         actual = ":org_realityforge_braincheck__braincheck_core__1_31_0-j2cl",
     )
     j2cl_library(
         name = "org_realityforge_braincheck__braincheck_core__1_31_0-j2cl",
-        srcs = ["@org_realityforge_braincheck__braincheck_core__1_31_0__sources//file"],
+        srcs = [
+            "@org_realityforge_braincheck__braincheck_core__1_31_0__sources//file",
+            "@org_realityforge_braincheck__braincheck_core__1_31_0__js_sources//:srcs",
+        ],
         visibility = ["//visibility:private"],
         deps = [
             ":javax_annotation-j2cl",
@@ -437,17 +381,9 @@ def generate_targets():
         name = "javax_annotation-j2cl",
         actual = ":org_realityforge_javax_annotation__javax_annotation__1_0_1-j2cl",
     )
-    java_import(
-        name = "org_realityforge_javax_annotation__javax_annotation__1_0_1__j2cl_library",
-        jars = ["@org_realityforge_javax_annotation__javax_annotation__1_0_1//file"],
-        srcjar = "@org_realityforge_javax_annotation__javax_annotation__1_0_1__sources//file",
-        tags = ["maven_coordinates=org.realityforge.javax.annotation:javax.annotation:1.0.1"],
-        visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
-    )
     j2cl_library(
         name = "org_realityforge_javax_annotation__javax_annotation__1_0_1-j2cl",
-        srcs = ["org_realityforge_javax_annotation__javax_annotation__1_0_1__j2cl_library"],
+        srcs = ["@org_realityforge_javax_annotation__javax_annotation__1_0_1__sources//file"],
         js_suppress = ["CR_REDECLARED_PROVIDES"],
         visibility = ["//visibility:private"],
     )
@@ -457,17 +393,9 @@ def generate_targets():
         actual = ":org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0-j2cl",
         visibility = ["//visibility:private"],
     )
-    java_import(
-        name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0__j2cl_library",
-        jars = ["@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0//file"],
-        srcjar = "@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0__sources//file",
-        tags = ["maven_coordinates=org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:1.7.0"],
-        visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
-    )
     j2cl_library(
         name = "org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0-j2cl",
-        srcs = ["org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0__j2cl_library"],
+        srcs = ["@org_realityforge_org_jetbrains_annotations__org_jetbrains_annotations__1_7_0__sources//file"],
         visibility = ["//visibility:private"],
     )
 
@@ -477,7 +405,10 @@ def generate_targets():
     )
     j2cl_library(
         name = "org_realityforge_react4j__react4j_core__0_181-j2cl",
-        srcs = ["@org_realityforge_react4j__react4j_core__0_181__sources//file"],
+        srcs = [
+            "@org_realityforge_react4j__react4j_core__0_181__sources//file",
+            "@org_realityforge_react4j__react4j_core__0_181__js_sources//:srcs",
+        ],
         visibility = ["//visibility:private"],
         deps = [
             ":braincheck_core-j2cl",
@@ -526,7 +457,6 @@ def generate_targets():
         srcjar = "@org_realityforge_react4j__react4j_processor__0_181__sources//file",
         tags = ["maven_coordinates=org.realityforge.react4j:react4j-processor:0.181"],
         visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
     )
     java_plugin(
         name = "org_realityforge_react4j__react4j_processor__0_181__react4j_processor_react4jprocessor__plugin",
@@ -562,7 +492,6 @@ def generate_targets():
         srcjar = "@org_realityforge_sting__sting_processor__0_18__sources//file",
         tags = ["maven_coordinates=org.realityforge.sting:sting-processor:0.18"],
         visibility = ["//visibility:private"],
-        data = [":verify_config_sha256"],
     )
     java_plugin(
         name = "org_realityforge_sting__sting_processor__0_18__sting_processor_stingprocessor__plugin",
@@ -583,7 +512,10 @@ def generate_targets():
     )
     j2cl_library(
         name = "org_realityforge_zemeckis__zemeckis_core__0_10-j2cl",
-        srcs = ["@org_realityforge_zemeckis__zemeckis_core__0_10__sources//file"],
+        srcs = [
+            "@org_realityforge_zemeckis__zemeckis_core__0_10__sources//file",
+            "@org_realityforge_zemeckis__zemeckis_core__0_10__js_sources//:srcs",
+        ],
         visibility = ["//visibility:private"],
         deps = [
             ":akasha_java-j2cl",

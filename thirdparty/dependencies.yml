@@ -4,6 +4,7 @@ repositories:
 options:
   aliasStrategy: ArtifactId
   defaultNature: J2cl
+  verifyConfigSha256: false
 excludes:
   # Replaced by braincheck-java
   - coord: org.realityforge.braincheck:braincheck
