@@ -20,11 +20,7 @@
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
 # |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
-# |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile]
-# |  |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-# |  |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
-# |  |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
-# |  |  \- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
+# |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile] (conflicts with 0.07)
 # |  \- org.realityforge.arez:arez-core:jar:0.196 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.181 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
@@ -34,7 +30,7 @@
 # |  +- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # |  +- org.realityforge.zemeckis:zemeckis-core:jar:0.09 [compile] (conflicts with 0.10)
 # |  +- org.realityforge.arez:arez-core:jar:0.192 [compile] (conflicts with 0.196)
-# |  \- org.realityforge.akasha:akasha-java:jar:0.03 [compile] (conflicts with 0.06)
+# |  \- org.realityforge.akasha:akasha-java:jar:0.03 [compile] (conflicts with 0.07)
 # +- org.realityforge.react4j:react4j-dom:jar:0.181 [compile]
 # |  \- org.realityforge.react4j:react4j-core:jar:0.181 [compile]
 # +- org.realityforge.react4j:react4j-processor:jar:0.181 [compile]
@@ -46,12 +42,18 @@
 # |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
 # |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
-# |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile]
+# |  +- org.realityforge.akasha:akasha-java:jar:0.06 [compile] (conflicts with 0.07)
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.30.0 [compile] (conflicts with 1.31.0)
 # |  \- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
-# \- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
+# +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
+# |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
+# |  \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
+# \- org.realityforge.akasha:akasha-java:jar:0.07 [compile]
 #    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-#    \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
+#    +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
+#    +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
+#    +- org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations:jar:0.01 [compile] REPLACED BY :gwt-javaemul-internal-annotations-j2cl (J2cl)
+#    \- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file", "http_archive")
 load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
@@ -65,21 +67,24 @@ def generate_workspace_rules():
     """
 
     http_file(
-        name = "org_realityforge_akasha__akasha_java__0_06__sources",
-        downloaded_file_path = "org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06-sources.jar",
-        sha256 = "7bcbfadbb33fd848969e86650fc9ea3eb8a59a44db9cd3fe432cae5aedeba45d",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06-sources.jar"],
+        name = "org_realityforge_akasha__akasha_java__0_07__sources",
+        downloaded_file_path = "org/realityforge/akasha/akasha-java/0.07/akasha-java-0.07-sources.jar",
+        sha256 = "60d1de5e6100f7dfc59a1d5fe48ae2a1d3bd2d1f35604cee02c1d2bc6241f3bc",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.07/akasha-java-0.07-sources.jar"],
     )
 
     http_archive(
-        name = "org_realityforge_akasha__akasha_java__0_06__js_sources",
-        sha256 = "7bcbfadbb33fd848969e86650fc9ea3eb8a59a44db9cd3fe432cae5aedeba45d",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.06/akasha-java-0.06-sources.jar"],
+        name = "org_realityforge_akasha__akasha_java__0_07__js_sources",
+        sha256 = "60d1de5e6100f7dfc59a1d5fe48ae2a1d3bd2d1f35604cee02c1d2bc6241f3bc",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.07/akasha-java-0.07-sources.jar"],
         build_file_content = """
 filegroup(
     name = "srcs",
     visibility = ["//visibility:public"],
-    srcs = ["akasha/Akasha.externs.js"],
+    srcs = [
+        "akasha/Akasha.externs.js",
+        "akasha/akasha_patches.extern.js",
+    ],
 )
 """,
     )
@@ -258,13 +263,13 @@ def generate_targets():
 
     native.alias(
         name = "akasha_java-j2cl",
-        actual = ":org_realityforge_akasha__akasha_java__0_06-j2cl",
+        actual = ":org_realityforge_akasha__akasha_java__0_07-j2cl",
     )
     j2cl_library(
-        name = "org_realityforge_akasha__akasha_java__0_06-j2cl",
+        name = "org_realityforge_akasha__akasha_java__0_07-j2cl",
         srcs = [
-            "@org_realityforge_akasha__akasha_java__0_06__sources//file",
-            "@org_realityforge_akasha__akasha_java__0_06__js_sources//:srcs",
+            "@org_realityforge_akasha__akasha_java__0_07__sources//file",
+            "@org_realityforge_akasha__akasha_java__0_07__js_sources//:srcs",
         ],
         visibility = ["//visibility:private"],
         deps = [

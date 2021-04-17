@@ -22,6 +22,7 @@ artifacts:
     natures: [Plugin]
   - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.10
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
+  - coord: org.realityforge.akasha:akasha-java:0.07
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
@@ -32,7 +33,6 @@ artifacts:
   - coord: org.realityforge.javax.annotation:javax.annotation
   - coord: com.google.jsinterop:jsinterop-annotations
   - coord: com.google.jsinterop:base
-  - coord: org.realityforge.akasha:akasha-java
 
 replacements:
   - coord: com.google.jsinterop:base
@@ -42,4 +42,7 @@ replacements:
   - coord: com.google.jsinterop:jsinterop-annotations
     targets:
       - target: ":jsinterop_annotations-j2cl"
+  - coord: org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations
+    targets:
+      - target: ":gwt-javaemul-internal-annotations-j2cl"
         nature: J2cl
