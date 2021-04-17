@@ -38,11 +38,9 @@ replacements:
   - coord: com.google.jsinterop:base
     targets:
       - target: ":jsinterop_base-j2cl"
-        nature: J2cl
   - coord: com.google.jsinterop:jsinterop-annotations
     targets:
       - target: ":jsinterop_annotations-j2cl"
   - coord: org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations
     targets:
       - target: ":gwt-javaemul-internal-annotations-j2cl"
-        nature: J2cl
