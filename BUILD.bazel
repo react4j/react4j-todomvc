@@ -37,6 +37,6 @@ closure_js_library(
 j2cl_application(
     name = "react4j-todomvc",
     entry_points = ["react4j.todomvc.Main"],
-    defs = ["--env=CUSTOM"],
+    extra_production_args = ["--env=CUSTOM"],
     deps = [":react4j-closure"],
 )
