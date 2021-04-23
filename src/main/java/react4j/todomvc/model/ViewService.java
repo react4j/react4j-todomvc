@@ -1,8 +1,8 @@
 package react4j.todomvc.model;
 
 import akasha.Event;
-import akasha.Global;
 import akasha.Location;
+import akasha.WindowGlobal;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
@@ -16,7 +16,7 @@ public final class ViewService
 
   ViewService( @Nonnull final TodoRepository todoRepository )
   {
-    Global.addHashchangeListener(  this::onHashChangeEvent, false );
+    WindowGlobal.addHashchangeListener(  this::onHashChangeEvent, false );
 
     filterMode$ = Stream.subject( "filterMode" );
     computeFilterMode();
@@ -47,7 +47,7 @@ public final class ViewService
 
   private void computeFilterMode()
   {
-    final Location location = Global.location();
+    final Location location = WindowGlobal.location();
     final String place = location.hash.substring( 1 );
     if ( "active".equals( place ) )
     {
@@ -63,7 +63,7 @@ public final class ViewService
        * This code is needed to remove the stray #.
        * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
        */
-      Global.history().pushState( "", Global.document().title, location.pathname + location.search );
+      WindowGlobal.history().pushState( "", WindowGlobal.document().title, location.pathname + location.search );
       filterMode$.next( FilterMode.ALL );
     }
   }
