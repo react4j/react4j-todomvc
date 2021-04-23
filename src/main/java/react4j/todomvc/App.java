@@ -1,7 +1,7 @@
 package react4j.todomvc;
 
 import akasha.Element;
-import akasha.Global;
+import akasha.WindowGlobal;
 import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import react4j.dom.ReactDOM;
@@ -15,7 +15,7 @@ public final class App
   {
     ReactArezSpyUtil.enableSpyEventLogging();
     TodoInjector.create();
-    final Element element = Global.document().getElementById( "app" );
+    final Element element = WindowGlobal.document().getElementById( "app" );
     assert null != element;
     ReactDOM.render( TodoListBuilder.build(), element );
   }
