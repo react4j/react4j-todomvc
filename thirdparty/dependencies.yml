@@ -7,15 +7,15 @@ excludes:
   # Replaced by braincheck-java
   - coord: org.realityforge.braincheck:braincheck
 artifacts:
-  - coord: org.realityforge.arez:arez-core:0.196
-  - coord: org.realityforge.arez:arez-processor:0.196
-  - coord: org.realityforge.arez.spytools:arez-spytools:0.126
-  - coord: org.realityforge.react4j:react4j-core:0.181
-  - coord: org.realityforge.react4j:react4j-dom:0.181
-  - coord: org.realityforge.react4j:react4j-processor:0.181
-  - coord: org.realityforge.sting:sting-core:0.18
-  - coord: org.realityforge.sting:sting-processor:0.18
-  - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.10
+  - coord: org.realityforge.arez:arez-core:0.197
+  - coord: org.realityforge.arez:arez-processor:0.197
+  - coord: org.realityforge.arez.spytools:arez-spytools:0.127
+  - coord: org.realityforge.react4j:react4j-core:0.182
+  - coord: org.realityforge.react4j:react4j-dom:0.182
+  - coord: org.realityforge.react4j:react4j-processor:0.182
+  - coord: org.realityforge.sting:sting-core:0.19
+  - coord: org.realityforge.sting:sting-processor:0.19
+  - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.11
   - coord: org.realityforge.braincheck:braincheck-jre:1.31.0
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
 
