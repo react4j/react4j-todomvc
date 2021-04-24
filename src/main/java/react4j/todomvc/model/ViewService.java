@@ -1,8 +1,8 @@
 package react4j.todomvc.model;
 
 import akasha.Event;
-import akasha.Global;
 import akasha.Location;
+import akasha.WindowGlobal;
 import arez.SafeProcedure;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public final class ViewService
   ViewService( @Nonnull final TodoRepository todoRepository )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    Global.addHashchangeListener(  this::onHashChangeEvent, false );
+    WindowGlobal.addHashchangeListener( this::onHashChangeEvent, false );
     todoRepository.subscribe( this::updateTodoBeingEdited );
   }
 
@@ -97,15 +97,15 @@ public final class ViewService
        * This code is needed to remove the stray #.
        * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
        */
-      final Location location = Global.location();
-      Global.history().pushState( "", Global.document().title, location.pathname + location.search );
+      final Location location = WindowGlobal.location();
+      WindowGlobal.history().pushState( "", WindowGlobal.document().title, location.pathname + location.search );
     }
   }
 
   @Nonnull
   private String getHash()
   {
-    return Global.window().location().hash.substring( 1 );
+    return WindowGlobal.window().location().hash.substring( 1 );
   }
 
   public void subscribe( @Nonnull final SafeProcedure subscriber )
