@@ -20,7 +20,7 @@
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
 # |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
-# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile]
+# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile] REPLACED BY :akasha_j2cl-j2cl (J2cl)
 # |  \- org.realityforge.arez:arez-core:jar:0.197 [compile]
 # +- org.realityforge.react4j:react4j-core:jar:0.182 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
@@ -31,7 +31,7 @@
 # |  +- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # |  +- org.realityforge.zemeckis:zemeckis-core:jar:0.11 [compile]
 # |  +- org.realityforge.arez:arez-core:jar:0.197 [compile]
-# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile]
+# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile] REPLACED BY :akasha_j2cl-j2cl (J2cl)
 # |  \- org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations:jar:0.01 [compile] REPLACED BY :gwt-javaemul-internal-annotations-j2cl (J2cl)
 # +- org.realityforge.react4j:react4j-dom:jar:0.182 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
@@ -42,7 +42,7 @@
 # |  +- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # |  +- org.realityforge.zemeckis:zemeckis-core:jar:0.11 [compile]
 # |  +- org.realityforge.arez:arez-core:jar:0.197 [compile]
-# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile]
+# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile] REPLACED BY :akasha_j2cl-j2cl (J2cl)
 # |  +- org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations:jar:0.01 [compile] REPLACED BY :gwt-javaemul-internal-annotations-j2cl (J2cl)
 # |  \- org.realityforge.react4j:react4j-core:jar:0.182 [compile]
 # +- org.realityforge.react4j:react4j-processor:jar:0.182 [compile]
@@ -51,13 +51,13 @@
 # |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
 # |  +- com.google.jsinterop:base:jar:1.0.0 [compile] REPLACED BY :jsinterop_base-j2cl (J2cl)
 # |  +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
-# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile]
+# |  +- org.realityforge.akasha:akasha-java:jar:0.10 [compile] REPLACED BY :akasha_j2cl-j2cl (J2cl)
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 # |  \- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 # |  \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
-# \- org.realityforge.akasha:akasha-java:jar:0.10 [compile]
+# \- org.realityforge.akasha:akasha-j2cl:jar:0.11 [compile]
 #    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 #    +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
 #    +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
@@ -76,16 +76,16 @@ def generate_workspace_rules():
     """
 
     http_file(
-        name = "org_realityforge_akasha__akasha_java__0_10__sources",
-        downloaded_file_path = "org/realityforge/akasha/akasha-java/0.10/akasha-java-0.10-sources.jar",
-        sha256 = "a5c124532d53c4dc19733d2adfaf2729caba608f566bd188e2470cfe418e7836",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.10/akasha-java-0.10-sources.jar"],
+        name = "org_realityforge_akasha__akasha_j2cl__0_11__sources",
+        downloaded_file_path = "org/realityforge/akasha/akasha-j2cl/0.11/akasha-j2cl-0.11-sources.jar",
+        sha256 = "2fa869060acbd831814331d4df2bc6c2a68deac0bcff13c899962547916eb6ac",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-j2cl/0.11/akasha-j2cl-0.11-sources.jar"],
     )
 
     http_archive(
-        name = "org_realityforge_akasha__akasha_java__0_10__js_sources",
-        sha256 = "a5c124532d53c4dc19733d2adfaf2729caba608f566bd188e2470cfe418e7836",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-java/0.10/akasha-java-0.10-sources.jar"],
+        name = "org_realityforge_akasha__akasha_j2cl__0_11__js_sources",
+        sha256 = "2fa869060acbd831814331d4df2bc6c2a68deac0bcff13c899962547916eb6ac",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-j2cl/0.11/akasha-j2cl-0.11-sources.jar"],
         build_file_content = """
 filegroup(
     name = "srcs",
@@ -250,14 +250,14 @@ def generate_targets():
     """
 
     native.alias(
-        name = "akasha_java-j2cl",
-        actual = ":org_realityforge_akasha__akasha_java__0_10-j2cl",
+        name = "akasha_j2cl-j2cl",
+        actual = ":org_realityforge_akasha__akasha_j2cl__0_11-j2cl",
     )
     j2cl_library(
-        name = "org_realityforge_akasha__akasha_java__0_10-j2cl",
+        name = "org_realityforge_akasha__akasha_j2cl__0_11-j2cl",
         srcs = [
-            "@org_realityforge_akasha__akasha_java__0_10__sources//file",
-            "@org_realityforge_akasha__akasha_java__0_10__js_sources//:srcs",
+            "@org_realityforge_akasha__akasha_j2cl__0_11__sources//file",
+            "@org_realityforge_akasha__akasha_j2cl__0_11__js_sources//:srcs",
         ],
         visibility = ["//visibility:private"],
         deps = [
@@ -278,7 +278,7 @@ def generate_targets():
         srcs = ["@org_realityforge_arez_spytools__arez_spytools__0_128__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            ":akasha_java-j2cl",
+            ":akasha_j2cl-j2cl",
             ":arez_core-j2cl",
             ":braincheck_core-j2cl",
             ":javax_annotation-j2cl",
@@ -394,7 +394,7 @@ def generate_targets():
         ],
         visibility = ["//visibility:private"],
         deps = [
-            ":akasha_java-j2cl",
+            ":akasha_j2cl-j2cl",
             ":arez_core-j2cl",
             ":braincheck_core-j2cl",
             ":grim_annotations-j2cl",
@@ -416,7 +416,7 @@ def generate_targets():
         srcs = ["@org_realityforge_react4j__react4j_dom__0_182__sources//file"],
         visibility = ["//visibility:private"],
         deps = [
-            ":akasha_java-j2cl",
+            ":akasha_j2cl-j2cl",
             ":arez_core-j2cl",
             ":braincheck_core-j2cl",
             ":grim_annotations-j2cl",
@@ -466,7 +466,7 @@ def generate_targets():
         ],
         visibility = ["//visibility:private"],
         deps = [
-            ":akasha_java-j2cl",
+            ":akasha_j2cl-j2cl",
             ":braincheck_core-j2cl",
             ":grim_annotations-j2cl",
             ":javax_annotation-j2cl",

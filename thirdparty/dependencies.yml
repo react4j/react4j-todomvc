@@ -19,7 +19,7 @@ artifacts:
     natures: [Plugin]
   - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.11
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
-  - coord: org.realityforge.akasha:akasha-java:0.10
+  - coord: org.realityforge.akasha:akasha-j2cl:0.11
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
@@ -41,3 +41,9 @@ replacements:
   - coord: org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations
     targets:
       - target: ":gwt-javaemul-internal-annotations-j2cl"
+  - coord: org.realityforge.akasha:akasha-gwt
+    targets:
+      - target: ":akasha_j2cl-j2cl"
+  - coord: org.realityforge.akasha:akasha-java
+    targets:
+      - target: ":akasha_j2cl-j2cl"

@@ -18,7 +18,7 @@ j2cl_library(
         "//thirdparty:braincheck_core-j2cl",
         "//thirdparty:arez_core-j2cl",
         "//thirdparty:arez_spytools-j2cl",
-        "//thirdparty:akasha_java-j2cl",
+        "//thirdparty:akasha_j2cl-j2cl",
         "//thirdparty:gwt-javaemul-internal-annotations-j2cl",
         "//thirdparty:javax_annotation-j2cl",
         "//thirdparty:jsinterop_annotations-j2cl",
