@@ -46,9 +46,6 @@
 # |  +- org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations:jar:0.01 [compile] REPLACED BY :gwt-javaemul-internal-annotations-j2cl (J2cl)
 # |  \- org.realityforge.react4j:react4j-core:jar:0.182 [compile]
 # +- org.realityforge.react4j:react4j-processor:jar:0.182 [compile]
-# +- org.realityforge.sting:sting-core:jar:0.19 [compile]
-# |  \- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-# +- org.realityforge.sting:sting-processor:jar:0.19 [compile]
 # +- org.realityforge.zemeckis:zemeckis-core:jar:0.11 [compile]
 # |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
 # |  +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile] REPLACED BY :jsinterop_annotations-j2cl (J2cl)
@@ -225,27 +222,6 @@ filegroup(
         downloaded_file_path = "org/realityforge/react4j/react4j-processor/0.182/react4j-processor-0.182-sources.jar",
         sha256 = "90f723d3e6a6e4698ffe0393ab56c75f5a8c3a775d292378f22584b3461eafed",
         urls = ["https://repo.maven.apache.org/maven2/org/realityforge/react4j/react4j-processor/0.182/react4j-processor-0.182-sources.jar"],
-    )
-
-    http_file(
-        name = "org_realityforge_sting__sting_core__0_19__sources",
-        downloaded_file_path = "org/realityforge/sting/sting-core/0.19/sting-core-0.19-sources.jar",
-        sha256 = "bad2f1caa2339dcf1a93e3846558d3650a05f4da495a005a290ad6d10b5e8d99",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/sting/sting-core/0.19/sting-core-0.19-sources.jar"],
-    )
-
-    http_file(
-        name = "org_realityforge_sting__sting_processor__0_19",
-        downloaded_file_path = "org/realityforge/sting/sting-processor/0.19/sting-processor-0.19.jar",
-        sha256 = "915b88d3b8b6577943ea5421e602436acae07e6f5220a684c361ff30d01db2a3",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/sting/sting-processor/0.19/sting-processor-0.19.jar"],
-    )
-
-    http_file(
-        name = "org_realityforge_sting__sting_processor__0_19__sources",
-        downloaded_file_path = "org/realityforge/sting/sting-processor/0.19/sting-processor-0.19-sources.jar",
-        sha256 = "fcc9a1842f45d644757f1b1fd8283e4141c775285a41cb97e51b8ca21fd73afa",
-        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/sting/sting-processor/0.19/sting-processor-0.19-sources.jar"],
     )
 
     http_file(
@@ -475,41 +451,6 @@ def generate_targets():
     java_library(
         name = "org_realityforge_react4j__react4j_processor__0_182",
         exported_plugins = ["org_realityforge_react4j__react4j_processor__0_182__react4j_processor_react4jprocessor__plugin"],
-        visibility = ["//visibility:private"],
-    )
-
-    native.alias(
-        name = "sting_core-j2cl",
-        actual = ":org_realityforge_sting__sting_core__0_19-j2cl",
-    )
-    j2cl_library(
-        name = "org_realityforge_sting__sting_core__0_19-j2cl",
-        srcs = ["@org_realityforge_sting__sting_core__0_19__sources//file"],
-        visibility = ["//visibility:private"],
-        deps = [":javax_annotation-j2cl"],
-    )
-
-    native.alias(
-        name = "sting_processor",
-        actual = ":org_realityforge_sting__sting_processor__0_19",
-    )
-    java_import(
-        name = "org_realityforge_sting__sting_processor__0_19__plugin_library",
-        jars = ["@org_realityforge_sting__sting_processor__0_19//file"],
-        srcjar = "@org_realityforge_sting__sting_processor__0_19__sources//file",
-        tags = ["maven_coordinates=org.realityforge.sting:sting-processor:0.19"],
-        visibility = ["//visibility:private"],
-    )
-    java_plugin(
-        name = "org_realityforge_sting__sting_processor__0_19__sting_processor_stingprocessor__plugin",
-        processor_class = "sting.processor.StingProcessor",
-        generates_api = True,
-        visibility = ["//visibility:private"],
-        deps = [":org_realityforge_sting__sting_processor__0_19__plugin_library"],
-    )
-    java_library(
-        name = "org_realityforge_sting__sting_processor__0_19",
-        exported_plugins = ["org_realityforge_sting__sting_processor__0_19__sting_processor_stingprocessor__plugin"],
         visibility = ["//visibility:private"],
     )
 

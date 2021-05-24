@@ -17,9 +17,6 @@ artifacts:
   - coord: org.realityforge.react4j:react4j-dom:0.182
   - coord: org.realityforge.react4j:react4j-processor:0.182
     natures: [Plugin]
-  - coord: org.realityforge.sting:sting-core:0.19
-  - coord: org.realityforge.sting:sting-processor:0.19
-    natures: [Plugin]
   - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.11
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
   - coord: org.realityforge.akasha:akasha-java:0.10
