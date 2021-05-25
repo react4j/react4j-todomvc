@@ -63,15 +63,21 @@
 # |  +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
 # |  \- org.realityforge.grim:grim-annotations:jar:0.05 [compile]
 # +- org.realityforge.braincheck:braincheck-jre:jar:1.31.0 [compile]
-# \- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
+# +- org.realityforge.braincheck:braincheck-core:jar:1.31.0 [compile]
+# |  +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
+# |  \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile]
+# \- org.realityforge.akasha:akasha-gwt:jar:0.11 [compile]
 #    +- org.realityforge.javax.annotation:javax.annotation:jar:1.0.1 [compile]
-#    \- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile]
+#    +- org.realityforge.org.jetbrains.annotations:org.jetbrains.annotations:jar:1.7.0 [compile]
+#    +- com.google.jsinterop:jsinterop-annotations:jar:2.0.0 [compile]
+#    +- org.realityforge.javaemul.internal.annotations:javaemul.internal.annotations:jar:0.01 [compile]
+#    \- com.google.jsinterop:base:jar:1.0.0 [compile]
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@rules_java//java:defs.bzl", "java_import", "java_library", "java_plugin")
 
 # SHA256 of the configuration content that generated this file
-_CONFIG_SHA256 = "D1726EAB809C9E67F2128394E757FC9FE0C39BD780308D30AEA2B90D7F0A15F0"
+_CONFIG_SHA256 = "226B43C3327B63CF163FF75FBBEF29FD94540470FBC6BCBE8CA93FC58D26BA56"
 
 def generate_workspace_rules():
     """
@@ -106,6 +112,20 @@ def generate_workspace_rules():
         downloaded_file_path = "com/google/jsinterop/jsinterop-annotations/2.0.0/jsinterop-annotations-2.0.0-sources.jar",
         sha256 = "27fd725393e1129dc9ca7c3712cb7ae9716ac613e82b00753139aa4b2325a67b",
         urls = ["https://repo.maven.apache.org/maven2/com/google/jsinterop/jsinterop-annotations/2.0.0/jsinterop-annotations-2.0.0-sources.jar"],
+    )
+
+    http_file(
+        name = "org_realityforge_akasha__akasha_gwt__0_11",
+        downloaded_file_path = "org/realityforge/akasha/akasha-gwt/0.11/akasha-gwt-0.11.jar",
+        sha256 = "c6d4f37f67ca2723ffd7e7da569faf33edf8f79664f69cbe4e01e1c3545f6693",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-gwt/0.11/akasha-gwt-0.11.jar"],
+    )
+
+    http_file(
+        name = "org_realityforge_akasha__akasha_gwt__0_11__sources",
+        downloaded_file_path = "org/realityforge/akasha/akasha-gwt/0.11/akasha-gwt-0.11-sources.jar",
+        sha256 = "de06d852a502ff873a9f2f7cbf4a85400866b07810b4e0f6d3abddf1e9c7b624",
+        urls = ["https://repo.maven.apache.org/maven2/org/realityforge/akasha/akasha-gwt/0.11/akasha-gwt-0.11-sources.jar"],
     )
 
     http_file(
@@ -415,8 +435,28 @@ def generate_targets():
     )
 
     native.alias(
+        name = "akasha_gwt",
+        actual = ":org_realityforge_akasha__akasha_gwt__0_11",
+    )
+    java_import(
+        name = "org_realityforge_akasha__akasha_gwt__0_11",
+        jars = ["@org_realityforge_akasha__akasha_gwt__0_11//file"],
+        srcjar = "@org_realityforge_akasha__akasha_gwt__0_11__sources//file",
+        tags = ["maven_coordinates=org.realityforge.akasha:akasha-gwt:0.11"],
+        visibility = ["//visibility:private"],
+        deps = [
+            ":base",
+            ":javaemul_internal_annotations",
+            ":javax_annotation",
+            ":jsinterop_annotations",
+            ":org_jetbrains_annotations",
+        ],
+    )
+
+    native.alias(
         name = "akasha_java",
         actual = ":org_realityforge_akasha__akasha_java__0_06",
+        visibility = ["//visibility:private"],
     )
     java_import(
         name = "org_realityforge_akasha__akasha_java__0_06",

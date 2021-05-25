@@ -18,9 +18,9 @@ artifacts:
   - coord: org.realityforge.zemeckis:zemeckis-core:jar:0.11
   - coord: org.realityforge.braincheck:braincheck-jre:1.31.0
   - coord: org.realityforge.braincheck:braincheck-core:1.31.0
+  - coord: org.realityforge.akasha:akasha-gwt:0.11
 
   # The following dependencies are referenced in build so need to be here
   - coord: org.realityforge.javax.annotation:javax.annotation
   - coord: com.google.jsinterop:jsinterop-annotations
   - coord: com.google.jsinterop:base
-  - coord: org.realityforge.akasha:akasha-java
