@@ -256,7 +256,6 @@
           </execution>
         </executions>
         <configuration>
-          <!--<entrypoint>react4j.todomvc.App</entrypoint>-->
           <classpathScope>compile</classpathScope>
           <initialScriptFilename>react4j-todomvc/react4j-todomvc.js</initialScriptFilename>
           <compilationLevel>ADVANCED</compilationLevel>
