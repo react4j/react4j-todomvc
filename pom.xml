@@ -20,6 +20,7 @@
     <arez.version>0.199</arez.version>
     <arez-spytools.version>0.128</arez-spytools.version>
     <sting.version>0.20</sting.version>
+    <akasha.version>0.15</akasha.version>
   </properties>
 
   <repositories>
@@ -82,8 +83,8 @@
   <dependencies>
     <dependency>
       <groupId>org.realityforge.akasha</groupId>
-      <artifactId>akasha-java</artifactId>
-      <version>0.06</version>
+      <artifactId>akasha-j2cl</artifactId>
+      <version>${akasha.version}</version>
       <exclusions>
         <exclusion>
           <groupId>com.google.jsinterop</groupId>
