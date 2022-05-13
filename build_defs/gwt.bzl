@@ -216,7 +216,7 @@ def gwt_binary(
         deps = [],
         visibility = [],
         output_root = "",
-        gwt_dev_deps = [Label("//build_defs:gwt_dev", relative_to_caller_repository = False)],
+        gwt_dev_deps = ["//build_defs:gwt_dev"],
         compiler_flags = [],
         compiler_jvm_flags = []):
     # We build up a separate deploy jar to avoid attempting to pass classpath on the command line
@@ -266,7 +266,7 @@ def gwt_application(
         visibility = [],
         output_root = "",
         java_roots = ["java", "javatests", "src/main/java", "src/test/java"],
-        gwt_dev_deps = [Label("//build_defs:gwt_dev", relative_to_caller_repository = False)],
+        gwt_dev_deps = ["//build_defs:gwt_dev"],
         compiler_flags = [],
         compiler_jvm_flags = [],
         dev_flags = [],
