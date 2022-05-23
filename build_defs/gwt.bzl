@@ -128,7 +128,7 @@ _gwt_binary = rule(
         "_zip": attr.label(
             default = Label("@bazel_tools//tools/zip:zipper"),
             executable = True,
-            cfg = "host",
+            cfg = "exec",
             allow_single_file = True,
         ),
     },
