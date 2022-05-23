@@ -369,7 +369,7 @@ def generate_targets():
         size = "small",
         runtime_deps = [":bazel_depgen"],
         main_class = "org.realityforge.bazel.depgen.Main",
-        test_class = "org.realityforge.bazel.depgen.Main",
+        use_testrunner = False,
         args = [
             "--config-file",
             "$(rootpath //thirdparty:dependencies.yml)",
