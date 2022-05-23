@@ -1,6 +1,6 @@
-package(default_visibility = ["//visibility:private"])
-
 load("//build_defs:gwt.bzl", "GWT_OPTIMIZED_COMPILER_FLAGS", "gwt_application")
+
+package(default_visibility = ["//visibility:private"])
 
 _DEPS = [
     "//thirdparty:braincheck_core",

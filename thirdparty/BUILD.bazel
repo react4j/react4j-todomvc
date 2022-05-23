@@ -1,6 +1,6 @@
-package(default_visibility = ["//visibility:public"])
-
 load("//thirdparty:dependencies.bzl", "generate_targets")
+
+package(default_visibility = ["//visibility:public"])
 
 generate_targets()
 
