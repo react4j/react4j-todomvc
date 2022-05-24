@@ -1,4 +1,4 @@
-# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.16
+# DO NOT EDIT: File is auto-generated from dependencies.yml by https://github.com/realityforge/bazel-depgen version 0.17
 
 """
     Macro rules to load dependencies.
