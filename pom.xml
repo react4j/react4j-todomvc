@@ -23,19 +23,6 @@
     <sting.version>0.27</sting.version>
   </properties>
 
-  <repositories>
-    <repository>
-      <!-- Occasionally OSS libraries are released here when Maven Central is on the Fritz -->
-      <id>oss-repository</id>
-      <url>https://stocksoftware.jfrog.io/stocksoftware/oss</url>
-    </repository>
-    <repository>
-      <!-- Repository where releases are staged during release process -->
-      <id>staging-repository</id>
-      <url>https://stocksoftware.jfrog.io/stocksoftware/staging</url>
-    </repository>
-  </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.realityforge.react4j</groupId>
