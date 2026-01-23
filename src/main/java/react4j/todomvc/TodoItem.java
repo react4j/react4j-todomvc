@@ -70,7 +70,7 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
+  @Action
   void onSubmitTodo( @Nonnull final Todo todo )
   {
     final String val = getEditText();
@@ -86,14 +86,14 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
+  @Action
   void onEdit( @Nonnull final Todo todo )
   {
     AppData.viewService.setTodoBeingEdited( todo );
     resetEditText( todo );
   }
 
-  @Action( reportParameters = false )
+  @Action
   void onCancel( @Nonnull final Todo todo )
   {
     resetEditText( todo );
@@ -110,7 +110,7 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
+  @Action
   @PostUpdate
   void postUpdate()
   {
