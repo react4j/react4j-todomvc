@@ -47,7 +47,7 @@ public abstract class TodoRepository
   }
 
   @Override
-  @Action( reportParameters = false )
+  @Action
   public void destroy( @Nonnull final Todo entity )
   {
     super.destroy( entity );
