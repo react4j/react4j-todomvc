@@ -3,6 +3,7 @@ package react4j.todomvc;
 import akasha.HTMLInputElement;
 import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
+import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
@@ -45,14 +46,17 @@ abstract class TodoItem
   final CallbackAdapter<FocusEvent, FocusEventHandler> _handleBlur = CallbackAdapter.focus();
   @CascadeDispose
   final CallbackAdapter<KeyboardEvent, KeyboardEventHandler> _handleKeyDown = CallbackAdapter.keyboard();
+  @Nonnull
+  private final Todo _todo;
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
   private String _editText;
 
-  @Input( immutable = true )
-  @Nonnull
-  abstract Todo getTodo();
+  TodoItem( @Input( immutable = true ) @Nonnull final Todo todo )
+  {
+    _todo = Objects.requireNonNull( todo );
+  }
 
   @ScheduleRender
   abstract void scheduleRender();
@@ -65,23 +69,23 @@ abstract class TodoItem
 
   private void resetEditTextAndReRender()
   {
-    setEditText( getTodo().getTitle() );
+    setEditText( _todo.getTitle() );
   }
 
   @PostConstruct
   void postConstruct()
   {
-    _editText = getTodo().getTitle();
-    _handleChange.stream().filter( e -> getTodo().isEditing() ).forEach( event -> {
+    _editText = _todo.getTitle();
+    _handleChange.stream().filter( e -> _todo.isEditing() ).forEach( event -> {
       final HTMLInputElement input = Js.cast( event.getTarget() );
       setEditText( input.value );
     } );
-    _handleToggle.stream().forEach( event -> AppData.service.toggle( getTodo() ) );
+    _handleToggle.stream().forEach( event -> AppData.service.toggle( _todo ) );
     _handleEdit.stream().forEach( e -> {
-      AppData.service.setTodoBeingEdited( getTodo() );
+      AppData.service.setTodoBeingEdited( _todo );
       resetEditTextAndReRender();
     } );
-    _handleDestroy.stream().forEach( e -> AppData.service.destroy( getTodo() ) );
+    _handleDestroy.stream().forEach( e -> AppData.service.destroy( _todo ) );
     _handleBlur.stream().forEach( e -> onSubmitTodo() );
     _handleKeyDown.stream().filter( e -> KeyCodes.ESCAPE_KEY == e.getWhich() ).forEach( e -> {
       AppData.service.setTodoBeingEdited( null );
@@ -96,20 +100,20 @@ abstract class TodoItem
   {
     if ( null != _editText && !_editText.isEmpty() )
     {
-      AppData.service.save( getTodo(), _editText );
+      AppData.service.save( _todo, _editText );
       AppData.service.setTodoBeingEdited( null );
       setEditText( _editText );
     }
     else
     {
-      AppData.service.destroy( getTodo() );
+      AppData.service.destroy( _todo );
     }
   }
 
   @PostUpdate
   void postUpdate()
   {
-    final boolean todoBeingEdited = getTodo().isEditing();
+    final boolean todoBeingEdited = _todo.isEditing();
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
@@ -128,9 +132,8 @@ abstract class TodoItem
   @Nonnull
   ReactNode render()
   {
-    final Todo todo = getTodo();
-    final boolean completed = todo.isCompleted();
-    return li( new HtmlProps().className( completed ? "checked" : null, getTodo().isEditing() ? "editing" : null ),
+    final boolean completed = _todo.isCompleted();
+    return li( new HtmlProps().className( completed ? "checked" : null, _todo.isEditing() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
@@ -138,7 +141,7 @@ abstract class TodoItem
                              .checked( completed )
                              .onChange( _handleToggle.callback() )
                     ),
-                    label( new LabelProps().onDoubleClick( _handleEdit.callback() ), todo.getTitle() ),
+                    label( new LabelProps().onDoubleClick( _handleEdit.callback() ), _todo.getTitle() ),
                     button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.callback() ) )
                ),
                input( new InputProps()
