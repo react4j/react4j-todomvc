@@ -33,7 +33,7 @@ abstract class TodoItem
   private boolean _isEditing;
   private String _editText;
 
-  TodoItem( @Input( immutable = true ) @Nonnull final Todo todo )
+  TodoItem( @Input @Nonnull final Todo todo )
   {
     _todo = Objects.requireNonNull( todo );
   }
