@@ -2,7 +2,7 @@
 dist: trusty
 language: ruby
 jdk:
-- oraclejdk8
+- openjdk17
 script: ./mvnw clean package
 git:
   depth: false

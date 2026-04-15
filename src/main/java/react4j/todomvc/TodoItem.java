@@ -2,6 +2,7 @@ package react4j.todomvc;
 
 import akasha.HTMLInputElement;
 import arez.annotations.Action;
+import arez.annotations.ComponentDependency;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.PostConstruct;
@@ -36,22 +37,23 @@ abstract class TodoItem
   private final TodoService _todoService;
   @Nonnull
   private final ViewService _viewService;
+  @ComponentDependency
+  @Nonnull
+  final Todo _todo;
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
 
   TodoItem( @Nonnull final TodoRepository todoRepository,
             @Nonnull final TodoService todoService,
-            @Nonnull final ViewService viewService )
+            @Nonnull final ViewService viewService,
+            @Input( immutable = true ) @Nonnull final Todo todo )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
     _todoService = Objects.requireNonNull( todoService );
     _viewService = Objects.requireNonNull( viewService );
+    _todo = Objects.requireNonNull( todo );
   }
-
-  @Input( immutable = true )
-  @Nonnull
-  abstract Todo getTodo();
 
   @Observable
   abstract String getEditText();
@@ -61,13 +63,13 @@ abstract class TodoItem
   @Memoize
   boolean isTodoBeingEdited()
   {
-    return _viewService.getTodoBeingEdited() == getTodo();
+    return _viewService.getTodoBeingEdited() == _todo;
   }
 
   @PostConstruct
   void postConstruct()
   {
-    resetEditText( getTodo() );
+    resetEditText( _todo );
   }
 
   @Action
@@ -88,7 +90,7 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
+  @Action
   void onSubmitTodo( @Nonnull final Todo todo )
   {
     final String val = getEditText();
@@ -104,14 +106,14 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
+  @Action
   void onEdit( @Nonnull final Todo todo )
   {
     _viewService.setTodoBeingEdited( todo );
     resetEditText( todo );
   }
 
-  @Action( reportParameters = false )
+  @Action
   void onCancel( @Nonnull final Todo todo )
   {
     resetEditText( todo );
@@ -128,7 +130,7 @@ abstract class TodoItem
     }
   }
 
-  @Action( reportParameters = false )
+  @Action
   @PostUpdate
   void postUpdate()
   {
@@ -136,7 +138,7 @@ abstract class TodoItem
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
-      resetEditText( getTodo() );
+      resetEditText( _todo );
       assert null != _editField;
       _editField.focus();
       _editField.select();
@@ -151,27 +153,26 @@ abstract class TodoItem
   @Nonnull
   ReactNode render()
   {
-    final Todo todo = getTodo();
-    final boolean completed = todo.isCompleted();
+    final boolean completed = _todo.isCompleted();
     return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
                              .type( InputType.checkbox )
                              .checked( completed )
-                             .onChange( e -> todo.toggle() )
+                             .onChange( e -> _todo.toggle() )
                     ),
-                    label( new LabelProps().onDoubleClick( e -> onEdit( todo ) ), todo.getTitle() ),
-                    button( new BtnProps().className( "destroy" ).onClick( e -> _todoRepository.destroy( todo ) )
+                    label( new LabelProps().onDoubleClick( e -> onEdit( _todo ) ), _todo.getTitle() ),
+                    button( new BtnProps().className( "destroy" ).onClick( e -> _todoRepository.destroy( _todo ) )
                     )
                ),
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
                         .value( getEditText() )
-                        .onBlur( e -> onSubmitTodo( todo ) )
+                        .onBlur( e -> onSubmitTodo( _todo ) )
                         .onChange( this::handleChange )
-                        .onKeyDown( e -> handleKeyDown( e, todo ) )
+                        .onKeyDown( e -> handleKeyDown( e, _todo ) )
                )
     );
   }
