@@ -2,6 +2,7 @@ package react4j.todomvc;
 
 import akasha.HTMLInputElement;
 import arez.annotations.PostConstruct;
+import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
@@ -34,7 +35,7 @@ abstract class TodoItem
 
   TodoItem( @Input( immutable = true ) @Nonnull final Todo todo )
   {
-    _todo = todo;
+    _todo = Objects.requireNonNull( todo );
   }
 
   @ScheduleRender
