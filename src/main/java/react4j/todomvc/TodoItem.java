@@ -47,7 +47,7 @@ abstract class TodoItem
   TodoItem( @Nonnull final TodoRepository todoRepository,
             @Nonnull final TodoService todoService,
             @Nonnull final ViewService viewService,
-            @Input( immutable = true ) @Nonnull final Todo todo )
+            @Input @Nonnull final Todo todo )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
     _todoService = Objects.requireNonNull( todoService );
