@@ -25,14 +25,17 @@ import static react4j.dom.DOM.*;
 @View
 abstract class TodoItem
 {
+  @Nonnull
+  private final Todo _todo;
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
   private String _editText;
 
-  @Input( immutable = true )
-  @Nonnull
-  abstract Todo getTodo();
+  TodoItem( @Input( immutable = true ) @Nonnull final Todo todo )
+  {
+    _todo = todo;
+  }
 
   @ScheduleRender
   abstract void scheduleRender();
@@ -45,19 +48,19 @@ abstract class TodoItem
 
   private void resetEditTextAndReRender()
   {
-    setEditText( getTodo().getTitle() );
+    setEditText( _todo.getTitle() );
   }
 
   private boolean isTodoBeingEdited()
   {
-    return AppData.viewService.getTodoBeingEdited() == getTodo();
+    return AppData.viewService.getTodoBeingEdited() == _todo;
   }
 
   @PostConstruct
   void postConstruct()
   {
-    _editText = getTodo().getTitle();
-    getTodo().subscribe( this::scheduleRender );
+    _editText = _todo.getTitle();
+    _todo.subscribe( this::scheduleRender );
   }
 
   private void handleKeyDown( @Nonnull final KeyboardEvent event )
@@ -76,30 +79,30 @@ abstract class TodoItem
   {
     if ( null != _editText && !_editText.isEmpty() )
     {
-      AppData.service.save( getTodo(), _editText );
+      AppData.service.save( _todo, _editText );
       AppData.viewService.setTodoBeingEdited( null );
       setEditText( _editText );
     }
     else
     {
-      AppData.service.destroy( getTodo() );
+      AppData.service.destroy( _todo );
     }
   }
 
   private void onToggle()
   {
-    AppData.service.toggle( getTodo() );
+    AppData.service.toggle( _todo );
   }
 
   private void onEdit()
   {
-    AppData.viewService.setTodoBeingEdited( getTodo() );
+    AppData.viewService.setTodoBeingEdited( _todo );
     resetEditTextAndReRender();
   }
 
   private void onDestroy()
   {
-    AppData.service.destroy( getTodo() );
+    AppData.service.destroy( _todo );
   }
 
   private void onCancel()
@@ -139,8 +142,7 @@ abstract class TodoItem
   @Nonnull
   ReactNode render()
   {
-    final Todo todo = getTodo();
-    final boolean completed = todo.isCompleted();
+    final boolean completed = _todo.isCompleted();
     return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
@@ -149,7 +151,7 @@ abstract class TodoItem
                              .checked( completed )
                              .onChange( e -> onToggle() )
                     ),
-                    label( new LabelProps().onDoubleClick( e -> onEdit() ), todo.getTitle() ),
+                    label( new LabelProps().onDoubleClick( e -> onEdit() ), _todo.getTitle() ),
                     button( new BtnProps().className( "destroy" ).onClick( e -> onDestroy() )
                     )
                ),
