@@ -2,9 +2,11 @@ package react4j.todomvc;
 
 import akasha.HTMLInputElement;
 import arez.annotations.Action;
+import arez.annotations.ComponentDependency;
 import arez.annotations.Memoize;
 import arez.annotations.Observable;
 import arez.annotations.PostConstruct;
+import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
@@ -27,13 +29,17 @@ import static react4j.dom.DOM.*;
 @View( type = View.Type.TRACKING )
 abstract class TodoItem
 {
+  @ComponentDependency
+  @Nonnull
+  final Todo _todo;
   @Nullable
   private HTMLInputElement _editField;
   private boolean _isEditing;
 
-  @Input( immutable = true )
-  @Nonnull
-  abstract Todo getTodo();
+  TodoItem( @Input( immutable = true ) @Nonnull final Todo todo )
+  {
+    _todo = Objects.requireNonNull( todo );
+  }
 
   @Observable
   abstract String getEditText();
@@ -43,13 +49,13 @@ abstract class TodoItem
   @Memoize
   boolean isTodoBeingEdited()
   {
-    return AppData.viewService.getTodoBeingEdited() == getTodo();
+    return AppData.viewService.getTodoBeingEdited() == _todo;
   }
 
   @PostConstruct
   void postConstruct()
   {
-    resetEditText( getTodo() );
+    resetEditText( _todo );
   }
 
   @Action
@@ -118,7 +124,7 @@ abstract class TodoItem
     if ( !_isEditing && todoBeingEdited )
     {
       _isEditing = true;
-      resetEditText( getTodo() );
+      resetEditText( _todo );
       assert null != _editField;
       _editField.focus();
       _editField.select();
@@ -133,27 +139,26 @@ abstract class TodoItem
   @Nonnull
   ReactNode render()
   {
-    final Todo todo = getTodo();
-    final boolean completed = todo.isCompleted();
+    final boolean completed = _todo.isCompleted();
     return li( new HtmlProps().className( completed ? "checked" : null, isTodoBeingEdited() ? "editing" : null ),
                div( new HtmlProps().className( "view" ),
                     input( new InputProps()
                              .className( "toggle" )
                              .type( InputType.checkbox )
                              .checked( completed )
-                             .onChange( e -> todo.toggle() )
+                             .onChange( e -> _todo.toggle() )
                     ),
-                    label( new LabelProps().onDoubleClick( e -> onEdit( todo ) ), todo.getTitle() ),
-                    button( new BtnProps().className( "destroy" ).onClick( e -> AppData.model.destroy( todo ) )
+                    label( new LabelProps().onDoubleClick( e -> onEdit( _todo ) ), _todo.getTitle() ),
+                    button( new BtnProps().className( "destroy" ).onClick( e -> AppData.model.destroy( _todo ) )
                     )
                ),
                input( new InputProps()
                         .ref( e -> _editField = (HTMLInputElement) e )
                         .className( "edit" )
                         .value( getEditText() )
-                        .onBlur( e -> onSubmitTodo( todo ) )
+                        .onBlur( e -> onSubmitTodo( _todo ) )
                         .onChange( this::handleChange )
-                        .onKeyDown( e -> handleKeyDown( e, todo ) )
+                        .onKeyDown( e -> handleKeyDown( e, _todo ) )
                )
     );
   }
