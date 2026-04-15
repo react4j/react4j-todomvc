@@ -1,6 +1,7 @@
 package react4j.todomvc;
 
 import arez.Disposable;
+import arez.annotations.ArezComponentLike;
 import arez.annotations.PreDispose;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import react4j.annotations.PostMount;
 import react4j.annotations.ScheduleRender;
 import spritz.Subscription;
 
+@ArezComponentLike
 abstract class SpritzComponent
 {
   @Nonnull
