@@ -36,7 +36,7 @@ abstract class TodoItem
   private HTMLInputElement _editField;
   private boolean _isEditing;
 
-  TodoItem( @Input( immutable = true ) @Nonnull final Todo todo )
+  TodoItem( @Input @Nonnull final Todo todo )
   {
     _todo = Objects.requireNonNull( todo );
   }
