@@ -28,8 +28,8 @@ artifacts:
   arez_processor: org.realityforge.arez:arez-processor:jar:0.234
   arez_spytools: org.realityforge.arez:arez-extras-spytools:jar:0.234
 
-  react4j_core: org.realityforge.react4j:react4j-core:jar:0.213
-  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.213
-  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.213
+  react4j_core: org.realityforge.react4j:react4j-core:jar:0.214
+  react4j_dom: org.realityforge.react4j:react4j-dom:jar:0.214
+  react4j_processor: org.realityforge.react4j:react4j-processor:jar:0.214
 
   spritz_core: org.realityforge.spritz:spritz-core:jar:0.17
