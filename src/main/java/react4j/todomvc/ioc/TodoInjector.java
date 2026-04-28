@@ -20,7 +20,8 @@ import sting.Injector;
                         TodoRepository.class,
                         BrowserLocation.class,
                         TodoService.class,
-                        ViewService.class } )
+                        ViewService.class },
+           fragmentOnly = false )
 public interface TodoInjector
 {
   @SuppressWarnings("UnusedReturnValue")
