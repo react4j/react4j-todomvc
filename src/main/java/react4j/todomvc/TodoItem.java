@@ -35,16 +35,22 @@ abstract class TodoItem
   extends SpritzComponent
 {
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<FormEvent, FormEventHandler> _handleChange = CallbackAdapter.form();
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<FormEvent, FormEventHandler> _handleToggle = CallbackAdapter.form();
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<MouseEvent, MouseEventHandler> _handleEdit = CallbackAdapter.mouse();
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<MouseEvent, MouseEventHandler> _handleDestroy = CallbackAdapter.mouse();
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<FocusEvent, FocusEventHandler> _handleBlur = CallbackAdapter.focus();
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<KeyboardEvent, KeyboardEventHandler> _handleKeyDown = CallbackAdapter.keyboard();
   @Nonnull
   private final Todo _todo;
