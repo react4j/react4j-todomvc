@@ -22,6 +22,7 @@ abstract class Footer
   private int _completedCount;
   private FilterMode _filterMode;
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<MouseEvent, MouseEventHandler> _handleClearCompleted = CallbackAdapter.mouse();
 
   @PostConstruct
