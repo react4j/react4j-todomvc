@@ -24,6 +24,7 @@ abstract class TodoList
   extends SpritzComponent
 {
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<FormEvent, FormEventHandler> _handleToggleAll = CallbackAdapter.form();
   private List<Todo> _todos;
 

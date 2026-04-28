@@ -22,8 +22,10 @@ abstract class TodoEntry
   extends SpritzComponent
 {
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<KeyboardEvent, KeyboardEventHandler> _handleNewTodoKeyDown = CallbackAdapter.keyboard();
   @CascadeDispose
+  @Nonnull
   final CallbackAdapter<FormEvent, FormEventHandler> _handleChange = CallbackAdapter.form();
   @Nonnull
   private String _todoText = "";
