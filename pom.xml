@@ -20,7 +20,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.220</react4j.version>
     <arez.version>0.241</arez.version>
-    <sting.version>0.33</sting.version>
+    <sting.version>0.34</sting.version>
   </properties>
 
   <dependencies>
