@@ -2,11 +2,7 @@ package react4j.todomvc;
 
 import sting.Fragment;
 
-@Fragment( includes = { FooterFactory.class,
-                        FooterTodoCountFactory.class,
-                        TodoItemFactory.class,
-                        TodoListFactory.class,
-                        TodoEntryFactory.class } )
+@Fragment( includes = { Footer.class, FooterTodoCount.class, TodoItem.class, TodoList.class, TodoEntry.class } )
 public interface ViewsFragment
 {
 }
