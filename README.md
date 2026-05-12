@@ -1,6 +1,5 @@
 # React4j TodoMVC variant using Bazel and J2CL
 
-[![Build Status](https://api.travis-ci.com/react4j/react4j-todomvc.png?branch=raw_bazel_j2cl)](http://travis-ci.com/react4j/react4j-todomvc)
 
 This [TodoMVC](http://todomvc.com/) implementation is written using:
 
