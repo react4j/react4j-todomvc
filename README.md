@@ -1,6 +1,5 @@
 # React4j Arez+Dagger TodoMVC variant
 
-[![Build Status](https://api.travis-ci.com/react4j/react4j-todomvc.png?branch=dagger)](http://travis-ci.com/react4j/react4j-todomvc)
 
 This [TodoMVC](http://todomvc.com/) implementation is written using:
 
