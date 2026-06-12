@@ -9,7 +9,7 @@ import react4j.dom.proptypes.html.HtmlProps;
 import react4j.todomvc.model.TodoRepository;
 import static react4j.dom.DOM.*;
 
-@View( type = View.Type.TRACKING )
+@View
 abstract class FooterTodoCount
 {
   @Nonnull

@@ -28,7 +28,7 @@ import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
 import static react4j.dom.DOM.*;
 
-@View( type = View.Type.TRACKING )
+@View
 abstract class TodoItem
 {
   @Nonnull
