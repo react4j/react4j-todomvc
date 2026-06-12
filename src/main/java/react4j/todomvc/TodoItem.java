@@ -23,7 +23,7 @@ import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.Todo;
 import static react4j.dom.DOM.*;
 
-@View
+@View( type = View.Type.STATEFUL )
 abstract class TodoItem
 {
   @Nonnull
