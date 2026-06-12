@@ -15,7 +15,7 @@ import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.FilterMode;
 import static react4j.dom.DOM.*;
 
-@View
+@View( type = View.Type.STATEFUL )
 abstract class Footer
   extends SpritzComponent
 {

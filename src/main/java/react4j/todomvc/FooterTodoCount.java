@@ -9,7 +9,7 @@ import react4j.dom.proptypes.html.HtmlProps;
 import react4j.todomvc.model.AppData;
 import static react4j.dom.DOM.*;
 
-@View
+@View( type = View.Type.STATEFUL )
 abstract class FooterTodoCount
   extends SpritzComponent
 {
