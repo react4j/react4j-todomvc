@@ -1,6 +1,17 @@
 require 'buildr/git_auto_version'
 require 'buildr/gwt'
 
+FORMATTER_JDK_EXPORTS =
+  %w(
+    --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+  )
+FORMATTER_JAVAC_OPTIONS = FORMATTER_JDK_EXPORTS.map { |arg| "-J#{arg}" }
+
 desc 'React4j TodoMVC implementation'
 define 'react4j-todomvc' do
   project.group = 'org.realityforge.react4j.todomvc'
@@ -28,6 +39,7 @@ define 'react4j-todomvc' do
                :gwt_user
 
   compile.options[:processor_path] << [:arez_processor, :react4j_processor]
+  compile.options.other += FORMATTER_JAVAC_OPTIONS
 
   # Exclude the Dev module if EXCLUDE_GWT_DEV_MODULE is true
   GWT_MODULES = %w(react4j.todomvc.TodomvcProd) + (ENV['EXCLUDE_GWT_DEV_MODULE'] == 'true' ? [] : %w(react4j.todomvc.TodomvcDev))
