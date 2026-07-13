@@ -19,7 +19,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <react4j.version>0.227</react4j.version>
-    <arez.version>0.250</arez.version>
+    <arez.version>0.251</arez.version>
     <sting.version>0.40</sting.version>
   </properties>
 
