@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import akasha.HTMLInputElement;
 import arez.annotations.PostConstruct;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -116,7 +115,7 @@ abstract class TodoItem
   {
     if ( isTodoBeingEdited() )
     {
-      final HTMLInputElement input = Js.cast( event.getTarget() );
+      final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
       setEditText( input.value );
     }
   }
@@ -157,7 +156,7 @@ abstract class TodoItem
                     )
                ),
                input( new InputProps()
-                        .ref( e -> _editField = (HTMLInputElement) e )
+                        .ref( e -> _editField = Js.uncheckedCast( e ) )
                         .className( "edit" )
                         .value( _editText )
                         .onBlur( e -> onSubmitTodo() )

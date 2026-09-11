@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import akasha.HTMLInputElement;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Js;
@@ -24,7 +23,7 @@ abstract class TodoList
 
   private void handleToggleAll( @Nonnull final FormEvent event )
   {
-    final HTMLInputElement input = Js.cast( event.getTarget() );
+    final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
     AppData.service.toggleAll( input.checked );
   }
 

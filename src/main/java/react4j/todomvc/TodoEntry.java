@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import akasha.HTMLInputElement;
 import javax.annotation.Nonnull;
 import jsinterop.base.Js;
 import react4j.ReactNode;
@@ -44,7 +43,7 @@ abstract class TodoEntry
 
   private void handleChange( @Nonnull final FormEvent event )
   {
-    final HTMLInputElement input = Js.cast( event.getTarget() );
+    final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
     setTodoText( input.value );
   }
 
