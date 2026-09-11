@@ -2,7 +2,6 @@ package react4j.todomvc;
 
 import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
-import akasha.HTMLInputElement;
 import javax.annotation.Nonnull;
 import jsinterop.base.Js;
 import react4j.ReactNode;
@@ -46,7 +45,7 @@ abstract class TodoEntry
       }
     } );
     _handleChange.stream().forEach( event -> {
-      final HTMLInputElement input = Js.cast( event.getTarget() );
+      final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
       setTodoText( input.value );
     } );
   }

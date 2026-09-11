@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import akasha.HTMLInputElement;
 import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import java.util.List;
@@ -36,7 +35,7 @@ abstract class TodoList
       maybeScheduleRender();
     } ) );
     _handleToggleAll.stream().forEach( event -> {
-      final HTMLInputElement input = Js.cast( event.getTarget() );
+      final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
       AppData.service.toggleAll( input.checked );
     } );
   }

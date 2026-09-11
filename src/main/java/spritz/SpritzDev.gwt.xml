@@ -1,0 +1,3 @@
+<module>
+  <inherits name='spritz.Spritz'/>
+</module>

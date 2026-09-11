@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import akasha.HTMLInputElement;
 import arez.annotations.CascadeDispose;
 import arez.annotations.PostConstruct;
 import java.util.Objects;
@@ -83,7 +82,7 @@ abstract class TodoItem
   {
     _editText = _todo.getTitle();
     _handleChange.stream().filter( e -> _todo.isEditing() ).forEach( event -> {
-      final HTMLInputElement input = Js.cast( event.getTarget() );
+      final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
       setEditText( input.value );
     } );
     _handleToggle.stream().forEach( event -> AppData.service.toggle( _todo ) );
@@ -151,7 +150,7 @@ abstract class TodoItem
                     button( new BtnProps().className( "destroy" ).onClick( _handleDestroy.callback() ) )
                ),
                input( new InputProps()
-                        .ref( e -> _editField = (HTMLInputElement) e )
+                        .ref( e -> _editField = Js.uncheckedCast( e ) )
                         .className( "edit" )
                         .value( _editText )
                         .onBlur( e -> onSubmitTodo() )

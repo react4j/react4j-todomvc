@@ -1,22 +1,64 @@
 package react4j.todomvc.model;
 
-import akasha.Event;
-import akasha.Location;
-import akasha.WindowGlobal;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 import spritz.Stream;
 import spritz.Subject;
 
 public final class ViewService
 {
+  @JsFunction
+  private interface EventListener
+  {
+    void handleEvent( Event event );
+  }
+
+  @JsType( isNative = true, name = "Event", namespace = JsPackage.GLOBAL )
+  private static class Event
+  {
+    @JsMethod
+    native void preventDefault();
+  }
+
+  @JsType( isNative = true, name = "Location", namespace = JsPackage.GLOBAL )
+  private static class Location
+  {
+    @JsProperty( name = "hash" )
+    native String hash();
+
+    @JsProperty( name = "pathname" )
+    native String pathname();
+
+    @JsProperty( name = "search" )
+    native String search();
+  }
+
+  @JsType( isNative = true, name = "History", namespace = JsPackage.GLOBAL )
+  private static class History
+  {
+    @JsMethod
+    native void pushState( Object data, String unused, String url );
+  }
+
+  @JsType( isNative = true, name = "Document", namespace = JsPackage.GLOBAL )
+  private static class Document
+  {
+    @JsProperty( name = "title" )
+    native String title();
+  }
+
   private final Stream<List<Todo>> filteredTodo$;
   private final Subject<FilterMode> filterMode$;
 
   ViewService( @Nonnull final TodoRepository todoRepository )
   {
-    WindowGlobal.addHashchangeListener(  this::onHashChangeEvent, false );
+    addEventListener( "hashchange", this::onHashChangeEvent, false );
 
     filterMode$ = Stream.subject( "filterMode" );
     computeFilterMode();
@@ -47,8 +89,8 @@ public final class ViewService
 
   private void computeFilterMode()
   {
-    final Location location = WindowGlobal.location();
-    final String place = location.hash.substring( 1 );
+    final Location location = location();
+    final String place = location.hash().substring( 1 );
     if ( "active".equals( place ) )
     {
       filterMode$.next( FilterMode.ACTIVE );
@@ -63,8 +105,20 @@ public final class ViewService
        * This code is needed to remove the stray #.
        * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
        */
-      WindowGlobal.history().pushState( "", WindowGlobal.document().title, location.pathname + location.search );
+      history().pushState( "", document().title(), location.pathname() + location.search() );
       filterMode$.next( FilterMode.ALL );
     }
   }
+
+  @JsMethod( name = "addEventListener", namespace = JsPackage.GLOBAL )
+  private static native void addEventListener( String type, EventListener listener, boolean capture );
+
+  @JsProperty( name = "location", namespace = JsPackage.GLOBAL )
+  private static native Location location();
+
+  @JsProperty( name = "history", namespace = JsPackage.GLOBAL )
+  private static native History history();
+
+  @JsProperty( name = "document", namespace = JsPackage.GLOBAL )
+  private static native Document document();
 }
