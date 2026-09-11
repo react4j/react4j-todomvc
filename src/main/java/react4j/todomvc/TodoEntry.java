@@ -1,6 +1,5 @@
 package react4j.todomvc;
 
-import akasha.HTMLInputElement;
 import arez.annotations.Action;
 import arez.annotations.Observable;
 import java.util.Objects;
@@ -61,7 +60,7 @@ abstract class TodoEntry
   @Action( reportParameters = false )
   void handleChange( @Nonnull final FormEvent event )
   {
-    final HTMLInputElement input = Js.cast( event.getTarget() );
+    final HTMLInputElement input = Js.uncheckedCast( event.getTarget() );
     setTodoText( input.value );
   }
 

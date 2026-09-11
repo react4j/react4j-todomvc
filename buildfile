@@ -27,7 +27,7 @@ define 'react4j-todomvc' do
                :jetbrains_annotations,
                :jsinterop_base,
                :jsinterop_annotations,
-               :akasha,
+               :jspecify,
                :braincheck,
                :grim_annotations,
                :zemeckis,
