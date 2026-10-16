@@ -11,6 +11,7 @@ import react4j.dom.events.FormEvent;
 import react4j.dom.proptypes.html.HtmlProps;
 import react4j.dom.proptypes.html.InputProps;
 import react4j.dom.proptypes.html.attributeTypes.InputType;
+import react4j.todomvc.browser.HTMLInputElement;
 import react4j.todomvc.model.TodoRepository;
 import react4j.todomvc.model.TodoService;
 import react4j.todomvc.model.ViewService;
