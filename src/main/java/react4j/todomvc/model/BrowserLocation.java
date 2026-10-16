@@ -12,11 +12,10 @@ import arez.annotations.OnActivate;
 import arez.annotations.OnDeactivate;
 import java.util.Objects;
 import javax.annotation.Nonnull;
-import jsinterop.annotations.JsFunction;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
+import react4j.todomvc.browser.Event;
+import react4j.todomvc.browser.EventListener;
+import react4j.todomvc.browser.Location;
+import react4j.todomvc.browser.WindowGlobal;
 
 /**
  * This is a simple abstraction over browser location as a hash.
@@ -27,51 +26,8 @@ import jsinterop.annotations.JsType;
 @ArezComponent( requireId = Feature.DISABLE, disposeNotifier = Feature.DISABLE )
 abstract class BrowserLocation
 {
-  @JsFunction
-  private interface HashChangeEventListener
-  {
-    void handleEvent( Event event );
-  }
-
-  @JsType( isNative = true, name = "Event", namespace = JsPackage.GLOBAL )
-  private static class Event
-  {
-    @JsMethod
-    native void preventDefault();
-  }
-
-  @JsType( isNative = true, name = "Location", namespace = JsPackage.GLOBAL )
-  private static class Location
-  {
-    @JsProperty( name = "hash" )
-    native String hash();
-
-    @JsProperty
-    native void setHash( String hash );
-
-    @JsProperty( name = "pathname" )
-    native String pathname();
-
-    @JsProperty( name = "search" )
-    native String search();
-  }
-
-  @JsType( isNative = true, name = "History", namespace = JsPackage.GLOBAL )
-  private static class History
-  {
-    @JsMethod
-    native void pushState( Object data, String unused, String url );
-  }
-
-  @JsType( isNative = true, name = "Document", namespace = JsPackage.GLOBAL )
-  private static class Document
-  {
-    @JsProperty( name = "title" )
-    native String title();
-  }
-
   @Nonnull
-  private final HashChangeEventListener _listener = this::onHashChangeEvent;
+  private final EventListener _listener = this::onHashChangeEvent;
   /**
    * The location according to the application.
    */
@@ -148,13 +104,13 @@ abstract class BrowserLocation
   @OnActivate
   void onBrowserLocationActivate()
   {
-    addEventListener( "hashchange", _listener, false );
+    WindowGlobal.addEventListener( "hashchange", _listener, false );
   }
 
   @OnDeactivate
   void onBrowserLocationDeactivate()
   {
-    removeEventListener( "hashchange", _listener, false );
+    WindowGlobal.removeEventListener( "hashchange", _listener, false );
   }
 
   @ComputableValueRef
@@ -180,38 +136,24 @@ abstract class BrowserLocation
   @Nonnull
   private String getHash()
   {
-    return location().hash().substring( 1 );
+    final String hash = WindowGlobal.location().hash();
+    return hash.isEmpty() ? "" : hash.substring( 1 );
   }
 
   private void setHash( @Nonnull final String hash )
   {
-    final Location location = location();
+    final Location location = WindowGlobal.location();
     if ( 0 == hash.length() )
     {
       /*
        * This code is needed to remove the stray #.
        * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
        */
-      history().pushState( "", document().title(), location.pathname() + location.search() );
+      WindowGlobal.history().pushState( "", WindowGlobal.document().title(), location.pathname() + location.search() );
     }
     else
     {
       location.setHash( hash );
     }
   }
-
-  @JsMethod( name = "addEventListener", namespace = JsPackage.GLOBAL )
-  private static native void addEventListener( String type, HashChangeEventListener listener, boolean capture );
-
-  @JsMethod( name = "removeEventListener", namespace = JsPackage.GLOBAL )
-  private static native void removeEventListener( String type, HashChangeEventListener listener, boolean capture );
-
-  @JsProperty( name = "location", namespace = JsPackage.GLOBAL )
-  private static native Location location();
-
-  @JsProperty( name = "history", namespace = JsPackage.GLOBAL )
-  private static native History history();
-
-  @JsProperty( name = "document", namespace = JsPackage.GLOBAL )
-  private static native Document document();
 }

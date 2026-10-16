@@ -3,6 +3,8 @@ package react4j.todomvc;
 import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import react4j.dom.ReactDOM;
+import react4j.todomvc.browser.Element;
+import react4j.todomvc.browser.WindowGlobal;
 import react4j.todomvc.model.AppData;
 import react4j.todomvc.model.ViewService;
 
@@ -17,7 +19,7 @@ public final class App
     // are not wrapped in another transaction
     @SuppressWarnings( "unused" )
     final ViewService viewService = AppData.viewService;
-    final Object element = WindowGlobal.document().getElementById( "app" );
+    final Element element = WindowGlobal.document().getElementById( "app" );
     assert null != element;
     ReactDOM.render( TodoListBuilder.build(), element );
   }
