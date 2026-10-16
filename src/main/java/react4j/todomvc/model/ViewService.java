@@ -7,54 +7,12 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import jsinterop.annotations.JsFunction;
-import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
-import jsinterop.annotations.JsType;
+import react4j.todomvc.browser.Event;
+import react4j.todomvc.browser.Location;
+import react4j.todomvc.browser.WindowGlobal;
 
 public final class ViewService
 {
-  @JsFunction
-  private interface EventListener
-  {
-    void handleEvent( Event event );
-  }
-
-  @JsType( isNative = true, name = "Event", namespace = JsPackage.GLOBAL )
-  private static class Event
-  {
-    @JsMethod
-    native void preventDefault();
-  }
-
-  @JsType( isNative = true, name = "Location", namespace = JsPackage.GLOBAL )
-  private static class Location
-  {
-    @JsProperty( name = "hash" )
-    native String hash();
-
-    @JsProperty( name = "pathname" )
-    native String pathname();
-
-    @JsProperty( name = "search" )
-    native String search();
-  }
-
-  @JsType( isNative = true, name = "History", namespace = JsPackage.GLOBAL )
-  private static class History
-  {
-    @JsMethod
-    native void pushState( Object data, String unused, String url );
-  }
-
-  @JsType( isNative = true, name = "Document", namespace = JsPackage.GLOBAL )
-  private static class Document
-  {
-    @JsProperty( name = "title" )
-    native String title();
-  }
-
   @Nonnull
   private final List<SafeProcedure> _subscribers = new ArrayList<>();
   @Nonnull
@@ -65,7 +23,7 @@ public final class ViewService
   ViewService( @Nonnull final TodoRepository todoRepository )
   {
     _todoRepository = Objects.requireNonNull( todoRepository );
-    addEventListener( "hashchange", this::onHashChangeEvent, false );
+    WindowGlobal.addEventListener( "hashchange", this::onHashChangeEvent, false );
     todoRepository.subscribe( this::updateTodoBeingEdited );
   }
 
@@ -139,15 +97,16 @@ public final class ViewService
        * This code is needed to remove the stray #.
        * See https://stackoverflow.com/questions/1397329/how-to-remove-the-hash-from-window-location-url-with-javascript-without-page-r/5298684#5298684
        */
-      final Location location = location();
-      history().pushState( "", document().title(), location.pathname() + location.search() );
+      final Location location = WindowGlobal.location();
+      WindowGlobal.history().pushState( "", WindowGlobal.document().title(), location.pathname() + location.search() );
     }
   }
 
   @Nonnull
   private String getHash()
   {
-    return location().hash().substring( 1 );
+    final String hash = WindowGlobal.location().hash();
+    return hash.isEmpty() ? "" : hash.substring( 1 );
   }
 
   public void subscribe( @Nonnull final SafeProcedure subscriber )
@@ -159,16 +118,4 @@ public final class ViewService
   {
     _subscribers.forEach( SafeProcedure::call );
   }
-
-  @JsMethod( name = "addEventListener", namespace = JsPackage.GLOBAL )
-  private static native void addEventListener( String type, EventListener listener, boolean capture );
-
-  @JsProperty( name = "location", namespace = JsPackage.GLOBAL )
-  private static native Location location();
-
-  @JsProperty( name = "history", namespace = JsPackage.GLOBAL )
-  private static native History history();
-
-  @JsProperty( name = "document", namespace = JsPackage.GLOBAL )
-  private static native Document document();
 }

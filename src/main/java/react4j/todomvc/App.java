@@ -3,6 +3,8 @@ package react4j.todomvc;
 import arez.spytools.browser.react4j.ReactArezSpyUtil;
 import com.google.gwt.core.client.EntryPoint;
 import react4j.dom.ReactDOM;
+import react4j.todomvc.browser.Element;
+import react4j.todomvc.browser.WindowGlobal;
 
 public final class App
   implements EntryPoint
@@ -11,7 +13,7 @@ public final class App
   public void onModuleLoad()
   {
     ReactArezSpyUtil.enableSpyEventLogging();
-    final Object element = WindowGlobal.document().getElementById( "app" );
+    final Element element = WindowGlobal.document().getElementById( "app" );
     assert null != element;
     ReactDOM.render( TodoListBuilder.build(), element );
   }
